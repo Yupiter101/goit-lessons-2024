@@ -8,28 +8,80 @@
 <body>
     <header>
         <a href="index.html">Back to main page</a>
-        <h1>HTML Page</h1>
+        <nav></nav>
     </header>
     <main>
-        <ul>
-            <li>
-                <h3>Teg "a"</h3>
-                <p>a href="path"</p>
-                <!-- требе щоб відкривалася нова сторінка -->
-                <a href="https://www.google.com.ua">Wisit to Google</a>
-            </li>
-            <li>
-                <h3>Teg "img"</h3>
-                <p>img src="https://imgd.a..." alt="car" height = "" width = ""</p>
-                <!-- требе щоб відкривалася нова сторінка -->
-                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/139651/curvv-exterior-right-front-three-quarter.jpeg?isig=0&q=80" alt="car" height="100">
-                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/139651/curvv-exterior-right-front-three-quarter.jpeg?isig=0&q=80" alt="car" height="120" width="100">
-                <img src="./img/dc_dc.jpg" alt="dc-dc" height="100">
-            </li>
-        </ul>
+        <h1>HTML Page (h1)</h1>
+        <section>
+            <h2>h2</h2>
+            <ul>
+                <li>
+                    <h3>Посилання Teg "a"</h3>
+                    <p>a href="path"</p>
+                    <!-- требе щоб відкривалася нова сторінка -->
+                    <a href="https://www.google.com.ua">Open Google</a> 
+                    <br>
+                    <a href="https://www.google.com.ua" target="_blank" rel="noreferrer noopener">Open Google new page</a> 
+                </li>
+                <li>
+                    <h3>Download Teg "a" </h3>
+                    <a href="./img/dc_dc.jpg" download>Download origin name dc_dc</a> 
+                    <br>
+                    <a href="./img/dc_dc.jpg" download="my-Dc">Download new name my-Dc</a> 
+                </li>
+                <li>
+                    <h3>Картинка Teg "img"</h3>
+                    <p>img src="https://imgd.a..." alt="car" height = "" width = ""</p>
+                    <!-- требе щоб відкривалася нова сторінка -->
+                    <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/139651/curvv-exterior-right-front-three-quarter.jpeg?isig=0&q=80" alt="car" height="100"/>
+                    <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/139651/curvv-exterior-right-front-three-quarter.jpeg?isig=0&q=80" alt="car" height="120" width="100"/>
+                    <img src="./img/dc_dc.jpg" alt="dc-dc" height="100"/>
+                </li>
+                <li>
+                    <h3>Картинка - посилання</h3>                
+                    <a href="https://www.mini-tech.com.ua/istochniki-pitaniya/dc-dc-konvertery/step-down-konvertery/" 
+                        target="_blank" rel="noreferrer noopener"><img src="./img/dc_dc.jpg" alt="dc-dc-link" height="60"/></a>
+                    <p>В тег "а" загорнути тег"img"</p>
+                </li>
+                <li>
+                    <h3>Картинка з підписом</h3>
+                    <figure>
+                        <!-- Довільний графічний контент: фотографія, графік, діаграма тощо -->
+                        <img src="./img/dc_dc.jpg" alt="dc-dc" height="100"/>
+                        <figcaption>Підпис dc-dc step down</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <h3>Якір</h3>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                    </ul>
+    
+                </li>
+                <li>
+                    <h3>Button</h3>
+                    <button type="button">Відкрити модальне вікно</button>
+                </li>
+            </ul>
+        </section>
+        
+
+        <section>
+            <h2 id="about">About Якір</h2>
+            <p>Lorem ipsum dolor sitbero atistinctio corporis.</p>
+            </section>
+          
+          <section>
+            <h2 id="features">Features Якір</h2>
+            <p>Lorem ipsumod. Nulla ea nerspicor ducimus sit distinctio corporis.</p>
+          </section>
     </main>
     <footer>
-        
+        <p></p>
+        <address>
+
+        </address>
     </footer>
     
 </body>
