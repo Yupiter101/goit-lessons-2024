@@ -12,13 +12,15 @@
         <h1>CSS</h1>
     </header>
     <main>
-        
+        <section>
         <ul>
             <li>
                 <h4>Вбудовані стилі</h4>
                 <p style="color:blue; font-size:20px;">Цей текст буде синім.</p>
             </li>
+
             <li><h4>Вбудована таблиця стилів</h4></li>
+
             <li>
                 <h4>Зовнішня таблиця стилів</h4>
                 <p>head  link rel="stylesheet" href="./css/styles.css"  head</p>
@@ -26,6 +28,7 @@
                 <p>Можна підключити скільки завгодно CSS-файлів, додаючи для кожного тег link</p>
                 
             </li>
+
             <li>
                 <h4>Селектор елемента</h4>
                 <p>p {
@@ -37,9 +40,11 @@
                   <p class="alert warning">Увага, будуть змінені тарифи</p>
                   <p class="alert error">Помилка проведення транзакції</p>
             </li>
+
             <li>
                 <h4 id="title">Селектор ідентифікатора</h4>
             </li>
+
             <li>
                 <h4>Селектор нащадка</h4>
                 <p> селектор застосовує стилі до дітей і нащадків елемента за будь-якої глибини вкладеності.</p>
@@ -52,6 +57,7 @@
                     </li>
                   </ul>
             </li>
+
             <li>
                 <h4>Селектор дитини</h4>
                 <ul class="menu">
@@ -73,15 +79,17 @@
                     </li>
                   </ul>
             </li>
+
             <li>
                 <h4>Селектор атрибута</h4>
                 <a href="https://htmlreference.io" title="Довідник тегів"> htmlreference.io </a>
                 <br>
                 <a href="https://www.youtube.com">YouTube</a>
             </li>
+
             <li>
-                <h4>Псевдокласи стану</h4>
-                <p>Псевдоклас визначає конкретний стан елемента і прикріплений до селектора тегу, класу тощо. Пробілу між селектором і псевдокласом немає, щоб показати, що вони пов'язані один з одним. Якщо додати пробіл, то псевдоклас застосується до всіх елементів в документі. селектор:псевдоклас</p>
+                <h4 >Псевдокласи стану</h4>
+                <p class="pseudoclass">Псевдоклас визначає конкретний стан елемента і прикріплений до селектора тегу, класу тощо. Пробілу між селектором і псевдокласом немає, щоб показати, що вони пов'язані один з одним. Якщо додати пробіл, то псевдоклас застосується до всіх елементів в документі. селектор:псевдоклас</p>
                 <h5>Псевдоклас :hover</h5>
                 <p>
                     Наведи на посилання і вона змінить колір
@@ -106,13 +114,208 @@
                     <li><a class="link-4" href="https://www.facebook.com">Facebook</a></li> -->
                     <button class="link-4" type="button">button</button>
                 </ul>
-
+                <h5>Псевдоклас :visited</h5>
+                <ul class="social-links-5">
+                    <li><a class="link-5" href="https://www.google.com" >google</a></li>
+                    <li><a class="link-5" href="https://www.google.com">google</a></li>
+                </ul>
             </li>
-            <li>
 
+            <li>
+                <h4>Ховер і таблиці</h4>
+                Приклад ховера в таблиці
+                <table class="schedule">
+                  <thead>
+                    <tr>
+                    <th>Train number</th>
+                    <th>Route</th>
+                    <th>Travel time</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="schedule-body">
+                    <tr>
+                    <td>433</td>
+                    <td>London - Paris</td>
+                    <td>5 hours</td>
+                    </tr>
+                    <tr>
+                    <td>701</td>
+                    <td>New York - Chicago</td>
+                    <td>7 hours</td>
+                    </tr>
+                    <tr>
+                    <td>258</td>
+                    <td>Oslo - Warsaw</td>
+                    <td>4 hours</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </li>
+
+            <li>
+                <h4>Властивість cursor</h4>
+                <div class="cursors">
+                    <div class="auto">auto</div>
+                    <div class="default">default</div>
+                    <div class="none">none</div>
+                    <div class="context-menu">context-menu</div>
+                    <div class="help">help</div>
+                    <div class="pointer">pointer</div>
+                    <div class="progress">progress</div>
+                    <div class="wait">wait</div>
+                    <div class="cell">cell</div>
+                    <div class="crosshair">crosshair</div>
+                    <div class="text">text</div>
+                    <div class="vertical-text">vertical-text</div>
+                    <div class="alias">alias</div>
+                    <div class="copy">copy</div>
+                    <div class="move">move</div>
+                    <div class="no-drop">no-drop</div>
+                    <div class="not-allowed">not-allowed</div>
+                    <div class="all-scroll">all-scroll</div>
+                    <div class="col-resize">col-resize</div>
+                    <div class="row-resize">row-resize</div>
+                    <div class="n-resize">n-resize</div>
+                    <div class="s-resize">s-resize</div>
+                    <div class="e-resize">e-resize</div>
+                    <div class="w-resize">w-resize</div>
+                    <div class="ns-resize">ns-resize</div>
+                    <div class="ew-resize">ew-resize</div>
+                    <div class="ne-resize">ne-resize</div>
+                    <div class="nw-resize">nw-resize</div>
+                    <div class="se-resize">se-resize</div>
+                    <div class="sw-resize">sw-resize</div>
+                    <div class="nesw-resize">nesw-resize</div>
+                    <div class="nwse-resize">nwse-resize</div>
+                </div>
             </li>
 
         </ul>
+        </section>
+
+        <section>
+            <h2>COLOR</h2>
+            <div class="div-cont">
+                <p style="color:yellow">background-color yellow</p>
+                <p style="color:rgb(255, 0, 0)">color: rgb(255, 0, 0)</p>
+                <p style="color:rgb(0%, 100%, 0%)">color: rgb(100%, 0%, 0%)</p>
+                <p style="color:#0000ff">color: #0000ff</p>
+                <p style="color:rgba(0, 0, 0, 0.3)">Прозорість color: rgba(0, 0, 0, 0.3)</p>
+            </div>
+            <div>
+                <h3>Специфічність</h3>
+                <img src="../img/rang.JPG" alt="rang"/>
+                <article class="post">
+                    <h1 class="post-title">Lorem ipsum dolor sit amet</h1>
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    </p>
+                    <a href="" class="post-link">Читати далі...</a>
+                  </article>
+                <ul>
+                    <li>p =  0 0 0 1</li>
+                    <li>article > p = 0 0 0 2</li>
+                    <li>.post-title = 0 0 1 0</li>
+                    <li>.post > h1 = 0 0 1 1</li>
+                    <li>.post > .post-title = 0 0 2 0</li>
+                    <li>.post > a.post-link = 0 0 2 1</li>
+                    <li>#title = 0 1 0 0</li>
+                    <li>p style="color: green;" = 1 0 0 0</li>
+                </ul>
+            </div>
+            <ul>
+                <li><h4>Приклади застосування класів</h4></li>
+                <li><h5>Перший метод</h5></li>
+                <li>.post</li>
+                <li>.post > h1</li>
+                <li>.post > p</li>
+                <li>.post > a</li>
+                <li>.post > a:hover</li>
+                <li><h5>Другий метод</h5></li>
+                <li>.post > .title</li>
+                <li>.post > .text</li>
+                <li>.post > .link</li>
+                <li>.post > .link:hover</li>
+                <li><h5>Третій метод</h5></li>
+                <li>.post</li>
+                <li>.post-title</li>
+                <li>.post-link</li>
+                <li>.post-link:hover</li>
+            </ul>
+
+            <ul>
+                <li><h3>Винятки наслідування</h3></li>
+                <li>посилання не наслідує колір тексту a {color: inherit;}</li>>
+            </ul>
+        </section>
+
+        <section>
+            <h2>CSS-змінні</h2>
+            <ul>
+                <li>:root {
+                    --brand-color: #3f51b5;
+                  }</li>
+                <li>
+                    .section-title {
+                        color: var(--brand-color);
+                      }
+                </li>
+                <li>
+                    <p>Тут tomato за змовчуванням якщо нема іншого</p>
+                    .section-title {
+                        color: var(--brand-color, tomato);
+                      }
+                </li>
+                <li>Область видимості</li>
+                <li>.alert {
+                    --alert-text-color: black;
+                    --alert-accent-color: tomato;
+                  }</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Оформлення тексту</h2>
+            <ul>
+                <li>text-decoration: none | underline | line-through | overline</li>
+                <li>text-transform: none | uppercase | lowercase | capitalize</li>
+                <li>text-align: <b>left</b> | right | center | justify</li>
+                <li>text-indent: значення | відсотки | inherit (відступ абзацу)</li>
+                <li>line-height: множник | значення | відсотки | normal | inherit</li>
+                <li>letter-spacing: значення | normal | inherit</li>
+                <li>word-spacing: значення | normal | inherit</li>
+                <li>text-shadow: x, y, радіус, колір</li>
+                <li>white-space: normal | nowrap | pre | pre-wrap</li>
+                <li></li>
+            </ul>
+            <h2>Властивості шрифту</h2>
+            <ul>
+                <li>font-size (px)</li>
+                <li>font-weight (100 - 900)</li>
+                <li>font-style: normal | italic | oblique | initial | inherit</li>
+                <li>font-family: 'Helvetica Neue', 'Roboto', 'Verdana', 'Tahoma', sans-serif;</li>
+                <li>serif - із зарубками, sans-serif - без, monospace</li>
+            </ul>
+            <h2>Псевдоелемент</h2>
+            <div>
+                <pre>
+                    Wyatt resteth here, that quick could never rest;
+                    Whose heavenly gifts increased by disdain,
+                    And virtue sank the deeper in his breast;
+                    Such profit he by envy could obtain.
+                </pre>
+                  
+                <pre>
+                    A head where wisdom mysteries did frame,
+                    Whose hammers beat still in that lively brain
+                    As on a stithy where that some work of fame
+                    Was daily wrought, to turn to Britain's gain.
+                </pre>
+            </div>
+            <h2>Сервіс Google Fonts</h2>
+            
+        </section>
     </main>
     <footer>
            

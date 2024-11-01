@@ -1,10 +1,14 @@
 
 
 /* Загальні стилі для всіх типів повідомлень */
-/* body {
+
+  body {
     font-family: sans-serif;
-    text-align: center;
-  } */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* text-align: center; */
+    /* line-height: 1.5; */
+  }
   
   /* композиція класів */
   .alert {
@@ -55,6 +59,12 @@
     color: tomato;
   }
 
+  
+  /* Псевдоклас стану p */
+  .pseudoclass {
+    width: 800px;
+  }
+
   /* Псевдоклас :hover */
   .link {
     color: teal;
@@ -97,3 +107,200 @@
     font-size: 16px;
     color: red;
   }
+
+  /* Псевдоклас :visited */
+  .social-links-5 .link-5 {
+    color: teal;
+  }
+
+  .social-links-5 .link-5:hover,
+  .social-links-5 .link-5:focus {
+    color: orange;
+  }
+
+  .social-links-5 .link-5:active {
+    color: red;
+  }
+
+  .social-links-5 .link-5:visited {
+    color: brown;
+  }
+
+
+  /* Ховер і таблиці */
+  .schedule-body > tr > td:hover {
+    background-color: tomato;
+    color: white;
+  }
+
+  .schedule {
+    border-collapse: collapse;
+  }
+
+  .schedule th,
+  .schedule td {
+    padding: 8px;
+    border: 1px solid #212121;
+  }
+
+
+  /* Властивість cursor */
+  .auto {
+    cursor: auto;
+  }
+  .default {
+    cursor: default;
+  }
+  .none {
+    cursor: none;
+  }
+  .context-menu {
+    cursor: context-menu;
+  }
+  .help {
+    cursor: help;
+  }
+  .pointer {
+    cursor: pointer;
+  }
+  .progress {
+    cursor: progress;
+  }
+  .wait {
+    cursor: wait;
+  }
+  .cell {
+    cursor: cell;
+  }
+  .crosshair {
+    cursor: crosshair;
+  }
+  .text {
+    cursor: text;
+  }
+  .vertical-text {
+    cursor: vertical-text;
+  }
+  .alias {
+    cursor: alias;
+  }
+  .copy {
+    cursor: copy;
+  }
+  .move {
+    cursor: move;
+  }
+  .no-drop {
+    cursor: no-drop;
+  }
+  .not-allowed {
+    cursor: not-allowed;
+  }
+  .all-scroll {
+    cursor: all-scroll;
+  }
+  .col-resize {
+    cursor: col-resize;
+  }
+  .row-resize {
+    cursor: row-resize;
+  }
+  .n-resize {
+    cursor: n-resize;
+  }
+  .e-resize {
+    cursor: e-resize;
+  }
+  .s-resize {
+    cursor: s-resize;
+  }
+  .w-resize {
+    cursor: w-resize;
+  }
+  .ns-resize {
+    cursor: ns-resize;
+  }
+  .ew-resize {
+    cursor: ew-resize;
+  }
+  .ne-resize {
+    cursor: ne-resize;
+  }
+  .nw-resize {
+    cursor: nw-resize;
+  }
+  .se-resize {
+    cursor: se-resize;
+  }
+  .sw-resize {
+    cursor: sw-resize;
+  }
+  .nesw-resize {
+    cursor: nesw-resize;
+  }
+  .nwse-resize {
+    cursor: nwse-resize;
+  }
+
+  .cursors {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+  }
+
+  .cursors > div {
+    flex: 80px;
+    padding: 6px 2px;
+    white-space: nowrap;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: 0 5px 5px 0;
+    font-size: 12px;
+  }
+
+  .cursors > div:hover {
+    background: #eee;
+  }
+
+  /* code {
+    display: inline-block;
+    background-color: #eee;
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 32px;
+  } */
+
+
+
+
+  /* === COLOR === */
+  .div-cont {
+    width: 480px;
+    /* height: 200px; */
+    background-color: #eee;
+    border: 2px solid green;
+    text-align: center;
+    font-size: 18px;
+  }
+
+/* Псевдоелемент */
+
+  pre {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    color: #2a2a2a;
+    font-size: 16px;
+  }
+
+  pre::first-letter {
+    font-family: 'Tahoma', serif;
+    font-size: 32px;
+    color: #f44336;
+  }
+
+  /* Let's add text selection styles for each paragraph of the poem. */
+  pre::selection {
+    color: #ffffff;
+    background-color: #3f51b5;
+  }
+
+  
