@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitchi</title>
+    <title>CSS</title>
+    <link rel="stylesheet" href="../css/styles.css"/>
 </head>
 <body>
     <header>
@@ -11,8 +12,106 @@
         <h1>CSS</h1>
     </header>
     <main>
+        
         <ul>
-            <li>CSS</li>
+            <li>
+                <h4>Вбудовані стилі</h4>
+                <p style="color:blue; font-size:20px;">Цей текст буде синім.</p>
+            </li>
+            <li><h4>Вбудована таблиця стилів</h4></li>
+            <li>
+                <h4>Зовнішня таблиця стилів</h4>
+                <p>head  link rel="stylesheet" href="./css/styles.css"  head</p>
+                <p>На одному рівні з index.html створюється папка css, а всередині неї - файл стилів styles.css</p>
+                <p>Можна підключити скільки завгодно CSS-файлів, додаючи для кожного тег link</p>
+                
+            </li>
+            <li>
+                <h4>Селектор елемента</h4>
+                <p>p {
+                    font-size: 24px;
+                  }</p>
+                  <h4>Селектор класу</h4>
+                  <p>В елемента може бути кілька класів, тоді вони записуються через пробіл</p>
+                  <p class="alert success">Поповнення рахунку виконано</p>
+                  <p class="alert warning">Увага, будуть змінені тарифи</p>
+                  <p class="alert error">Помилка проведення транзакції</p>
+            </li>
+            <li>
+                <h4 id="title">Селектор ідентифікатора</h4>
+            </li>
+            <li>
+                <h4>Селектор нащадка</h4>
+                <p> селектор застосовує стилі до дітей і нащадків елемента за будь-якої глибини вкладеності.</p>
+                <ul class="social-links">
+                    <li>
+                      <a href="">Twitter</a>
+                    </li>
+                    <li>
+                      <a href="">Instagram</a>
+                    </li>
+                  </ul>
+            </li>
+            <li>
+                <h4>Селектор дитини</h4>
+                <ul class="menu">
+                    <li>
+                      Комп'ютери та комплектуючі
+                      <ul class="submenu">
+                        <li>Процесори</li>
+                        <li>Монітори</li>
+                        <li>Відеокарти</li>
+                      </ul>
+                    </li>
+                    <li>
+                      Побутова техніка
+                      <ul class="submenu">
+                        <li>Холодильники</li>
+                        <li>Телевізори</li>
+                        <li>Пральні машини</li>
+                      </ul>
+                    </li>
+                  </ul>
+            </li>
+            <li>
+                <h4>Селектор атрибута</h4>
+                <a href="https://htmlreference.io" title="Довідник тегів"> htmlreference.io </a>
+                <br>
+                <a href="https://www.youtube.com">YouTube</a>
+            </li>
+            <li>
+                <h4>Псевдокласи стану</h4>
+                <p>Псевдоклас визначає конкретний стан елемента і прикріплений до селектора тегу, класу тощо. Пробілу між селектором і псевдокласом немає, щоб показати, що вони пов'язані один з одним. Якщо додати пробіл, то псевдоклас застосується до всіх елементів в документі. селектор:псевдоклас</p>
+                <h5>Псевдоклас :hover</h5>
+                <p>
+                    Наведи на посилання і вона змінить колір
+                    <a class="link" href="https://htmlreference.io">link :hover</a>.
+                </p>
+                <p>social-links-2 :hover</p>
+                <ul class="social-links-2">
+                    <li><a class="link-2" href="https://www.instagram.com">Instagram</a></li>
+                    <li><a class="link-2" href="https://www.facebook.com">Facebook</a></li>
+                </ul>
+                <h5>Псевдоклас :focus</h5>
+                <p>social-links-3 :focus Натискай TAB</p>
+                <ul class="social-links-3">
+                    <li><a class="link-3" href="https://www.instagram.com">Instagram</a></li>
+                    <li><a class="link-3" href="https://www.facebook.com">Facebook</a></li>
+                </ul>
+                <h5>Псевдоклас :active</h5>
+                <p>використовується в основному для посилань і кнопок</p>
+                <p>social-links-4 :focus Натискай Btn</p>
+                <ul class="social-links-4">
+                    <!-- <li><a class="link-4" href="https://www.instagram.com">Instagram</a></li>
+                    <li><a class="link-4" href="https://www.facebook.com">Facebook</a></li> -->
+                    <button class="link-4" type="button">button</button>
+                </ul>
+
+            </li>
+            <li>
+
+            </li>
+
         </ul>
     </main>
     <footer>

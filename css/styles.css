@@ -1,0 +1,99 @@
+
+
+/* Загальні стилі для всіх типів повідомлень */
+/* body {
+    font-family: sans-serif;
+    text-align: center;
+  } */
+  
+  /* композиція класів */
+  .alert {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .success {
+    color: green;
+  }
+  
+  .warning {
+    color: orange;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  /* Селектор ідентифікатора */
+  #title {
+    font-size: 20px;
+    font-weight: 700;
+    color: orange;
+  }
+
+  /* Селектор нащадка */
+  .social-links a {
+    color: blue;
+    text-decoration: none;
+  }
+
+
+  /* Селектор дитини */
+  .menu > li {
+    border: 1px solid tomato;
+  }
+
+  /* Селектор атрибута */
+  a[title] {
+    color: teal;
+  }
+  
+  a[href="https://www.youtube.com"]
+  {
+    font-size: 20px;
+    font-weight: 500;
+    color: tomato;
+  }
+
+  /* Псевдоклас :hover */
+  .link {
+    color: teal;
+  }
+  
+  .link:hover {
+    color: tomato;
+  }
+  /* Псевдоклас :hover - 2 */
+
+  .social-links-2 .link-2 {
+    color: teal;
+  }
+  
+  .social-links-2 .link-2:hover {
+    color: tomato;
+  }
+
+  /* Псевдоклас :focus + hover */
+  .social-links-3 .link-3 {
+    color: green;
+  }
+  
+  .social-links-3 .link-3:hover,
+  .social-links-3 .link-3:focus {
+    color: yellow;
+  }
+
+  /* Псевдоклас :active */
+  .social-links-4 .link-4 {
+    color: green;
+  }
+
+  .social-links-4 .link-4:hover,
+  .social-links-4 .link-4:focus {
+    color: orange;
+  }
+
+  .social-links-4 .link-4:active {
+    font-size: 16px;
+    color: red;
+  }
