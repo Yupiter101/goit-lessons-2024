@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ==Я скачав з гугла== -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
     <title>CSS</title>
     <link rel="stylesheet" href="../css/styles.css"/>
 </head>
@@ -13,148 +17,176 @@
     </header>
     <main>
         <section>
-        <ul>
-            <li>
-                <h4>Вбудовані стилі</h4>
-                <p style="color:blue; font-size:20px;">Цей текст буде синім.</p>
-            </li>
-
-            <li><h4>Вбудована таблиця стилів</h4></li>
-
-            <li>
-                <h4>Зовнішня таблиця стилів</h4>
-                <p>head  link rel="stylesheet" href="./css/styles.css"  head</p>
-                <p>На одному рівні з index.html створюється папка css, а всередині неї - файл стилів styles.css</p>
-                <p>Можна підключити скільки завгодно CSS-файлів, додаючи для кожного тег link</p>
-                
-            </li>
-
-            <li>
-                <h4>Селектор елемента</h4>
-                <p>p {
-                    font-size: 24px;
-                  }</p>
-                  <h4>Селектор класу</h4>
-                  <p>В елемента може бути кілька класів, тоді вони записуються через пробіл</p>
-                  <p class="alert success">Поповнення рахунку виконано</p>
-                  <p class="alert warning">Увага, будуть змінені тарифи</p>
-                  <p class="alert error">Помилка проведення транзакції</p>
-            </li>
-
-            <li>
-                <h4 id="title">Селектор ідентифікатора</h4>
-            </li>
-
-            <li>
-                <h4>Селектор нащадка</h4>
-                <p> селектор застосовує стилі до дітей і нащадків елемента за будь-якої глибини вкладеності.</p>
-                <ul class="social-links">
-                    <li>
-                      <a href="">Twitter</a>
-                    </li>
-                    <li>
-                      <a href="">Instagram</a>
-                    </li>
-                  </ul>
-            </li>
-
-            <li>
-                <h4>Селектор дитини</h4>
-                <ul class="menu">
-                    <li>
-                      Комп'ютери та комплектуючі
-                      <ul class="submenu">
-                        <li>Процесори</li>
-                        <li>Монітори</li>
-                        <li>Відеокарти</li>
-                      </ul>
-                    </li>
-                    <li>
-                      Побутова техніка
-                      <ul class="submenu">
-                        <li>Холодильники</li>
-                        <li>Телевізори</li>
-                        <li>Пральні машини</li>
-                      </ul>
-                    </li>
-                  </ul>
-            </li>
-
-            <li>
-                <h4>Селектор атрибута</h4>
-                <a href="https://htmlreference.io" title="Довідник тегів"> htmlreference.io </a>
-                <br>
-                <a href="https://www.youtube.com">YouTube</a>
-            </li>
-
-            <li>
-                <h4 >Псевдокласи стану</h4>
-                <p class="pseudoclass">Псевдоклас визначає конкретний стан елемента і прикріплений до селектора тегу, класу тощо. Пробілу між селектором і псевдокласом немає, щоб показати, що вони пов'язані один з одним. Якщо додати пробіл, то псевдоклас застосується до всіх елементів в документі. селектор:псевдоклас</p>
-                <h5>Псевдоклас :hover</h5>
-                <p>
-                    Наведи на посилання і вона змінить колір
-                    <a class="link" href="https://htmlreference.io">link :hover</a>.
-                </p>
-                <p>social-links-2 :hover</p>
-                <ul class="social-links-2">
-                    <li><a class="link-2" href="https://www.instagram.com">Instagram</a></li>
-                    <li><a class="link-2" href="https://www.facebook.com">Facebook</a></li>
+            <div>
+                <h2>Menu</h2>
+                <ul>
+                    <li>Способи підключення стилів CSS</li>
+                    <li>Селектори</li>
+                    <li>Псевдокласи :hover, :focus, :active, :visited</li>
+                    <li>Властивість cursor</li>
+                    <li>Специфічність</li>
+                    <li>Наслідування</li>
+                    <li>COLOR (RGB, RGBA)</li>
+                    <li>CSS-змінні :root</li>
+                    <li>Оформлення тексту</li>
+                    <li>Властивості шрифту</li>
+                    <li>Псевдоелемент HTML &lt;pre&gt; CSS pre::first-letter</li>
+                    <li>Псевдоелемент h1::selection (виділення мишкою)</li>
+                    <li>Шрифти Fonts. <a href="https://fonts.google.com" target="_blank">Google Fonts</li>
+                    <li>Підключення стороннього шрифта - @font-face{}</li>
                 </ul>
-                <h5>Псевдоклас :focus</h5>
-                <p>social-links-3 :focus Натискай TAB</p>
-                <ul class="social-links-3">
-                    <li><a class="link-3" href="https://www.instagram.com">Instagram</a></li>
-                    <li><a class="link-3" href="https://www.facebook.com">Facebook</a></li>
-                </ul>
-                <h5>Псевдоклас :active</h5>
-                <p>використовується в основному для посилань і кнопок</p>
-                <p>social-links-4 :focus Натискай Btn</p>
-                <ul class="social-links-4">
-                    <!-- <li><a class="link-4" href="https://www.instagram.com">Instagram</a></li>
-                    <li><a class="link-4" href="https://www.facebook.com">Facebook</a></li> -->
-                    <button class="link-4" type="button">button</button>
-                </ul>
-                <h5>Псевдоклас :visited</h5>
-                <ul class="social-links-5">
-                    <li><a class="link-5" href="https://www.google.com" >google</a></li>
-                    <li><a class="link-5" href="https://www.google.com">google</a></li>
-                </ul>
-            </li>
+            </div>
+        </section>
 
-            <li>
-                <h4>Ховер і таблиці</h4>
-                Приклад ховера в таблиці
-                <table class="schedule">
-                  <thead>
-                    <tr>
-                    <th>Train number</th>
-                    <th>Route</th>
-                    <th>Travel time</th>
-                    </tr>
-                  </thead>
+        <section>
+            <h3>Способи підключення стилів CSS</h3>
+            <ul>
+                <li>
+                    <h4>Вбудовані стилі</h4>
+                    <p style="color:blue; font-size:20px;">Цей текст буде синім.</p>
+                </li>
 
-                  <tbody class="schedule-body">
-                    <tr>
-                    <td>433</td>
-                    <td>London - Paris</td>
-                    <td>5 hours</td>
-                    </tr>
-                    <tr>
-                    <td>701</td>
-                    <td>New York - Chicago</td>
-                    <td>7 hours</td>
-                    </tr>
-                    <tr>
-                    <td>258</td>
-                    <td>Oslo - Warsaw</td>
-                    <td>4 hours</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </li>
+                <li><h4>Вбудована таблиця стилів</h4></li>
 
-            <li>
-                <h4>Властивість cursor</h4>
+                <li>
+                    <h4>Зовнішня таблиця стилів</h4>
+                    <p>head  link rel="stylesheet" href="./css/styles.css"  head</p>
+                    <p>На одному рівні з index.html створюється папка css, а всередині неї - файл стилів styles.css</p>
+                    <p>Можна підключити скільки завгодно CSS-файлів, додаючи для кожного тег link</p>
+                    
+                </li>
+            </ul>
+
+            <h3>Селектори</h3>
+            <ul>
+                <li>
+                    <h4>Селектор елемента</h4>
+                    <p>p { font-size: 24px; }</p>
+                </li>
+                <li>
+                    <h4>Селектор класу</h4>
+                    <p>В елемента може бути кілька класів, тоді вони записуються через пробіл</p>
+                    <p class="alert success">Поповнення рахунку виконано</p>
+                    <p class="alert warning">Увага, будуть змінені тарифи</p>
+                    <p class="alert error">Помилка проведення транзакції</p>
+                </li>
+
+                <li>
+                    <h4 id="title">Селектор ідентифікатора </h4>
+                    <p>&lt;h4 id="title"&gt;Селектор ідентифікатора&lt;/h4&gt;</p>
+                </li>
+
+                <li>
+                    <h4>Селектор нащадка</h4>
+                    <p> селектор застосовує стилі до дітей і нащадків елемента за будь-якої глибини вкладеності.</p>
+                    <ul class="social-links">
+                        <li>
+                        <a href="">Twitter</a>
+                        </li>
+                        <li>
+                        <a href="">Instagram</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Селектор дитини</h4>
+                    <ul class="menu">
+                        <li>Комп'ютери та комплектуючі
+                            <ul class="submenu">
+                                <li>Процесори</li>
+                                <li>Монітори</li>
+                                <li>Відеокарти</li>
+                            </ul>
+                        </li>
+                        <li> Побутова техніка
+                            <ul class="submenu">
+                                <li>Холодильники</li>
+                                <li>Телевізори</li>
+                                <li>Пральні машини</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Селектор атрибута</h4>
+                    <a href="https://htmlreference.io" title="Довідник тегів"> htmlreference.io </a>
+                    <br>
+                    <a href="https://www.youtube.com">YouTube</a>
+                </li>
+            </ul>
+
+            <h3>Псевдокласи :hover, :focus, :active, :visited</h3>
+            <ul>
+                <li>
+                    <h4>Псевдоклас :hover</h4>
+                    <p>
+                        Наведи на посилання і вона змінить колір
+                        <a class="link" href="https://htmlreference.io">link :hover</a>.
+                    </p>
+                    <p>social-links-2 :hover</p>
+                    <ul class="social-links-2">
+                        <li><a class="link-2" href="https://www.instagram.com">Instagram</a></li>
+                        <li><a class="link-2" href="https://www.facebook.com">Facebook</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Псевдоклас :focus</h4>
+                    <p>social-links-3 :focus Натискай TAB</p>
+                    <ul class="social-links-3">
+                        <li><a class="link-3" href="https://www.instagram.com">Instagram</a></li>
+                        <li><a class="link-3" href="https://www.facebook.com">Facebook</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Псевдоклас :active</h4>
+                    <p>використовується в основному для посилань і кнопок</p>
+                    <p>social-links-4 :focus Натискай Btn</p>
+                    <ul class="social-links-4">
+                        <!-- <li><a class="link-4" href="https://www.instagram.com">Instagram</a></li>
+                        <li><a class="link-4" href="https://www.facebook.com">Facebook</a></li> -->
+                        <button class="link-4" type="button">button</button>
+                    </ul>
+                </li>
+                <li>    
+                    <h4>Псевдоклас :visited</h4>
+                    <ul class="social-links-5">
+                        <li><a class="link-5" href="https://www.google.com" >google</a></li>
+                        <li><a class="link-5" href="https://www.google.com">google</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Ховер і таблиці</h4>
+                    Приклад ховера в таблиці
+                    <table class="schedule">
+                    <thead>
+                        <tr>
+                        <th>Train number</th>
+                        <th>Route</th>
+                        <th>Travel time</th>
+                        </tr>
+                    </thead>
+                    <tbody class="schedule-body">
+                        <tr>
+                        <td>433</td>
+                        <td>London - Paris</td>
+                        <td>5 hours</td>
+                        </tr>
+                        <tr>
+                        <td>701</td>
+                        <td>New York - Chicago</td>
+                        <td>7 hours</td>
+                        </tr>
+                        <tr>
+                        <td>258</td>
+                        <td>Oslo - Warsaw</td>
+                        <td>4 hours</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </li>
+            </ul>
+
+            <h3>Властивість cursor</h3>
                 <div class="cursors">
                     <div class="auto">auto</div>
                     <div class="default">default</div>
@@ -189,20 +221,9 @@
                     <div class="nesw-resize">nesw-resize</div>
                     <div class="nwse-resize">nwse-resize</div>
                 </div>
-            </li>
-
-        </ul>
         </section>
 
         <section>
-            <h2>COLOR</h2>
-            <div class="div-cont">
-                <p style="color:yellow">background-color yellow</p>
-                <p style="color:rgb(255, 0, 0)">color: rgb(255, 0, 0)</p>
-                <p style="color:rgb(0%, 100%, 0%)">color: rgb(100%, 0%, 0%)</p>
-                <p style="color:#0000ff">color: #0000ff</p>
-                <p style="color:rgba(0, 0, 0, 0.3)">Прозорість color: rgba(0, 0, 0, 0.3)</p>
-            </div>
             <div>
                 <h3>Специфічність</h3>
                 <img src="../img/rang.JPG" alt="rang"/>
@@ -244,39 +265,37 @@
                 <li>.post-link:hover</li>
             </ul>
 
+            <h3>Наслідування</h3>
             <ul>
-                <li><h3>Винятки наслідування</h3></li>
+                <li>Діти наслідують стилі від батьків</li>
+                <li>В тулзах можна побачити звідки іде наслідування</li>
+                <li>Виключення з наслідування. Примусове наслідування inherit</li>
                 <li>посилання не наслідує колір тексту a {color: inherit;}</li>>
             </ul>
-        </section>
 
-        <section>
-            <h2>CSS-змінні</h2>
+            <h3>COLOR (RGB, RGBA)</h3>
+            <div class="div-cont">
+                <p style="color:yellow">background-color yellow</p>
+                <p style="color:rgb(255, 0, 0)">color: rgb(255, 0, 0)</p>
+                <p style="color:rgb(228, 227, 235)">старий колір: rgb(255, 0, 0)</p>
+                <p style="color:rgb(0%, 100%, 0%)">color: rgb(100%, 0%, 0%)</p>
+                <p style="color:#0000ff">color: #0000ff</p>
+                <p style="color:rgba(0, 0, 0, 0.3)">Прозорість color: rgba(0, 0, 0, 0.3)</p>
+
+            </div>
+
+            <h3>CSS-змінні :root</h3>
             <ul>
-                <li>:root {
-                    --brand-color: #3f51b5;
-                  }</li>
-                <li>
-                    .section-title {
-                        color: var(--brand-color);
-                      }
-                </li>
-                <li>
-                    <p>Тут tomato за змовчуванням якщо нема іншого</p>
-                    .section-title {
-                        color: var(--brand-color, tomato);
-                      }
-                </li>
-                <li>Область видимості</li>
-                <li>.alert {
-                    --alert-text-color: black;
-                    --alert-accent-color: tomato;
-                  }</li>
+                <li>Глобальні і локальні</li>
+                <li>Глоб. :root {--brand-color: #3f51b5; }</li>
+                <li>color: var(--brand-color); </li>
+                <li>color: var(--brand-color, tomato);</li>
+                <li>Лок. .alert { --alert-text-color: black;}</li>
+                <li>.alert { --alert-text-color: black; }</li>
+                <li>Перевизначення значень</li>
             </ul>
-        </section>
-
-        <section>
-            <h2>Оформлення тексту</h2>
+   
+            <h3>Оформлення тексту</h3>
             <ul>
                 <li>text-decoration: none | underline | line-through | overline</li>
                 <li>text-transform: none | uppercase | lowercase | capitalize</li>
@@ -289,7 +308,8 @@
                 <li>white-space: normal | nowrap | pre | pre-wrap</li>
                 <li></li>
             </ul>
-            <h2>Властивості шрифту</h2>
+
+            <h3>Властивості шрифту</h3>
             <ul>
                 <li>font-size (px)</li>
                 <li>font-weight (100 - 900)</li>
@@ -297,7 +317,9 @@
                 <li>font-family: 'Helvetica Neue', 'Roboto', 'Verdana', 'Tahoma', sans-serif;</li>
                 <li>serif - із зарубками, sans-serif - без, monospace</li>
             </ul>
-            <h2>Псевдоелемент</h2>
+
+            <h3>Псевдоелемент HTML &lt;pre&gt; CSS pre::first-letter</h3>
+            <h3>Псевдоелемент h1::selection (виділення мишкою)</h3>
             <div>
                 <pre>
                     Wyatt resteth here, that quick could never rest;
@@ -313,8 +335,56 @@
                     Was daily wrought, to turn to Britain's gain.
                 </pre>
             </div>
-            <h2>Сервіс Google Fonts</h2>
+
+            <h3>Шрифти Fonts. <a href="https://fonts.google.com" target="_blank">Google Fonts</a></h3>
+            <ul>
+                <li>Заходим на сторінку пошуку</li>
+                <li>Ввести імя в поле пошуку і натиснути на картку</li>
+                <li>Обираємо його жирність</li>
+                <li>На вкладці Embed копіюємо тег link, і додаємо її в шапку свого HTML перед іншими стилями</li>
+            </ul>
+
+            <h3>Підключення стороннього шрифта - @font-face{}</h3>
+            <ul>
+                <li>Cтворити папку /fonts</li>
+                <li>Покласти туди шрифт .ttf</li>
+                <li>Дивись в css як він обявлений (на початку)</li>
+                <li></li>
+                <li></li>
+                <li>Перевіряємо. Директива @font-face</li>
+                <li>Відкриваємо інструменти розробника і переходимо на вкладку «Network»</li>
+                <li>Вибираємо фільтр «CSS», щоб відображалися тільки файли стилів</li>
+                <li>Клікаємо по файлу від Google Fonts</li>
+                <li>Вибираємо вкладку «Preview», в якій відображається вміст файлу</li>
+                <li>Вставити відео
+                    <div>
+                        <video
+                            poster="../img/fonts.JPG"
+                            width="600"
+                            controls
+                            >
+                            <source
+                                src="../vid/fonts-vid.mp4"
+                                type="video/webm"
+                            />
+                            <source
+                                src="../vid/fonts-vid.mp4"
+                                type="video/mp4"
+                            />
+                            <source
+                                src="../vid/fonts-vid.mp4"
+                                type="video/ogg"
+                            />
+                        </video>
+                    </div>
+                </li>
+            </ul>
             
+            <div>
+                <img src="../img/fonts.JPG" alt="add google font" width="600"/>
+            </div>
+
+
         </section>
     </main>
     <footer>
