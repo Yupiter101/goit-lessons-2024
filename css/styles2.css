@@ -1,0 +1,87 @@
+
+
+/* === базові налаштування === */
+html {
+    background-color: #ccc; 
+}
+
+body {
+    /* margin-top: 0; */
+    background-color: #eee;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img{
+    display: block;
+    /* max-width: 100%; */
+    height: auto;
+} 
+  
+button {
+    cursor: pointer;
+}
+
+.list {
+  list-style: none; /*сброс точки в списках*/
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.link {
+  text-decoration: none; /*сброс подчеркивания*/
+}
+
+
+/* main boxes in site */
+.container {
+  /* max-width: 1158px; */
+  /* width: 1158px; */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
+/* section {
+
+} */
+
+
+/* ----------hidden ----------- */
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+/* ---end----hidden ----------- */
+
+
+
+.section-team {
+  background-color: #f4f4fd;
+  padding-top: var(--main-section-padding);
+  padding-bottom: var(--main-section-padding);
+}
+
+
+
