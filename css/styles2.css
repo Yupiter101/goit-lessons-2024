@@ -1,16 +1,30 @@
 
 
 /* === базові налаштування === */
-html {
-    background-color: #ccc; 
-}
+
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+} or modern-normalize */
+
+/* -- modern-normalize 
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    /> */
+
+/* html {
+    background-color: #b9f3b7; 
+} */
 
 body {
     /* margin-top: 0; */
-    background-color: #eee;
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #b9f3b7; 
+    /* background-color: #eee; */
+    /* width: 1200px; */
+    /* margin-left: auto;
+    margin-right: auto; */
     font-family: "Roboto", sans-serif;
 }
 
@@ -45,21 +59,6 @@ button {
 }
 
 
-/* main boxes in site */
-.container {
-  /* max-width: 1158px; */
-  /* width: 1158px; */
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-
-/* section {
-
-} */
-
-
 /* ----------hidden ----------- */
 .visually-hidden {
   position: absolute;
@@ -77,11 +76,37 @@ button {
 
 
 
-.section-team {
-  background-color: #f4f4fd;
-  padding-top: var(--main-section-padding);
-  padding-bottom: var(--main-section-padding);
+
+.container {
+  /* max-width: 1140px; */
+  /* width: 1140px;
+  width: 100%; */
+  /* margin: 0 auto; */
+  padding: 0 15px;
+  /* background-color: #edf4d7; */
+  outline: 1px solid black;
+}
+
+.page-header,
+.section-about,
+.section-hero,
+.page-footer {
+  /* background-color: #bda3dc; */
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 
-
+.page-header {
+  background-color: #edf4d7;
+  margin-bottom: 10px;
+}
+.section-about {
+  background-color: #b2bec5;
+}
+.section-hero {
+  background-color: #c5b3c9;
+}
+.page-footer {
+  background-color: #8974a2;
+}
