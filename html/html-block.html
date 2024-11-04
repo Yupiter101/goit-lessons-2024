@@ -29,11 +29,32 @@
             <div class="container">
                 <h3>Зміст</h3>
                 <ol>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Блокова модель box-sizing</li>
+                    <li>modern-normalize</li>
+                    <li>Геометрія елемента padding margin border</li>
                     <li>Горизонтальне центрування блокових елементів</li>
-                    <li>dd</li>
+                    <li>Рядкові елементи (inline)</li>
+                    <li>inline-block</li>
+                    <li>Ховаємо елементи display: none / .is-active (js)</li>
+                    <li>Псевдокласи :first-child і :last-child</li>
+                    <li>Псевдоклас :not(selector)</li>
+                    <li>Псевдоклас :nth-child(an+b)</li>
+                    <li>N-й елемент</li>
+                    <li>Парні і непарні елементи even odd</li>
+                    <li>Від N-го елемента </li>
+                    <li>Кожен N-й елемент</li>
+                    <li>Псевдоклас :nth-last-child(an+b)  відлік ведеться з кінця колекції </li>
+                    <li>До N-го елемента .list-item:nth-last-child(-n + 3)</li>
+                    <li><b>Flexbox</b></li>
+                    <li><a href="https://flexboxfroggy.com/#uk" target="_blank">Game Flexbox froggy</a></li>
+                    <li><a href="https://flexbox.tech/" target="_blank">Game Flexbox Playground</a></li>
+                    <li>Set the width of the elements: flex-basis: calc((100% - 20px) / 3);</li>
+                    <li>Властивості елемента flex-basis: auto | значення</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                    
                 </ol>
             </div>
         </section>
@@ -57,11 +78,129 @@
                     <li>Горизонтальне центрування блокових елементів</li>
                     <li>margin-right: auto; margin-left: auto;</li>
                     <li>or margin: 0 auto;</li>
+                    <li>Рядкові елементи display: inline
+                        Їх ширина і висота залежать тільки від вмісту, явно задати їх не можна. 
+                        Тобто властивості width і height не мають жодного ефекту.
+                        Тобто вони ігнорують значення верхніх і нижніх margin, padding і border
+                        Зате left right працюють
+                    </li>
+                    <li>Картинкам надати примусово display: block;</li>
+                    <li>inline-block/ 
+                        a href="" class="link"/ 
+                        display: inline-block;/ 
+                        можна задати вертикальні поля та іншу геометрію.
+                    </li>
+                    <li>Ховаємо елементи display: none / не можна анімувати / .is-active  (js)</li>
+                    <li>Псевдокласи :first-child і :last-child / 
+                        Псевдоклас :last-child вибирає останній елемент в колекції сусідів. / 
+                        .list-item {margin-bottom: 12px;} / .list-item:last-child {margin-bottom: 0; }
+                    </li>
+                    <li>Аналогічно працює :first-child, застосовуючи стилі до першого елемента в колекції сусідів. </li>
+                    <li>.list-item:not(:last-child) {}</li>
+                    <li>Псевдоклас :nth-child(an+b)</li>
+                    <li>Наприклад, якщо a = 2, а b = 1, то an+b = 2n+1. Ця формула вибере всі непарні елементи.</li>
+                    <li>N-й елемент .list-item:nth-child(5) {}</li>
+                    <li>Парні і непарні елементи .list-item:nth-child(2n) {}</li>
+                    <li>Від N-го елемента .list-item:nth-child(n + 6) {}</li>
+                    <li>Кожен N-й елемент .list-item:nth-child(3n + 1) {}</li>
+                    <li>Псевдоклас :nth-last-child(an+b)  відлік ведеться з кінця колекції .list-item:nth-last-child(3)</li>
+                    <li>До N-го елемента .list-item:nth-last-child(-n + 3)</li>
+                    
+                    <li><a href="https://flexboxfroggy.com/#uk" target="_blank">Game Flexbox froggy</a></li>
+                    <li><a href="https://flexbox.tech/" target="_blank">Game Flexbox Playground</a></li>
+                    <li>display: flex | inline-flex</li>
+                    <li>flex-direction: row | row-reverse | column | column-reverse;</li>
+                    <li>justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly </li>
+                    <li class="flex-example">
+                        <code>justify-content: flex-start</code>
+                        <ul class="menu">
+                        <li class="item"><a href="" class="link">Home page</a></li>
+                        <li class="item"><a href="" class="link">Blog</a></li>
+                        <li class="item"><a href="" class="link">Podcasts</a></li>
+                        <li class="item"><a href="" class="link">Contacts</a></li>
+                        </ul>
+
+                        <code>justify-content: flex-end</code>
+                        <ul class="menu flex-end">
+                        <li class="item"><a href="" class="link">Home page</a></li>
+                        <li class="item"><a href="" class="link">Blog</a></li>
+                        <li class="item"><a href="" class="link">Podcasts</a></li>
+                        <li class="item"><a href="" class="link">Contacts</a></li>
+                        </ul>
+
+                        <code>justify-content: center</code>
+                        <ul class="menu center">
+                        <li class="item"><a href="" class="link">Home page</a></li>
+                        <li class="item"><a href="" class="link">Blog</a></li>
+                        <li class="item"><a href="" class="link">Podcasts</a></li>
+                        <li class="item"><a href="" class="link">Contacts</a></li>
+                        </ul>
+
+                        <code>justify-content: space-between</code>
+                        <ul class="menu space-between">
+                        <li class="item"><a href="" class="link">Home page</a></li>
+                        <li class="item"><a href="" class="link">Blog</a></li>
+                        <li class="item"><a href="" class="link">Podcasts</a></li>
+                        <li class="item"><a href="" class="link">Contacts</a></li>
+                        </ul>
+                    </li>
+                    <li>align-items: stretch | flex-start | flex-end | center | baseline</li>
+                    <li>flex-wrap: nowrap | wrap | wrap-reverse</li>
+                    <li>wrap - дозволяє елементам перестрибувати на інші рядки, які за замовчуванням розташовуються зверху вниз (вздовж поперечної осі).</li>
+                    <li>Сітка елементів</li>
+                    <li>
+                        <div class="container-flex-ex">
+                            <ul class="card-set">
+                              <li class="item-ex">
+                                <h2>Lorem ipsum dolor</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro atque excepturi facilis molestias eius earum at officia.</p>
+                              </li>
+                          
+                              <li class="item-ex">
+                                <h2>Lorem ipsum dolor</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro atque excepturi facilis molestias eius earum at officia.</p>
+                              </li>
+                          
+                              <li class="item-ex">
+                                <h2>Lorem ipsum dolor</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro atque excepturi facilis molestias eius earum at officia.</p>
+                              </li>
+                          
+                              <li class="item-ex">
+                                <h2>Lorem ipsum dolor</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro atque excepturi facilis molestias eius earum at officia.</p>
+                              </li>
+                          
+                              <li class="item-ex">
+                                <h2>Lorem ipsum dolor</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro atque excepturi facilis molestias eius earum at officia.</p>
+                              </li>
+                          
+                              <li class="item-ex">
+                                <h2>Lorem ipsum dolor</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro atque excepturi facilis molestias eius earum at officia.</p>
+                              </li>
+                            </ul>
+                          </div>
+                    </li>
+                    <li>Set the width of the elements: flex-basis: calc((100% - 20px) / 3);</li>
+                    <li>Властивість flex-basis - це заміна width для flex-елементі</li>
+                    <li>gap. row-gap та column-gap</li>
+                    <li>align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch
+                        <img src="../img/align-content.JPG" alt="align-content">
+                    </li>
+                    <li>Властивості елемента flex-basis: auto | значення</li>
+                    <li>Якщо вказані обидві властивості, flex-basis і width, то властивість width ігнорується</li>
+                    <li>Властивості min-width і max-width працюють як обмежувачі розміру елемента, навіть якщо у нього вказаний flex-basis, а не width</li>
+                    <li>Властивість flex-basis може визначати висоту, а не ширину елемента. Це відбувається у разі, якщо головна вісь - вертикальна.</li>
+                    <li>Властивість  flex-grow: частка</li>
+                    <li>За замовчуванню у всіх елементів встановлено значення 0</li>
+                    <li>Flex-grow<img src="../img/flex-grow.JPG" alt="flex-grow"></li>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
-                    <li></li>
+
                 </ol>
             </div>
         </section>

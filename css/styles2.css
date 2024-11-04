@@ -20,12 +20,14 @@
 
 body {
     /* margin-top: 0; */
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
     background-color: #b9f3b7; 
     /* background-color: #eee; */
     /* width: 1200px; */
     /* margin-left: auto;
     margin-right: auto; */
-    font-family: "Roboto", sans-serif;
+    
 }
 
 h1,
@@ -40,7 +42,7 @@ p{
 
 img{
     display: block;
-    /* max-width: 100%; */
+    max-width: 100%;
     height: auto;
 } 
   
@@ -55,6 +57,7 @@ button {
 }
 
 .link {
+  display: inline-block;
   text-decoration: none; /*сброс подчеркивания*/
 }
 
@@ -82,7 +85,7 @@ button {
   /* width: 1140px;
   width: 100%; */
   /* margin: 0 auto; */
-  padding: 0 15px;
+  padding: 10px 15px;
   /* background-color: #edf4d7; */
   outline: 1px solid black;
 }
@@ -91,22 +94,119 @@ button {
 .section-about,
 .section-hero,
 .page-footer {
-  /* background-color: #bda3dc; */
+  background-color: #fee;
   max-width: 1140px;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 
 
-.page-header {
+/* .page-header {
   background-color: #edf4d7;
   margin-bottom: 10px;
-}
-.section-about {
+} */
+/* .section-about {
   background-color: #b2bec5;
-}
-.section-hero {
+} */
+/* .section-hero {
   background-color: #c5b3c9;
-}
-.page-footer {
+} */
+/* .page-footer {
   background-color: #8974a2;
+} */
+
+
+/* ==flex example== */
+.flex-example {
+  border: 2px solid black;
+  width: 600px;
+  margin: 10px auto; 
 }
+
+code {
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.menu {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  margin: 0;
+  margin-bottom: 10px;
+  list-style: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.menu.flex-end {
+  justify-content: flex-end;
+}
+
+.menu.center {
+  justify-content: center;
+}
+
+.menu.space-between {
+  justify-content: space-between;
+}
+
+.menu .link {
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  background-color: #fff;
+}
+
+.menu .link:hover {
+  text-decoration: underline;
+}
+
+
+/* ==== 2 ============ */
+
+.container-flex-ex {
+  max-width: 900px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-set {
+  display: flex;
+  /* Make a flex container multiline */
+  flex-wrap: wrap;
+  /* Set gap between rows and columns */
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.item-ex {
+  /*  Set the width of the elements  */
+  flex-basis: calc((100% - 20px) / 3);
+  
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.item-ex h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.item-ex p {
+  margin: 0;
+}
+
+
+/* end flex example */
