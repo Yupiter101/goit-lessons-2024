@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphix</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/styles-basic.css">
+    <link rel="stylesheet" href="../css/styles-graphix.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="../index.html">Back to main page</a>
+            <nav>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-hero">
+            <div class="container">
+                <h1>Graphix</h1>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Фон елемента <code>background-color | background-image</code></li>
+                    <li><code>background-repeat: repeat | repeat-x | repeat-y | no-repeat</code></li>
+                    <li><code>background-position: center;</code></li>
+                    <li><code>background-size: auto | значення | cover | contain</code></li>
+                    <li><code>background-attachment: <b>scroll</b> | fixed | inherit</code></li>
+                    <li>Багатошаровий фон</li>
+                    <li>Властивість background</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </section>
+
+        <section  class="section-about">
+            <div class="container">
+                <h3>Фон елемента</h3>
+                <ul>
+                    <li>
+                        <h4>Фон елемента</h4>
+                        <p><code>background-color: колір </code>Задає колір фону елемента</p>
+                        <p><code>background-image: url('адреса');</code> Задає фонове зображення</p>
+                        <div class="graf-bg-img">
+                            <p >background-image</p>
+                            <p >background-color</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h4>Властивість <code>background-repeat</code></h4>
+                        <p><code>background-repeat: repeat | repeat-x | repeat-y | no-repeat</code></p>
+                    </li>
+                    <li>
+                        <h4>Властивість <code>background-position</code></h4>
+                        <p>Управляє положенням фонового зображення щодо меж елемента, використовуючи дві координати - x за горизонталлю та y за вертикаллю</p>
+                        <ul>
+                            <li><code>background-position: 50% 50%;</code> по центру</li>
+                            <li><code>background-position: center;</code> по центру</li>
+                            <li><code>background-position: 100px 200px;</code></li>
+                            <li><code>background-position: right bottom;</code></li>
+                            <li><code>backrgound-position: right 30px bottom 20px;</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Властивість <code>background-size</code></h4>
+                        <p><code>background-size: auto | значення | cover | contain</code></p>
+                        <p>За замовчуванням браузер не змінює розмір фонового зображення. Якщо зображення буде більшим або меншим за розмір елемента, буде порожній простір, не зайнятий фоном або навпаки, фон буде видно тільки частково.</p>
+                        <p>Ця властивість дозволяє підкоригувати розміри зображення, вказавши необхідну ширину і висоту. Якщо не вказати висоту, вона буде вирахувана автоматично, зберігаючи пропорції.</p>
+                        <ul>
+                            <li><code>background-size: auto auto;</code> значення за замовчуванням</li>
+                            <li><code>background-size: 200px;</code> висота буде пропорційна</li>
+                            <li><code>background-size: 200px 300px;</code></li>
+                            <li><code>background-size: cover;</code> Повністю покриває</li>
+                            <li><code>background-size: contain;</code> покриває до однієї вісі</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Властивість <code>background-attachment</code></h4>
+                        <p><code>background-attachment: <b>scroll</b> | fixed | inherit</code></p>
+                        <p>За замовчуванням фонове зображення прокручується разом із вмістом елемента. З допомогою властивості background-attachment можна зафіксувати фон на місці і заборонити прокручуватися зі скролом</p>
+                    </li>
+                    <li>
+                        <h3>Багатошаровий фон</h3>
+                        <p>Елементу можна задати кілька фонових зображень одночасно. Достатньо перелічити їх у властивості background-image через кому. Для кожного зображення також можна задати значення інших властивостей фону, 
+                            теж через кому в кожній властивості.
+                        </p>
+                        <ul>
+                            <li><code>background-image: url('зображення-1'), url('зображення-2');</code><code></code></li>
+                            <li><code>background-size: 100px, cover;</code></li>
+                            <li><code>background-position: top right, center;</code></li>
+                            <li><code>background-repeat: repeat-x, no-repeat;</code></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>Властивість background</h3>
+                        <p>Збірна властивість для одночасного встановлення значень всіх розглянутих властивостей.</p>
+                        <p><code>background: background-color background-image background-repeat background-position background-attachment</code></p>
+                        <p>Якщо якийсь компонент не вказаний, буде взято його значення за замовчуванням.</p>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <h3>footer</h3>
+            <address>
+                <p>address</p>
+            </address>
+        </div>
+    </footer>
+</body>
+</html>

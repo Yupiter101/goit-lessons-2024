@@ -1,0 +1,28 @@
+
+
+.graf-bg-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    background-color: green;
+    border: 2px solid red;
+    border-radius: 4px;
+    background-image: url("../img/bg-img.JPG");
+
+    /* background-repeat: repeat-x; */
+    /* background-repeat: repeat-y; */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-size: contain; */
+    background-size: cover;
+    /* background-attachment: fixed; */
+}
+
+.graf-bg-img > p {
+    font-size: 26px;
+    font-weight: 700;
+    /* color: red; */
+}

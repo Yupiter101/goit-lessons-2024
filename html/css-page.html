@@ -13,16 +13,26 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
     />
+    <link rel="stylesheet" href="../css/styles-basic.css"/>
     <link rel="stylesheet" href="../css/styles.css"/>
 </head>
 <body>
     <header>
-        <a href="../index.html">Back to main page</a>
-        <h1>CSS</h1>
+        <div>
+            <a href="../index.html">Back to main page</a>
+        </div>
     </header>
+
     <main>
-        <section>
-            <div>
+        <!-- section HERO -->
+      <section class="section-about">
+        <div class="container">
+            <h1>CSS</h1>
+        </div>
+      </section>
+
+        <section class="section-hero">
+            <div class="container">
                 <h2>Menu</h2>
                 <ul>
                     <li>Способи підключення стилів CSS</li>
@@ -43,155 +53,156 @@
             </div>
         </section>
 
-        <section>
-            <h3>Способи підключення стилів CSS</h3>
-            <ul>
-                <li>
-                    <h4>Вбудовані стилі</h4>
-                    <p style="color:blue; font-size:20px;">Цей текст буде синім.</p>
-                </li>
+        <section class="section-hero">
+            <div class="container">
+                <h3>Способи підключення стилів CSS</h3>
+                <ul>
+                    <li>
+                        <h4>Вбудовані стилі</h4>
+                        <p style="color:blue; font-size:20px;">Цей текст буде синім.</p>
+                    </li>
 
-                <li><h4>Вбудована таблиця стилів</h4></li>
+                    <li><h4>Вбудована таблиця стилів</h4></li>
 
-                <li>
-                    <h4>Зовнішня таблиця стилів</h4>
-                    <p>head  link rel="stylesheet" href="./css/styles.css"  head</p>
-                    <p>На одному рівні з index.html створюється папка css, а всередині неї - файл стилів styles.css</p>
-                    <p>Можна підключити скільки завгодно CSS-файлів, додаючи для кожного тег link</p>
-                    
-                </li>
-            </ul>
+                    <li>
+                        <h4>Зовнішня таблиця стилів</h4>
+                        <p>head  link rel="stylesheet" href="./css/styles.css"  head</p>
+                        <p>На одному рівні з index.html створюється папка css, а всередині неї - файл стилів styles.css</p>
+                        <p>Можна підключити скільки завгодно CSS-файлів, додаючи для кожного тег link</p>
+                        
+                    </li>
+                </ul>
 
-            <h3>Селектори</h3>
-            <ul>
-                <li>
-                    <h4>Селектор елемента</h4>
-                    <p>p { font-size: 24px; }</p>
-                </li>
-                <li>
-                    <h4>Селектор класу</h4>
-                    <p>В елемента може бути кілька класів, тоді вони записуються через пробіл</p>
-                    <p class="alert success">Поповнення рахунку виконано</p>
-                    <p class="alert warning">Увага, будуть змінені тарифи</p>
-                    <p class="alert error">Помилка проведення транзакції</p>
-                </li>
+                <h3>Селектори</h3>
+                <ul>
+                    <li>
+                        <h4>Селектор елемента</h4>
+                        <p>p { font-size: 24px; }</p>
+                    </li>
+                    <li>
+                        <h4>Селектор класу</h4>
+                        <p>В елемента може бути кілька класів, тоді вони записуються через пробіл</p>
+                        <p class="alert success">Поповнення рахунку виконано</p>
+                        <p class="alert warning">Увага, будуть змінені тарифи</p>
+                        <p class="alert error">Помилка проведення транзакції</p>
+                    </li>
 
-                <li>
-                    <h4 id="title">Селектор ідентифікатора </h4>
-                    <p>&lt;h4 id="title"&gt;Селектор ідентифікатора&lt;/h4&gt;</p>
-                </li>
+                    <li>
+                        <h4 id="title">Селектор ідентифікатора </h4>
+                        <p>&lt;h4 id="title"&gt;Селектор ідентифікатора&lt;/h4&gt;</p>
+                    </li>
 
-                <li>
-                    <h4>Селектор нащадка</h4>
-                    <p> селектор застосовує стилі до дітей і нащадків елемента за будь-якої глибини вкладеності.</p>
-                    <ul class="social-links">
-                        <li>
-                        <a href="">Twitter</a>
-                        </li>
-                        <li>
-                        <a href="">Instagram</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h4>Селектор дитини</h4>
-                    <ul class="menu">
-                        <li>Комп'ютери та комплектуючі
-                            <ul class="submenu">
-                                <li>Процесори</li>
-                                <li>Монітори</li>
-                                <li>Відеокарти</li>
-                            </ul>
-                        </li>
-                        <li> Побутова техніка
-                            <ul class="submenu">
-                                <li>Холодильники</li>
-                                <li>Телевізори</li>
-                                <li>Пральні машини</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h4>Селектор атрибута</h4>
-                    <a href="https://htmlreference.io" title="Довідник тегів"> htmlreference.io </a>
-                    <br>
-                    <a href="https://www.youtube.com">YouTube</a>
-                </li>
-            </ul>
+                    <li>
+                        <h4>Селектор нащадка</h4>
+                        <p> селектор застосовує стилі до дітей і нащадків елемента за будь-якої глибини вкладеності.</p>
+                        <ul class="social-links">
+                            <li>
+                            <a href="">Twitter</a>
+                            </li>
+                            <li>
+                            <a href="">Instagram</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Селектор дитини</h4>
+                        <ul class="menu">
+                            <li>Комп'ютери та комплектуючі
+                                <ul class="submenu">
+                                    <li>Процесори</li>
+                                    <li>Монітори</li>
+                                    <li>Відеокарти</li>
+                                </ul>
+                            </li>
+                            <li> Побутова техніка
+                                <ul class="submenu">
+                                    <li>Холодильники</li>
+                                    <li>Телевізори</li>
+                                    <li>Пральні машини</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Селектор атрибута</h4>
+                        <a href="https://htmlreference.io" title="Довідник тегів"> htmlreference.io </a>
+                        <br>
+                        <a href="https://www.youtube.com">YouTube</a>
+                    </li>
+                </ul>
 
-            <h3>Псевдокласи :hover, :focus, :active, :visited</h3>
-            <ul>
-                <li>
-                    <h4>Псевдоклас :hover</h4>
-                    <p>
-                        Наведи на посилання і вона змінить колір
-                        <a class="link" href="https://htmlreference.io">link :hover</a>.
-                    </p>
-                    <p>social-links-2 :hover</p>
-                    <ul class="social-links-2">
-                        <li><a class="link-2" href="https://www.instagram.com">Instagram</a></li>
-                        <li><a class="link-2" href="https://www.facebook.com">Facebook</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h4>Псевдоклас :focus</h4>
-                    <p>social-links-3 :focus Натискай TAB</p>
-                    <ul class="social-links-3">
-                        <li><a class="link-3" href="https://www.instagram.com">Instagram</a></li>
-                        <li><a class="link-3" href="https://www.facebook.com">Facebook</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h4>Псевдоклас :active</h4>
-                    <p>використовується в основному для посилань і кнопок</p>
-                    <p>social-links-4 :focus Натискай Btn</p>
-                    <ul class="social-links-4">
-                        <!-- <li><a class="link-4" href="https://www.instagram.com">Instagram</a></li>
-                        <li><a class="link-4" href="https://www.facebook.com">Facebook</a></li> -->
-                        <button class="link-4" type="button">button</button>
-                    </ul>
-                </li>
-                <li>    
-                    <h4>Псевдоклас :visited</h4>
-                    <ul class="social-links-5">
-                        <li><a class="link-5" href="https://www.google.com" >google</a></li>
-                        <li><a class="link-5" href="https://www.google.com">google</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h4>Ховер і таблиці</h4>
-                    Приклад ховера в таблиці
-                    <table class="schedule">
-                    <thead>
-                        <tr>
-                        <th>Train number</th>
-                        <th>Route</th>
-                        <th>Travel time</th>
-                        </tr>
-                    </thead>
-                    <tbody class="schedule-body">
-                        <tr>
-                        <td>433</td>
-                        <td>London - Paris</td>
-                        <td>5 hours</td>
-                        </tr>
-                        <tr>
-                        <td>701</td>
-                        <td>New York - Chicago</td>
-                        <td>7 hours</td>
-                        </tr>
-                        <tr>
-                        <td>258</td>
-                        <td>Oslo - Warsaw</td>
-                        <td>4 hours</td>
-                        </tr>
-                    </tbody>
-                    </table>
-                </li>
-            </ul>
+                <h3>Псевдокласи :hover, :focus, :active, :visited</h3>
+                <ul>
+                    <li>
+                        <h4>Псевдоклас :hover</h4>
+                        <p>
+                            Наведи на посилання і вона змінить колір
+                            <a class="link" href="https://htmlreference.io">link :hover</a>.
+                        </p>
+                        <p>social-links-2 :hover</p>
+                        <ul class="social-links-2">
+                            <li><a class="link-2" href="https://www.instagram.com">Instagram</a></li>
+                            <li><a class="link-2" href="https://www.facebook.com">Facebook</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Псевдоклас :focus</h4>
+                        <p>social-links-3 :focus Натискай TAB</p>
+                        <ul class="social-links-3">
+                            <li><a class="link-3" href="https://www.instagram.com">Instagram</a></li>
+                            <li><a class="link-3" href="https://www.facebook.com">Facebook</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Псевдоклас :active</h4>
+                        <p>використовується в основному для посилань і кнопок</p>
+                        <p>social-links-4 :focus Натискай Btn</p>
+                        <ul class="social-links-4">
+                            <!-- <li><a class="link-4" href="https://www.instagram.com">Instagram</a></li>
+                            <li><a class="link-4" href="https://www.facebook.com">Facebook</a></li> -->
+                            <button class="link-4" type="button">button</button>
+                        </ul>
+                    </li>
+                    <li>    
+                        <h4>Псевдоклас :visited</h4>
+                        <ul class="social-links-5">
+                            <li><a class="link-5" href="https://www.google.com" >google</a></li>
+                            <li><a class="link-5" href="https://www.google.com">google</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Ховер і таблиці</h4>
+                        Приклад ховера в таблиці
+                        <table class="schedule">
+                        <thead>
+                            <tr>
+                            <th>Train number</th>
+                            <th>Route</th>
+                            <th>Travel time</th>
+                            </tr>
+                        </thead>
+                        <tbody class="schedule-body">
+                            <tr>
+                            <td>433</td>
+                            <td>London - Paris</td>
+                            <td>5 hours</td>
+                            </tr>
+                            <tr>
+                            <td>701</td>
+                            <td>New York - Chicago</td>
+                            <td>7 hours</td>
+                            </tr>
+                            <tr>
+                            <td>258</td>
+                            <td>Oslo - Warsaw</td>
+                            <td>4 hours</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </li>
+                </ul>
 
-            <h3>Властивість cursor</h3>
+                <h3>Властивість cursor</h3>
                 <div class="cursors">
                     <div class="auto">auto</div>
                     <div class="default">default</div>
@@ -226,10 +237,11 @@
                     <div class="nesw-resize">nesw-resize</div>
                     <div class="nwse-resize">nwse-resize</div>
                 </div>
+            </div>
         </section>
 
-        <section>
-            <div>
+        <section class="section-hero">
+            <div class="container">
                 <h3>Специфічність</h3>
                 <img src="../img/rang.JPG" alt="rang"/>
                 <article class="post">
@@ -388,13 +400,13 @@
             <div>
                 <img src="../img/fonts.JPG" alt="add google font" width="600"/>
             </div>
-
-
         </section>
     </main>
-    <footer>
-           
+
+    <footer class="page-footer">
+        <div class="container">
+            <p>futer</p>
+        </div> 
     </footer>
-    
 </body>
 </html>

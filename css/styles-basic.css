@@ -16,14 +16,49 @@
     background-color: #b9f3b7; 
 } */
 
+/* ----------hidden ----------- */
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+/* ---end----hidden ----------- */
+
+/* -----button---- */
+button {
+  margin-left: 4px;
+  margin-right: 4px;
+  font-size: 20px;
+  padding: 8px 30px;
+  background-color: #3f51b5;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+/* -end-----button---- */
+
 
 
 body {
     /* margin-top: 0; */
-    /* font-family: "Roboto", sans-serif; */
-    /* line-height: 1.5; */
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
     background-color: #b9f3b7; 
-    /* background-color: #eee; */
+    /* color: black; */
     /* width: 1200px; */
     /* margin-left: auto;
     margin-right: auto; */ 
@@ -33,9 +68,13 @@ h1,
 h2,
 h3,
 h4,
-h5,
-p{
-  margin-top: 0;
+h5 {
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 8px;
   margin-bottom: 0;
 }
 
@@ -44,13 +83,10 @@ img{
     max-width: 100%;
     height: auto;
 } 
-  
-button {
-    cursor: pointer;
-}
 
 ul {
   list-style: none; /*сброс точки в списках*/
+  margin-top: 6px;
 }
 
 .container {
@@ -86,3 +122,9 @@ ul {
   /* .page-footer {
     background-color: #8974a2;
   } */
+
+  code {
+    /* font-size: 16px; */
+    font-weight: 600;
+    color: rgb(17, 83, 37);
+  }
