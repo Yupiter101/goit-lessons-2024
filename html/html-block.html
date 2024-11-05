@@ -27,34 +27,37 @@
     <main>
         <section class="section-about">
             <div class="container">
-                <h3>Зміст</h3>
+                <h2>Зміст</h2>
+                <h4>Блокова модель</h4>
                 <ol>
                     <li>Блокова модель box-sizing</li>
-                    <li>modern-normalize</li>
+                    <li>modern-normalize (border-box)</li>
                     <li>Геометрія елемента padding margin border</li>
                     <li>Горизонтальне центрування блокових елементів</li>
                     <li>Рядкові елементи (inline)</li>
                     <li>inline-block</li>
                     <li>Ховаємо елементи display: none / .is-active (js)</li>
-                    <li>Псевдокласи :first-child і :last-child</li>
+                </ol>
+                <h4>Псевдокласи</h4>
+                <ol>
+                    <li>Псевдокласи <code>:first-child і :last-child</code></li>
                     <li>Псевдоклас :not(selector)</li>
-                    <li>Псевдоклас :nth-child(an+b)</li>
+                    <li>Псевдоклас <code>:nth-child(an+b)</code></li>
                     <li>N-й елемент</li>
                     <li>Парні і непарні елементи even odd</li>
                     <li>Від N-го елемента </li>
                     <li>Кожен N-й елемент</li>
-                    <li>Псевдоклас :nth-last-child(an+b)  відлік ведеться з кінця колекції </li>
-                    <li>До N-го елемента .list-item:nth-last-child(-n + 3)</li>
-                    <li><b>Flexbox</b></li>
+                    <li>Псевдоклас <code>:nth-last-child(an+b)</code> відлік ведеться з кінця колекції </li>
+                    <li>До N-го елемента <code>.list-item:nth-last-child(-n + 3)</code></li>
+                </ol>
+                <h4>Flexbox</h4>
+                <ol>
                     <li><a href="https://flexboxfroggy.com/#uk" target="_blank">Game Flexbox froggy</a></li>
                     <li><a href="https://flexbox.tech/" target="_blank">Game Flexbox Playground</a></li>
-                    <li>Set the width of the elements: flex-basis: calc((100% - 20px) / 3);</li>
-                    <li>Властивості елемента flex-basis: auto | значення</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-
-                    
+                    <li>Властивості Flex контейнера</li>
+                    <li>Властивості Flex елемента <code>flex-basis: calc((100% - 20px) / 3);</code></li>
+                    <li>Гумовий контент SideBar. Приклад</li>
+                    <li>Гумовий контент Footer. Приклад</li>
                 </ol>
             </div>
         </section>
@@ -62,21 +65,21 @@
         <section class="section-hero">
             <div class="container">
                 <h3>Блокова модель</h3>
-                <ol>
-                    <li>box-sizing: content-box | border-box | inherit
+                <ul>
+                    <li><code>box-sizing: content-box | border-box | inherit</code>
                         <img src="../img/box.jpg" alt="box">
                         В інструментах розробника, на вкладці Computed
                     </li>
                     <li>modern-normalize (підключено тут)</li>
                     <li>Геометрія: верх (top), право (right), низ (bottom) і ліво (left)</li>
-                    <li>padding: 10px 15px 20px 25px;</li>
-                    <li>margin-bottom: 20px</li>
-                    <li>border: 5px solid tomato;</li>
-                    <li>border-radius: 10px;</li>
+                    <li><code>padding: 10px 15px 20px 25px;</code></li>
+                    <li><code>margin-bottom: 20px</code></li>
+                    <li><code>border: 5px solid tomato;</code></li>
+                    <li><code>border-radius: 10px;</code></li>
                     <li>Дізнатися тип будь-якого елемента можна в довіднику</li>
-                    <li>display: block</li>
+                    <li><code>display: block</code></li>
                     <li>Горизонтальне центрування блокових елементів</li>
-                    <li>margin-right: auto; margin-left: auto;</li>
+                    <li><code>margin-right: auto; margin-left: auto;</code></li>
                     <li>or margin: 0 auto;</li>
                     <li>Рядкові елементи display: inline
                         Їх ширина і висота залежать тільки від вмісту, явно задати їх не можна. 
@@ -91,28 +94,36 @@
                         можна задати вертикальні поля та іншу геометрію.
                     </li>
                     <li>Ховаємо елементи display: none / не можна анімувати / .is-active  (js)</li>
-                    <li>Псевдокласи :first-child і :last-child / 
+                </ul>
+
+                <h3>Псевдокласи</h3>
+                <ul>
+                    <li>Псевдокласи <code>:first-child і :last-child</code> / 
                         Псевдоклас :last-child вибирає останній елемент в колекції сусідів. / 
-                        .list-item {margin-bottom: 12px;} / .list-item:last-child {margin-bottom: 0; }
+                        <code>.list-item {margin-bottom: 12px;} / .list-item:last-child {margin-bottom: 0; }</code>
                     </li>
                     <li>Аналогічно працює :first-child, застосовуючи стилі до першого елемента в колекції сусідів. </li>
-                    <li>.list-item:not(:last-child) {}</li>
-                    <li>Псевдоклас :nth-child(an+b)</li>
+                    <li><code>.list-item:not(:last-child) {}</code></li>
+                    <li>Псевдоклас <code>:nth-child(an+b)</code></li>
                     <li>Наприклад, якщо a = 2, а b = 1, то an+b = 2n+1. Ця формула вибере всі непарні елементи.</li>
-                    <li>N-й елемент .list-item:nth-child(5) {}</li>
-                    <li>Парні і непарні елементи .list-item:nth-child(2n) {}</li>
-                    <li>Від N-го елемента .list-item:nth-child(n + 6) {}</li>
-                    <li>Кожен N-й елемент .list-item:nth-child(3n + 1) {}</li>
-                    <li>Псевдоклас :nth-last-child(an+b)  відлік ведеться з кінця колекції .list-item:nth-last-child(3)</li>
-                    <li>До N-го елемента .list-item:nth-last-child(-n + 3)</li>
-                    
+                    <li>N-й елемент <code>.list-item:nth-child(5) {}</code></li>
+                    <li>Парні і непарні елементи <code>.list-item:nth-child(2n) {}</code></li>
+                    <li>Від N-го елемента <code>.list-item:nth-child(n + 6) {}</code></li>
+                    <li>Кожен N-й елемент <code>.list-item:nth-child(3n + 1) {}</code></li>
+                    <li>Псевдоклас <code>:nth-last-child(an+b)</code>  відлік ведеться з кінця колекції .list-item:nth-last-child(3)</li>
+                    <li>До N-го елемента <code>.list-item:nth-last-child(-n + 3)</code></li>
+                </ul>
+
+                <h3>Flexbox</h3>
+                <h4>Властивості контейнера flex</h4>
+                <ul>
                     <li><a href="https://flexboxfroggy.com/#uk" target="_blank">Game Flexbox froggy</a></li>
                     <li><a href="https://flexbox.tech/" target="_blank">Game Flexbox Playground</a></li>
-                    <li>display: flex | inline-flex</li>
-                    <li>flex-direction: row | row-reverse | column | column-reverse;</li>
-                    <li>justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly </li>
+                    <li><code>display: flex | inline-flex</code></li>
+                    <li><code>flex-direction: row | row-reverse | column | column-reverse;</code></li>
+                    <li><code>justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly</code></li>
                     <li class="flex-example">
-                        <code>justify-content: flex-start</code>
+                        <code class="code-jc">justify-content: flex-start</code>
                         <ul class="menu">
                         <li class="item"><a href="" class="link">Home page</a></li>
                         <li class="item"><a href="" class="link">Blog</a></li>
@@ -120,7 +131,7 @@
                         <li class="item"><a href="" class="link">Contacts</a></li>
                         </ul>
 
-                        <code>justify-content: flex-end</code>
+                        <code class="code-jc">justify-content: flex-end</code>
                         <ul class="menu flex-end">
                         <li class="item"><a href="" class="link">Home page</a></li>
                         <li class="item"><a href="" class="link">Blog</a></li>
@@ -128,7 +139,7 @@
                         <li class="item"><a href="" class="link">Contacts</a></li>
                         </ul>
 
-                        <code>justify-content: center</code>
+                        <code class="code-jc">justify-content: center</code>
                         <ul class="menu center">
                         <li class="item"><a href="" class="link">Home page</a></li>
                         <li class="item"><a href="" class="link">Blog</a></li>
@@ -136,7 +147,7 @@
                         <li class="item"><a href="" class="link">Contacts</a></li>
                         </ul>
 
-                        <code>justify-content: space-between</code>
+                        <code class="code-jc">justify-content: space-between</code>
                         <ul class="menu space-between">
                         <li class="item"><a href="" class="link">Home page</a></li>
                         <li class="item"><a href="" class="link">Blog</a></li>
@@ -144,8 +155,8 @@
                         <li class="item"><a href="" class="link">Contacts</a></li>
                         </ul>
                     </li>
-                    <li>align-items: stretch | flex-start | flex-end | center | baseline</li>
-                    <li>flex-wrap: nowrap | wrap | wrap-reverse</li>
+                    <li><code>align-items: stretch | flex-start | flex-end | center | baseline</code></li>
+                    <li><code>flex-wrap: nowrap | wrap | wrap-reverse</code></li>
                     <li>wrap - дозволяє елементам перестрибувати на інші рядки, які за замовчуванням розташовуються зверху вниз (вздовж поперечної осі).</li>
                     <li>Сітка елементів</li>
                     <li>
@@ -183,33 +194,61 @@
                             </ul>
                           </div>
                     </li>
-                    <li>Set the width of the elements: flex-basis: calc((100% - 20px) / 3);</li>
+                    <li>Set the width of the elements: <code>flex-basis: calc((100% - 20px) / 3);</code></li>
                     <li>Властивість flex-basis - це заміна width для flex-елементі</li>
-                    <li>gap. row-gap та column-gap</li>
-                    <li>align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch
+                    <li><code>gap. row-gap та column-gap</code></li>
+                    <li><code>align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch</code>
                         <img src="../img/align-content.JPG" alt="align-content">
                     </li>
-                    <li>Властивості елемента flex-basis: auto | значення</li>
-                    <li>Якщо вказані обидві властивості, flex-basis і width, то властивість width ігнорується</li>
-                    <li>Властивості min-width і max-width працюють як обмежувачі розміру елемента, навіть якщо у нього вказаний flex-basis, а не width</li>
-                    <li>Властивість flex-basis може визначати висоту, а не ширину елемента. Це відбувається у разі, якщо головна вісь - вертикальна.</li>
-                    <li>Властивість  flex-grow: частка</li>
-                    <li>За замовчуванню у всіх елементів встановлено значення 0</li>
-                    <li>Flex-grow<img src="../img/flex-grow.JPG" alt="flex-grow"></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    
+                </ul>
+                <h4>Властивості flex елемента - дітей контейнера </h4>
+                <ul>
+                    <li>
+                        <h4>Властивість <code>flex-basis: auto | значення</code></h4>
+                        <p>Визначає початковий розмір елемента перед розподілом вільного простору. Значенням може бути будь-яка валідна величина: пікселі, 
+                            відсотки, rem тощо. Для flex-елементів - це заміна властивості width, але з деякими особливостями. У прикладах цього уроку для 
+                            всіх flex-елементів задавався саме flex-basis, а не width</p>
+                        <p>Якщо вказані обидві властивості, flex-basis і width, то властивість width ігнорується
+                            Властивості <code>min-width і max-width</code> працюють як обмежувачі розміру елемента, навіть якщо у нього вказаний flex-basis, а не width
+                            Властивість flex-basis може визначати висоту, а не ширину елемента. Це відбувається у разі, якщо головна вісь - вертикальна.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Властивість  <code>flex-grow: частка</code></h4>
+                        <p>
+                            За замовчуванню у всіх елементів flex-grow = 0
+                        </p>
+                        <div><img src="../img/flex-grow.JPG" alt="flex-grow"></div>
+                        <p>якщо у всіх елементів встановлено однакове значення цієї властивості, то вони займуть однакову кількість місця в контейнері. А ось, якщо всім 
+                            задати значення 1, а одному елементу 2, то він спробує зайняти в два рази більше місця, ніж будь-який інший елемент.</p>
+                    </li>
+                    <li>
+                        <h4>Гумовий контент SideBar</h4>
+                        <p>Приклад</p>
+                        <div class="container-grow">
+                            <aside class="sidebar-grow">Sidebar <p>Фікс. 180px</p></aside>
+                            <main class="content-grow">Main content <p>Гумовий</p></main>
+                        </div>
+                    </li>
+                    <li>
+                        <h4>Footer завжди внизу</h4>
+                        <p>Приклад</p>
+                        <div class="card-grow">
+                            <div class="content2-grow">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus quod odit perferendis quaerat, quasi doloremque, delectus impedit earum possimus unde neque similique quam aliquam, pariatur fugiat modi tempore autem officia. Nostrum reiciendis suscipit, culpa nam rem, libero delectus similique amet architecto qui deleniti expedita odio accusamus sint ratione nesciunt magni!</div>
+                            <div class="meta-grow">Card «footer»</div>
+                        </div>
+                    </li>
+                 
+                </ul>
 
-                </ol>
             </div>
         </section>
     </main>
 
     <footer class="page-footer">
         <div class="container">
-            <h2>section3 h2 footer</h2>
-            <p>section3 p footer</p>
+            <h2>Here is footer</h2>
         </div>
         
     </footer>

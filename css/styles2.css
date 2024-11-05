@@ -50,6 +50,10 @@ button {
     cursor: pointer;
 }
 
+ul {
+  list-style: none; /*сброс точки в списках*/
+}
+
 .list {
   list-style: none; /*сброс точки в списках*/
   margin-top: 0;
@@ -122,7 +126,7 @@ button {
   margin: 10px auto; 
 }
 
-code {
+.code-jc {
   display: block;
   margin-bottom: 10px;
   text-align: center;
@@ -210,3 +214,63 @@ code {
 
 
 /* end flex example */
+
+
+/* Гумовий контент SideBar */
+.container-grow {
+  display: flex;
+  gap: 8px;
+  max-width: 900px;
+  /* margin: 0 auto; */
+}
+
+.sidebar-grow {
+  flex-basis: 180px;
+}
+
+.content-grow {
+  flex-grow: 1;
+}
+
+.sidebar-grow,
+.content-grow {
+  height: 300px;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+
+/* end Гумовий контент SideBar */
+
+
+.card-grow {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 320px;
+  margin: 8px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
+.card-grow > .content2-grow {
+  flex-grow: 1;
+  
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px dashed tomato;
+  border-radius: 4px;
+}
+
+.card-grow > .meta-grow {
+  padding: 10px;
+  text-align: center;
+  background-color: teal;
+  color: white;
+  border-radius: 4px;
+}
