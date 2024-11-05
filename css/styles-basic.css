@@ -1,0 +1,88 @@
+/* === базові налаштування === */
+
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+} or modern-normalize */
+
+/* -- modern-normalize 
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    /> */
+
+/* html {
+    background-color: #b9f3b7; 
+} */
+
+
+
+body {
+    /* margin-top: 0; */
+    /* font-family: "Roboto", sans-serif; */
+    /* line-height: 1.5; */
+    background-color: #b9f3b7; 
+    /* background-color: #eee; */
+    /* width: 1200px; */
+    /* margin-left: auto;
+    margin-right: auto; */ 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+} 
+  
+button {
+    cursor: pointer;
+}
+
+ul {
+  list-style: none; /*сброс точки в списках*/
+}
+
+.container {
+    /* max-width: 1140px; */
+    /* width: 1140px;
+    width: 100%; */
+    /* margin: 0 auto; */
+    padding: 10px 15px;
+    /* background-color: #edf4d7; */
+    outline: 1px solid black;
+  }
+  
+  .page-header,
+  .section-about,
+  .section-hero,
+  .page-footer {
+    background-color: #fee;
+    max-width: 1140px;
+    margin: 0 auto 10px;
+  }
+  
+  
+  /* .page-header {
+    background-color: #edf4d7;
+    margin-bottom: 10px;
+  } */
+  /* .section-about {
+    background-color: #b2bec5;
+  } */
+  /* .section-hero {
+    background-color: #c5b3c9;
+  } */
+  /* .page-footer {
+    background-color: #8974a2;
+  } */

@@ -10,22 +10,30 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
     />
-     <link rel="stylesheet" href="../css/styles2.css">
+    <link rel="stylesheet" href="../css/styles-basic.css">
+    <link rel="stylesheet" href="../css/styles-blox.css">
 
 </head>
 
 <body>
+    <!-- header -->
     <header class="page-header">
         <div class="container">
             <a href="../index.html">Back to main page</a>
             <nav></nav>
-            <h1>HTML Block</h1>
         </div>
-        
     </header>
 
     <main>
+        <!-- section HERO -->
         <section class="section-about">
+            <div class="container">
+                <h1>HTML page. Block</h1>
+            </div>
+        </section>
+
+        <!-- section description MENU -->
+        <section class="section-hero">
             <div class="container">
                 <h2>Зміст</h2>
                 <h4>Блокова модель</h4>
@@ -62,6 +70,7 @@
             </div>
         </section>
 
+        <!-- section BLOCK -->
         <section class="section-hero">
             <div class="container">
                 <h3>Блокова модель</h3>
@@ -95,7 +104,12 @@
                     </li>
                     <li>Ховаємо елементи display: none / не можна анімувати / .is-active  (js)</li>
                 </ul>
+            </div>
+        </section>
 
+        <!-- section Psevdoclass -->
+        <section class="section-hero">
+            <div class="container">
                 <h3>Псевдокласи</h3>
                 <ul>
                     <li>Псевдокласи <code>:first-child і :last-child</code> / 
@@ -113,7 +127,12 @@
                     <li>Псевдоклас <code>:nth-last-child(an+b)</code>  відлік ведеться з кінця колекції .list-item:nth-last-child(3)</li>
                     <li>До N-го елемента <code>.list-item:nth-last-child(-n + 3)</code></li>
                 </ul>
+            </div>
+        </section>
 
+        <!-- section Flexbox Властивості контейнера-->
+        <section class="section-hero">
+            <div class="container">
                 <h3>Flexbox</h3>
                 <h4>Властивості контейнера flex</h4>
                 <ul>
@@ -200,8 +219,14 @@
                     <li><code>align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch</code>
                         <img src="../img/align-content.JPG" alt="align-content">
                     </li>
-                    
                 </ul>
+            </div>
+        </section>
+
+        <!-- section Flexbox Властивості елемента-->
+        <section class="section-hero">
+            <div class="container">
+                <h3>Flexbox</h3>
                 <h4>Властивості flex елемента - дітей контейнера </h4>
                 <ul>
                     <li>
@@ -234,18 +259,42 @@
                     <li>
                         <h4>Footer завжди внизу</h4>
                         <p>Приклад</p>
-                        <div class="card-grow">
-                            <div class="content2-grow">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus quod odit perferendis quaerat, quasi doloremque, delectus impedit earum possimus unde neque similique quam aliquam, pariatur fugiat modi tempore autem officia. Nostrum reiciendis suscipit, culpa nam rem, libero delectus similique amet architecto qui deleniti expedita odio accusamus sint ratione nesciunt magni!</div>
-                            <div class="meta-grow">Card «footer»</div>
+                        <div class="card2-grow">
+                            <div class="content2-grow"><h3>Тут контент.</h3>Якщо контенту менше ніж може бути, контейнер не стягується. Він завжди рознянутий на весь екран. 
+                                Nostrum reiciendis suscipit, culpa nam rem, libero delectus similique amet architecto qui deleniti expedita odio accusamus sint ratione
+                                 nesciunt magni!</div>
+                            <div class="footer-grow">«footer» Притиснутий до низу</div>
                         </div>
                     </li>
-                 
+                    <li>
+                        <h4>Властивість <code>flex-shrink</code></h4>
+                        <p>
+                            Визначає здатність елемента, у разі потреби, займати менше місця (стискатися), ніж його початковий розмір. Значення задається як пропорція (частка).
+                            За замовчуванням у всіх елементів встановлено значення 1, тобто елементи будуть стискатися у разі потреби. Від'ємні значення задавати не можна. 
+                            Використовується досить рідко
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Властивість <code>align-self</code></h4>
+                        <p><code>align-self: auto | flex-start | flex-end | center | baseline | stretch</code></p>
+                        <p>
+                            Дозволяє елементу змінити своє положення на поперечній осі, перевизначивши для себе значення властивості align-items від контейнера. Аналогу для 
+                            головної осі не існує, елемент може змістити себе тільки на поперечній осі.
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Властивість <code>order</code></h4>
+                        <p>
+                            За замовчуванням елементи розташовуються у тому порядку, в якому вони вказані в HTML-файлі. Використовуючи властивість order можна 
+                            візуально змінити порядок розташування елементів вздовж головної осі. При цьому, в HTML-коді нічого не зміниться.
+                        </p>
+                    </li>
                 </ul>
-
             </div>
         </section>
     </main>
 
+    <!-- footer -->
     <footer class="page-footer">
         <div class="container">
             <h2>Here is footer</h2>
