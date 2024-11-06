@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Config</title>
+    <object class="chrome-extension://jffafkigfgmjafhpkoibhfefeaebmccg/" 
+            style="display: none; visibility: hidden;"></object>
+</head>
+<body>
+    <h1>Dropper Config v0.2.1</h1>
+    <h3>TheHatch™</h3>
+
+    <p>
+        <label>Position</label>
+        <input type="number" id="hatch_servo_pos">
+        <button onclick="onclick_set_servo()">Set Position</button>
+    </p>
+    
+    <p>
+        <label>Hatch CLOSED position:</label>
+        <input type="number" id="hatch_servo_closed_pos">
+        <label>Hatch OPEN position:</label>
+        <input type="number"  id="hatch_servo_open_pos">
+        <button onclick="onclick_save_hatch_limits()">Save</button>
+        <button onclick="read_hatch_values()">Re-read values</button>
+    </p>
+
+    <p>
+        <button onclick="do_ajax_post('/open-hatch')">Open Hatch</button>
+        <button onclick="do_ajax_post('/close-hatch')">Close Hatch</button>
+        <button onclick="onclick_open_close()">Open-Close Hatch</button>
+        <button onclick="onclick_fap_fap_fap()">fap-fap-fap</button>
+    </p>
+
+    <p id="result" style="color: red;"> Error: </p>
+    <p></p>
+
+    <form action="/update-expect-armed" method="POST">
+        <input type="checkbox"  id="drop_only_if_armed" name="drop_only_if_armed" value="1">
+        <label for="drop_only_if_armed">open hatch if and only if the payload is armed</label>
+        <input type="submit" value="Save">
+    </form>
+
+    <details>
+        <summary>
+            ::marker
+            "Tell me more!"
+        </summary>
+        "More!"
+        <details>
+            <summary>
+                ::marker
+                "No, but for real, tell me what does this mean"
+            </summary>
+            "If checked ☑ the hatch will be opened if and only if the payload reports itself as ARMED."
+            <br>
+            "If unchecked ☐ the hatch will be opened regardless of the payload's ARMED state."
+        </details>
+    </details>
+
+
+    <script language="javascript">
+        
+        const resultElement = document.getElementById("result");
+
+        function set_result_div(text, color) {
+            resultElement.style.color = color;
+            resultElement.innerText = text;
+        }
+
+        function read_hatch_values() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "/get-hatch-limits", true);
+            xhr.onload = (e) => {
+                if (xhr.readyState === 4) {
+                    const values = JSON.parse(xhr.responseText);
+                    document.getElementById("hatch_servo_closed_pos").value = values.closed;
+                    document.getElementById("hatch_servo_open_pos").value = values.open;
+                    set_result_div('/get-hatch-limits returned: ' + xhr.responseText, 'black');
+                }
+            };
+            xhr.onerror = (e) => { set_result_div('Error: ' + xhr.statusText, 'red'); };
+            xhr.send();
+        }
+
+        read_hatch_values();
+
+        function do_ajax_post(url, data) {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.onload = (e) => {
+                if (xhr.readyState === 4) {
+                set_result_div(xhr.responseText, (xhr.status === 200 ? 'black' : 'red'));
+                }
+            };
+            xhr.onerror = (e) => { set_result_div('Error: ' + xhr.statusText, 'red'); };
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send(data);
+        }
+
+        function onclick_set_servo() {
+            do_ajax_post("/set-hatch-servo-pos", 'pos=' + document.getElementById("hatch_servo_pos").value);
+        }
+
+        function onclick_save_hatch_limits() {
+            do_ajax_post("/set-hatch-limits",
+                'closed_pos=' + document.getElementById("hatch_servo_closed_pos").value +
+                '&open_pos=' + document.getElementById("hatch_servo_open_pos").value);
+        }
+
+        async function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function onclick_open_close() {
+            do_ajax_post("/open-hatch");
+            await sleep(500);
+            do_ajax_post("/close-hatch");
+        }
+
+        async function onclick_fap_fap_fap() {
+            await onclick_open_close();
+            await sleep(500);
+            await onclick_open_close();
+            await sleep(500);
+            await onclick_open_close();
+        }
+
+    </script>
+</body>
+</html>
