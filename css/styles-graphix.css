@@ -26,3 +26,72 @@
     font-weight: 700;
     /* color: red; */
 }
+
+/* === object-fit ====*/
+.thumb {
+    /* position: relative; */
+    height: 380px;
+    width: 500px;
+    border: 2px dashed #2a2a2a;  
+    border-radius: 4px;
+  }
+
+.thumb > img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 10% 50px;
+}
+
+/* ===Псевдоелементи ::before і ::after== */
+
+  /* .list {
+    border: 2px solid black;
+    background-color: #a4d5d5;
+    max-width: 300px;
+  } */
+
+  .list-item:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  
+  .list-link {
+    display: inline-flex;
+    align-items: center;
+    color: currentColor;
+    text-decoration: none;
+    font-size: 28px;
+  }
+  
+  .list-link:hover {
+    color: #2196f3;
+  }
+  
+  .list-link::before,
+  .list-link::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+  }
+  
+  /* Adds and hides eyes icon after the link text */
+  .list-link::after {
+    display: none;
+    margin-left: 16px;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/599/599516.png")
+  }
+
+  .list-link::before {
+    /* display: none; */
+    margin-right: 16px;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/599/599516.png")
+  }
+  
+  /* Show arrow icon on hover */
+  .list-link:hover::after {
+    display: block;
+  }
+
+  /* === end Псевдоелементи ::before і ::after== */
