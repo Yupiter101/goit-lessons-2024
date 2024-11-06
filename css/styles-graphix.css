@@ -26,3 +26,12 @@
     font-weight: 700;
     /* color: red; */
 }
+
+
+.div-lin-gragirent {
+    width: 200px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 4px;
+    
+}
