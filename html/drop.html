@@ -74,10 +74,10 @@
             xhr.open("GET", "/get-hatch-limits", true);
             xhr.onload = (e) => {
                 if (xhr.readyState === 4) {
-                const values = JSON.parse(xhr.responseText);
-                document.getElementById("hatch_servo_closed_pos").value = values.closed;
-                document.getElementById("hatch_servo_open_pos").value = values.open;
-                set_result_div('/get-hatch-limits returned: ' + xhr.responseText, 'black');
+                    const values = JSON.parse(xhr.responseText);
+                    document.getElementById("hatch_servo_closed_pos").value = values.closed;
+                    document.getElementById("hatch_servo_open_pos").value = values.open;
+                    set_result_div('/get-hatch-limits returned: ' + xhr.responseText, 'black');
                 }
             };
             xhr.onerror = (e) => { set_result_div('Error: ' + xhr.statusText, 'red'); };
