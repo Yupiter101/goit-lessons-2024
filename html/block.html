@@ -46,7 +46,7 @@
                     <li>inline-block</li>
                     <li>Ховаємо елементи display: none / .is-active (js)</li>
                 </ol>
-                <h4>Псевдокласи</h4>
+                <h4><a href="#pseudoclass">Псевдокласи</a></h4>
                 <ol>
                     <li>Псевдокласи <code>:first-child і :last-child</code></li>
                     <li>Псевдоклас :not(selector)</li>
@@ -58,7 +58,7 @@
                     <li>Псевдоклас <code>:nth-last-child(an+b)</code> відлік ведеться з кінця колекції </li>
                     <li>До N-го елемента <code>.list-item:nth-last-child(-n + 3)</code></li>
                 </ol>
-                <h4>Flexbox</h4>
+                <h4><a href="#flexbox">Flexbox</a></h4>
                 <ol>
                     <li><a href="https://flexboxfroggy.com/#uk" target="_blank">Game Flexbox froggy</a></li>
                     <li><a href="https://flexbox.tech/" target="_blank">Game Flexbox Playground</a></li>
@@ -110,7 +110,7 @@
         <!-- section Psevdoclass -->
         <section class="section-hero">
             <div class="container">
-                <h3>Псевдокласи</h3>
+                <h3 id="pseudoclass">Псевдокласи</h3>
                 <ul>
                     <li>Псевдокласи <code>:first-child і :last-child</code> / 
                         Псевдоклас :last-child вибирає останній елемент в колекції сусідів. / 
@@ -133,7 +133,7 @@
         <!-- section Flexbox Властивості контейнера-->
         <section class="section-hero">
             <div class="container">
-                <h3>Flexbox</h3>
+                <h3 id="flexbox">Flexbox</h3>
                 <h4>Властивості контейнера flex</h4>
                 <ul>
                     <li><a href="https://flexboxfroggy.com/#uk" target="_blank">Game Flexbox froggy</a></li>
@@ -222,7 +222,37 @@
                         <img src="../img/align-content.JPG" alt="align-content">
                     </li>
                 </ul>
+
+                <h4>Flex Приклад 1</h4>
+                <ul class="flex-container">
+                    <li>Hello 1</li>
+                    <li>Hello 2</li>
+                    <li>Hello 3</li>
+                    <li>Hello 4</li>
+                    <li>Hello 5</li>
+                    <li>Hello 6</li>
+                    <li>Hello 7</li>
+                    <li>Hello 8</li>
+                    <li>Hello 9</li>
+                </ul>
+                <p><code>display: flex; justify-content: space-around; align-items: center;</code></p>
+
+                <h4>Flex Приклад 2</h4>
+                <ul class="flex-container-wrap">
+                    <li>flex-wrap</li>
+                    <li>wrap</li>
+                    <li>gap</li>
+                    <li>row-gap</li>
+                    <li>column-gap</li>
+                    <li>flex-basis</li>
+                    <li>calc</li>
+                    <li>Hello 8</li>
+                    <li>Hello 9</li>
+                </ul>
+                <p><code>display: flex; flex-wrap: wrap; gap: 10px;</code></p>
             </div>
+
+
         </section>
 
         <!-- section Flexbox Властивості елемента-->

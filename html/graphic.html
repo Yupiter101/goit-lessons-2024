@@ -48,21 +48,21 @@
                     <li><code>background-attachment: <b>scroll</b> | fixed | inherit</code></li>
                     <li>Багатошаровий фон</li>
                     <li>Властивість background</li>
-                    <li>Градієнт</li>
-                    <li>Тінь елемента</li>
-                    <li>Векторна графіка</li>
+                    <li><a href="#gradient">Градієнт</a></li>
+                    <li><a href="#shedow">Тінь елемента</a></li>
+                    <li><a href="#svg">Векторна графіка</a></li>
                     <li>Як самостійно створити SVG</li>
-                    <li>SVG-спрайт</li>
+                    <li><a href="#sprite">SVG-спрайт</a></li>
                 </ol>
             </div>
         </section>
 
         <section  class="section-about">
             <div class="container">
-                <h3>Фон елемента</h3>
+                <h2>Фон елемента</h2>
                 <ul>
                     <li>
-                        <h4>Фон елемента</h4>
+                        <h3>background-image, background-color</h3>
                         <p><code>background-color: колір </code>Задає колір фону елемента</p>
                         <p><code>background-image: url('адреса');</code> Задає фонове зображення</p>
                         <div class="graf-bg-img">
@@ -71,11 +71,11 @@
                         </div>
                     </li>
                     <li>
-                        <h4>Властивість <code>background-repeat</code></h4>
+                        <h3>Властивість background-repeat</h3>
                         <p><code>background-repeat: repeat | repeat-x | repeat-y | no-repeat</code></p>
                     </li>
                     <li>
-                        <h4>Властивість <code>background-position</code></h4>
+                        <h3>Властивість background-position</h3>
                         <p>Управляє положенням фонового зображення щодо меж елемента, використовуючи дві координати - x за горизонталлю та y за вертикаллю</p>
                         <ul>
                             <li><code>background-position: 50% 50%;</code> по центру</li>
@@ -86,7 +86,7 @@
                         </ul>
                     </li>
                     <li>
-                        <h4>Властивість <code>background-size</code></h4>
+                        <h3>Властивість background-size</h3>
                         <p><code>background-size: auto | значення | cover | contain</code></p>
                         <p>За замовчуванням браузер не змінює розмір фонового зображення. Якщо зображення буде більшим або меншим за розмір елемента, буде порожній простір, не зайнятий фоном або навпаки, фон буде видно тільки частково.</p>
                         <p>Ця властивість дозволяє підкоригувати розміри зображення, вказавши необхідну ширину і висоту. Якщо не вказати висоту, вона буде вирахувана автоматично, зберігаючи пропорції.</p>
@@ -99,7 +99,7 @@
                         </ul>
                     </li>
                     <li>
-                        <h4>Властивість <code>background-attachment</code></h4>
+                        <h3>Властивість background-attachment</h3>
                         <p><code>background-attachment: <b>scroll</b> | fixed | inherit</code></p>
                         <p>За замовчуванням фонове зображення прокручується разом із вмістом елемента. З допомогою властивості background-attachment можна зафіксувати фон на місці і заборонити прокручуватися зі скролом</p>
                     </li>
@@ -122,16 +122,13 @@
                         <p><code>background: background-color background-image background-repeat background-position background-attachment</code></p>
                         <p>Якщо якийсь компонент не вказаний, буде взято його значення за замовчуванням.</p>
                     </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
                 </ul>
             </div>
         </section>
 
         <section class="section-about">
             <div class="container">
-                <h2>Градієнт</h2>
+                <h2 id="gradient">Градієнт</h2>
                 <h3>Лінійний градієнт linear-gradient(напрямок, колір-1, колір-2, колір-3, ...)</h3>
                 <div class="div-grad lin-gradient">75deg</div>
                 <ul>
@@ -189,7 +186,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Тінь елемента</h2>
+                <h2 id="shedow">Тінь елемента</h2>
                 <h3>Shedow</h3>
                 <div class="div-grad shedow">Shedow</div>
                 <p><code>box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);</code></p>
@@ -203,17 +200,17 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Векторна графіка</h2>
+                <h2 id="svg">Векторна графіка</h2>
                 <h3>Як самостійно створити SVG</h3>
                 <ul>
                     <li>
                         <h4>SVG Container</h4>
-                        <svg width="400" height="50" style="outline: 1px solid black;">
+                        <svg width="100" height="50" style="outline: 1px solid black;">
                             </svg>
                     </li>
                     <li>
                         <h4>SVG - Rect</h4>
-                        <svg width="300" height="100" style="outline: 1px solid black;">
+                        <svg width="200" height="80" style="outline: 1px solid black;">
                             <rect
                               width="100"
                               height="60"
@@ -228,26 +225,26 @@
                     </li>
                     <li>
                         <h4>SVG - Double Rect</h4>
-                        <svg width="400" height="300" style="outline: 2px dashed #2a2a2a;">
-                            <rect width="250" height="150" fill="tomato" stroke="#2a2a2a" stroke-width="4" x="20" y="20" rx="40" />
-                            <rect width="250" height="150" fill="orange" stroke="#2a2a2a" stroke-width="4" x="120" y="120" rx="60" ry="30" />
+                        <svg width="300" height="150" style="outline: 2px dashed #2a2a2a;">
+                            <rect width="150" height="75" fill="tomato" stroke="#2a2a2a" stroke-width="4" x="10" y="10" rx="30" />
+                            <rect width="150" height="75" fill="orange" stroke="#2a2a2a" stroke-width="4" x="120" y="60" rx="20" ry="30" />
                           </svg>
                     </li>
                     <li>
                         <h4>SVG - Circle</h4>
-                        <svg width="400" height="250" style="outline: 2px dashed #2a2a2a;">
-                            <circle r="100" cx="150" cy="120" fill="tomato" stroke="#2a2a2a" stroke-width="4" />
+                        <svg width="180" height="120" style="outline: 2px dashed #2a2a2a;">
+                            <circle r="50" cx="75" cy="60" fill="tomato" stroke="#2a2a2a" stroke-width="4" />
                         </svg>
                     </li>
                     <li>
                         <h4>SVG - Ellipse</h4>
-                        <svg width="400" height="300" style="outline: 2px dashed #2a2a2a;">
-                            <ellipse rx="150" ry="100" cx="200" cy="150" fill="tomato" stroke="#2a2a2a" stroke-width="4" />
+                        <svg width="200" height="100" style="outline: 2px dashed #2a2a2a;">
+                            <ellipse rx="50" ry="40" cx="60" cy="50" fill="tomato" stroke="#2a2a2a" stroke-width="4" />
                         </svg>
                     </li>
                     <li>
                         <h4>SVG - Line</h4>
-                        <svg width="400" height="200" style="outline: 2px dashed #2a2a2a;">
+                        <svg width="400" height="150" style="outline: 2px dashed #2a2a2a;">
                             <line x1="20" y1="50" x2="380" y2="50" stroke="#2a2a2a" stroke-width="16" />
                             <line x1="20" y1="80" x2="380" y2="80" stroke="#2a2a2a" stroke-width="16" />
                             <line x1="20" y1="110" x2="380" y2="110" stroke="#2a2a2a" stroke-width="24" />
@@ -255,9 +252,9 @@
                     </li>
                     <li>
                         <h4>SVG - polygon</h4>
-                        <svg width="400" height="220" style="outline: 2px dashed #2a2a2a;">
+                        <svg width="140" height="120" style="outline: 2px dashed #2a2a2a;">
                             <polygon
-                              points="20,20 20,200 200,200 200,20"
+                              points="20,20 20,100 100,100 100,20"
                               fill="orange"
                               stroke="#2a2a2a"
                               stroke-width="4"
@@ -266,8 +263,8 @@
                     </li>
                     <li>
                         <h4>SVG - polygon-Parallelogram</h4>
-                        <svg width="600" height="270" style="outline: 2px dashed #2a2a2a;">
-                            <polygon points="430,20 430,200 550,250 550, 70" 
+                        <svg width="200" height="150" style="outline: 2px dashed #2a2a2a;">
+                            <polygon points="30,20 40,100 150,120 140, 50" 
                             fill="palevioletred" 
                             stroke="#2a2a2a" 
                             stroke-width="4" />
@@ -276,7 +273,7 @@
                     <li>
                         <h4>SVG - path</h4>
                         <p>Mалюються у спеціальних редакторах, які під час експорту заповнюють path</p>
-                        <svg viewBox="0 -10 511.991 511" xmlns="http://www.w3.org/2000/svg" width="200" height="200" style="outline: 2px dashed #2a2a2a;">
+                        <svg viewBox="0 -10 511.991 511" xmlns="http://www.w3.org/2000/svg" width="150" height="150" style="outline: 2px dashed #2a2a2a;">
                             <path d="M510.652 185.883a27.177 27.177 0 00-23.402-18.688l-147.797-13.418-58.41-136.75C276.73 6.98 266.918.497 255.996.497s-20.738 6.483-25.023 16.53l-58.41 136.75-147.82 13.418c-10.837 1-20.013 8.34-23.403 18.688a27.25 27.25 0 007.937 28.926L121 312.773 88.059 457.86c-2.41 10.668 1.73 21.7 10.582 28.098a27.087 27.087 0 0015.957 5.184 27.14 27.14 0 0013.953-3.86l127.445-76.203 127.422 76.203a27.197 27.197 0 0029.934-1.324c8.851-6.398 12.992-17.43 10.582-28.098l-32.942-145.086 111.723-97.964a27.246 27.246 0 007.937-28.926zM258.45 409.605" fill="#2a2a2a" />
                         </svg>
                     </li>
@@ -323,22 +320,25 @@
                     </li>
                  
                     <li>
-                        <h3>SVG-спрайт</h3>
-                        <button class="button-svg">
-                            <svg class="svg-icon" width="60" height="60">
-                                <use href="../img/symbol-defs.svg#icon-smile"></use>
-                            </svg>
-                        </button>
-                        <button class="button-svg">
-                            <svg class="svg-icon" width="60" height="60">
-                                <use href="../img/symbol-defs.svg#icon-sad"></use>
-                            </svg>
-                        </button>
-                        <button class="button-svg">
-                            <svg class="svg-icon" width="60" height="60">
-                                <use href="../img/symbol-defs.svg#icon-grin"></use>
-                            </svg>
-                        </button>
+                        <h3 id="sprite">SVG-спрайт</h3>
+                        <div class="svg-container">
+                            <button class="button-svg">
+                                <svg class="svg-icon" width="60" height="60">
+                                    <use href="../img/symbol-defs.svg#icon-smile"></use>
+                                </svg>
+                            </button>
+                            <button class="button-svg">
+                                <svg class="svg-icon" width="60" height="60">
+                                    <use href="../img/symbol-defs.svg#icon-sad"></use>
+                                </svg>
+                            </button>
+                            <button class="button-svg">
+                                <svg class="svg-icon" width="60" height="60">
+                                    <use href="../img/symbol-defs.svg#icon-grin"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        
                     </li>
                     <li>
                         <h3>Оптимвзація спрайту</h3>
