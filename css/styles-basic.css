@@ -106,6 +106,8 @@ ul {
     outline: 1px solid black;
   }
   
+  .section-title,
+  .section-menu,
   .page-header,
   .section-about,
   .section-hero,
@@ -131,7 +133,7 @@ ul {
   } */
 
   code {
-    /* font-size: 16px; */
+    font-size: 18px;
     font-weight: 600;
     color: rgb(17, 83, 37);
   }

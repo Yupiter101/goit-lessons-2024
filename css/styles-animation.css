@@ -1,0 +1,132 @@
+
+/* ==== position: relative ====*/
+
+.thumb-img {
+    position: relative;
+    width: 300px;
+    margin: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0px 2px 2px -1px rgba(0, 0, 0, 0.2),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.thumb-img > .label-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 8px 16px;
+    border-bottom-left-radius: 4px;
+  
+    /* font-family: sans-serif; */
+    font-size: 24px;
+    background-color: #2196f3;
+    color: #fff;
+}
+
+
+
+/* ==== position: fixed ====*/
+  
+ .fixed-button {
+    position: fixed;
+    /* right: 30px; */
+    right: 22%;
+    bottom: 30px;
+  
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+  
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  
+    background-image: url("https://cdn-icons-png.flaticon.com/512/1653/1653630.png");
+    background-size: contain;
+  
+    cursor: pointer;
+  }
+
+
+.fixed-back {
+    display: inline-block;
+    border: 1px solid green;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #d4d3f1;
+    font-size: 18px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+
+    position: fixed;
+    top: 30px;
+    left: 50px;
+    padding: 6px 10px;
+}
+
+.fixed-back:hover {
+    background-color: #dbc4a6;
+}
+
+.fixed-back:active {
+    top: 32px;
+    left: 52px;
+    box-shadow: none;
+}
+
+/* === z-index === */
+
+.z-container {
+    /* min-height: 100vh; */
+    height: 240px;
+    position: relative;
+    border: 2px dashed red;
+  }
+
+.z-box {
+  position: absolute;
+  height: 90px;
+  width: 90px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 40px;
+  color: #fff;
+  border: 1px solid black;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.z-box:nth-child(1) {
+  top: 20px;
+  left: 130px;
+  background-color: #1789fc;
+
+  z-index: 2;
+}
+
+.z-box:nth-child(2) {
+  top: 30px;
+  left: 200px;
+  background-color: #ef233c;
+
+  z-index: 2;
+}
+
+.z-box:nth-child(3) {
+  top: 110px;
+  left: 190px;
+  background-color: #ffd07b;
+  z-index: 1;
+}
+
+.z-box:nth-child(4) {
+  top: 100px;
+  left: 120px;
+  background-color: #4caf50;
+}
