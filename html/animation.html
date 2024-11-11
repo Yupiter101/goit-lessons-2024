@@ -45,8 +45,8 @@
                     <li>Позиційовані елементи</li>
                     <li>Властивість z-index</li>
                     <li>Властивість overflow</li>
-                    <li></li>
-                    <li></li>
+                    <li>Заокруглене зображення</li>
+                    <li>Декоративний оверлей</li>
                     <li></li>
                     <li></li>
                 </ol>
@@ -71,9 +71,7 @@
                      використовуючи систему координат, початок якої залежить від типу позиціонування
                 </p>   
 
-
                 <h3>Властивість position</h3>
-
                 <ul>
                     <li>
                         <code>position: static</code>
@@ -163,7 +161,82 @@
                 </div>
 
                 <h3>Властивість overflow</h3>
+                <p>
+                    Але що буде, якщо висота або ширина вказані явно? Тоді блок не може збільшитися, 
+                    і вміст його переповнює - виходить за межі. Властивість overflow управляє тим, як 
+                    поводиться вміст елемента, якщо його розмір перевищує допустиму довжину або ширину.
+                </p>
+                <p><code>overflow: visible | hidden | scroll | auto</code></p>
+                <ul>
+                    <li>
+                        <h3><code>overflow: visible</code></h3>
+                        <a href="https://codepen.io/goit-academy/pen/vYLaJeM" target="_blank">visible</a> - видимий 
+                        переповнюючий вміст. Значення за замовчуванням.
+                        <div class="box-visible">
+                            Тут важливо пам'ятати, що навіть, якщо зовні елемента є видимий контент, що його переповнює, 
+                            цей контент не впливає на геометрію сусідніх елементів як з кнопкою в прикладі.
+                        </div>
+                        <br>
+                    </li>
 
+                    <li>
+                        <h3><code>overflow: hidden</code></h3>
+                        <a href="https://codepen.io/goit-academy/pen/PoZBKBq" target="_blank">hidden</a> - все, що виходить 
+                        за межі блоку, буде візуально приховане.
+                        <div class="box-hidden">
+                            Протилежне значення hidden. У цьому випадку будь-який переповнюючий вміст, який виходить за 
+                            межі елемента, не відображається. Така поведінка зручна для використання з декоративними ефектами, 
+                            приклади яких ми розглянемо далі
+                        </div>
+                        <br>
+                    </li>
+
+                    <li>
+                        <h3><code>overflow: scroll</code></h3>
+                        <a href="https://codepen.io/goit-academy/pen/xxZJLay" target="_blank">scroll</a> - з'являються горизонтальна і вертикальна 
+                        смуги прокручування
+                        <div class="box-scroll">
+                            Якщо встановлене значення scroll, переповнюючий вміст буде прихований, але з'являться скроллбари, 
+                            щоб була можливість переглянути увесь контент. Водночас будуть показані обидва скроллбари - горизонтальний 
+                            і вертикальний, навіть якщо потрібен тільки якийсь один.
+                        </div>
+                        <br>
+                    </li>
+                    
+                    <li>
+                        <h3><code>overflow: auto</code></h3>
+                        <a href="https://codepen.io/goit-academy/pen/dyGjzaE" target="_blank">auto</a>
+                        <div class="box-auto">
+                            Значення auto схоже на значення scroll, за винятком того, що показуються тільки 
+                            ті смуги прокручування, які дійсно необхідні
+                        </div>
+                        <br>
+                    </li>
+                        Також існують властивості overflow-x і overflow-y, які управляють переповненням тільки 
+                        у відповідній площині.
+                    </li>
+                    <li>
+                        <h3>Заокруглене зображення</h3>
+                        <div class="thumb-hidden">
+                            <img src="https://images.pexels.com/photos/33492/cat-red-cute-mackerel.jpg?auto=compress&cs=tinysrgb&h=480&w=640" alt="ft">
+                        </div>
+                        <p><code>border-radius: 50px; overflow: hidden;</code></p>
+                        <br>
+                    </li>
+
+                    <li>
+                        <h3>Декоративний оверлей</h3>
+                        <div class="box-overlay">
+                            <div class="overlay">
+                                <p>
+                                    This content is hidden through transformation and only appears when hovering over 
+                                    <code>div.box</code>
+                                </p>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
             </div>
         </section>
 

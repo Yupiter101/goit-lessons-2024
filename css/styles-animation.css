@@ -130,3 +130,93 @@
   left: 120px;
   background-color: #4caf50;
 }
+
+/* ==== visible hidden ====*/
+.box-visible {
+  border: 2px solid tomato;
+  width: 300px;
+  height: 110px;
+  text-decoration: ;
+}
+
+.box-hidden {
+  border: 2px solid tomato;
+  width: 300px;
+  height: 138px;
+
+  overflow: hidden;
+}
+
+
+.box-scroll {
+  border: 2px solid tomato;
+  width: 300px;
+  height: 138px;
+  
+  overflow: scroll;
+}
+
+
+.box-auto {
+  border: 2px solid tomato;
+  width: 240px;
+  height: 100px;
+  
+  overflow: auto;
+}
+
+.thumb-hidden {
+  border: 10px solid green;
+  border-radius: 50px;
+  width: 480px;
+
+  overflow: hidden;
+}
+
+
+/* === overlay === */
+
+.box-overlay {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  /* margin: 0 auto; */
+  background-color: #bdbdbd;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3f51b5;
+
+  /* transform: translatey(100%); */
+  /* transform: translatey(100%); */
+  /* transform: translateY(100%); */
+  transform: translateX(100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.box-overlay:hover .overlay {
+  /* transform: translatey(0); */
+  /* transform: translateY(0); */
+  transform: translateX(0);
+}
+
+.overlay p {
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.overlay code {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #2a2a2a;
+}
