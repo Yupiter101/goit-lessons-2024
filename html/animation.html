@@ -229,8 +229,16 @@
                         <div class="box-overlay">
                             <div class="overlay">
                                 <p>
-                                    This content is hidden through transformation and only appears when hovering over 
-                                    <code>div.box</code>
+                                    overlay 
+                                    <code>
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        transform: translateX(100%);
+                                        transition: transform 250ms ease-in-out;
+                                    </code>
                                 </p>
                             </div>
                         </div>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="../js-page.html">Back to main JS page</a>
+            <nav>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <div class="container">
+                <h1>Java Script Базові поняття</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Перелік методів</li>
+                    <li>Клас Math</li>
+                    <li>Числа</li>
+                    <li>Строки</li>
+                    <li>Логічні оператори</li>
+                    <li>Тернарний оператор</li>
+                    <li>Інше</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h3>Перелік методів</h3>
+                <ul>
+                    <li><code>Number(value)</code></li>
+                    <li><code>typeof Number(valueA)</code></li>
+                    <li><code>Number.parseInt()</code></li>
+                    <li><code>Number.parseFloat()</code></li>
+                    <li><code>Number.isNaN(val); // true false</code></li>
+                    <li><code>(0.17 + 0.24); // 0.41000000000000003</code></li>
+                    <li><code>((0.17 * 100 + 0.24 * 100) / 100); // 0.41</code></li>
+                    <li><code>((0.17 + 0.24).toFixed(2)); // 0.41</code></li>
+                    <li><code>console.log(message.length); // 19</code></li>
+                    <li><code>message.toLowerCase()</code></li>
+                    <li><code>message.toUpperCase()</code></li>
+                    <li><code>message.indexOf("t"); // 8</code></li>
+                    <li><code>productName.includes("н"); // true</code></li>
+                    <li><code>jsFileName.endsWith(".js"); // true</code> "script.js"</li>
+                    <li><code>jsFileName.replace(".js", ".min.js");</code></li>
+                    <li><code>cssFileNames.replaceAll(".css", ".min.css");</code></li>
+                    <li><code>productName.slice(0, 4); // "Repa"</code>Repair </li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+
+                    
+                </ul>
+
+                <h3>Клас Math</h3>
+                <ul>
+                    <li><code>console.log(Math.floor(1.7)); // 1</code></li>
+                    <li><code>console.log(Math.ceil(1.2)); // 2</code></li>
+                    <li><code>console.log(Math.round(1.2)); // 1</code></li>
+                    <li><code>console.log(Math.round(1.5)); // 2</code></li>
+                    <li><code>console.log(Math.max(20, 10, 50, 40)); // 50</code></li>
+                    <li><code>console.log(Math.min(20, 10, 50, 40)); // 10</code></li>
+                    <li><code>console.log(Math.pow(2, 4)); // 16</code></li>
+                    <li><code>Math.random()</code> випадкове число між 0 і 1</li>
+                    <li><code>Math.random() * (10 - 1) + 1</code> від 1 до 10</li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+
+                </ul>
+
+                <h3>Числа</h3>
+                <ul>
+                    <li><code>const</code> - Константа</li>
+                    <li><code>let</code> - Змінна </li>
+                    <li><code>console.log(5 === "5"); // false</code></li>
+                    <li><code>Number("5"); // 5 or NaN</code> Приведення до числа</li>
+                    <li><code>console.log(typeof Number("5")); // "number"</code> тип данних</li>
+                    <li><code></code></li>
+                </ul>
+                <h4>Методи Number.parseInt() і Number.parseFloat()</h4>
+                <ul>
+                    <li><code>console.log(Number.parseInt("5px")); // 5</code></li>
+                    <li><code>console.log(Number.parseInt("12qwe74")); // 12</code></li>
+                    <li><code>console.log(Number.parseInt("12.46qwe79")); // 12</code></li>
+                    <li><code>console.log(Number.parseFloat("12qwe74")); // 12</code></li>
+                    <li><code>console.log(Number.parseFloat("12.46qwe79")); // 12.46</code></li>
+                    <li><code></code></li>
+                </ul>
+
+                <h3>Строки</h3>
+                <ul>
+                    <li><code>const message = "Mango " + "is" + " happy";</code> // Mango is happy</li>
+                    <li><code>console.log(1 + "2" + 4); // "124"</code> Конкатенація</li>
+                    <li><code>const greeting = `Welcome ${guestName},  number is ${roomNumber}!`;</code> Шаблонні рядки</li>
+                    <li><code>console.log(message.length); // 19</code></li>
+                    <li><code>message.toLowerCase()</code></li>
+                    <li><code>message.toUpperCase()</code></li>
+                    <li><code>const normalizedToUpperCaseInput = userInput.toUpperCase();</code></li>
+                    <li><code>console.log(message.indexOf("to")); // 8  (-1)</code></li>
+                    <li><code>console.log(productName.includes("н")); // true</code></li>
+                    <li><code>jsFileName.endsWith(".js"); // true</code> "script.js"</li>
+                    <li><code>const minifiedJsFileName = jsFileName.replace(".js", ".min.js");</code></li>
+                    <li><code>cssFileNames.replaceAll(".css", ".min.css");</code></li>
+                    <li><code>productName.slice(0, 4); // "Repa"</code>Repair </li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                    <li><code></code></li>
+                </ul>
+
+                <h3>Логічні оператори</h3>
+                <ul>
+                    <li>false =  0, NaN, null, undefined, порожній рядок і false</li>
+                    <li>логічне «І» зупиняється на хибному або останній операнд. і повертає те, на чому зупинилось,</li>
+                    <li><code>console.log(1 && 5); // true && true -> 5</code></li>
+                    <li><code>console.log(5 && 1); // true && true -> 1</code></li>
+                    <li><code>console.log(0 && 2); // false && true -> 0</code></li>
+                    <li><code>console.log(2 && 0); // true && false -> 0</code></li>
+                    <li><code>console.log("" && "Mango"); // false && true -> ""</code></li>
+                    <li><code>console.log("Mango" && ""); // true && false -> ""</code></li>
+                    <li>Оператор || приводить всі операнди до буля і повертає значення одного з них</li>
+                    <li><code>console.log(true || false); // true</code></li>
+                    <li><code>console.log(false || true); // true</code></li>
+                    <li><code>console.log(3 || false); // 3</code></li>
+                    <li><code>console.log(false || 3); // 3</code></li>
+                    <li>Логічне «НЕ» <code>console.log(!3); // !3 -> !true -> false</code> приводить операнд до буля</li>
+                </ul>
+
+                <h3>Тернарний оператор</h3>
+                <p><code>const type = age >= 18 ? "adult" : "child";</code></p>
+           
+                <h4>Області видимості</h4>
+                <h4>Цикли</h4>
+                <p>Цикл <code>"for" і "continue;"</code> виконання тіла припиняється і управління передається до наступної ітерації.</p>
+
+
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <h3>footer</h3>
+            <address>
+                <p>address</p>
+            </address>
+        </div>
+    </footer>
+</body>
+</html>

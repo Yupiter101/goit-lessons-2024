@@ -1,4 +1,12 @@
 
+.body {
+  /* background-color: rgb(72, 92, 97); */
+  background-image: url("../img/bg-img-graph.avif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 .graf-bg-img {
     display: flex;
@@ -11,6 +19,7 @@
     border: 2px solid red;
     border-radius: 4px;
     background-image: url("../img/bg-img.JPG");
+    /* background-image: url("../img/bg-img-graph.avif"); */
 
     /* background-repeat: repeat-x; */
     /* background-repeat: repeat-y; */
