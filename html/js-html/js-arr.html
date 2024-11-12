@@ -40,8 +40,11 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li></li>
-                    <li></li>
+                    <li>Методи масиву назви</li>
+                    <li>Створення масиву</li>
+                    <li>Ітерація по масиву</li>
+                    <li>Оператори <code>break і continue</code> ​</li>
+                    <li>Методи масиву детально</li>
                  
                 </ol>
             </div>
@@ -49,12 +52,149 @@
 
         <section class="section-about">
             <div class="container">
-                <h3>Перелік методів</h3>
+                <h2>Методи масиву</h2>
                 <ul>
-                    <li><code>Number(value)</code></li>
-                    <li><code>typeof Number(valueA)</code></li>             
+                    <li><code>array.length</code></li>
+                    <li><code>for (const variable of iterable)</code></li>
+                    <li><code>array.split(""); // ["M", "a", "n", "g", "o"]</code> "Mango"</li>
+                    <li><code>array.join(" "); // "це цікаво"</code> "це", "цікаво"</li>
+                    <li><code>array.indexOf("Poly"); // 2</code></li>
+                    <li><code>array.includes("Poly"); // true</code></li>
+                    <li><code>array.push(3); // [1, 2, 3]</code></li>
+                    <li><code>array.pop(); // [1, 2]</code> 3 remove</li>
+                    <li><code>array.slice(1, 3); // ["Ajax", "Poly"]</code></li>
+                    <li><code>scores.splice(0, 3);</code></li>
+                    <li><code>const allClients = oldClients.concat(newClients);</code></li>         
                 </ul>
+            </div>
+        </section>
 
+        <section class="section-about">
+            <div class="container">
+                <h3>Створення масиву</h3>
+                <ul>
+                    <li><code>const clients = ["Mango", "Poly", "Ajax"];</code></li>
+                    <li><code>console.log(clients[0]); // Mango</code></li>
+                    <li><code>array.length</code></li> 
+                </ul>
+                <h3>Ітерація по масиву</h3>
+    <h4>for</h4>
+    <pre>
+        <code> for (let i = 0; i &lt; clients.length; i += 1) {
+        console.log(clients[i]);
+        }</code>
+    </pre>
+
+    <h4>for...of</h4>
+    <pre>
+        <code> 
+        const clients = ["Mango", "Ajax", "Poly"];
+        for (const client of clients) { // Але без доступу до лічильника
+            console.log(client);
+        }
+        </code>
+    </pre>
+
+    <h4>break</h4>
+    <pre>
+        <code> 
+        for (const client of clients) {
+            if (client === clientNameToFind) {
+                message = "Клієнт з таким ім'ям є в базі даних!";
+                break;
+            }
+        }
+        </code>
+    </pre>
+
+    <h4>continue</h4>
+    <pre>
+        <code> 
+        for (let i = 0; i &lt; numbers.length; i += 1) {
+            if (numbers[i] &lt; threshold) {
+                continue;
+            }
+            console.log(`Число більше за ${threshold}: ${numbers[i]}`);
+        }
+        </code>
+    </pre>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Методи масиву детально</h2>
+                <ul>
+                    <li><code>name.split(""); // ["M", "a", "n", "g", "o"]</code> "Mango"</li>
+                    <li><code>message.split(" "); // ["це", "цікаво"]</code>"це цікаво"</li>
+                    <li><code>words.join(" "); // "це цікаво"</code> "це", "цікаво"</li>
+                    <li><code>words.join(""); // "цецікаво"</code> "це", "цікаво"</li>
+                    <li><code>const clients = ["Mango", "Ajax", "Poly", "Kiwi"];</code></li>
+                    <li><code>console.log(clients.indexOf("Poly")); // 2</code></li>
+                    <li><code>console.log(clients.indexOf("Monkong")); // -1</code></li>
+                    <li><code>console.log(clients.includes("Poly")); // true</code></li>
+                    <li><code>array.push(3); // [1, 2, 3]</code>додає на кінці масиву</li>
+                    <li><code>array.pop(); // [1, 2]</code> 3 remove</li>
+                    <li>
+                        <h4>slice(begin, end) - повертає копію частини вихідного масиву</h4>
+                        <ul>
+                            <li><code>const clients = ["Mango", "Ajax", "Poly", "Kiwi"];</code></li>
+                            <li><code>console.log(clients.slice(1, 3)); // ["Ajax", "Poly"]</code></li>
+                            <li>Якщо begin і end не зазначені, буде створена повна копія вихідного масиву</li>
+                            <li>Якщо не зазначено end, копіювання буде зі start і до кінця вихідного масиву</li>
+                            <li>Якщо значення start від'ємне, а end не зазначено - будуть скопійовані останні start елементи</li>
+                            <li><code>const clients = ["Mango", "Ajax", "Poly", "Kiwi"];</code></li>
+                            <li><code>console.log(clients.slice(-2)); // ["Poly", "Kiwi"]</code></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <h4>splice(pos, num) - </h4>
+                        <ul>
+                            <li> змінює вихідний масив і повертає масив, що містить видалені елементи.</li>
+                            <li><code>const scores = [1, 2, 3, 4, 5];</code></li>
+                            <li><code>const deletedScores = scores.splice(0, 3);</code></li>
+                            <li><code>console.log(scores); // [4, 5]</code></li>
+                            <li><code>console.log(deletedScores); // [1, 2, 3]</code></li>
+                            <li><h4>splice Додавання</h4></li>
+                            <li><code>splice(position, 0, new_element_1, new_element_2, ...)</code></li>
+                            <li>position вказує початкову позицію в масиві, куди будуть вставлені нові елементи.</li>
+                            <li>нуль, він говорить методу не видаляти елементи в місці додавання нових.</li>
+                            <li>Третій, четвертий і всі наступні аргументи - це нові елементи, які додаються в масив.</li>
+                            <li><code>const colors = ["red", "green", "blue"];</code></li>
+                            <li><code>colors.splice(2, 0, "purple");</code></li>
+                            <li><code>console.log(colors); // ["red", "green", "purple", "blue"]</code></li>
+                            <li><h4>splice Заміна - видаляються елементи в місці додавання нових</h4></li>
+                            <li><code>splice(position, num, new_element_1, new_element_2, ...)</code></li>
+                            <li>position - вказує на позицію (індекс) першого елемента для видалення</li>
+                            <li>num - визначає кількість елементів, що видаляються</li>
+                            <li>Третій, четвертий і всі наступні аргументи - це нові елементи, які додаються в масив.</li>
+                            <li>
+                                <pre>
+                                    <code>
+    const languages = ["C", "C++", "Java", "JavaScript"];
+    languages.splice(1, 1, "Python");
+    console.log(languages); // ["C", "Python", "Java", "JavaScript"]
+    languages.splice(2, 1, "C#", "Swift", "Go");
+    console.log(languages); // ["C", "Python", "C#", "Swift", "Go", "JavaScript"]
+                                    </code>
+                                </pre>
+                            </li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h4>concat() - Об'єднує два або більше масивів в один. повертає новий</h4>
+                        <ul>
+                            <li><code>const oldClients = ["Mango", "Ajax", "Poly", "Kiwi"];</code></li>
+                            <li><code>const newClients = ["Monkong", "Singu"];</code></li>
+                            <li><code>const allClients = oldClients.concat(newClients);</code></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </section>
 
