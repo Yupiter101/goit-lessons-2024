@@ -225,8 +225,6 @@
 
 /* === CSS-переходи transition === */
 
-
-
 .container-transition {
   width: 800px;
   /* width: 100%; */
@@ -247,7 +245,8 @@
   
   transform: translatex(0);
   transition-property: transform;
-  transition-duration: 2000ms;
+  transition-duration: 1000ms;
+  transition-delay: 200ms;
 }
 
 .circle:not(:last-child) {
@@ -290,3 +289,76 @@
   transform: translatex(calc(800px - 110px - 20px)); 
   
 }
+
+/* === transition-2 === */
+
+.container-transition-2 {
+  width: 150px;
+  height: 150px;
+  background-color: yellowgreen;
+  transition: background-color 1000ms linear 200ms, transform 200ms linear;
+}
+
+.container-transition-2:hover {
+  background-color: red;
+  /* transform: scale(1.1); */
+  transform: rotate(90deg);
+}
+
+
+
+/* === анімації */
+
+.img-container-keyframe {
+  display: flex;
+  /* align-items: center; */
+  width: 1024px;
+  height: 300px;
+  border: 2px solid black;
+}
+
+.animation-box {
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: teal;
+}
+
+@keyframes animetionBgColor {
+  0% {
+    background-color: teal;
+  }
+  25% {
+    background-color: orange;
+  }
+  50% {
+    background-color: yellow;
+  }
+  75% {
+    background-color: greenyellow;
+  }
+  100% {
+    background-color: rgb(48, 55, 119);
+  }
+}
+
+.animation-box.hov:hover {
+  animation-name: animetionBgColor;
+  animation-duration: 3000ms;
+}
+
+.animation-box.cons {
+  /* animation-name: animetionBgColor;
+  animation-duration: 3000ms;
+  animation-timing-function: linear;
+  animation-delay: 1000ms;
+  animation-iteration-count: 5; */
+      /* animation-iteration-count: infinite; */
+      /* animation-direction: alternate; */
+  /* animation-fill-mode: forwards; */
+      /* animation-play-state: paused; */
+  animation: animetionBgColor 3000ms linear 1000ms 5 forwards;
+}
+

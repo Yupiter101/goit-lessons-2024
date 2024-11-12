@@ -47,15 +47,16 @@
                     <li>Властивість overflow</li>
                     <li>Заокруглене зображення</li>
                     <li>Декоративний оверлей</li>
-                    <li>CSS-переходи</li>
-                    <li></li>
+                    <li>CSS-переходи -transition-</li>
+                    <li>Анімовані властивості - opacity і transform</li>
+                    <li>Перспектива</li>
                 </ol>
             </div>
         </section>
 
         <section class="section-about">
             <div class="container">
-                <h3>Позиційовані елементи</h3>
+                <h2>Позиційовані елементи</h2>
                 <figure>
                     <!-- Довільний графічний контент: фотографія, графік, діаграма тощо -->
                     <img src="../img/relativ.JPG" alt="position"/>
@@ -140,7 +141,7 @@
                     </li>
                 </ul>
 
-                <h3>Властивість z-index</h3>
+                <h2>Властивість z-index</h2>
                 
                 <figure>
                     <img src="../img/z-index.JPG" alt="z-index"/>
@@ -158,9 +159,13 @@
                     <div class="z-box">2</div>
                     <div class="z-box">3</div>
                     <div class="z-box">4</div>
-                </div>
+                </div>    
+            </div>
+        </section>
 
-                <h3>Властивість overflow</h3>
+        <section class="section-about">
+            <div class="container">
+                <h2>Властивість overflow</h2>
                 <p>
                     Але що буде, якщо висота або ширина вказані явно? Тоді блок не може збільшитися, 
                     і вміст його переповнює - виходить за межі. Властивість overflow управляє тим, як 
@@ -243,8 +248,14 @@
                             </div>
                         </div>
                     </li>
-                </ul>
+                </ul> 
+            </div>
+        </section>
 
+
+
+        <section class="section-about">
+            <div class="container">
                 <h2>CSS-переходи</h2>
                 <ul>
                     <li><code>transition-property: <b>all</b> | background-color | transform | ...</code></li>
@@ -252,6 +263,9 @@
                     <li><code>transition-timing-function: linear | <b>ease</b> | ease-in | ease-out| ease-in-out</code></li>
                     <li><code>transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08);</code></li>
                     <li><code>transition-delay: <b>0s</b> | 500ms</code> затримка </li>
+                    <li>або просто transition</li>
+                    <li><code>transition: [property] [duration] [timing-function] [delay]</code></li>
+                    <li><code>transition: background-color 500ms linear, transform 500ms ease-in-out;</code></li>
                     <li>    
                         <h4>Приклад transition</h4>
                         <div class="container-transition">
@@ -262,8 +276,163 @@
                             <div class="circle">ease-in-out</div>
                             <div class="circle">cubic-bezier</div>
                         </div>
+                        <ul>
+                            <li>Code:</li>
+                            <li><code>transform: translatex(0);</code></li>
+                            <li><code>transition-property: transform;</code></li>
+                            <li><code>transition-duration: 1000ms;</code></li>
+                            <li><code>transition-delay: 200ms;</code></li>
+                            <li><code>:hover .circle</code></li>
+                            <li><code>transform: translatex(calc(800px - 110px - 20px));</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Приклад-2 transition</h4>
+                        <div class="container-transition-2">
+                            <p>rotate(90deg)</p>
+                        </div>
+                        <ul>
+                            <li>Code:</li>
+                            <li><code>background-color: yellowgreen;</code></li>
+                            <li><code>transition: background-color 1000ms linear 200ms, transform 200ms linear;</code></li>
+                            <li>container-transition-2:hover</li>
+                            <li><code>background-color: red;</code></li>
+                            <li><code>transform: rotate(90deg);</code></li>
+                        </ul>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Анімації - opacity і transform</h2>
+                <ul>
+                    <li>
+                        Як і переходи, анімація надає веб-сторінкам динамічність, але, на відміну від переходів, анімації не потрібен обов'язковий 
+                        ініціатор (подія), її можна повторити нескінченну кількість разів, і між початковим і кінцевим станами може бути будь-яка 
+                        кількість проміжних станів.
+                    </li>
+                    <li>
+                        Анімація оголошується директивою <code>@keyframes</code>, яка дозволяє описати набір кадрів (frames, станів) анімації, яких повинно бути 
+                        як мінімум два (початковий і кінцевий).
+                    </li>
+                    <li>
+                        В анімації не вказується час або елемент, до якого вона буде застосовуватися, це означає, що одну і ту саму анімацію можна використовувати 
+                        повторно для різних елементів.
+                    </li>
+                </ul>
+
+                <h3>Властивості анімації</h3>
+                <ul>
+                    <li><code>.box {
+                        animation-name: changeBgColor;
+                      }</code></li>
+
+                    <li><code>.box:hover {
+                        animation-name: changeBgColor;
+                      }</code></li>
+
+                    <li><code>animation-name: animetionBgColor;</code></li>
+                    <li><code>animation-duration: 3000ms;</code></li>
+                    <li><code>animation-timing-function: linear;</code></li>
+                    <li><code>animation-delay: 1000ms;</code></li>
+                    <li><code>animation-iteration-count: 5;</code> - кількість повних повторень анімації.</li>
+                    <li><code>animation-iteration-count: infinite;</code> - це зробить анімацію нескінченною.</li>
+                    <li><code>animation-direction: normal | reverse | alternate | alternate-reverse;</code>
+                        <ul>
+                            <li>normal - анімація відтворюється від початкового до кінцевого кадру, після чого відразу повертається у початковий кадр для 
+                                наступного повторення (скидається до початкового стану). Це значення за замовчуванням
+                            </li>
+                            <li>
+                                reverse - анімація відтворюється у зворотному напрямку, починаючи від кінцевого кадру і до початкового, після чого відразу 
+                                повертається у кінцевий кадр для наступного повторення.
+                            </li>
+                            <li>
+                                alternate - перший раз відтворення починається від початкового і до кінцевого кадру, після чого відбувається зміна напрямку 
+                                на кожному наступному повторенні.
+                            </li>
+                            <li>
+                                alternate-reverse - перший раз відтворення починається від кінцевого і до початкового кадру, після чого відбувається зміна 
+                                напрямку на кожному наступному повторенні.
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+
+                    <li><code>animation-fill-mode: none | forwards | backwards | both</code>
+                        <ul>
+                            <li>
+                                none - стилі анімації впливають на елемент тільки під час анімації. До і після анімації елемент знаходиться у своєму початковому 
+                                стані. Значення за замовчуванням.
+                            </li>
+                            <li>
+                                forwards - стилі, застосовані в кінці анімації, залишаються на елементі після її завершення
+                            </li>
+                            <li>
+                                backwards - стартові стилі анімації будуть застосовані до елемента ще до старту анімації.
+                            </li>
+                            <li>
+                                both - поєднує forwards і backwards, стилі застосовуються до і після анімації
+                            </li>
+                            <li></li>
+                        </ul>
+                    </li>
+
+                    <li><code>animation-play-state: <b>running</b> | paused</code>Можна зупинити анімацію</li>
+                    <li>
+                        <code>
+                            animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state]
+                        </code>
+                    </li>
+                    <li>
+                        За замовчуванням анімація відбувається один раз і фінальні значення анімованих властивостей не зберігаються, натомість елемент повертається 
+                        до свого вихідного стану.
+                    </li>
+                    <li>
+                        <h4>@keyframes</h4>
+                        <div class="img-container-keyframe">
+                            <img src="../img/keyframes.jpg" alt="keyframes">
+                            <img src="../img/keyframes-rot.jpg" alt="keyframes">
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="animation-box hov">hover</div>
+                        <ul>
+                            <li>Code:</li>
+                            <li><code>animation-name: animetionBgColor;</code></li>
+                            <li><code>animation-duration: 3000ms;</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="animation-box cons">only start</div>
+                    </li>
+                    <ul>
+                        <li>Code:</li>
+                        <li><code>animation-name: animetionBgColor;</code></li>
+                        <li><code>animation-duration: 3000ms;</code></li>
+                        <li><code>animation-timing-function: linear;</code></li>
+                        <li><code>animation-delay: 1000ms;</code></li>
+                        <li><code>animation-iteration-count: 5;</code></li>
+                        <li>Або <code>animation-iteration-count: infinite;</code></li>
+                    </ul>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Перспектива</h2>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+
             </div>
         </section>
 
