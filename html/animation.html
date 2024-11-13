@@ -457,6 +457,7 @@
                     і положення елемента, не впливаючи на інші елементи сторінки. За замовчуванням трансформація відбувається щодо центру елемента, але це можна
                      змінити.
                 </p>
+
                 <h3>Властивість transform</h3>
                 <p>transform: none | тип трансформації тип трансформації ...</p>
                 <ul>
@@ -464,25 +465,54 @@
                     <li>не впливаючи на геометрію елементів. Якщо для scale() вказано одне значення, друге буде таке саме.</li>
                     <li>transform: rotate(45deg);</li>
                     <li>transform: translate(100px, 200px);</li>
-                    <li>
-                        Центрування елемента
-                        <div class="parent-box">
-                            <div class="center-box"></div>
-                        </div>
-                    </li>
+                </ul>
+
+                <h3>Викривлення</h3>
+                <p>
+                    Функції skewX(кут), skewY(кут) і skew(x-кут, y-кут) використовуються для викривлення (нахилу, деформування) сторін елемента щодо координатних 
+                    осей. Якщо для skew() вказане тільки одне значення, друге дорівнюватиме 0, тобто це буде аналог skewX().
+                </p>
+                <div class="box-scew">skewY(30deg)</div>
+                <ul>
+                    <li><code>transform: skewY(30deg);</code></li>
+                    <li><code>animation: animateY30 3000ms infinite 1000ms;</code></li>
+                </ul>
+
+                <h3>Центрування елемента</h3>
+                <div class="parent-box">
+                    <div class="center-box"></div>
+                </div>
+                <ul>
                     <li><code>position: absolute;</code></li>
                     <li><code>top: 50%;</code></li>
                     <li><code>left: 50%;</code></li>
                     <li><code>transform: translate(-50%, -50%);</code></li>
-                    <li><code></code></li>
                 </ul>
+
+                <h3>Точка трансформації</h3>
+                <div class="container-origin">
+                    <div class="box-origin">center left</div>
+                    <div class="box-origin">center center</div>
+                    <div class="box-origin">top left</div>
+                </div>
+
+                <ul>
+                    <li><code>.box-origin::before{}</code></li>
+                    <li><code>animation: rotateWithOrigin 3000ms linear 1000ms infinite;</code></li>
+                    <li><code>transform-origin: center left;</code></li>
+                    <li><code>.box-origin::after {}</code></li>
+                    <li><code>top: top;</code></li>
+                    <li><code>left: calc(16px / -2);</code></li>
+                </ul>
+
                 <h3>Перелік методів transform:</h3>
                 <ul>
                     <li><code>transform: <a href="https://codepen.io/goit-academy/pen/RwrBQwP" target="_blank">scale</a>(1.15);</code></li>
                     <li><code>transform: <a href="https://codepen.io/goit-academy/pen/BajPxRa" target="_blank">rotate</a>(45deg);</code></li>
-                    <li><code>transform: <a href="https://codepen.io/goit-academy/pen/OJMwzYX" target="_blank">translate</a> (100px, 200px);</code></li>
+                    <li><code>transform: <a href="https://codepen.io/goit-academy/pen/OJMwzYX" target="_blank">translate</a> (100px, 200px);</code> Зміщення</li>
                     <li><code>transform: <a href="https://codepen.io/goit-academy/pen/KKVBByO" target="_blank">translate</a>(-50%, -50%);</code> Центрування</li>
-                    <li><code></code></li>
+                    <li><code>transform: <a href="https://codepen.io/goit-academy/pen/oNbMqgY" target="_blank">skew</a> (30deg);</code> Викривлення</li>
+                    <li><code>transform-origin: <a href="https://codepen.io/goit-academy/pen/qBbyxmW" target="_blank">center або 50% 50%</a> (30deg);</code> Точка трансформації</li>
                 </ul>
             </div>
         </section>
