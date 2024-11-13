@@ -427,12 +427,63 @@
         <section class="section-about">
             <div class="container">
                 <h2>Перспектива</h2>
+                <!-- perspective -->
+                <div class="perspective-wrap">
+                    <div class="scene">
+                      <div class="box-per rotate-x"></div>
+                    </div>
+                  
+                    <div class="scene">
+                      <div class="box-per rotate-y"></div>
+                    </div>
+                </div>
+
+                <ul>
+                    <li><code>transform: perspective(400px) rotateX(0deg);</code></li>
+                    <li><code>transform: perspective(400px) rotateX(60deg);</code></li>
+                    <li><code>transform: perspective(400px) rotateY(0deg);</code></li>
+                    <li><code>transform: perspective(400px) rotateY(60deg);</code></li>
+                    <li></li>
+                </ul>
+                <h4>Властивість <a href="https://codepen.io/goit-academy/pen/NWxZNyY" target="_blank">perspective</a></h4>
             </div>
         </section>
 
         <section class="section-about">
             <div class="container">
-
+                <h2>2D-трансформації</h2>
+                <p>
+                    CSS-трансформації дозволяють зсувати, змінювати масштаб і повертати елементи, тобто додавати декоративні ефекти. Трансформації змінюють форму 
+                    і положення елемента, не впливаючи на інші елементи сторінки. За замовчуванням трансформація відбувається щодо центру елемента, але це можна
+                     змінити.
+                </p>
+                <h3>Властивість transform</h3>
+                <p>transform: none | тип трансформації тип трансформації ...</p>
+                <ul>
+                    <li><code>transform: scaleX(tx), scaleY(ty) і scale(tx, ty)</code></li>
+                    <li>не впливаючи на геометрію елементів. Якщо для scale() вказано одне значення, друге буде таке саме.</li>
+                    <li>transform: rotate(45deg);</li>
+                    <li>transform: translate(100px, 200px);</li>
+                    <li>
+                        Центрування елемента
+                        <div class="parent-box">
+                            <div class="center-box"></div>
+                        </div>
+                    </li>
+                    <li><code>position: absolute;</code></li>
+                    <li><code>top: 50%;</code></li>
+                    <li><code>left: 50%;</code></li>
+                    <li><code>transform: translate(-50%, -50%);</code></li>
+                    <li><code></code></li>
+                </ul>
+                <h3>Перелік методів transform:</h3>
+                <ul>
+                    <li><code>transform: <a href="https://codepen.io/goit-academy/pen/RwrBQwP" target="_blank">scale</a>(1.15);</code></li>
+                    <li><code>transform: <a href="https://codepen.io/goit-academy/pen/BajPxRa" target="_blank">rotate</a>(45deg);</code></li>
+                    <li><code>transform: <a href="https://codepen.io/goit-academy/pen/OJMwzYX" target="_blank">translate</a> (100px, 200px);</code></li>
+                    <li><code>transform: <a href="https://codepen.io/goit-academy/pen/KKVBByO" target="_blank">translate</a>(-50%, -50%);</code> Центрування</li>
+                    <li><code></code></li>
+                </ul>
             </div>
         </section>
 

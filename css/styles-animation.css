@@ -362,3 +362,93 @@
   animation: animetionBgColor 3000ms linear 1000ms 5 forwards;
 }
 
+
+/* === perspective */
+
+.perspective-wrap {
+  display: flex;
+}
+
+.scene {
+  height: 200px;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.box-per {
+  height: 100%;
+  border-radius: 4px;
+  color: white;
+  font-size: 20px;
+  /*   transition: transform 0.5s ease-in-out; */
+}
+
+.rotate-x {
+  /*   transform: perspective(400px) rotateX(45deg); */
+  animation: rotateX 1500ms infinite alternate ease-in-out 1000ms;
+  background-color: tomato;
+}
+
+.rotate-y {
+  /*   transform: perspective(400px) rotateY(45deg); */
+  animation: rotateY 1500ms infinite alternate ease-in-out 1000ms;
+  background-color: blue;
+}
+
+/* Лише другому .scene */
+.scene + .scene {
+  margin-left: 50px;
+}
+
+ /* Для усіх .scene */
+/* .scene {
+  margin-left: 50px;
+} */
+
+
+@keyframes rotateX {
+  0% {
+    transform: perspective(400px) rotateX(0deg);
+  }
+
+  100% {
+    transform: perspective(400px) rotateX(60deg);
+  }
+}
+
+@keyframes rotateY {
+  0% {
+    transform: perspective(400px) rotateY(0deg);
+  }
+
+  100% {
+    transform: perspective(400px) rotateY(60deg);
+  }
+}
+
+
+/* === Центрування елемента */
+
+.parent-box {
+  position: relative;
+  max-width: 500px;
+  height: 200px;
+  border: 6px solid #303f9f;
+  border-radius: 10px;
+  background-color: #3f51b5;
+}
+
+.center-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100px;
+  height: 100px;
+  border: 6px solid #ffa000;
+  border-radius: 10px;
+  background-color: #ffc107;
+}

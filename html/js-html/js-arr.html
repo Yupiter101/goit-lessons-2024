@@ -85,31 +85,20 @@
         }</code>
     </pre>
 
-    <h4>for...of</h4>
+    <h4>for...of break | continue</h4>
     <pre>
         <code> 
         const clients = ["Mango", "Ajax", "Poly"];
         for (const client of clients) { // Але без доступу до лічильника
             console.log(client);
         }
-        </code>
-    </pre>
 
-    <h4>break</h4>
-    <pre>
-        <code> 
         for (const client of clients) {
             if (client === clientNameToFind) {
                 message = "Клієнт з таким ім'ям є в базі даних!";
                 break;
             }
         }
-        </code>
-    </pre>
-
-    <h4>continue</h4>
-    <pre>
-        <code> 
         for (let i = 0; i &lt; numbers.length; i += 1) {
             if (numbers[i] &lt; threshold) {
                 continue;
