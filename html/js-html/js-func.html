@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="../js-page.html">Back to main JS page</a>
+            <nav>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <div class="container">
+                <h1>JS Функції</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Оголошення функції</li>
+                    <li>Параметри за замовчуванням</li>
+                    <li>Псевдомасив arguments</li>
+                    <li>Перетворення псевдомасиву (args[])</li>
+                    <li>Функціональний вираз</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+              
+                </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                
+                <ul>
+                    <li>
+                        <h4>Оголошення функції</h4>
+                        <p>
+                            Починається з ключового слова function, після якого стоїть ім'я - дієслово, 
+                                що відповідає на запитання «Що зробити?»            
+                        </p>
+                        <code> function multiply() { code }</code>
+                    </li>
+                    <li>
+                        <p>
+                            Порядок передачі аргументів повинен відповідати порядку оголошених параметрів: значення першого аргументу 
+                            буде присвоєно першому параметру, другого аргументу - другому параметру тощо. Якщо параметрів буде більше, 
+                            ніж аргументів, то параметрам без значень буде присвоєно undefined
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Оператор return без явно вказаного значення повертає спеціальне значення undefined. За відсутності return 
+                            в тілі функції, вона все одно поверне undefined
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Параметри за замовчуванням</h4>
+                        <code>function count(countFrom = 0, countTo = 10, step = 1)</code>
+                    </li>
+                    <li>
+                        <h4>Псевдомасив arguments​</h4>
+                        <p>
+                            Псевдомасив - колекція з властивістю length і можливістю звернутися до елементу за індексом, 
+                            але відсутністю більшості методів для роботи з масивом
+                        </p>
+                        <pre>
+                            function multiply() {
+                                let total = 1;
+                                for (const argument of arguments) {
+                                  total *= argument;
+                                }
+                                return total;
+                              }
+                              console.log(multiply(1, 2, 3)); //  6
+                              console.log(multiply(1, 2, 3, 4)); //  24
+                              console.log(multiply(1, 2, 3, 4, 5)); //  120
+                        </pre>
+                    </li>
+                    <li>
+                        <h4>Перетворення псевдомасиву (args[])</h4>
+                        <p>
+                            Зазвичай псевдомасив необхідно перетворити у повноцінний масив Використовуючи метод Array.from()
+                        </p>
+                        <pre>
+                            function fn() {
+                                // Змінна args буде містити повноцінний масив
+                                const args = Array.from(arguments);
+                            }
+                        </pre>
+                    </li>
+                    <li>
+                        <p>
+                            Використовуючи операцію ... (rest), вона дозволяє зібрати будь-яку кількість елементів, 
+                            у нашому випадку аргументів, в масив, і зберегти його в змінну.
+                        </p>
+                        <pre>
+                            function fn(...args) {
+                                // Змінна args буде містити повноцінний масив
+                            }
+                        </pre>
+                    </li>
+                    <li>
+                        <h4>Функціональний вираз</h4>
+                        <p>
+                            Функціональний вираз (function expression) - звичайне оголошення змінної, значенням якої буде функція. 
+                            Альтернативний спосіб оголошення функції.
+                        </p>
+                        <pre>
+                            const multiply = function (x, y, z) {
+                                console.log(`Результат множення дорівнює ${x * y * z}`);
+                            };
+                        </pre>
+                        <p>
+                            Різниця в тому, що функціональний вираз не можна викликати до місця його створення,
+                            A оголошення функції можна викликати до місця її створення в коді.
+                        </p>
+                    </li>
+                </ul>
+
+                <h3>Область видимості  (пусто)</h3>
+                <h3>Стек викликів (пусто)</h3>
+                <h3>Переповнення стека викликів (пусто)</h3>
+                
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <h3>footer</h3>
+            <address>
+            </address>
+        </div>
+    </footer>
+</body>
+</html>

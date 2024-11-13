@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="../js-page.html">Back to main JS page</a>
+            <nav>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <div class="container">
+                <h1>JS Обєкти</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Створення об'єкта</li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                
+                <ul>
+                    <li>
+                        <h4>Створення об'єкта</h4>
+                        <pre>
+                            const book = {
+                                title: "The Last Kingdom",
+                                author: "Bernard Cornwell",
+                                genres: ["historical prose", "adventure"],
+                                isPublic: true,
+                                rating: 8.38,
+                              };
+                        </pre>
+                        <p>
+                            Під час створення об'єкта можна додати властивості, кожна з яких описується парами ключ:значення.
+                            Властивості розділяються комою. Синтаксис «через крапку» використовується у більшості випадків і 
+                            доречний тоді, коли ми заздалегідь знаємо ім'я (ключ) властивості, до якої хочемо отримати доступ.
+                            Якщо об'єкт не містить властивості з таким ім'ям, на місці звернення повернеться undefined.      
+                        </p>
+                        <pre>
+                            const bookTitle = book.title; // 'The Last Kingdom'
+                            const bookAuthor = book.author; // 'Bernard Cornwell'
+                        </pre>
+                    </li>
+
+                    <li>
+                        <p>
+                            Другий спосіб отримати доступ до властивості об'єкта - це синтаксис об'єкт["ім'я властивості"].
+                            в дужках вказується не індекс елемента, а ім'я властивості у вигляді рядка.
+                            використовується, у разі, коли ім'я властивості заздалегідь невідоме або зберігається у змінній
+                            <pre>
+                                const bookTitle = book["title"];  // 'The Last Kingdom'
+                                const bookGenres = book["genres"]; // ['historical prose', 'adventurs']
+                            </pre>
+                        </p>
+                    </li>
+
+                    <li>
+                        <h4>Зміна значення властивості</h4>
+                        <pre>
+                            book.rating = 9;
+                            book.isPublic = false;
+                            book.genres.push("драма");
+                        </pre>
+                    </li>
+
+                    <li>
+                        <h4>Додавання властивостей</h4>
+                        <p>
+                            Якщо під час запису значення за ім'ям, така властивість в об'єкті відсутня, вона буде створена.
+                        </p>
+                        <pre>
+                            book.translations = ["ua", "ru"];
+                            console.log(book.translations); // ['ua', 'ru']
+                        </pre>
+                    </li>
+
+                    <li>
+                        <h4>Короткі властивості</h4>
+                        <pre>
+                            const user = {
+                                name: name,
+                                age: age,
+                            };
+
+                            const user = {
+                                name,
+                                age,
+                            };
+                        </pre>
+                    </li>
+
+                    <li>
+                        <h4>Обчислювальні властивості</h4>
+                        <p>
+                            Бувають ситуації, коли під час оголошення об'єкта необхідно додати властивість з ім'ям, 
+                            яке ми заздалегідь не знаємо
+                        </p>
+                        <pre>
+                            const propName = "name";
+                            const user = {
+                                age: 25,
+                            };
+                            user[propName] = "Генрі Сибола";
+                            або
+                            [propName]: "Генрі Сибола";
+                        </pre>
+                    </li>
+                </ul>      
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Методи об'єкта</h2>
+                <pre>
+                    const bookShelf = {
+                        books: ["The Last Kingdom", "Dream Guardian"],
+                        // Це метод об'єкта
+                        getBooks() {
+                          console.log("Цей метод буде повертати всі книги - властивість books");
+                        },
+                        // Це метод об'єкта
+                        addBook(bookName) {
+                          console.log("Цей метод буде додавати нову книгу у властивість books");
+                        },
+                      };
+                      
+                      // Виклики методів
+                      bookShelf.getBooks();
+                      bookShelf.addBook("Нова книга");
+                </pre>
+
+                <p>
+                    Для того, щоб отримати доступ до властивостей об'єкта в методах, ми звертаємось 
+                    до нього через this і далі, стандартно - «через крапку» до властивостей.
+                </p>
+                <pre>
+                    const bookShelf = {
+                        books: ["The Last Kingdom"],
+                        getBooks() {
+                          return this.books;
+                        },
+                        addBook(bookName) {
+                          this.books.push(bookName);
+                        },
+                        removeBook(bookName) {
+                          const bookIndex = this.books.indexOf(bookName);
+                          this.books.splice(bookIndex, 1);
+                        },
+                      };
+                      
+                      bookShelf.addBook("The Mist");
+                      bookShelf.addBook("Dream Guardian");
+                      bookShelf.removeBook("The Mist");
+                </pre>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Перебирання об'єкта</h2>
+                <ul>
+                    <li>
+                        <h3>Цикл for...in - перебирає ключі об'єкта​</h3>
+                        
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <h3>footer</h3>
+            <address>
+            </address>
+        </div>
+    </footer>
+</body>
+</html>
