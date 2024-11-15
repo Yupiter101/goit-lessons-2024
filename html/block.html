@@ -235,7 +235,11 @@
                     <li>Hello 8</li>
                     <li>Hello 9</li>
                 </ul>
-                <p><code>display: flex; justify-content: space-around; align-items: center;</code></p>
+                <pre>
+                    display: flex; 
+                    justify-content: space-around; 
+                    align-items: center;
+                </pre>
 
                 <h4>Flex Приклад 2</h4>
                 <ul class="flex-container-wrap">
@@ -249,7 +253,12 @@
                     <li>Hello 8</li>
                     <li>Hello 9</li>
                 </ul>
-                <p><code>display: flex; flex-wrap: wrap; gap: 10px;</code></p>
+               
+                <pre>
+                    display: flex; 
+                    flex-wrap: wrap; 
+                    gap: 10px;
+                </pre>
             </div>
 
 
@@ -284,15 +293,15 @@
                         <h4>Гумовий контент SideBar</h4>
                         <p>Приклад</p>
                         <div class="container-grow">
-                            <aside class="sidebar-grow">Sidebar <p>Фікс. 180px</p></aside>
-                            <main class="content-grow">Main content <p>Гумовий</p></main>
+                            <aside class="sidebar-grow">Sidebar <p>flex-basis: 180px;</p></aside>
+                            <main class="content-grow">Main content <p>Гумовий - flex-grow: 1;</p></main>
                         </div>
                     </li>
                     <li>
                         <h4>Footer завжди внизу</h4>
                         <p>Приклад</p>
                         <div class="card2-grow">
-                            <div class="content2-grow"><h3>Тут контент.</h3>Якщо контенту менше ніж може бути, контейнер не стягується. Він завжди рознянутий на весь екран. 
+                            <div class="content2-grow"><h3>Тут контент. <code>flex-grow: 1;</code> </h3>Якщо контенту менше ніж може бути, контейнер не стягується. Він завжди рознянутий на весь екран. 
                                 Nostrum reiciendis suscipit, culpa nam rem, libero delectus similique amet architecto qui deleniti expedita odio accusamus sint ratione
                                  nesciunt magni!</div>
                             <div class="footer-grow">«footer» Притиснутий до низу</div>

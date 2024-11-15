@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форми</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/styles-basic.css">
+    <link rel="stylesheet" href="../css/styles-form.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="../index.html">Back to main page</a>
+            <nav>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <div class="container">
+                <h1>Форми</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Форми</h2>
+                <div>
+                    <img src="../img/form.jpg" alt="form">
+                </div>
+                <h3>Елемент form</h3>
+                <ul>
+                    <li>
+                        <code>form/ name="signup_form" autocomplete="on" novalidate /form</code>
+                    </li>
+                    <li>
+                        В елемента form немає обов'язкових атрибутів, тому в прикладі наведені кілька корисних необов'язкових
+                    </li>
+                    <li>name - унікальне ім'я форми на поточній веб-сторінці. Використовується як на сервері, так і на клієнті під час роботи з формою</li>
+                    <li>autocomplete - визначає, чи може браузер автоматично заповнювати значення всіх елементів форми. Має всього два значення off і on</li>
+                    <li>novalidate - атрибут-прапорець, не має значення. Каже браузеру не перевіряти валідність введених даних під час відправлення форми</li>
+                    <li>По кліку на <code>button type="submit"</code> , вона «відправляється», що призводить до перезавантаження поточної сторінки</li>
+                </ul>
+                <h3>Елемент label</h3>
+                <ul>
+                    <li>Елемент label пов'язує опис (мітку) з інтерактивним елементом форми.</li>
+                    <li>
+                        Якщо елемент форми, наприклад поле введення, вкладається в label, зв'язок створюється браузером автоматично   
+                    </li>
+                    <li>Якщо елемент форми не вкладений в label, необхідно явно зв'язати їх за допомогою атрибута id елемента, що зв'язується, і атрибута for мітки.</li>
+                </ul>
+
+                <h3>Елемент input</h3>
+                <ul>
+                    <li>Універсальний елемент для створення різноманітних полів введення. Тип поля визначається атрибутом type, значення якого за замовчуванням text</li>
+                    <li><code>input type="text" name="username"</code></li>
+                    <li>Ім'я поля повинно бути унікальним всередині форми.</li>
+                    <li>
+                        <h4>Атрибут autofocus</h4>
+                        Поле введення, якому заданий цей атрибут, автоматично отримає фокус під час завантаження сторінки, і в ньому можна відразу набирати текст. 
+                        За замовчуванням атрибут не встановлений для жодного поля.
+                        Атрибут autofocus - логічний.
+                    </li>
+                    <li>
+                        <h4>Атрибут placeholder</h4>
+                        Дозволяє відображати текст-підказку про те, які дані необхідно ввести в поле, коли елемент input порожній
+                        <form>
+                            <label> Username
+                                <input type="text" name="username" placeholder="Yupiter">
+                            </label>
+                            <button type="submit">type="submit"</button>
+                        </form>
+                    </li>
+                </ul>
+
+            
+                <h3>Пошта і пароль</h3>
+
+                <ul>
+                    <li>
+                        <form>
+                            <label>Email
+                                <input type="email" name="email" 
+                                    placeholder="xxx@ukr.net">
+                            </label>
+                            <label>Password
+                                <input type="password" name="password" 
+                                    minlength="4" maxlength="6" placeholder="****">
+                            </label>
+                            <label>Phone number
+                                <input type="tel" name="phone" placeholder="067-548xxxx">
+                            </label>
+                            <button type="submit">submit</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section-about">
+            <div class="container">
+                
+                
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <h3>footer</h3>
+            <address>
+                <p>address</p>
+            </address>
+        </div>
+    </footer>
+</body>
+</html>
