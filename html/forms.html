@@ -96,7 +96,7 @@
                     <li>
                         <h4>Атрибут placeholder</h4>
                         Дозволяє відображати текст-підказку про те, які дані необхідно ввести в поле, коли елемент input порожній
-                        <form>
+                        <form class="myform">
                             <label> Username
                                 <input type="text" name="username" placeholder="Yupiter">
                             </label>
@@ -110,7 +110,8 @@
 
                 <ul>
                     <li>
-                        <form>
+                        <form class="myform">
+                            <p>form</p>
                             <label>Email
                                 <input type="email" name="email" 
                                     placeholder="xxx@ukr.net">
@@ -124,8 +125,172 @@
                             </label>
                             <button type="submit">submit</button>
                         </form>
+            
+                        <pre>
+        input type="email" name="email" placeholder="xxx@ukr.net"
+        input type="password" name="password" minlength="4" maxlength="6" placeholder="****"
+        input type="tel" name="phone" placeholder="067-548xxxx"
+                        </pre>
                     </li>
                 </ul>
+
+                <h3>Радіо-кнопки (перемикачі)</h3>
+                <ul>
+                    <li>Якщо задати атрибуту type значення radio - інпут перетвориться у перемикач</li>
+                    <li>Кожній радіо-кнопці в групі задається однакове значення атрибута name, інакше браузер не знатиме, що це група.</li>
+                    <li>
+                        <form class="myform">
+                            <p>Choose a color:</p>
+                            <label>Red
+                                <input type="radio" name="color" value="red">
+                            </label>
+                            <label>Blue
+                                <input type="radio" name="color" value="blue" checked>
+                            </label>
+                            <label>Green
+                                <input type="radio" name="color" value="green">
+                            </label>
+                        </form>
+                        <code>input type="radio" name="color" value="blue" checked</code>
+                    </li>
+                </ul>
+                <h3>Чекбокси (прапорці)</h3>
+                <ul>
+                    <li>Дозволяють вибирати довільну кількість значень</li>
+                    <li>
+                        <form class="myform">
+                            <p>Choose a color:</p>
+                            <label>Red
+                                <input type="checkbox" name="color" value="red">
+                            </label>
+                            <label>Blue
+                                <input type="checkbox" name="color" value="blue" checked>
+                            </label>
+                            <label>Green
+                                <input type="checkbox" name="color" value="green" checked>
+                            </label>
+                        </form>
+                        <code>input type="checkbox" name="color" value="blue" checked</code>
+                    </li>
+                </ul>
+
+                <h3>Числа</h3>
+                <ul>
+                    <li>Звичайні текстові поля приймають буквально все: цифри, літери, пробіли, розділові знаки тощо</li>
+                    <li>Для того, щоб дозволити вводити тільки числа,  використовується тип поля number</li>
+                    <li>
+                        <form class="myform">
+                            <label>Weight with 0.5 step value:
+                                <input type="number" name="weight" min="0" max="200" step="0.5" value="0">
+                            </label>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </li>
+                    <li><code>input type="number" name="weight" min="0" max="200" step="0.5" value="0"</code></li>
+                </ul>
+
+                <h3>Телефонні номери</h3>
+                <ul>
+                    <li>
+                        Зараз єдина користь від застосування поля типу tel полягає у відображенні віртуальної клавіатури для 
+                        введення телефонних номерів у мобільних браузерах, яка містить цифри, але не літери.
+                    </li>
+                </ul>
+
+                <h3>Повзунки</h3>
+                <ul>
+                    <li>Тип range використовується для створення повзунків з цілими і дробовими значеннями</li>
+                    <li>Атрибути min і max встановлюють діапазон значень, а step контролює крок</li>
+                    <li>
+                        <form class="myform">
+                            <label>
+                                Interest rate:
+                                <input
+                                  type="range"
+                                  name="rate"
+                                  value="40"
+                                  min="0"
+                                  max="100"
+                                  step="10"
+                                />
+                              </label>
+                        </form>
+                    </li>
+                    <li>Браузери не надають жодної візуальної зворотної інформації про встановлене значення. 
+                        Це робиться за допомогою JavaScript і додаткової розмітки.
+                    </li>
+                </ul>
+
+                <h3>Дата та час</h3>
+                <ul>
+                    <li>У браузерах є вбудований календар, в якому користувач може вибрати необхідну дату та/або час</li>
+                    <li> Атрибути min і max дозволяють встановити мінімальні і максимальні дати, за умови 
+                        використання правильного формату.
+                    </li>
+                    <li>
+                        <form class="myform">
+                            <label>
+                                Date
+                                <input type="date" />
+                              </label>
+                              
+                              <label>
+                                Time
+                                <input type="time" />
+                              </label>
+                              
+                              <label>
+                                Date and time
+                                <input type="datetime-local" />
+                              </label>
+                        </form>
+                    </li>
+                    <li>замість нативного календаря найчастіше використовують готові JavaScript-бібліотеки.</li>
+                </ul>
+
+                <h3>Елемент textarea</h3>
+                <ul>
+                    <li>Створює багаторядкове текстове поле для введення великої кількості тексту</li>
+                    <li>
+                        <form class="myform">
+                            <label>
+                              Username
+                              <input type="text" name="username" placeholder="Jack Meadows">
+                            </label>
+                            <label>
+                              Feedback
+                              <textarea name="feedback" rows="5" placeholder="Enter your message here..."></textarea>
+                            </label>
+                            <button type="submit">Submit</button>
+                          </form>
+                          <code>textarea name="feedback" rows="5" placeholder="Enter your message here..."//text area</code>
+                    </li>
+                    <li><p>За замовчуванням елемент text area можна розтягувати за горизонталлю і вертикаллю</p></li>
+                    <li>Для того щоб контролювати можливість зміни розміру користувачем, в CSS є властивість resize.</li>
+                    <li><code>resize: both | horizontal | vertical | none</code></li>
+                </ul>
+
+                <h3>Елемент select</h3>
+                <ul>
+                    <li>Випадне меню - це альтернатива радіо-кнопкам, оскільки за замовчуванням дозволяє вибрати один з багатьох варіантів</li>
+                    <li>Текст всередині елемента option відображається користувачеві, а значення атрибута value - це те, що буде використано 
+                        під час відправлення форми.</li>
+                    <li>
+                        <form class="myform">
+                            <select id="size" name="size">
+                                <option value="xs">Extra Small</option>
+                                <option value="s">Small</option>
+                                <option value="m" selected>Medium</option>
+                                <option value="l">Large</option>
+                            </select>
+                        </form>
+                        <div>
+                            <img src="../img/form-select.jpg" alt="select" width="400">
+                        </div>
+                    </li>
+                </ul>
+
+                <h3><a href="https://codepen.io/goit-academy/pen/BaLOJRy" target="_blank">Групування опцій</a></h3>
             </div>
         </section>
         
