@@ -52,7 +52,7 @@
   }
 
 
-.fixed-back {
+/* .fixed-back {
     display: inline-block;
     border: 1px solid green;
     text-decoration: none;
@@ -76,7 +76,7 @@
     top: 32px;
     left: 52px;
     box-shadow: none;
-}
+} */
 
 /* === z-index === */
 
