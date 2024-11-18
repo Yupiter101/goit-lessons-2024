@@ -31,8 +31,9 @@
 }
 /* ---end----hidden ----------- */
 
-/* -----button---- */
+/* -----button v1---- */
 button {
+
   margin-left: 4px;
   margin-right: 4px;
   font-size: 20px;
@@ -48,6 +49,32 @@ button {
 
 button:hover {
   transform: scale(1.03);
+}
+
+/* -----button v2---- */
+.btn-form {
+  display: inline-flex;
+  /* display: inline-block; */
+  /* display: inline; */
+  /* display: block; xxxxx*/
+  padding: 12px 24px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  background-color: cyan;
+  color: black;
+  cursor: pointer;
+}
+
+.btn-form:hover,
+.btn-form:focus {
+  background-color: orange;
+}
+
+.btn-form:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
 }
 /* -end-----button---- */
 
@@ -152,8 +179,8 @@ ul {
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
 
     position: fixed;
-    top: 30px;
-    left: 50px;
+    top: 20px;
+    left: 30px;
     padding: 6px 10px;
     z-index: 2;
 }
@@ -164,8 +191,8 @@ ul {
 }
 
 .fixed-back:active {
-    top: 32px;
-    left: 52px;
+    top: 22px;
+    left: 32px;
     box-shadow: none;
 }
 
@@ -207,13 +234,13 @@ ul {
   color: red;
 }
 
-a {
+.menu-link {
   text-decoration: none;
   color: black;
 }
 
 
-a:hover {
+.menu-link:hover {
   text-decoration: underline;
   font-weight: bold;
 }

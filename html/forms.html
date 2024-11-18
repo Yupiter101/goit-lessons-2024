@@ -291,6 +291,206 @@
                 </ul>
 
                 <h3><a href="https://codepen.io/goit-academy/pen/BaLOJRy" target="_blank">Групування опцій</a></h3>
+                
+                <h3>Елемент datalist</h3>
+                <ul>
+                    <li>Автозаповнення. Під час введення символів у текстове поле пошукова система пропонує різні варіанти автозаповнення</li>
+                    <li>Елемент datalist створює список попередньо встановлених значень, які можна вибирати під час набору в пов'язаному текстовому полі</li>
+                    <li>Цей список прихований і стає доступним під час отримання інпутом фокуса і набору тексту в ньому.</li>
+                    <li>
+                        Список, що створюється елементом datalist, зв'язується з текстовим полем за допомогою атрибута id. Його значення повинно збігатися зі значенням атрибута list тегу input.
+                    </li>
+                    <li>-</li>
+                    <li>
+                        <label for="fav">Choose your favourite browser</label>
+                        <input list="browsers" name="fav" id="fav" />
+                        <datalist id="browsers">
+                            <option>Edge</option>
+                            <option>Firefox</option>
+                            <option>Chrome</option>
+                            <option>Opera</option>
+                            <option>Safari</option>
+                        </datalist>
+                    </li>
+                    
+                    <li>
+                        <label for="state">Choose your state</label>
+                        <input type="text" name="state" id="state" list="states" />
+                        <datalist id="states">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                        </datalist>
+                    </li>
+                </ul>
+
+                <h2>Групування полів</h2>
+                <h3>fieldset і legend</h3>
+                <form class="myform">
+                    <fieldset class="form-group">
+                      <legend class="group-title">Enter your contact details</legend>
+                      <label class="form-label">
+                        Name
+                        <input type="text" name="username" />
+                      </label>
+                      <label class="form-label">
+                        Email
+                        <input type="email" name="email" />
+                      </label>
+                    </fieldset>
+                  
+                    <fieldset class="form-group">
+                      <legend class="group-title">Your favourite programming language</legend>
+                      <div class="form-field">
+                        <input type="checkbox" name="language" value="python" id="python">
+                        <label class="form-label" for="python">Python</label>
+                      </div>
+                      <div class="form-field">
+                        <input type="checkbox" name="language" value="js" id="js">
+                        <label class="form-label" for="js">JavaScript</label>
+                      </div>
+                      <div class="form-field">
+                        <input type="checkbox" name="language" value="ruby" id="ruby">
+                        <label class="form-label" for="ruby">Python</label>
+                      </div>
+                    </fieldset>
+                  
+                    <fieldset class="form-group">
+                      <legend class="group-title">I want to receive</legend>
+                      <div class="form-field">
+                        <input type="checkbox" name="newsletter" value="weekly" id="weekly">
+                        <label class="form-label" for="weekly">The weekly newsletter</label>
+                      </div>
+                      <div class="form-field">
+                        <input type="checkbox" name="newsletter" value="offers" id="offers">
+                        <label class="form-label" for="offers">Offers from the company</label>
+                      </div>
+                      <div class="form-field">
+                        <input type="checkbox" name="newsletter" value="associated_offers" id="associated_offers">
+                        <label class="form-label" for="associated_offers">Offers from associated companies</label>
+                      </div>
+                    </fieldset>
+                    <button type="submit">Subscribe</button>
+                </form>
+
+                <h2>Валідація</h2>
+                <ul>
+                    <li>
+                        <p>
+                            Щоразу під час заповнення полів форми не в тому форматі, який вони очікують, ми отримуємо 
+                            зворотний зв'язок у вигляді повідомлень. Так працюють форми реєстрації, оформлення замовлення 
+                            та будь-які інші, де важливий формат даних, що вводяться.
+                        </p>
+                    </li>
+                    <li>
+                        Це називається валідація форми - перевірка коректності значень, що вводяться. Якщо дані правильні, 
+                        форма буде відправлена, в іншому випадку буде відображено повідомлення про помилку, пояснюючи необхідні виправлення.
+                    </li>
+                    <li>
+                        Існує два види валідації - на клієнті (в браузері) і на сервері (бекенді). На практиці ці два підходи завжди використовуються разом.
+                    </li>
+                    <li>
+                        Валідація на клієнті - це перевірка, яка відбувається в браузері, перш ніж дані форми будуть відправлені на сервер.
+                    </li>
+                    <li>
+                        Валідація на сервері - це остання лінія захисту веб-застосунку від неправильних або шкідливих даних. 
+                    </li>
+                    <li>
+                        У кожному сучасному браузері вбудована можливість валідації вмісту полів форми без використання JavaScript. Для цього 
+                        використовується комбінація різних типів полів та їх атрибутів. Якщо користувач ввів невалідне значення, браузер покаже повідомлення.
+                    </li>
+                    <li>
+                        Поведінка вбудованої валідації форм відрізняється між браузерами, тому на практиці використовують JavaScript-бібліотеки. 
+                        Проте, варто знати основи HTML5-валідації.
+                    </li>
+                </ul>
+
+                <h3>Обов'язкові поля</h3>
+                <ul>
+                    <li>Логічний атрибут <b>required</b> позначає поле форми як обов'язкове для заповнення.</li>
+                    <li>
+                        Зовнішній вигляд повідомлення залежить від браузера і не може бути змінений за допомогою CSS.
+                    </li>
+                    <li>
+                        <p>Спробуйте відправити форму з прикладу, не заповнюючи поля пошти або пароля</p>
+                        <form class="myform">
+                            <label>
+                              Email
+                              <input type="email" name="email" required />
+                            </label>
+                            <label>
+                              Password
+                              <input type="password" name="password" required />
+                            </label>
+                          
+                            <button type="submit">Submit</button>
+                          </form>
+                    </li>
+                    <li>
+                        Атрибути <b>minlength і maxlength</b> накладають обмеження на кількість символів, що вводяться
+                    </li>
+                    <li>
+                        Атрибути <b>min і max</b> дозволяють перевірити входження чисельного значення у вказаний діапазон
+                    </li>
+                    <li>
+                        <h4>Регулярний вираз</h4>
+                        <p>
+                            Атрибут pattern дозволяє вказати регулярний вираз (шаблон), щодо якого буде перевірятися значення поля.
+                            За замовчуванням, у разі помилки валідації, браузер відобразить стандартний текст 
+                            «Please match the requested format».
+                            Додатковий текст-підказку, який буде відображений у повідомленні від браузера, можна вказати 
+                            в атрибуті <b>title</b>
+                        </p>
+
+                        <form class="myform">
+                            <label>
+                              Username
+                              <input type="text" name="text" required pattern="^[a-zA-Z]+\s[a-zA-Z]+$" 
+                                title="Username must be two words separated by space." />
+                            </label>
+                            <label>
+                              Password
+                              <input type="password" name="password" required minlength="6" maxlength="12" 
+                                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" 
+                                title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." />
+                            </label>
+                            <button type="submit">Submit</button>
+                          </form>
+
+                        <pre>
+                        /input type="text" name="text" required 
+                            pattern="^[a-zA-Z]+\s[a-zA-Z]+$" 
+                            title="Username must be two words separated by space." /
+                        </pre>
+                    </li>
+                </ul>
+
+                <h2>Псевдокласи стану</h2>
+                <p>
+                    Існує набір псевдокласів, створених спеціально для елементів форм, 
+                    і жодним чином не впливають на інші елементи. За допомогою них можна оформляти поля 
+                    форми за станом валідності введених даних або обов'язковості заповнення.
+                </p>
+                
+                <ul>
+                    <li>
+                        <h3>:enabled і :disabled</h3>
+                        <p>Застосовуються до елементів <b>input, select і button</b>.</p>
+                        <div>
+                            <button class="btn-form">Active button</button>
+                            <button class="btn-form" disabled>Disabled button</button>
+                        </div>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+               
+
+
             </div>
         </section>
         

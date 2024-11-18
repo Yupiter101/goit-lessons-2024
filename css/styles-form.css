@@ -1,10 +1,11 @@
 
 
 .myform {
-    width: 300px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+
     margin-left: 50px;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -24,3 +25,35 @@ input {
     /* font-family: inherit; */
 }
 
+
+
+/* === Групування полів */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+.group-title {
+    width: 100%;
+    font-weight: 700;
+  }
+
+
+/* .form-label {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    cursor: pointer;
+  } */
+
+.form-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* border: 1px solid red; */
+  }
