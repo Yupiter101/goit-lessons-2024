@@ -45,6 +45,7 @@
                     <li>Ітерація по масиву</li>
                     <li>Оператори <code>break і continue</code> ​</li>
                     <li>Методи масиву детально</li>
+                    <li>Деструктуризація масивів</li>
                  
                 </ol>
             </div>
@@ -183,6 +184,57 @@
                             <li><code>const allClients = oldClients.concat(newClients);</code></li>
                         </ul>
                     </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Деструктуризація масивів</h2>
+                <p>
+                    Наприклад, є масив кольорів, з якого потрібно отримати значення кожної складової кольору в окремих змінних
+                </p>
+                <pre>
+                    const rgb = [200, 255, 100];
+                    const [red, green, blue] = rgb;
+                    console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:100"
+                    const [red, green, blue, alfa = 0.3] = rgb;
+                </pre>
+                <p>
+                    Іноді з масиву необхідно деструктуризувати тільки перші N елементів, а інші зберегти в одну змінну у вигляді масиву. 
+                    Деструктуруючи масив, можна розпакувати і присвоїти іншу частину елементів масиву змінної, використовуючи операцію ... (rest).
+                </p>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+                <ul>
+                       
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+                <ul>
+                       
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+                <ul>
+                       
                 </ul>
             </div>
         </section>

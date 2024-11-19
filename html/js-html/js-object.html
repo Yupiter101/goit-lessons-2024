@@ -191,12 +191,357 @@
         <section class="section-about">
             <div class="container">
                 <h2>Перебирання об'єкта</h2>
+                <p>
+                    На відміну від масиву або рядка, об'єкт - це неітерабельна сутність, тобто його 
+                    не можна перебрати циклами for або for...of.
+                </p>
                 <ul>
                     <li>
                         <h3>Цикл for...in - перебирає ключі об'єкта​</h3>
-                        
+                        <p>
+                            Змінна key доступна тільки в тілі циклу. На кожній ітерації в неї буде записано значення 
+                            ключа (ім'я) властивості. Для того, щоб отримати значення властивості з таким ключем (ім'ям), 
+                            використовується синтаксис <b>квадратних дужок</b>.
+                        </p>
+                        <pre>
+                            const book = {
+                                title: "The Last Kingdom",
+                                author: "Bernard Cornwell",
+                                genres: ["historical prose", "adventure"],
+                                rating: 8.38,
+                            };
+                            for (const key in book) {
+                                // Ключ
+                                console.log(key);
+                                // Значення властивості з таким ключем
+                                console.log(book[key]);
+                            }
+                        </pre>
+                    </li>
+                    <li>
+                        <h3>Метод hasOwnProperty()</h3>
+                        <pre>
+                            const animal = {
+                                legs: 4,
+                              };
+                            const dog = Object.create(animal);
+                            dog.name = "Манго";
+                        </pre>
+                        <p>
+                            Метод Object.create(animal) створює і повертає новий об'єкт, зв'язуючи його з об'єктом animal. 
+                            Тому можна отримати значення властивості legs, звернувшись до нього як dog.legs, хоча він відсутній 
+                            в об'єкті dog - це невласна властивість з об'єкта animal.
+                        </p>
+                        <p>
+                            Метод Object.create(animal) створює і повертає новий об'єкт, зв'язуючи його з об'єктом animal. 
+                            Тому можна отримати значення властивості legs, звернувшись до нього як dog.legs, 
+                            хоча він відсутній в об'єкті dog - це невласна властивість з об'єкта animal.
+                        </p>
+                        <pre>
+                            // ❌ Повертає true для всіх властивостей
+                            console.log("name" in dog); // true
+                            console.log("legs" in dog); // true
+
+                            // ✅ Повертає true тільки для власних властивостей
+                            console.log(dog.hasOwnProperty("name")); // true
+                            console.log(dog.hasOwnProperty("legs")); // false
+                        </pre>
+                        <p>
+                            Тому, перебираючи циклом for...in, необхідно на кожній ітерації додати перевірку власної властивості.
+                        </p>
+                        <pre>
+                            for (const key in book) {
+                                // Якщо це власна властивість - виконуємо тіло if
+                                if (book.hasOwnProperty(key)) {
+                                  console.log(key);
+                                  console.log(book[key]);
+                                }
+                              }
+                        </pre>
+                    </li>
+
+                    <li>
+                        <h3>Метод Object.keys()</h3>
+                        <p>
+                            Object.keys(obj), який приймає об'єкт і повертає масив ключів його власних властивостей. 
+                            Якщо об'єкт не має властивостей, метод поверне порожній масив.
+                        </p>
+                        <pre>
+                            const keys = Object.keys(book);
+                            console.log(keys); // ['title', 'author', 'genres', 'rating']  
+                            for (const key of keys) {
+                                console.log(key); // Ключ
+                                console.log(book[key]); // Значення властивості
+                            }
+                        </pre>
+                    </li>
+                    <li>
+                        <h3>Метод Object.values()​</h3>
+                        <p>повертає масив значень його власних властивостей. Якщо в об'єкті відсутні властивості, 
+                            метод Object.values(obj) поверне порожній масив
+                        </p>
+                        <pre>
+                            const values = Object.values(book);
+                            console.log(values); // ['The Last Kingdom', 'Bernard Cornwell', 8.38]
+                        </pre>
+                    </li>
+                    <li>
+                        <h3>Метод Object.entries()</h3>
+                        <p>
+                            Метод Object.entries(obj) повертає масив записів, кожен елемент якого, буде ще один масив з 2-х 
+                            елементів: імені властивості і значення цієї властивості з об'єкта obj.
+                            На практиці метод Object.entries(obj) використовується рідко
+                        </p>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Масив об'єктів</h2>
+                
+                <pre>
+                const books = [
+                    {
+                        title: "The Last Kingdom",
+                        author: "Bernard Cornwell",
+                        rating: 8.38,
+                    },
+                    {
+                        title: "Сон смішної людини",
+                        author: "Федір Достоєвський",
+                        rating: 7.75,
+                    },
+                ];
+                </pre>
+                <p>
+                    Для перебирання такого масиву використовується стандартний цикл for...of.
+                </p>
+                <pre>
+                    for (const book of books) {
+                        console.log(book);
+                        console.log(book.title);
+                        console.log(book.author);
+                        console.log(book.rating);
+                    }
+                    const bookNames = [];
+
+                    for (const book of books) {
+                    bookNames.push(book.title);
+                    }
+                </pre>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Синтаксис spread і rest</h2>
+                <h3>spread: створення нового масиву</h3>
+                <ul>
+                    <li>
+                        <p>
+                            Операція ... (spread) дозволяє розподілити колекцію елементів 
+                        (масив, рядок або об'єкт) в місце, в якому очікується набір окремих значень.
+                        розпакований масив
+                        </p>
+                        <pre>
+                            const temps = [14, -4, 25, 8, 11];
+
+                            console.log(Math.max(temps)); // ❌ Так не спрацює
+                            console.log(...temps); // ✅ Так спрацює
+                        </pre>
+                    </li>
+                    <li>
+                        <h3>... створення нового масиву</h3>
+                        <p>
+                            Операція ... (spread) дозволяє створити копію масиву або «склеїти» довільну кількість 
+                            масивів в один новий. Раніше для цього використовували методи slice() і concat()
+                        </p>
+                        <pre>
+                            const copyOfTemps = [...temps];
+                            const allTemps = [...lastWeekTemps, ...currentWeekTemps];
+                        </pre>
+                    </li>
+                    <li>
+                        <h3>... створення нового об'єкта</h3>
+                        <p>
+                            Операція ... (spread) дозволяє розподілити властивості довільної кількості 
+                            об'єктів в один новий. можуть перезаписати значення вже існуючої властивості,
+                             якщо їх імена збігаються.
+                        </p>
+                        <pre>
+                            const first = { propA: 5, propB: 10 };
+                            const second = { propC: 15 };
+                            const third = { ...first, ...second };
+                            const third = { propB: 20, ...first, ...second };
+                            const fourth = { ...first, ...second, propB: 20 };
+                        </pre>
+                    </li>
+                </ul>
+
+                <h3>rest: збирання всіх аргументів функції</h3>
+                <ul>
+                    <li>
+                        Операція ... (rest) дозволяє зібрати групу незалежних елементів у нову колекцію. 
+                    Синтаксично - це близнюк операції розподілу, але відрізнити їх просто - 
+                    розподіл - коли ... знаходиться у правій частині операції присвоювання, 
+                    а збирання - коли ... знаходиться в її лівій частині.
+                    </li>
+                    <li>
+                        Отже, можна «зібрати» всі аргументи функції в один параметр, використовуючи операцію rest.
+                    Ім'я параметра може бути довільним. Найчастіше його називають args, restArgs або otherArgs - 
+                    скорочено від arguments.
+                    </li>
+                    <li>
+                        <pre>
+                        function multiply(firstNumber, secondNumber, ...otherArgs) {
+                            console.log(firstNumber); // Значення першого аргументу
+                            console.log(secondNumber); // Значення другого аргументу
+                            console.log(otherArgs); // Масив інших аргументів
+                        }
+                        
+                        multiply(1, 2);
+                        multiply(1, 2, 3);
+                        multiply(1, 2, 3, 4);
+                        </pre>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Деструктуризація об'єктів</h2>
+                <ul>
+                    <li>
+                        Під час розробки програм дані приходять, як правило, у вигляді масивів і об'єктів, 
+                        значення яких необхідно записати у локальні змінні. Для того, щоб робити це максимально просто, 
+                        в сучасному стандарті існує синтаксис деструктуризованого присвоювання.
+                    </li>
+                    <li>
+                        <p>
+                            Якщо ім'я змінної та ім'я властивості збігаються, відбувається присвоювання, в іншому випадку, 
+                            їй буде присвоєно undefined. Порядок оголошення змінних у фігурних дужках - неважливий.
+                        </p>
+                        <pre>
+                            const book = {
+                                title: "The Last Kingdom",
+                                author: "Bernard Cornwell",
+                                genres: ["historical prose", "adventure"],
+                                isPublic: true,
+                                rating: 8.38,
+                            };
+                            
+                            // Деструктуризуємо
+                            const { title, author, isPublic, rating, coverImage } = book;
+                            console.log(coverImage); // undefined
+                            const accessType = isPublic ? "публічному" : "закритому";
+                        </pre>
+                    </li>
+                    <li>
+                        <p>
+                            Для того, щоб уникнути присвоєння undefined під час деструктуризації неіснуючих властивостей
+                            об'єкта, можна задати змінним значення за замовчуванням, які будуть присвоєні лише у тому випадку, 
+                            якщо об'єкт не містить властивості з таким ім'ям.
+                        </p>
+                        <pre>
+                            const book = {
+                                title: "The Last Kingdom",
+                                author: "Bernard Cornwell",
+                              };
+                              
+                            // Додамо зображення обкладинки, якщо воно відсутнє в об'єкті книги
+                            const {
+                                title,
+                                coverImage = "https://via.placeholder.com/640/480",
+                                author,
+                            } = book;
+                        </pre>
+                    </li>
+                    <li>
+                        <h4>Зміна імені змінної</h4>
+                        <p>
+                            Під час деструктуризації можна змінити ім'я змінної, в яку розпаковується 
+                            значення властивості. Спочатку пишемо ім'я властивості, з якої хочемо отримати 
+                            значення, після чого ставимо двокрапку і пишемо ім'я змінної, в яку необхідно 
+                            помістити значення цієї властивості.
+                        </p>
+                        <pre>
+                            const firstBook = {
+                                title: "The Last Kingdom",
+                                coverImage:
+                                  "https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg",
+                            };
+                            
+                            const {
+                              title: firstTitle,
+                              coverImage: firstCoverImage = "https://via.placeholder.com/640/480",
+                            } = firstBook;
+                        </pre>
+                    </li>
+                    <li>
+                        <h4>Деструктуризація в циклах</h4>
+                        <pre>
+                            for (const book of books) {
+                                console.log(book.title);
+                                console.log(book.author);
+                                console.log(book.rating);
+                            }
+                            // а краще так
+                            for (const book of books) {
+                                const { title, author, rating } = book;
+                              
+                                console.log(title);
+                                console.log(author);
+                                console.log(rating);
+                            }
+                            // або так
+                            for (const { title, author, rating } of books) {
+                                console.log(title);
+                                console.log(author);
+                                console.log(rating);
+                            }
+                        </pre>
+                    </li>
+                    <li>
+                        <h4>Глибока деструктуризація</h4>
+                        <pre>
+                            const user = {
+                                name: "Jacques Gluke",
+                                tag: "jgluke",
+                                stats: {
+                                  followers: 5603,
+                                  views: 4827,
+                                  likes: 1308,
+                                },
+                            };
+                              
+                            const {
+                                name,
+                                tag,
+                                stats: { followers, views: userViews, likes: userLikes = 0 },
+                            } = user;
+                        </pre>
+                    </li>
+                </ul>
+    
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>xxx</h2>
+    
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>xxx</h2>
+    
             </div>
         </section>
 
