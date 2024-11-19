@@ -482,11 +482,6 @@
                             <button class="btn-form" disabled>Disabled button</button>
                         </div>
                     </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
                 </ul>
                
 
@@ -494,12 +489,74 @@
             </div>
         </section>
         
+        <!-- ===== Форми від ментора ===== -->
         <section class="section-about">
             <div class="container">
-                
-                
+                <h2>Форми від ментора</h2>
+
+                <form class="contact-form">
+                    <label for="name">name</label>
+                    <input class="contact-form-input" 
+                        id="name"
+                        type="text"
+                        name="user-name" 
+                        placeholder="Your name*"
+                        required
+                        minlength="3"
+                        maxlength="10"
+                        pattern="^[a-zA-Z]+$"
+                        >
+                    </input>
+                    <label for="name">email</label>
+                    <input class="contact-form-input" 
+                        id="email"
+                        type="email"
+                        name="user-email"
+                        placeholder="Your email*"
+                       
+                        >
+                    </input>
+                    <label for="tel">Phone</label>
+                    <input class="contact-form-input" 
+                    id="tel"
+                        type="tel"
+                        name="user-phone"
+                        placeholder="2 sign 7-9"
+                        pattern="^[7-9]{2}$"
+                        >
+                    </input>
+
+                    <input class="contact-form-input" 
+                        type="tel"
+                        name="user-phone"
+                        placeholder="xxx-xxx-xx-xx"
+                        pattern="^[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}$"
+                        title="xxx-xxx-xx-xx"
+                        >
+                    </input>
+                    
+                    <textarea class="contact-form-message" 
+                        name="user-message"
+                        placeholder="Your message"
+                        ></textarea>
+
+                    <div class="contact-form-btn-wrapper">
+                        <button type="submit" class="contact-form-btn">submit</button>
+                        <button type="reset" class="contact-form-btn">reset</button>
+                    </div>
+                </form> 
             </div>
         </section>
+
+
+        <!-- ===== Стилізована форма backdrop ===== -->
+        <section class="section-about">
+            <div class="container">
+     
+            </div>
+        </section>
+
+
 
     </main>
     <footer class="page-footer">
