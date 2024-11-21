@@ -40,20 +40,21 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li>Методи масиву назви</li>
+                    <li>Збірка методів масиву</li>
+                    <li>Збірка перебираючих методів масиву</li>
                     <li>Створення масиву</li>
                     <li>Ітерація по масиву</li>
                     <li>Оператори <code>break і continue</code> ​</li>
                     <li>Методи масиву детально</li>
                     <li>Деструктуризація масивів</li>
-                 
+                    <li>Перебираючі методи масиву детально</li>
                 </ol>
             </div>
         </section>
 
         <section class="section-about">
             <div class="container">
-                <h2>Методи масиву</h2>
+                <h2>Збірка методів масиву</h2>
                 <ul>
                     <li><code>array.length</code></li>
                     <li><code>for (const variable of iterable)</code></li>
@@ -67,6 +68,18 @@
                     <li><code>scores.splice(0, 3);</code></li>
                     <li><code>const allClients = oldClients.concat(newClients);</code></li>         
                 </ul>
+                <h2>Збірка перебираючих методів масиву</h2>
+                <ul>
+                    <li>forEach</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                
             </div>
         </section>
 
@@ -224,10 +237,33 @@
 
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>Перебираючі методи масиву детально</h2>
+                <h3>Метод forEach</h3>
+                <p>
+                    Метод перебирання масиву, який використовується для заміни циклів for і for...of в роботі з колекцією даних.
+                </p>
+                <pre>
+                    const numbers = [5, 10, 15, 20, 25];
+
+                    // Класичний for
+                    for (let i = 0; i < numbers.length; i += 1) {
+                        console.log(`Індекс ${i}, значення ${numbers[i]}`);
+                    }
+
+                    // Метод перебирання forEach
+                    numbers.forEach(function (number, index) {
+                        console.log(`Індекс ${index}, значення ${number}`);
+                    });
+                </pre>
                 <ul>
-                       
+                    <li>Поелементно перебирає масив.</li>
+                    <li>Викликає колбек-функцію для кожного елемента масиву.</li>
+                    <li>Нічого не повертає.</li>
+                    <li>Можна оголошувати тільки необхідні параметри, найчастіше - це елемент</li>
+                    <li>головне не забувати про їх порядок.</li>
+                    <li>Перервати виконання методу forEach не можна, він завжди перебирає масив до кінця.</li>
                 </ul>
+
             </div>
         </section>
 
