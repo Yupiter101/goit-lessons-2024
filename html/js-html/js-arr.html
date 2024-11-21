@@ -68,14 +68,15 @@
                     <li><code>scores.splice(0, 3);</code></li>
                     <li><code>const allClients = oldClients.concat(newClients);</code></li>         
                 </ul>
+
                 <h2>Збірка перебираючих методів масиву</h2>
                 <ul>
-                    <li>forEach</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Метод arr.forEach(callback)</li>
+                    <li>Метод arr.map(callback)</li>
+                    <li>Метод arr.flatMap(callback)</li>
+                    <li>Метод arr.filter(callback)</li>
+                    <li>Метод arr.find(callback)</li>
+                    <li>Метод arr.findIndex(callback)</li>
                     <li></li>
                     <li></li>
                 </ul>
@@ -238,7 +239,7 @@
         <section class="section-about">
             <div class="container">
                 <h2>Перебираючі методи масиву детально</h2>
-                <h3>Метод forEach</h3>
+                <h3>Метод arr.forEach(callback)</h3>
                 <p>
                     Метод перебирання масиву, який використовується для заміни циклів for і for...of в роботі з колекцією даних.
                 </p>
@@ -246,7 +247,7 @@
                     const numbers = [5, 10, 15, 20, 25];
 
                     // Класичний for
-                    for (let i = 0; i < numbers.length; i += 1) {
+                    for (let i = 0; i / numbers.length; i += 1) {
                         console.log(`Індекс ${i}, значення ${numbers[i]}`);
                     }
 
@@ -263,6 +264,165 @@
                     <li>головне не забувати про їх порядок.</li>
                     <li>Перервати виконання методу forEach не можна, він завжди перебирає масив до кінця.</li>
                 </ul>
+                <p>
+                    В JavaScript є методи масивів, що прийшли з функціональних мов. Більшість з них - це чисті функції. 
+                </p>
+                <pre>
+                    array.method((item, idx, arr) => {
+                        // логіка, яка буде застосовуватися на кожній ітерації
+                      });
+                </pre>
+                <p>
+                    Всі параметри, крім значення елемента item, - необов'язкові. Назви параметрів можуть бути будь-які, 
+                    але є неофіційні домовленості
+                </p>
+
+                <h3>Метод arr.map(callback)</h3>
+                <pre>
+                    массив.map((element, index, array) => {
+                        // Тіло колбек-функції
+                      });
+                </pre>
+                <p>
+                    Метод map(callback) використовується для трансформації масиву. Він викликає колбек-функцію для 
+                    кожного елемента вихідного масиву, а результат її роботи записує у новий масив, який і буде 
+                    результатом виконання методу.
+                </p>
+                <pre>
+                const students = [
+                    { name: "Манго", score: 83 },
+                    { name: "Полі", score: 59 },
+                    { name: "Аякс", score: 37 },
+                    { name: "Ківі", score: 94 },
+                    { name: "Х'юстон", score: 64 },
+                ];
+
+                const names = students.map(student => student.name);
+                console.log(names); // ['Манго', 'Полі', 'Аякс', 'Ківі', 'Х'юстон']
+                </pre>
+
+                <h3>Метод arr.flatMap(callback)</h3>
+                <pre>
+                    массив.flatMap((element, index, array) => {
+                        // Тіло колбек-функції
+                      });
+                </pre>
+                <p>
+                    аналогічний методу map(), але застосовується у випадках, коли результат - 
+                    це багатовимірний масив, який необхідно «розгладити».
+                </p>
+                <p>
+                    У масиві students зберігається список студентів зі списком предметів, які відвідує студент, 
+                    у властивості courses. Кілька студентів можуть відвідувати один і той самий предмет. 
+                    Необхідно скласти список всіх предметів, які відвідує ця група студентів, поки що, 
+                    навіть повторюваних.
+                </p>
+                <pre>
+                    const students = [
+                        { name: "Ivan", courses: ["математика", "фізика"] },
+                        { name: "Kolya", courses: ["інформатика", "математика"] },
+                        { name: "Katya", courses: ["фізика", "біологія"] },
+                    ];
+                    students.map(student => student.courses);
+                    // [['математика', 'фізика'], ['інформатика', 'математика'], ['фізика', 'біологія']]
+
+                    students.flatMap(student => student.courses);
+                    // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
+                </pre>
+
+                <h3>Метод arr.filter(callback)</h3>
+                <pre>
+                    масив.filter((element, index, array) => {
+                        // Тіло колбек-функції
+                      });
+                </pre>
+                <p>
+                    Метод filter використовується для - фільтрації масиву, тобто, коли необхідно вибрати 
+                    більше одного елемента з колекції за певним критерієм.
+                </p>
+                <ul>
+                    <li>Не змінює оригінальний масив</li>
+                    <li>Повертає новий масив.</li>
+                    <li>Додає у масив, що повертається, елементи, які задовольняють умови</li>
+                    <li>Якщо жоден елемент не задовольнив умову, повертає порожній масив.</li>
+                </ul>
+                <pre>
+                    const values = [51, -3, 27, 21, -68, 42, -37];
+
+                    const positiveValues = values.filter(value => value >= 0);
+                    console.log(positiveValues); // [51, 27, 21, 42]
+                </pre>
+
+                <h4>Фільтрація унікальних елементів</h4>
+                <p>
+                    Цей прийом працює тільки з масивом примітивних значень - не об'єктів.
+                </p>
+                <pre>
+                    const courses = ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
+
+                    const uniqueCourses = allCourses.filter(
+                        (course, index, array) => array.indexOf(course) === index
+                    );
+                </pre>
+
+                <h4>Фільтрація масиву об'єктів</h4>
+                <p>
+                    Під час роботи з масивом об'єктів виконується фільтрація за значенням певної властивості. 
+                    У підсумку, утворюється новий масив відфільтрованих об'єктів.
+                </p>
+                <pre>
+                const LOW_SCORE = 50;
+                const HIGH_SCORE = 80;
+                const students = [
+                    { name: "Манго", score: 83 },
+                    { name: "Полі", score: 59 },
+                    { name: "Аякс", score: 37 },
+                    { name: "Ківі", score: 94 },
+                    { name: "Х'юстон", score: 64 },
+                ];
+
+                const best = students.filter(student => student.score >= HIGH_SCORE);
+                console.log(best); // Масив об'єктів з іменами Манго і Ківі
+                </pre>
+
+                <h3>Метод arr.find(callback)</h3>
+                <pre>
+                    масив.find((element, index, array) => {
+                        // Тіло колбек-функції
+                      });
+                </pre>
+                <p>
+                    Метод find(callback) дозволяє знайти і повернути перший відповідний елемент, 
+                    після чого перебирання масиву припиняється. Не змінює оригінальний масив.
+                    Якщо жоден елемент не задовольнив умову, метод повертає <b>undefined</b>
+                </p>
+               
+                <pre>
+                    const colorPickerOptions = [
+                        { label: "red", color: "#F44336" },
+                        { label: "green", color: "#4CAF50" },
+                        { label: "blue", color: "#2196F3" },
+                    ];
+
+                    colorPickerOptions.find(option => option.label === "blue"); // { label: 'blue', color: '#2196F3' }
+                </pre>
+
+                <h3>Метод arr.findIndex(callback)</h3>
+                <pre>
+                    масив.findIndex((element, index, array) => {
+                        // Тіло колбек-функції
+                      });
+                </pre>
+                <p>
+                    Метод findIndex(callback) - це сучасна заміна методу indexOf(). Дозволяє виконувати пошук за складнішими умовами, 
+                    ніж просто рівність. Використовується як для пошуку у масиві примітивів, так і в масиві об'єктів.
+                </p>
+                <ul>
+                    <li>Не змінює оригінальний масив.</li>
+                    <li>Повертає індекс першого елемента, що задовольняє умову</li>
+                    <li>Якщо жоден елемент не задовольняє умову, метод повертає -1.</li>
+                </ul>
+
 
             </div>
         </section>
@@ -296,5 +456,7 @@
             </address>
         </div>
     </footer>
+
+    <script src="../../js/array.js"></script>
 </body>
 </html>
