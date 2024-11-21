@@ -71,14 +71,15 @@
 
                 <h2>Збірка перебираючих методів масиву</h2>
                 <ul>
-                    <li>Метод arr.forEach(callback)</li>
-                    <li>Метод arr.map(callback)</li>
-                    <li>Метод arr.flatMap(callback)</li>
-                    <li>Метод arr.filter(callback)</li>
-                    <li>Метод arr.find(callback)</li>
-                    <li>Метод arr.findIndex(callback)</li>
-                    <li></li>
-                    <li></li>
+                    <li>Метод <code>arr.forEach(callback)</code></li>
+                    <li>Метод <code>arr.map(callback)</code></li>
+                    <li>Метод <code>arr.flatMap(callback)</code></li>
+                    <li>Метод <code>arr.filter(callback)</code></li>
+                    <li>Метод <code>arr.find(callback)</code></li>
+                    <li>Метод <code>arr.findIndex(callback)</code></li>
+                    <li>Метод <code>arr.every(callback)</code></li>
+                    <li>Метод <code>arr.some(callback)</code></li>
+                    <li>Метод <code>arr.reduce(callback)</code></li>
                 </ul>
                 
             </div>
@@ -268,7 +269,7 @@
                     В JavaScript є методи масивів, що прийшли з функціональних мов. Більшість з них - це чисті функції. 
                 </p>
                 <pre>
-                    array.method((item, idx, arr) => {
+                    array.method((item, idx, arr) =&gt; {
                         // логіка, яка буде застосовуватися на кожній ітерації
                       });
                 </pre>
@@ -279,7 +280,7 @@
 
                 <h3>Метод arr.map(callback)</h3>
                 <pre>
-                    массив.map((element, index, array) => {
+                    массив.map((element, index, array) =&gt; {
                         // Тіло колбек-функції
                       });
                 </pre>
@@ -297,13 +298,13 @@
                     { name: "Х'юстон", score: 64 },
                 ];
 
-                const names = students.map(student => student.name);
+                const names = students.map(student =&gt; student.name);
                 console.log(names); // ['Манго', 'Полі', 'Аякс', 'Ківі', 'Х'юстон']
                 </pre>
 
                 <h3>Метод arr.flatMap(callback)</h3>
                 <pre>
-                    массив.flatMap((element, index, array) => {
+                    массив.flatMap((element, index, array) =&gt; {
                         // Тіло колбек-функції
                       });
                 </pre>
@@ -323,10 +324,10 @@
                         { name: "Kolya", courses: ["інформатика", "математика"] },
                         { name: "Katya", courses: ["фізика", "біологія"] },
                     ];
-                    students.map(student => student.courses);
+                    students.map(student =&gt; student.courses);
                     // [['математика', 'фізика'], ['інформатика', 'математика'], ['фізика', 'біологія']]
 
-                    students.flatMap(student => student.courses);
+                    students.flatMap(student =&gt; student.courses);
                     // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
                 </pre>
 
@@ -361,7 +362,7 @@
                     const courses = ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
 
                     const uniqueCourses = allCourses.filter(
-                        (course, index, array) => array.indexOf(course) === index
+                        (course, index, array) =&gt; array.indexOf(course) === index
                     );
                 </pre>
 
@@ -381,13 +382,13 @@
                     { name: "Х'юстон", score: 64 },
                 ];
 
-                const best = students.filter(student => student.score >= HIGH_SCORE);
+                const best = students.filter(student =&gt; student.score &gt;= HIGH_SCORE);
                 console.log(best); // Масив об'єктів з іменами Манго і Ківі
                 </pre>
 
                 <h3>Метод arr.find(callback)</h3>
                 <pre>
-                    масив.find((element, index, array) => {
+                    масив.find((element, index, array) =&gt; {
                         // Тіло колбек-функції
                       });
                 </pre>
@@ -404,12 +405,12 @@
                         { label: "blue", color: "#2196F3" },
                     ];
 
-                    colorPickerOptions.find(option => option.label === "blue"); // { label: 'blue', color: '#2196F3' }
+                    colorPickerOptions.find(option =&gt; option.label === "blue"); // { label: 'blue', color: '#2196F3' }
                 </pre>
 
                 <h3>Метод arr.findIndex(callback)</h3>
                 <pre>
-                    масив.findIndex((element, index, array) => {
+                    масив.findIndex((element, index, array) =&gt; {
                         // Тіло колбек-функції
                       });
                 </pre>
@@ -423,6 +424,141 @@
                     <li>Якщо жоден елемент не задовольняє умову, метод повертає -1.</li>
                 </ul>
 
+                <h3>Метод arr.every(callback)</h3>
+                <p>
+                    Перевіряє, чи проходять всі елементи масиву тест колбек-функції. 
+                    Повертає true або false
+                </p>
+                <pre>
+                    масив.every((element, index, array) =&gt; {
+                        // Тіло колбек-функції
+                      });
+                </pre>
+                <ul>
+                    <li>Не змінює оригінальний масив.</li>
+                    <li>Повертає true, якщо всі елементи масиву задовольняють умову</li>
+                    <li>Повертає false, якщо хоча б один елемент масиву не задовольняє умову</li>
+                    <li>Перебирання масиву припиняється, якщо колбек повертає false</li>
+                </ul>
+                <pre>
+                    [1, 2, 3, 4, 5].every(value =&gt; value &gt;= 0); // true
+                    [1, 2, 3, -10, 4, 5].every(value =&gt; value &gt;= 0); // false
+                </pre>
+
+                <h3>Метод arr.some(callback)</h3>
+                <p>
+                    Перевіряє, чи проходить хоча б один елемент масиву тест колбек-функції. 
+                    Повертає true або false
+                </p>
+                <pre>
+                    масив.some((element, index, array) =&gt; {
+                        // Тіло колбек-функції
+                      });
+                </pre>
+                <ul>
+                    <li>Не змінює оригінальний масив.</li>
+                    <li>Повертає true, якщо хоча б один елемент масиву задовольняє умову.</li>
+                    <li>Повертає false, якщо жоден елемент масиву не задовольняє умову</li>
+                    <li>Перебирання масиву припиняється, якщо колбек повертає true</li>
+                </ul>
+                <pre>
+                    [1, 2, 3, 4, 5].some(value =&gt; value &gt;= 0); // true
+                    [1, 2, 3, 4, 5].some(value =&gt; value &lt; 0); // false
+
+                    const fruits = [
+                        { name: "apples", amount: 100 },
+                        { name: "bananas", amount: 0 },
+                        { name: "grapes", amount: 50 },
+                    ];
+
+                    const allAvailable = fruits.every(fruit =&gt; fruit.amount &gt; 0); // false
+                    const anyAvailable = fruits.some(fruits =&gt; fruits.amount &gt; 0); // true
+                </pre>
+
+                <h3>Метод arr.reduce(callback)</h3>
+                <pre>
+                    масив.reduce((previousValue, element, index, array) =&gt; {
+                        // Тіло колбек-функції
+                      }, initialValue);
+                </pre>
+                <p>
+                    Метод reduce(callback, initialValue) використовується для послідовної обробки кожного 
+                    елемента масиву із збереженням проміжного результату, як акумулятор.
+                </p>
+                <ul>
+                    <li>Не змінює оригінальний масив.</li>
+                    <li>Повертає все, що завгодно.</li>
+                    <li>Робить все, що завгодно.</li>
+                </ul>
+                <h4>прикладі підрахунку суми елементів масиву</h4>
+                <pre>
+                    const total = [2, 7, 3, 14, 6].reduce((previousValue, number) =&gt; {
+                        return previousValue + number;
+                      }, 0);
+                      
+                      console.log(total); // 32
+                </pre>
+                <p>
+                    Другим аргументом для reduce() можна передати необов'язкове початкове значення акумулятора - 
+                    параметр initialValue.
+                </p>
+
+                <h4>Задача 1. Необхідно отримати середній бал</h4>
+                <pre>
+                    const students_4 = [
+                        { name: "Манго", score: 83 },
+                        { name: "Полі", score: 59 },
+                        { name: "Аякс", score: 60 },
+                    ];
+
+                    const totalScore = students_4.reduce((acum, student)=&gt; {
+                        return acum + student.score;
+                    }, 0);
+
+                    const averScore = totalScore / students_4.length;
+                </pre>
+
+                <h4>Задача 2.</h4>
+                <p>
+                    з масиву постів твіттера окремого користувача необхідно порахувати суму усіх лайків
+                </p>
+                <pre>
+                const tweets = [
+                    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+                    { id: "001", likes: 2, tags: ["html", "css"] },
+                    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+                    { id: "003", likes: 8, tags: ["css", "react"] },
+                    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+                ];
+                const likes = tweets.reduce((totalLikes, tweet) =&gt; totalLikes + tweet.likes, 0);
+                //напишемо функцію
+                const countLikes = tweets => {
+                    return tweets.reduce((totalLikes, tweet) =&gt; totalLikes + tweet.likes, 0);
+                };
+                console.log(countLikes(tweets)); // 32
+                </pre>
+
+                <h4>Задача 3.</h4>
+                <p>зберемо в масив усі теги, які зустрічаються в постах.</p>
+                <pre>
+                    const tags = tweets.reduce((allTags, tweet) =&gt; {
+                        allTags.push(...tweet.tags); 
+                          
+                        return allTags;
+                      }, []);
+                      
+                      console.log(tags);
+
+                    // напишемо функцію
+                    const getTags = tweets =>
+                      tweets.reduce((allTags, tweet) => {
+                        allTags.push(...tweet.tags);
+
+                        return allTags;
+                      }, []);
+                    
+                    console.log(getTags(tweets));
+                </pre>
 
             </div>
         </section>
