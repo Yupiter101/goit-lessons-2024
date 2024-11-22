@@ -156,19 +156,44 @@ const tags = tweets.reduce((allTags, tweet) => {
     return allTags;
   }, []);
 
-console.log(tags);
+// console.log(tags);
 
-// напишемо функцію
-// const getTags = arrays => 
-//     arrays.reduce((allTags, tweet)=> {
-//         allTags.push(...tweet.tags); 
-//         return allTags;  
-//     }, []);
+// === напишемо функцію
+const getTags = arrays => {
+  return arrays.reduce((allTags, tweet)=> {
+          allTags.push(...tweet.tags); 
+          return allTags;  
+    }, []);
+}
 
-
-// const getTags = arrays => {
-//     return arrays.reduce((allTags, tweet)=> 
-//         allTags.push(...tweet.tags), []);  
-// }
 
 console.log(getTags(tweets));
+
+// === Сортування об'єктів sort
+console.log(" ");
+console.log("Метод sort()");
+
+const students5 = [
+  { name: "Маго", score: 83 },
+  { name: "Полі", score: 59 },
+  { name: "Аякс", score: 37 },
+  { name: "Ківі", score: 94 },
+];
+
+    // === За зростанням score ===
+// const inAscendingScoreOrder = students5.sort(
+//   (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
+// );
+// console.log(inAscendingScoreOrder);
+
+    // === За спаданням score ===
+// const inDescendingScoreOrder = students5.sort(
+//   (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
+// );
+// console.log(inDescendingScoreOrder);
+
+  // === За імям ===
+// const inAlphabeticalOrder = students5.sort((firstStudent, secondStudent) =>
+//   firstStudent.name.localeCompare(secondStudent.name)
+// );
+// console.log(inAlphabeticalOrder);
