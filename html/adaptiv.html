@@ -66,21 +66,22 @@
                     <li>Браузер застосовує CSS-правила з медіа-запитів, що відповідають поточному розміру в'юпорту.</li>
                 </ul>
                 <pre>
-                    @media screen and (min-width: 900px) {
-                        body {
-                          background-color: orange;
-                        }
-                      }
+        @media screen and (min-width: 900px) {
+            body {
+              background-color: orange;
+            }
+          }
                 </pre>
                 <pre>
-            Цей медіа-запит застосується під час друку документа.
-            @media print 
+        під час друку документа.
+        @media print 
 
-            Цей медіа-запит застосується при ширині в'юпорту більше 400px.
-            @media screen and (min-width: 400px) 
+        при ширині в'юпорту більше 400px.
+        @media screen and (min-width: 400px) 
 
-            Тип screen можна не вказувати, якщо стилі пишуться тільки для екранів.
-            @media (min-width: 400px)
+        Тип screen можна не вказувати, 
+        якщо стилі пишуться тільки для екранів.
+        @media (min-width: 400px)
                 </pre>
                 <h3>Медіа-типи</h3>
                 <ul>
@@ -101,7 +102,8 @@
                     only - значення за замовчуванням.
                 </p>
                 <pre>
-                    @media only|not media-type only|and|not (media-feature)
+        @media only|not media-type only|and|
+            not (media-feature)
                 </pre>
 
                 <h4>Оператор and</h4>
@@ -110,7 +112,8 @@
                     медіа-функцій з перевірками значень.
                 </p>
                 <pre>
-                    @media screen and (min-width: 400px) and (max-width: 800px) {}
+        @media screen and (min-width: 400px) 
+            and (max-width: 800px) {}
                 </pre>
 
                 <h4>Оператор , or</h4>
@@ -119,17 +122,17 @@
                     виконається медіа-запит
                 </p>
                 <pre>
-                    @media (max-width: 600px), (min-width: 900px) {} //«АБО» or
-                    @media (max-width: 600px) or (min-width: 900px) {} //«АБО» or
+    @media (max-width: 600px), (min-width: 900px)
+    @media (max-width: 600px) or (min-width: 900px)
                 </pre>
 
                 <h4>Оператор not</h4>
                 <pre>
-                    @media not print {} // скрізь, крім друку
-                    /* Ніколи не виконається */
-                    @media not (max-width: 500px)
-                    /* Виконається, якщо ширина буде більша за 500px. */
-                    @media not screen and (max-width: 500px) 
+    @media not print {} // скрізь, крім друку
+    /* Ніколи не виконається */
+    @media not (max-width: 500px)
+    Виконається, якщо ширина буде більша за 500px.
+    @media not screen and (max-width: 500px) 
                 </pre>
             </div>
         </section>
@@ -142,11 +145,13 @@
                     яким чином потрібно контролювати розміри і масштаб в'юпорту.
                 </p>
                 <pre>
-                    head
-                        !-- Інші мета-теги --
-                        meta name="viewport" content="width=device-width, initial-scale=1.0" /
-                        title Мета-тег viewport важливий для адаптивних сторінок /title
-                    /head
+    head
+    !-- Інші мета-теги --
+    meta name="viewport" content="width=device-width, 
+        initial-scale=1.0" /
+    title Мета-тег viewport 
+        важливий для адаптивних сторінок /title
+    /head
                 </pre>
                 
             </div>

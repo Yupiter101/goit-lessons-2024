@@ -24,12 +24,12 @@ code {
 
 
 /* The color indigo is at 900px or wider. */
-@media (max-width: 960px) {
+@media (max-width: 1140px) {
     .body-media {
         background-color: #4caf50;
     }
     .section-media {
-        max-width: 800px;
+        max-width: 840px;
     }
     .container.container-media {
         outline: 2px solid red;
@@ -37,7 +37,7 @@ code {
   }
 
 /* The color green is at 600px or wider. */
-@media (max-width: 800px) {
+@media (max-width: 840px) {
     .body-media {
         background-color: #3f51b5;
     }
@@ -47,5 +47,14 @@ code {
     .container.container-media {
         outline: 2px solid yellow;
     }
+    .container-media > h1 {
+      font-size: 24px;
+      margin-top: 50px;
+    }
   }
   
+@media (max-width: 600px) {
+    pre {
+      font-size: 12px;
+    }
+  }
