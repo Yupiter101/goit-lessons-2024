@@ -48,6 +48,8 @@
                     <li>Колбек-функції</li>
                     <li>Стрілочні функції</li>
                     <li>Чисті функції</li>
+                    <li><b>this</b> Правила визначення</li>
+                    <li>Методи функцій call, apply і bind</li>
               
                 </ol>
             </div>
@@ -423,6 +425,205 @@
                 </pre>
             </div>
         </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>this Правила визначення</h2>
+                <p>
+                    У глобальній області видимості, якщо скрипт виконується не в суворому режимі, 
+                    this посилається на об'єкт window. В суворому режимі значення this, в глобальній 
+                    області видимості, буде undefined.
+                </p>
+                <pre>
+                    function showThis() {
+                        console.log("this in showThis: ", this);
+                      }
+                      
+                      // Викликаємо у глобальному контексті
+                      showThis(); // this in showThis: Window
+                      
+                      const user = {
+                        username: "Mango",
+                      };
+                      
+                      // Записуємо посилання на функцію у властивість об'єкта
+                      // Зверніть увагу, що це не виклик - немає ()
+                      user.showContext = showThis;
+                      
+                      // Викликаємо функцію в контексті об'єкта
+                      // this буде вказувати на поточний об'єкт, в контексті
+                      // якого здійснюється виклик, а не на глобальний об'єкт.
+                      user.showContext(); // this in showThis: {username: "Mango", showContext: ƒ}
+                </pre>
+
+                <pre>
+                    const customer = {
+                        firstName: "Jacob",
+                        lastName: "Mercer",
+                        getFullName() {
+                          return `${this.firstName} ${this.lastName}`;
+                        },
+                      };
+                      
+                      function makeMessage(callback) {
+                        // callback() - це виклик методу getFullName без об'єкта
+                        console.log(`Обробляємо заявку від ${callback()}.`);
+                      }
+                      
+                      makeMessage(customer.getFullName); // Буде помилка у виклику функції
+                </pre>
+                <p>this у стрілочних функціях</p>
+                <pre>
+                    const showThis = () => {
+                        console.log("this in showThis: ", this);
+                      };
+                      
+                      showThis(); // this in showThis: window
+                      
+                      const user = {
+                        username: "Mango",
+                      };
+                      user.showContext = showThis;
+                      
+                      user.showContext(); // this in showThis: window
+                </pre>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Методи функцій call, apply і bind</h2>
+                <p>
+                    Трапляються ситуації, коли функцію потрібно викликати в контексті об'єкта, при цьому функція 
+                    не є його методом. Для цього у функцій є методи call, apply і bind.
+                </p>
+
+                <h3>Метод call()​</h3>
+                <pre>
+                    foo.call(obj, arg1, arg2, ...)
+                </pre>
+                <p>
+                    Метод call викличе функцію foo таким чином, що в this буде посилання на об'єкт obj, а також передасть аргументи arg1, arg2 тощо.
+                </p>
+                <pre>
+                    function greetGuest(greeting) {
+                        console.log(`${greeting}, ${this.username}.`);
+                      }
+                      
+                      const mango = {
+                        username: "Манго",
+                      };
+                      const poly = {
+                        username: "Полі",
+                      };
+                      
+                      greetGuest.call(mango, "Ласкаво просимо"); // Ласкаво просимо, Манго.
+                      greetGuest.call(poly, "З прибуттям"); // З прибуттям, Полі
+                </pre>
+
+                <h3>Метод apply​</h3>
+                <pre>
+                    foo.apply(obj, [arg1, arg2, ...])
+                </pre>
+                <p>
+                    Метод apply - це аналог методу call за винятком того, що синтаксис передачі аргументів вимагає 
+                    не перерахування, а масив, навіть якщо аргумент всього один.
+                </p>
+                <p>
+                    Метод apply викличе функцію foo таким чином, що в this буде посилання на об'єкт obj, а також 
+                    передасть елементи масиву як окремі аргументи arg1, arg2 тощо.
+                </p>
+                <pre>
+                    function greetGuest(greeting) {
+                        console.log(`${greeting}, ${this.username}.`);
+                      }
+                      
+                      const mango = {
+                        username: "Манго",
+                      };
+                      const poly = {
+                        username: "Полі",
+                      };
+                      
+                      greetGuest.apply(mango, ["Ласкаво просимо"]); // Ласкаво просимо, Манго.
+                      greetGuest.apply(poly, ["З прибуттям"]); // З прибуттям, Полі.
+                </pre>
+
+                <h3>Метод bind()</h3>
+                <pre>foo.bind(obj, arg1, arg2, ...)</pre>
+                <p>
+                    Методи call і apply викликають функцію «на місці», тобто відразу. 
+                    Але у разі колбек-функцій, коли необхідно не відразу викликати функцію, 
+                    а передати посилання на неї, причому з прив'язаним контекстом, використовується метод bind.
+                </p>
+                <p>
+                    Метод bind створює і повертає копію функції foo з прив'язаним контекстом obj і 
+                    аргументами arg1, arg2 тощо. Утворюється копія функції, яку можна передати куди 
+                    завгодно і викликати коли завгодно.
+                </p>
+                <code>
+                    function greet(clientName) {
+                        return `${clientName}, ласкаво просимо в «${this.service}».`;
+                      }
+                      
+                      const steam = {
+                        service: "Steam",
+                      };
+                      const steamGreeter = greet.bind(steam);
+                      steamGreeter("Манго"); // "Манго, ласкаво просимо в «Steam»."
+                      
+                      const gmail = {
+                        service: "Gmail",
+                      };
+                      const gmailGreeter = greet.bind(gmail);
+                      gmailGreeter("Полі"); // "Полі, ласкаво просимо в «Gmail»."
+                </code>
+                <h4>bind() і методи об'єкта</h4>
+                <p>
+                    У разі передачі методів об'єкта як колбек-функцій, контекст не зберігається. 
+                    Колбек - це посилання на метод, яка присвоюється як значення параметра, що викликається без об'єкта.
+                </p>
+                <pre>
+                    const customer = {
+                        firstName: "Jacob",
+                        lastName: "Mercer",
+                        getFullName() {
+                          return `${this.firstName} ${this.lastName}`;
+                        },
+                      };
+                      
+                      function makeMessage(callback) {
+                        // callback() - це виклик методу getFullName без об'єкта
+                        console.log(`Обробляємо заявку від ${callback()}.`);
+                      }
+                      
+                      makeMessage(customer.getFullName); // Виникне помилка на момент виклику функції
+                </pre>
+                <p>
+                    У суворому режимі, значення this в методі getFullName, викликаючи як колбек-функції callback(), 
+                    буде undefined. Звертаючись до властивостей firstName і lastName, виникне помилка, оскільки undefined - це не об'єкт.
+                    Метод bind використовується для прив'язування контексту, передаючи методи об'єкта як колбек-функції. Передамо колбеком не оригінальний 
+                    метод getFullName, а його копію з прив'язаним контекстом об'єкту customer.
+                </p>
+                <pre>
+                    // ❌ Було
+                    makeMessage(customer.getFullName); // Виникне помилка на момент виклику функції
+
+                    // ✅ Стало
+                    makeMessage(customer.getFullName.bind(customer)); // Обробляємо заявку від Jacob Mercer.
+                </pre>
+
+            
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            
+            </div>
+        </section>
+
 
 
     </main>

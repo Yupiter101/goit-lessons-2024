@@ -718,6 +718,15 @@
                 firstStudent.name.localeCompare(secondStudent.name)
             );
                 </pre>
+
+                <h3>Ланцюжки методів</h3>
+                <pre>
+                const names = [...students]
+                .sort((a, b) => a.score - b.score)
+                .map(student => student.name);
+
+                console.log(names); // ['Аякс', 'Полі', 'Манго', 'Ківі']
+                </pre>
             </div>
         </section>
 

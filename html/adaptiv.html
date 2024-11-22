@@ -18,9 +18,10 @@
 
     <!-- css -->
     <link rel="stylesheet" href="../css/styles-basic.css">
+    <link rel="stylesheet" href="../css/styles-adaptiv.css">
 </head>
 
-<body>
+<body class="body-media">
     <header>
         <div>
             <a  class="fixed-back" href="../index.html">Back to main page</a>
@@ -30,18 +31,18 @@
     </header>
 
     <main>
-        <section class="section-title">
-            <div class="container">
+        <section class="section-title section-media">
+            <div class="container container-media">
                 <h1>Адаптивна верстка empty</h1>
             </div>
         </section>
 
-        <section class="section-menu">
-            <div class="container">
+        <section class="section-menu section-media">
+            <div class="container container-media">
                 <h2>Зміст</h2>
                 <ol>
-                    <li></li>
-                    <li></li>
+                    <li>Медіа-запити</li>
+                    <li>Метатег viewport</li>
                     <li></li>
                     <li></li>
               
@@ -49,15 +50,118 @@
             </div>
         </section>
 
-        <section class="section-about">
-            <div class="container">
-                <h3>About</h3>
+        <section class="section-about section-media">
+            <div class="container container-media">
+                <h2>Медіа-запити</h2>
+                <p>
+                    Медіа-запити - це те, що робить можливим створення сучасних адаптивних веб-сторінок, 
+                    які однаково добре виглядають на будь-якому екрані, чи то десктоп, чи то смартфон. 
+                    Все зводиться до застосування того або іншого CSS-правила, залежно від розміру вікна 
+                    браузера (області перегляду, в'юпорту), налаштувань браузера або можливостей пристрою
+                </p>
+                <ul>
+                    <li>Алгоритм застосування стилів наступний:</li>
+                    <li>Розробник описує набір медіа-запитів і CSS-правил всередині них.</li>
+                    <li>Браузер відстежує зміну розміру в'юпорту.</li>
+                    <li>Браузер застосовує CSS-правила з медіа-запитів, що відповідають поточному розміру в'юпорту.</li>
+                </ul>
+                <pre>
+                    @media screen and (min-width: 900px) {
+                        body {
+                          background-color: orange;
+                        }
+                      }
+                </pre>
+                <pre>
+            Цей медіа-запит застосується під час друку документа.
+            @media print 
+
+            Цей медіа-запит застосується при ширині в'юпорту більше 400px.
+            @media screen and (min-width: 400px) 
+
+            Тип screen можна не вказувати, якщо стилі пишуться тільки для екранів.
+            @media (min-width: 400px)
+                </pre>
+                <h3>Медіа-типи</h3>
+                <ul>
+                    <li>all - якщо не вказати тип носія, за замовчуванням буде використано це значення, яке означає будь-який пристрій.</li>
+                    <li>
+                        print - відповідає принтерам і пристроям, призначених для відтворення друкованого варіанту, наприклад веб-браузера, 
+                        що відображає документ у режимі «Попередній перегляд».
+                    </li>
+                    <li>
+                        screen - описує пристрої з фізичним екраном: смартфони, планшети, монітори, телевізори тощо. Тобто все, 
+                        що не охоплює тип print.
+                    </li>
+                </ul>
+
+                <h3>Логічні оператори</h3>
+                <p>
+                    Медіа-тип і медіа-функції можуть бути розділені необов'язковими логічними операторами not, and і 
+                    only - значення за замовчуванням.
+                </p>
+                <pre>
+                    @media only|not media-type only|and|not (media-feature)
+                </pre>
+
+                <h4>Оператор and</h4>
+                <p>
+                    Оператор and (буквально «І») використовується не тільки між типом носія і медіа-умовою, але і для зв'язування декількох 
+                    медіа-функцій з перевірками значень.
+                </p>
+                <pre>
+                    @media screen and (min-width: 400px) and (max-width: 800px) {}
+                </pre>
+
+                <h4>Оператор , or</h4>
+                <p>
+                    Оператор , or (буквально «АБО») дозволяє вказати набір виразів, при виконанні хочаб одного з них, 
+                    виконається медіа-запит
+                </p>
+                <pre>
+                    @media (max-width: 600px), (min-width: 900px) {} //«АБО» or
+                    @media (max-width: 600px) or (min-width: 900px) {} //«АБО» or
+                </pre>
+
+                <h4>Оператор not</h4>
+                <pre>
+                    @media not print {} // скрізь, крім друку
+                    /* Ніколи не виконається */
+                    @media not (max-width: 500px)
+                    /* Виконається, якщо ширина буде більша за 500px. */
+                    @media not screen and (max-width: 500px) 
+                </pre>
+            </div>
+        </section>
+
+        <section class="section-about section-media">
+            <div class="container container-media">
+                <h2>Метатег viewport</h2>
+                <p>
+                    Сторінки, адаптовані для перегляду на різних пристроях, повинні містити в розділі head мета-тег viewport. Він повідомляє браузеру, 
+                    яким чином потрібно контролювати розміри і масштаб в'юпорту.
+                </p>
+                <pre>
+                    head
+                        !-- Інші мета-теги --
+                        meta name="viewport" content="width=device-width, initial-scale=1.0" /
+                        title Мета-тег viewport важливий для адаптивних сторінок /title
+                    /head
+                </pre>
+                
+            </div>
+        </section>
+
+        <section class="section-about section-media">
+            <div class="container container-media">
+                <h2></h2>
+                
             </div>
         </section>
 
     </main>
-    <footer class="page-footer">
-        <div class="container">
+    <footer class="page-footer  section-media">
+        <div class="container container-media">
             <h3>footer</h3>
             <address>
                 <p>address</p>

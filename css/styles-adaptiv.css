@@ -1,0 +1,51 @@
+
+/* .section-title,
+.section-menu,
+.page-header,
+.section-about,
+.section-hero,
+.page-footer {
+    background-color: #fee;
+    max-width: 1140px;
+    margin: 0 auto 20px;
+  }
+  
+.container {
+    padding: 10px 15px;
+    outline: 1px solid black;
+  }
+
+code {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(17, 83, 37);
+  } */
+
+
+
+/* The color indigo is at 900px or wider. */
+@media (max-width: 960px) {
+    .body-media {
+        background-color: #4caf50;
+    }
+    .section-media {
+        max-width: 800px;
+    }
+    .container.container-media {
+        outline: 2px solid red;
+    }
+  }
+
+/* The color green is at 600px or wider. */
+@media (max-width: 800px) {
+    .body-media {
+        background-color: #3f51b5;
+    }
+    .section-media {
+        max-width: 640px;
+    }
+    .container.container-media {
+        outline: 2px solid yellow;
+    }
+  }
+  

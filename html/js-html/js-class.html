@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a class="fixed-back" href="../../index.html">Back to main page</a>
+            <nav>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <div class="container">
+                <h1>ООП та Класи</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>ООП теорія</li>
+                    <li>Прототипне наслідування</li>
+                    <li>Класи</li>
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>ООП теорія</h2>
+                <p>
+                    Об'єктно-орієнтоване програмування (ООП) - методологія, яка описує програму як 
+                    сукупність об'єктів, кожен з яких містить дані (властивості) і методи для взаємодії з ними.
+                </p>
+                <p>
+                    З ідеологічної точки зору, ООП - це підхід до програмування як до моделювання, що вирішує основне 
+                    завдання - структурування інформації з точки зору керованості, що суттєво покращує контроль 
+                    процесу моделювання.
+                </p>
+                <p>
+                    Клас - спосіб опису сутності, що визначає стан і поведінку, яка залежить від цього стану, 
+                    а також правила для взаємодії з цією сутністю (контракт).
+                </p>
+                <p>
+                    Екземпляр (об'єкт) - це окремий представник класу, який має конкретний стан і поведінку, що повністю 
+                    визначається класом. Це те, що створено за кресленням, тобто на підставі опису з класу.
+                </p>
+                <p>
+                    Інтерфейс - це набір властивостей і методів класу, доступних для використання у роботі з екземпляром.
+                    По суті, інтерфейс описує клас, чітко визначаючи усі можливі дії над ним. 
+                    Хороший приклад інтерфейсу - панель приладів автомобіля, яка дозволяє викликати методи 
+                    як-от збільшення швидкості, гальмування, повертання, перемикання передач, увімкнення фар тощо.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Прототипне наслідування</h2>
+                <p>
+                    ООП в JavaScript побудовано на прототипному наслідуванні. Об'єкти можна організувати у ланцюжки таким чином, 
+                    щоб здійснювався автоматичний пошук властивості в іншому об'єкті, не знайденої в одному об'єкті. 
+                    Сполучною ланкою виступає спеціальна прихована властивість [[Prototype]], яка в консолі браузера 
+                    відображається як __proto__.
+                </p>
+                <h3>Прототип об'єкта</h3>
+                <p>
+                    Метод Object.create(obj) створює і повертає новий об'єкт, зв'язуючи його з об'єктом obj.
+                </p>
+                <pre>
+                    const animal = {
+                        legs: 4,
+                      };
+                      const dog = Object.create(animal);
+                      dog.name = "Манго";
+                      
+                      console.log(dog); // { name: 'Манго', __proto__: animal }
+                      console.log(animal.isPrototypeOf(dog)); // true
+                </pre>
+                <p>
+                    Тобто прототип - це резервне сховище властивостей і методів об'єкта, автоматично використовується під час їх пошуку. 
+                    Об'єкт, який виступає прототипом, може також мати свій прототип, наступний - свій, і так далі.
+                    Пошук властивості виконується до першого збігу. Інтерпретатор шукає властивість за ім'ям в об'єкті, 
+                    якщо не знаходить, то звертається до властивості __proto__, тобто переходить за посиланням до об'єкта-прототипу, 
+                    а потім - до прототипу прототипу. 
+                    Якщо інтерпретатор дійде до кінця ланцюжка і не знайде властивості з таким ім'ям, то поверне undefined.
+                </p>
+                <pre>
+                    const animal = {
+                        eats: true,
+                      };
+                      const dog = Object.create(animal);
+                      dog.barks = true;
+                      
+                      for (const key in dog) {
+                        if (!dog.hasOwnProperty(key)) continue;
+                      
+                        console.log(key); // barks
+                      }
+                </pre>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Класи</h2>
+                
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+                
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <h3>footer</h3>
+            <address>
+                <p>address</p>
+            </address>
+        </div>
+    </footer>
+</body>
+</html>

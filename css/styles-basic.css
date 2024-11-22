@@ -133,22 +133,13 @@ ul {
   margin-top: 6px;
 }
 
-.container {
-    /* max-width: 1140px; */
-    /* width: 1140px;
-    width: 100%; */
-    /* margin: 0 auto; */
-    padding: 10px 15px;
-    /* background-color: #edf4d7; */
-    outline: 1px solid black;
-  }
-  
-  .section-title,
-  .section-menu,
-  .page-header,
-  .section-about,
-  .section-hero,
-  .page-footer {
+
+.section-title,
+.section-menu,
+.page-header,
+.section-about,
+.section-hero,
+.page-footer {
     background-color: #fee;
     max-width: 1140px;
     margin: 0 auto 20px;
@@ -169,9 +160,21 @@ ul {
     background-color: #8974a2;
   } */
 
-  code {
-    font-size: 18px;
-    font-weight: 600;
+
+.container {
+    /* max-width: 1140px; */
+    /* width: 1140px;
+    width: 100%; */
+    /* margin: 0 auto; */
+    padding: 10px 15px;
+    /* background-color: #edf4d7; */
+    outline: 1px solid black;
+  }
+
+
+code {
+    font-size: 16px;
+    font-weight: 500;
     color: rgb(17, 83, 37);
   }
 
