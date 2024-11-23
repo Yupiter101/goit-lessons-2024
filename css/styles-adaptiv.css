@@ -24,7 +24,7 @@ code {
 
 
 /* The color indigo is at 900px or wider. */
-@media (max-width: 1140px) {
+/* @media (max-width: 1140px) {
     .body-media {
         background-color: #4caf50;
     }
@@ -34,7 +34,7 @@ code {
     .container.container-media {
         outline: 2px solid red;
     }
-  }
+  } */
 
 /* The color green is at 600px or wider. */
 @media (max-width: 840px) {
@@ -57,4 +57,22 @@ code {
     pre {
       font-size: 12px;
     }
+
   }
+
+
+/* 1x screens, default value, 320x240 image */
+.box-retina {
+  margin: 0 auto;
+  width: 320px;
+  height: 240px;
+  background-image: url("https://picsum.photos/id/237/320/240");
+  background-size: 320px 240px;
+}
+
+/* 2x screens, retina, 640x480 image */
+@media (min-resolution: 192dpi) {
+  .box-retina {
+    background-image: url("https://picsum.photos/id/237/640/480");
+  }
+}
