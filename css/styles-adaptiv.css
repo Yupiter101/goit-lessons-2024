@@ -76,3 +76,29 @@ code {
     background-image: url("https://picsum.photos/id/237/640/480");
   }
 }
+
+/* === Респонсивний елемент <img> === */
+
+/* .thumb-respons-img {
+  width: 320px;
+  height: 240px;
+  margin: 0 auto;
+} */
+
+/* Кадрування (art direction) */
+
+
+
+.container-art {
+  max-width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumb-art {
+  display: flex;
+  justify-content: center;
+}
+
