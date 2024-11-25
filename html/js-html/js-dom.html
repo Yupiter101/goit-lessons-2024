@@ -32,7 +32,7 @@
     <main>
         <section class="section-title">
             <div class="container">
-                <h1>JS DOM and EVENT</h1>
+                <h1>JS DOM and Event</h1>
             </div>
         </section>
 
@@ -41,11 +41,32 @@
                 <h2>Зміст</h2>
                 <ol>
                     <li>Об'єктна модель документа</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Навігація по DOM</li>
+                    <li>Пошук елементів</li>
+                    <li>Властивості та атрибути</li>
+                    <li>Властивість textContent</li>
+                    <li>Властивість classList</li>
+                    <li>Властивість style</li>
+                    <li>Атрибути</li>
+                    <li>Створення та видалення елементів</li>
+                    <li>Оптимізація роботи з DOM</li>
+                    <li>Властивість innerHTML</li>
                 </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Список основних методів</h2>
+                <ul>
+                    <li>= document.querySelector('#menu');</li>
+                    <li>= document.querySelector('.menu');</li>
+                    <li>= document.querySelectorAll("li");</li>
+                    <li>= document.querySelectorAll(".menu-item");</li>
+                    <li>menu = document.querySelector(".menu-item");</li>
+                    <li>menu.style.textTransform = 'uppercase';</li>
+                </ul>
+                
             </div>
         </section>
 
@@ -73,10 +94,423 @@
                 <div>
                     <img src="../../img/js-dom.jpg" alt="js-dom.img" width="400">
                 </div>
-                
-
             </div>
         </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Навігація по DOM</h2>
+                <p>
+                    document - це частина глобального об'єкта window, який доступний у скрипті, 
+                    коли він виконується в браузері. Так само як alert, console.log, prompt і багато інших.
+                </p>
+                <p>
+                    Найвищий елемент називається кореневим (root node).
+                </p>
+                <p>
+                    Для навігації по цій ієрархії елементи мають наступні властивості:
+                </p>
+                <ul>
+                    <li>elem.parentNode - вибере батьківський elem.</li>
+                    <li>elem.childNodes - псевдомасив, зберігає всі дочірні елементи, включно з текстовими.</li>
+                    <li>elem.children - псевдомасив, зберігає тільки дочірні вузли-елементи, тобто ті, що відповідають тегам.</li>
+                    <li>elem.firstChild - вибере перший дочірній елемент всередині elem, включно з текстовими вузлами.</li>
+                    <li>elem.firstElementChild - вибере перший дочірній вузол-елемент всередині elem.</li>
+                    <li>elem.lastChild - вибере останній дочірній елемент всередині elem, включно з текстовими вузлами.</li>
+                    <li>elem.lastElementChild - вибере останній дочірній вузол-елемент всередині elem.</li>
+                    <li>elem.previousSibling - вибере елемент «зліва» від elem (його попереднього сусіда).</li>
+                    <li>elem.previousElementSibling - вибере вузол-елемент «зліва» від elem (його попереднього сусіда).</li>
+                    <li>elem.nextSibling - вибере елемент «праворуч» від elem (його наступного сусіда)</li>
+                    <li>elem.nextElementSibling - вибере вузол-елемент «праворуч» від elem (його наступного сусіда).</li>
+                </ul>
+                <h4><a href="https://codepen.io/goit-academy/pen/oNZqxoP" target="_blank">Приклад 1</a> коду js</h4>
+                <pre>
+    &lt;ul class="list"&gt;
+        &lt;li&gt;First item&lt;/li&gt;
+        &lt;li&gt;Second item&lt;/li&gt;
+        &lt;li&gt;Third item&lt;/li&gt;
+        &lt;li&gt;Fourth item&lt;/li&gt;
+        &lt;li&gt;Fifth item&lt;/li&gt;
+    &lt;/ul&gt;
+                </pre>
+
+                <pre>
+    console.log(document);
+
+    const body = document.body;
+    console.log(body);
+
+    const list = document.querySelector(".list");
+    console.log(list);
+
+    const firstListItem = list.firstElementChild;
+    console.log(firstListItem);
+
+    const lastListItem = list.lastElementChild;
+    console.log(lastListItem);
+
+    const listItems = list.children;
+    console.log(listItems);
+                </pre>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Пошук елементів</h2>
+                <p>
+                    Отже, ми вже знаємо що DOM-елемент - це об'єкт з властивостями і методами. 
+                    Саме час навчитися швидко знаходити елемент за довільним CSS-селектором. 
+                    Група методів elem.querySelector* - це сучасний стандарт для пошуку елементів. 
+                    Вони дозволяють знайти елемент або групу елементів за CSS-селектором будь-якої складності.
+                </p>
+                <code>element.querySelector(selector);</code>
+                <ul>
+                    <li>
+                        Використовується, якщо необхідно знайти тільки один, найчастіше унікальний елемент.
+                    </li>
+                    <li>
+                        Повертає перший знайдений елемент всередині element, що відповідає CSS-селектору selector.
+                    </li>
+                    <li>
+                        Якщо нічого не знайдено, поверне null.
+                    </li>
+                </ul>
+
+                <code>element.querySelectorAll(selector);</code>
+                <ul>
+                    <li>
+                        Використовується, якщо необхідно знайти колекцію елементів, тобто отримати масив 
+                        посилань на елементи з однаковим селектором. Наприклад, всі елементи списку з класом 
+                        menu-item
+                    </li>
+                    <li>
+                        Повертає псевдомасив всіх елементів всередині element, які відповідають CSS-селектору selector.
+                    </li>
+                    <li>
+                        Якщо нічого не знайдено, поверне порожній масив.
+                    </li>
+                </ul>
+
+                <h4><a href="https://codepen.io/goit-academy/pen/wvJmGbG" target="_blank">Приклад 2</a> коду js</h4>
+                <pre>
+    &lt;ul id="menu" class="menu"&gt;
+        &lt;li class="menu-item"&gt;home&lt;/li&gt;
+        &lt;li class="menu-item"&gt;about&lt;/li&gt;
+        &lt;li class="menu-item"&gt;gallery&lt;/li&gt;
+        &lt;li&gt;blog&lt;/li&gt;
+    &lt;/ul&gt;
+                </pre>
+
+                <pre>
+    const listWithId = document.querySelector('#menu');
+    listWithId.style.textTransform = 'uppercase';
+    listWithId.style.fontSize = '24px';
+    console.log(listWithId);
+
+    const listWithClass = document.querySelector('.menu');
+    console.log(listWithClass);
+
+    const menuItemsByTagName = document.querySelectorAll("li");
+    console.log(menuItemsByTagName);
+
+    const menuItemsByClass = document.querySelectorAll(".menu-item");
+    console.log(menuItemsByClass);
+
+    const firstMenuItem = document.querySelector(".menu-item");
+    firstMenuItem.style.color = 'tomato';
+    console.log(firstMenuItem);
+                </pre>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Властивості та атрибути</h2>
+                <p>
+                    Під час побудови DOM-дерева, деякі стандартні HTML-атрибути стають властивостями 
+                    елементів. Подивимося на декілька властивостей, які часто використовуються.
+                </p>
+                <ul>
+                    <li>value - містить поточний текстовий контент елементів форм</li>
+                    <li>checked - зберігає стан чекбокса або радіокнопки.</li>
+                    <li>name - зберігає значення, вказане в HTML-атрибуті name.</li>
+                    <li>src - шлях до зображення тегу img.</li>
+                </ul>
+                <h4>Example</h4>
+                <pre>
+    &lt;img class="image" 
+        src="https://picsum.photos/id/9/320/240" 
+        alt="A laptop" 
+        width="300" /&gt;
+                </pre>
+                <div>
+                    <img class="image" src="https://picsum.photos/id/9/320/240" 
+                        alt="A laptop" 
+                        width="300" />
+                </div>
+                <pre>
+    const image = document.querySelector(".image");
+    console.log(image.src); // https://picsum.photos/id/9/320/240
+    console.log(image.alt); // A laptop
+
+    image.src = "https://picsum.photos/id/13/640/480";
+    image.alt = "River bank";
+                </pre>
+
+                <h3>Властивість textContent</h3>
+                <p>
+                    <b>elem.textContent</b> повертає текстовий контент всередині елемента. Доступний для читання
+                     і запису. Неважливо, що буде передано в textContent, дані завжди будуть записані 
+                     як текст.
+                </p>
+                <pre>
+    const titleEl = document.querySelector(".article-title");
+    titleEl.textContent = 'Welcome to Bahamas!';
+                </pre>
+
+                <h3>Властивість classList</h3>
+                <p>
+                    У властивості classList зберігається об'єкт з методами для роботи з класами елемента.
+                </p>
+                <ul>
+                    <li>
+                        elem.classList.contains(cls) - повертає true або false, залежно від наявності 
+                        класу cls в елемента.
+                    </li>
+                    <li>elem.classList.add(cls) - додає клас cls до списку класів елемента.</li>
+                    <li>elem.classList.remove(cls) - видаляє клас cls зі списку класів елемента.</li>
+                    <li>
+                        elem.classList.toggle(cls) - якщо відсутній клас cls, то додає його, 
+                        якщо - присутній, навпаки - видаляє.
+                    </li>
+                    <li>
+                        elem.classList.replace(oldClass, newClass) - замінює існуючий клас 
+                        oldClass на вказаний newClass.
+                    </li>
+                </ul>
+                <h4>Example</h4>
+                <pre>
+    HTML
+    &lt;a class="link is-active" href=""&gt;A random link&lt;/a&gt;
+
+    JS
+    const link = document.querySelector(".link");
+    console.log(link.classList);
+
+    const hasActiveClass = link.classList.contains("is-active");
+    console.log(`hasActiveClass - ${hasActiveClass}`);
+
+    link.classList.add("special");
+    console.log(link.classList);
+
+    link.classList.remove("is-active");
+    console.log(link.classList);
+
+    link.classList.toggle("is-active");
+    console.log(link.classList);
+
+    link.classList.replace("special", "regular");
+    console.log(link.classList);
+                </pre>
+
+                <h3>Властивість style​</h3>
+                <p>
+                    Використовується для читання та зміни інлайнових стилів. Повертає об'єкт 
+                    CSSStyleDeclaration, який містить список усіх властивостей, визначених тільки 
+                    у вбудованих стилях елемента, а не увесь CSS. Під час запису властивості записуються 
+                    в camelCase, тобто background-color перетворюється на element.style.backgroundColor тощо.
+                </p>
+                <pre>
+    const button = document.querySelector(".btn");
+
+    button.style.backgroundColor = "teal";
+    button.style.fontSize = "24px";
+    button.style.textAlign = "center";
+                </pre>
+                <p>
+                    На практиці стилізація елементів виконується шляхом додавання CSS-класів. 
+                    Властивість style використовується для додавання будь-яких динамічних стилів, 
+                    наприклад, під час анімації.
+                </p>
+
+                <h3>Атрибути</h3>
+                <p>
+                    Доступ до атрибутів здійснюється за допомогою стандартних методів. Ці методи працюють 
+                    зі значенням, яке знаходиться в HTML.
+                </p>
+                <ul>
+                    <li>
+                        elem.hasAttribute(name) - перевіряє наявність атрибута, повертає true або false.
+                    </li>
+                    <li>elem.getAttribute(name) - отримує значення атрибута і повертає його.</li>
+                    <li>elem.setAttribute(name, value) - встановлює атрибут.</li>
+                    <li>elem.removeAttribute(name) - видаляє атрибут.</li>
+                    <li>elem.attributes - властивість, що повертає об'єкт усіх атрибутів елемента.</li>
+                </ul>
+                <pre>
+    const image = document.querySelector(".image");
+
+    console.log(image.attributes); 
+            // NamedNodeMap {0: class, 1: src, 2: alt, length: 3}
+    console.log(image.hasAttribute("src")); // true
+    console.log(image.getAttribute("alt")); // "Rocks and waterfall"
+    image.setAttribute("alt", "Amazing nature");
+    console.log(image.getAttribute("alt")); // Amazing
+                </pre>
+
+                <h3>data-атрибути</h3>
+                <p>
+                    Дозволяють додати до тегу довільний атрибут і отримати його значення в JavaScript. 
+                    Цю можливість використовують для того, щоб спростити написання коду, наприклад, 
+                    зв'язати дані і розмітку за унікальним ідентифікатором, вказати тип дії кнопки тощо
+                </p>
+                <p>
+                    Для отримання значення data-атрибута використовується властивість dataset, 
+                    після якого стоїть ім'я атрибута. Тобто data- відкидається, а інша частина імені 
+                    записується як ім'я властивості об'єкта.
+                </p>
+                <pre>
+    &lt;button type="button" data-action="save"&gt;Save&lt;/button&gt;
+
+    const saveBtn = document.querySelector('button[data-action="save"]');
+    console.log(saveBtn.dataset.action); // "save"
+                </pre>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Створення та видалення елементів</h2>
+                <p>
+                    DOM API дозволяє не тільки вибирати або змінювати вже існуючі, але й видаляти, 
+                    а також створювати нові елементи, після чого додавати їх в документ.
+                </p>
+
+                <h3>Створення</h3>
+                <pre>
+    document.createElement(tagName);
+                </pre>
+                <p>Елемент створюється в пам'яті, в DOM його ще немає.</p>
+                <h3>Додавання</h3>
+                <p>
+                    Щоб створений елемент відображався на сторінці, його необхідно додати до 
+                    вже існуючого елемента в DOM-дереві.
+                </p>
+                <p>для цього існують методи:</p>
+                <ul>
+                    <li>
+                        element.append(el1, el2, ...) - додає один або декілька елементів 
+                        після всіх дітей елемента element.
+                    </li>
+                    <li>
+                        element.prepend(el1, el2, ...) - додає один або декілька елементів 
+                        перед усіма дітьми елемента element.
+                    </li>
+                    <li>
+                        element.after(el1, el2, ...) - додає один або декілька елементів після елемента element.
+                    </li>
+                    <li>
+                        element.before(el1, el2, ...) - додає один або декілька елементів перед елементом element.
+                    </li>
+                </ul>
+                <h4>Example</h4>
+                <pre>
+    &lt;h1&gt;Usernames&lt;/h1&gt;
+    &lt;ul class="usernames"&gt;
+        &lt;li&gt;Mango&lt;/li&gt;
+    &lt;/ul&gt;
+
+    const list = document.querySelector(".usernames");
+
+    const item = document.createElement("li");
+    item.textContent = "Poly";
+    list.append(item);
+                </pre>
+                <h2>Перевірити!!!!</h2>
+                <p>
+                    Якщо елемент для додавання вже знаходиться в DOM, то він видаляється зі свого старого 
+                    місця і додається у нове. З цього випливає правило - один і той самий елемент не може 
+                    бути одночасно у двох місцях.
+                </p>
+
+                <h3>Видалення</h3>
+                <pre>
+    elem.remove();
+                </pre>
+                <p>
+                    Для того, щоб видалити елемент, використовується метод remove(). 
+                    Він викликається на елементі elem, який необхідно видалити.
+                </p>
+                <h4>Example</h4>
+                <pre>
+    &lt;p class="text"&gt;Text&lt;/p&gt;
+
+    const text = document.querySelector('.text');
+    text.remove();
+                </pre>
+
+                <h3>Оптимізація роботи з DOM</h3>
+                <p>
+                    зміна DOM-дерева - це дорога операція, тому 
+                    необхідно намагатися мінімізувати кількість звернень до DOM.
+                </p>
+                <p>
+                    Repaint - відбувається, коли зміни торкнулися стилів, 
+                    що впливають на зовнішній вигляд елемента, але не на геометрію.
+                </p>
+                <p>
+                    Reflow - відбувається, коли зміни впливають на вміст, структуру документу, положення елементів. 
+                    Відбувається перерахунок позиціонування і розмірів, що призводить до повторного створення 
+                    частини або всього документу.
+                </p>
+                <p>
+                    Сторінка не може виконувати жодні інші операції у той час, коли відбувається reflow або repaint.
+                </p>
+                <p>Причинами можуть бути:</p>
+                <ul>
+                    <li>Маніпуляції з DOM (додавання, видалення, зміна, перестановка елементів)</li>
+                    <li>Зміна вмісту, зокрема тексту в полях форм</li>
+                    <li>Розрахунок або зміна CSS-властивостей</li>
+                    <li>Додавання і видалення таблиць стилів</li>
+                    <li>Маніпуляції з атрибутом class</li>
+                    <li>Маніпуляції з вікном браузера (зміни розмірів, прокручування)</li>
+                    <li>Активація псевдокласів (наприклад, ':hover')</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Властивість innerHTML</h2>
+                <p>
+                    Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з 
+                    тегами і дозволити браузеру зробити всю важку роботу. У такого підходу є свої плюси і мінуси.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+                
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+                
+            </div>
+        </section>
+
+
 
     </main>
     <footer class="page-footer">
