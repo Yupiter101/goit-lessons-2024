@@ -18,7 +18,6 @@
 
     <!-- css -->
     <link rel="stylesheet" href="../../css/styles-basic.css">
-    <link rel="stylesheet" href="../../css/style-js-dom.css">
 </head>
 
 <body>
@@ -60,6 +59,10 @@
                     <li>Метод addEventListener()</li>
                     <li>Метод removeEventListener()</li>
                     <li>Ключове слово this</li>
+                    <li>Об'єкт події</li>
+                    <li>Дії браузера за замовчуванням - preventDefault()</li>
+                    <li>Form</li>
+                    <li>Події клавіатури</li>
                 </ol>
             </div>
         </section>
@@ -730,37 +733,102 @@
 
         <section class="section-about">
             <div class="container">
-                <h2></h2>
-                
+                <h2>Об'єкт події</h2>
+                <p>
+                    Щоб обробити подію - недостатньо знати про те, що це клік або натискання клавіші, 
+                    можуть знадобитися деталі. Наприклад, поточне значення текстового поля, елемент, 
+                    на якому відбулася подія, вбудовані методи та інші.
+                </p>
+                <p>
+                    Кожна подія - це об'єкт, який містить інформацію про деталі події та автоматично 
+                    передається першим аргументом в обробник події. Всі події відбуваються з базового 
+                    класу Event
+                </p>
+
+                <pre>
+    const handleClick = event => {
+        console.log(event);
+      };
+      
+      button.addEventListener("click", handleClick);
+                </pre>
+
+                <p>
+                    Ми можемо називати його як завгодно, але, як правило, його оголошують як e, evt або event.
+                </p>
+
+                <p>Деякі властивості об'єкта події:</p>
+                <ul>
+                    <li>event.type - тип події.</li>
+                    <li>event.currentTarget - елемент, на якому виконується обробник події.</li>
+                    <li>event.clientX</li>
+                    <li>event.clientY</li>
+                    <li>event.offsetX</li>
+                    <li>event.offsetY</li>
+                    <li>event.screenX</li>
+                    <li>event.screenY</li>
+                </ul>
+
+                <h3>Дії браузера за замовчуванням</h3>
+                <h3>Form</h3>
+                <p>
+                    Для скасування дії браузера за замовчуванням в об'єкта події є стандартний 
+                    метод preventDefault().
+                </p>
+
+                <pre>
+                    const form = document.querySelector(".register-form");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const {
+    elements: { username, password }
+  } = event.currentTarget;
+  console.log(username.value, password.value);
+});
+                </pre>
+
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Події клавіатури</h2>
+
+                <p>
+                    Існує дві основні події клавіатури: keydown і keyup.
+                </p>
+                <p>
+                    На відміну від інших, події клавіатури обробляються на документі, а не на конкретному елементі. 
+                    Об'єкти подій клавіатури походять від базового класу KeyboardEvent.
+                </p>
+                <pre>
+    document.addEventListener("keydown", event => {
+        console.log("Keydown: ", event);
+      });
+      
+      document.addEventListener("keyup", event => {
+        console.log("Keyup: ", event);
+      });
+                </pre>
+                <p>
+                    Натискаючи клавішу, спочатку відбувається keydown, після чого - keyup
+                </p>
+                <p>
+                    На практиці переважно обробляють тільки подію keydown, оскільки вона відбувається швидше за keyup
+                </p>
+                <p>
+                    Раніше була ще одна подія клавіатури - keypress. вона застаріла
+                </p>
+
+                <h3>Властивості key і code​</h3>
             </div>
         </section>
 
         <section class="section-about">
             <div class="container">
                 <h2>JS Tests</h2>
-                <div class="btn-container">
-                    <div>
-                        <button type="button">Add title</button>
-                        <button type="button">Add text</button>
-                        <button type="button">Add list</button>
-                        <button type="button">Add img</button>
-                        <button type="button">Change img</button>
-                    </div>
-                    <div>
-                        <button type="button">Del img</button>
-                        <button type="button">Del list</button>
-                        <button type="button">Del text</button>
-                        <button type="button">Del title</button>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3></h3>
-                    <p></p>
-                    <ul></ul>
-                    <!-- <img src="" alt=""> -->
-                </div>
-                
             </div>
         </section>
 
@@ -776,6 +844,6 @@
         </div>
     </footer>
 
-    <script></script>
+    <!-- <script src="../../js/dom.js"></script> -->
 </body>
 </html>

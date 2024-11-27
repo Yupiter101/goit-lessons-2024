@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Script</title>
+    <title>js-practic</title>
     <!-- Goodle font -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="../css/styles-basic.css">
+    <link rel="stylesheet" href="../css/style-js-dom.css">
 </head>
 
 <body>
@@ -30,35 +31,61 @@
     </header>
 
     <main>
-        <!-- section title -->
-        <section>
-            <div style="padding-top: 100px;">
-                <h1>Java Script</h1>
+        <section class="section-title">
+            <div class="container">
+                <h1>JS practic</h1>
             </div>
         </section>
 
-        <section>
-            <div style="width: 240px; margin: 100px auto; font-size: 22px; font-weight: bold;">
-                <ul>
-                    <li><a href="./js-html/js-basic.html">JS База</a></li>
-                    <li><a href="./js-html/js-arr.html">JS Масиви</a></li>
-                    <li><a href="./js-html/js-func.html">JS Функції</a></li>
-                    <li><a href="./js-html/js-object.html">JS Обєкти</a></li>
-                </ul>
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li></li>
+                </ol>
             </div>
         </section>
 
         <section class="section-about">
-            <div>
+            <div class="container">
+        
+                <h3 class="describ-title">Make title</h3>
+                <div class="btn-container">
+                    <button type="button" data-action="add-title">Add title</button>
+                    <button type="button" data-action="dell-title" disabled>Dell title</button>
+                </div>    
+                <h3 class="title-dom"></h3>
+
+                <h3 class="describ-title">Make text</h3>
+                <div class="btn-container">
+                    <button class="bg-green" type="button" data-action="text">Add text</button>
+                </div>    
+                <p class="text-dom"></p>
+
+                <h3 class="describ-title">Change img size</h3>
+                <div class="btn-container">
+                    <button type="button" data-action="img">Size img</button>
+                </div>    
+                <div class="tumb-img-dom">
+                    <img src="../img/dc_dc.jpg" alt="dc-dc" width="300">
+                </div>
+
+                <h3 class="describ-title">Render list</h3>
+                <ul class="list-dom"></ul>
+                 
             </div>
         </section>
 
     </main>
     <footer class="page-footer">
-        <div >
+        <div class="container">
+            <h3>footer</h3>
             <address>
+                <p>address</p>
             </address>
         </div>
     </footer>
+
+    <script src="../js/dom.js"></script>
 </body>
 </html>
