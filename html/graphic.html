@@ -118,9 +118,92 @@
                         <p><code>background: background-color background-image background-repeat background-position background-attachment</code></p>
                         <p>Якщо якийсь компонент не вказаний, буде взято його значення за замовчуванням.</p>
                     </li>
+
+                    <li>
+                        <h3>Властивості object-fit</h3>
+                        <p>Властивість object-fit обрізає, розтягує або масштабує контентне зображення. Це схоже на background-size, але для контентних зображень.</p>
+                        <p><code>object-fit: <b>fill</b> | contain | cover | scale-down | none</code></p>
+                        <ul>
+                            <li>fill - зображення масштабується без збереження пропорцій, щоб повністю заповнити контейнер</li>
+                            <li>contain - зображення масштабується зі збереженням пропорцій, щоб максимально заповнити контейнер.</li>
+                            <li>cover - зображення масштабується зі збереженням пропорцій, щоб повністю заповнити контейнер</li>
+                            <li>scale-down - буде вибрано значення none або contain, щоб зображення було найменшого розміру</li>
+                            <li>none - зберігаються вихідні розміри зображення, задана висота і ширина не мають ефекту.</li>
+                        </ul>
+                        <p>Для того щоб ця техніка працювала, необхідні два обов'язкових кроки.</p>
+                        <ul>
+                            <li>Перший - у контейнера (тумби) повинна бути явно вказана фіксована висота.</li>
+                            <li>Другий - зображення необхідно «вмістити» в контейнер, задавши висоту і ширину 100%.</li>
+                            <li>Після цього до зображення можна застосовувати властивість object-fit</li>
+                            <li><code>img {
+                                display: block;
+                                height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                              }</code></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <h3>Властивості object-position</h3>
+                        <p>Дозволяє задати положення зображення в контейнері по осях X і Y. Це схоже на background-position, але для контентних зображень.</p>
+                        <p><code>object-position: position | initial | inherit</code></p>
+                        <p>Значенням властивості можуть бути зарезервовані слова, абсолютні або відносні одиниці вимірювання. За замовчуванням значення 50% 50%, тобто вертикально і горизонтально по центру.</p>
+                        <ul>
+                            <li><code>object-fit: fill | object-position: 50px 50px</code></li>
+                            <li><code>object-fit: contain |object-position: left bottom</code></li>
+                            <li><code>object-fit: cover | object-position: 20% 30px</code></li>
+                            <li><code>object-fit: scale-down | object-position: right top</code></li>
+                            <li><code></code></li>
+                            <li><code></code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="thumb">
+                            <img src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240" alt="">
+                        </div>
+                    </li>
                 </ul>
             </div>
         </section>
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>Псевдоелементи ::before і ::after</h2>
+                <p>Псевдоелементи ::before і ::after використовуються для додавання декоративних ефектів (іконок, плашок, оверлеїв) без необхідності створення додаткових порожніх тегів в розмітці</p>
+                <ul>
+                    <li>обов'язкова властивість <code>content: "";</code></li>
+                    <li><code>.list-link::before, <br>
+                        .list-link::after { <br>
+                          content: '';  <br>
+                          display: inline-block <br>
+                          width: 24px; <br>
+                          height: 24px;
+                        }</code>
+                    </li>
+                    <p>hover = <code>.box:hover::before {}</code></p>
+                </ul>
+                <ul class="list">
+                    <li class="list-item">
+                      <a href="" class="list-link">Home</a>
+                    </li>
+                    <li class="list-item">
+                      <a href="" class="list-link">Portfolio</a>
+                    </li>
+                    <li class="list-item">
+                      <a href="" class="list-link">Team</a>
+                    </li>
+                    <li class="list-item">
+                      <a href="" class="list-link">About</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
 
         <section class="section-about">
             <div class="container">
