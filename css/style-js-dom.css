@@ -1,4 +1,9 @@
+/* ==== ElementChild ====*/
 
+.container-element-child {
+    max-width: 400px;
+    margin: 10px auto;
+}
 
 .btn-container {
     display: flex;
@@ -8,7 +13,7 @@
 
 .text-dom,
 .title-dom {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     min-height: 40px;
     padding: 0 6px;
 }
@@ -46,12 +51,22 @@ button:disabled {
     color: red;
 }
 
+/* === Example 4 "Change img size" === */
+
 .tumb-img-dom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 400px;
     height: 250px;
     border: 1px solid black;
     margin: 10px auto;
 }
+
+/* .tumb-img-dom img {
+    object-position: 20px 20px;
+    object-position: center center;
+} */
 
 
 .describ-title {

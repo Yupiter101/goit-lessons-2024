@@ -41,11 +41,7 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li>Фон елемента <code>background-color | background-image</code></li>
-                    <li><code>background-repeat: repeat | repeat-x | repeat-y | no-repeat</code></li>
-                    <li><code>background-position: center;</code></li>
-                    <li><code>background-size: auto | значення | cover | contain</code></li>
-                    <li><code>background-attachment: <b>scroll</b> | fixed | inherit</code></li>
+                    <li>Фон елемента background</code></li>
                     <li>Багатошаровий фон</li>
                     <li>Властивість background</li>
                     <li><a href="#gradient">Градієнт</a></li>
@@ -125,6 +121,63 @@
                 </ul>
             </div>
         </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Властивості "IMG" </h2>
+                <p>
+                    Бувають ситуації, коли контентне зображення більше або менше за контейнер, 
+                    в який його необхідно помістити, або зображення має інші пропорції. 
+                    Наприклад, часте завдання у картках товару - це «тумба» фіксованої висоти, 
+                    в яку необхідно гарно вмістити фотографію товару довільного розміру, тобто 
+                    підігнати зображення під розмір контейнера.
+                </p>
+
+                <h3>IMG. Властивість object-fit</h3>
+                <p>
+                    Визначає, яким чином вміст img (або video) буде вміщуватися в контейнер, якщо їх 
+                    розміри або пропорції не збігаються. Властивість object-fit обрізає, розтягує 
+                    або масштабує контентне зображення. Це схоже на background-size, але для контентних 
+                    зображень
+                </p>
+                <code>object-fit: fill | contain | cover | scale-down | none</code>
+                <p><a href="https://codepen.io/goit-academy/pen/vYLPrQr" target="_blank">code</a></p>
+                <ul>
+                    <li>
+                        fill - зображення масштабується без збереження пропорцій, щоб повністю заповнити 
+                        контейнер. Значення за замовчуванням.
+                    </li>
+                    <li>contain - зображення масштабується зі збереженням пропорцій, щоб максимально заповнити контейнер.</li>
+                    <li>cover - зображення масштабується зі збереженням пропорцій, щоб повністю заповнити контейнер.</li>
+                    <li>scale-down - буде вибрано значення none або contain, щоб зображення було найменшого розміру.</li>
+                    <li>none - зберігаються вихідні розміри зображення, задана висота і ширина не мають ефекту.</li>
+                </ul>
+                <p>
+                    Для того щоб ця техніка працювала, необхідні два обов'язкових кроки.
+                </p>
+                <ul>
+                    <li>Перший - у контейнера (тумби) повинна бути явно вказана фіксована висота. </li>
+                    <li>Другий - зображення необхідно «вмістити» в контейнер, задавши висоту і ширину 100%.</li>
+                    <li>Після цього до зображення можна застосовувати властивість object-fit.</li>
+                </ul>
+                <pre>
+                    .thumb &gt; img {
+                        display: block;
+                        height: 100%;
+                        width: 100%;
+
+                        object-fit: cover;
+                      }
+                </pre>
+
+
+            </div>
+        </section>
+
+
+
+
+
 
         <section class="section-about">
             <div class="container">

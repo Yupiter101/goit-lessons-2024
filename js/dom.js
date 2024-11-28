@@ -1,6 +1,27 @@
 console.log("Hello");
 
 // === Example 1 "TITLE H2" ===
+const result = document.querySelector(".my-result");
+const myList = document.querySelector(".my-list");
+const btnFirst = document.querySelector('button[data-action="first-child"]');
+const btnLast = document.querySelector('button[data-action="last-child"]');
+
+btnFirst.addEventListener("click", ()=> {
+    result.textContent=`Created by ${myList.firstElementChild.textContent}`;
+    result.style.color="blue";
+});
+
+btnLast.addEventListener("click", ()=> {
+    // result.style.fontSize = '24px';
+    // result.style.backgroundColor="red";
+    result.style.color="green";
+    result.textContent=`Made by ${myList.lastElementChild.textContent}`;
+    
+});
+
+
+
+// === Example 2 "TITLE H2" ===
 
 const titleText = "Made new title by button. Push dell button";
 const titleDom = document.querySelector(".title-dom");
@@ -24,7 +45,7 @@ function dellTitle () {
     dellTitleBtn.disabled=true;
 }
 
-// === Example 2 "Text P" ===
+// === Example 3 "Text P" ===
 
 const textText = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum dolores natus laudantium officiis aliquid tenetur facilis inventore vero reiciendis corporis?"; 
 const textDom = document.querySelector(".text-dom");
@@ -47,13 +68,32 @@ const togglingText = () => {
         textDom.textContent = textText;
         textBtn.textContent = "Dell text";
         textBtn.classList.add("bg-red");
-    }
-
-    
+    } 
 }
 
 textBtn.addEventListener("click", togglingText );
 
 
-// === Example 3 "Change img size" ===
+// === Example 4 "Change img size" ===
 
+let step = 4;
+const btnImgSize = document.querySelector('button[data-action="img"]');
+const myImg = document.querySelector('img[alt="dc-dc"]');
+
+
+const changingSize = function () {
+    
+    // myImg.width="100"; // Ok
+    myImg.width=100*step;
+    step +=1;
+    if(step > 4) {
+        step = 1;
+    }
+}
+
+btnImgSize.addEventListener("click", changingSize);
+
+
+
+
+// === Example 5 "Render list" ===
