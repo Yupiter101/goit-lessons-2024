@@ -25,6 +25,7 @@ function dellTitle () {
 }
 
 // === Example 2 "Text P" ===
+
 const textText = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum dolores natus laudantium officiis aliquid tenetur facilis inventore vero reiciendis corporis?"; 
 const textDom = document.querySelector(".text-dom");
 
@@ -52,3 +53,7 @@ const togglingText = () => {
 }
 
 textBtn.addEventListener("click", togglingText );
+
+
+// === Example 3 "Change img size" ===
+

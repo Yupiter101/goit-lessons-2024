@@ -55,14 +55,14 @@
                     <li>Підключення скриптів</li>
                     <li>Атрибут defer</li>
                     <li>Атрибут async</li>
-                    <li>Події</li>
+                    <li><a href="#events">Події</a></li>
                     <li>Метод addEventListener()</li>
                     <li>Метод removeEventListener()</li>
                     <li>Ключове слово this</li>
                     <li>Об'єкт події</li>
                     <li>Дії браузера за замовчуванням - preventDefault()</li>
-                    <li>Form</li>
-                    <li>Події клавіатури</li>
+                    <li><a href="#key-event">Події клавіатури</a></li>
+                    <li><a href="#form-event">Події елементів форм</a></li>
                 </ol>
             </div>
         </section>
@@ -70,14 +70,66 @@
         <section class="section-about">
             <div class="container">
                 <h2>Список основних методів</h2>
+
+                <h3>Пошук елемента</h3>
                 <ul>
                     <li>= document.querySelector('#menu');</li>
                     <li>= document.querySelector('.menu');</li>
                     <li>= document.querySelectorAll("li");</li>
-                    <li>= document.querySelectorAll(".menu-item");</li>
-                    <li>menu = document.querySelector(".menu-item");</li>
-                    <li>menu.style.textTransform = 'uppercase';</li>
+                    <li>= document.querySelector('button[data-action="text"]');</li>
                 </ul>
+
+                <h3>Інлайн стилі</h3>
+                <ul>
+                    <li>menu.style.textTransform = 'uppercase';</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+
+                <h3>Навігації по ієрархії</h3>
+                <ul>
+                    <li>elem.parentNode - вибере батьківський elem.</li>
+                    <li>elem.childNodes - псевдомасив, зберігає всі дочірні елементи, включно з текстовими.</li>
+                    <li>elem.children - псевдомасив, зберігає тільки дочірні вузли-елементи, тобто ті, що відповідають тегам.</li>
+                    <li>elem.firstChild - вибере перший дочірній елемент всередині elem, включно з текстовими вузлами.</li>
+                    <li>elem.firstElementChild - вибере перший дочірній вузол-елемент всередині elem.</li>
+                    <li>elem.lastChild - вибере останній дочірній елемент всередині elem, включно з текстовими вузлами.</li>
+                    <li>elem.lastElementChild - вибере останній дочірній вузол-елемент всередині elem.</li>
+                    <li>elem.previousSibling - вибере елемент «зліва» від elem (його попереднього сусіда).</li>
+                    <li>elem.previousElementSibling - вибере вузол-елемент «зліва» від elem (його попереднього сусіда).</li>
+                    <li>elem.nextSibling - вибере елемент «праворуч» від elem (його наступного сусіда)</li>
+                    <li>elem.nextElementSibling - вибере вузол-елемент «праворуч» від elem (його наступного сусіда).</li>
+                </ul>
+
+                <h3>Маніпуляції з класами</h3>
+                <ul>
+                    <li>elem.classList.contains(cls) - повертає true або false</li>
+                    <li>elem.classList.add(cls)</li>
+                    <li>elem.classList.remove(cls)</li>
+                    <li>elem.classList.toggle(cls)</li>
+                    <li>elem.classList.replace(oldClass, newClass)</li>
+                </ul>
+
+                <h3>Маніпуляції з атрибутами</h3>
+                <ul>
+                    <li>elem.hasAttribute(name)</li>
+                    <li>elem.getAttribute(name)</li>
+                    <li>elem.removeAttribute(name)</li>
+                    <li>elem.attributes - об'єкт</li>
+                    <li>elem.disabled=false;</li>
+                    <li>elem.dataset.action // data-action="save"</li>
+                </ul>
+
+                <h3>Створення Видалення</h3>
+                <ul>
+                    <li>document.createElement(tagName);</li>
+                    <li>element.append(el1, el2, ...) - після всіх дітей елемента</li>
+                    <li>element.prepend(el1, el2, ...) - перед усіма дітьми елемента</li>
+                    <li>element.after(el1, el2, ...) - після елемента element</li>
+                    <li>element.before(el1, el2, ...) - перед елемента element</li>
+                    <li>elem.remove();</li>
+                </ul>
+
                 
             </div>
         </section>
@@ -630,7 +682,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Події</h2>
+                <h2 id="events">Події</h2>
                 <p>
                     Існує багато видів подій: миші, клавіатури, елементів форм, завантаження зображень, 
                     буфера обміну, зміни стадії CSS анімації або переходу, зміни розмірів вікна та багато інших.
@@ -794,7 +846,7 @@ form.addEventListener("submit", (event) => {
 
         <section class="section-about">
             <div class="container">
-                <h2>Події клавіатури</h2>
+                <h2 id="key-event">Події клавіатури</h2>
 
                 <p>
                     Існує дві основні події клавіатури: keydown і keyup.
@@ -823,12 +875,226 @@ form.addEventListener("submit", (event) => {
                 </p>
 
                 <h3>Властивості key і code​</h3>
+                <p>
+                    key повертає символ, згенерований натисканням клавіші, враховуючи стан клавіш-модифікаторів, наприклад, Shift, а також поточну мову.
+                </p>
+                <p>
+                    Властивість code повертає код фізичної клавіші на клавіатурі і не залежить від мови.
+                </p>
+                <pre>
+    document.addEventListener("keydown", event => {
+        console.log("key: ", event.key);
+        console.log("code: ", event.code);
+      });
+                </pre>
+
+                <pre> 
+    <a href="https://codepen.io/goit-academy/pen/ZEeRxaJ"target="_blank">code</a> 
+
+    document.addEventListener("keydown", logMessage);
+    document.addEventListener("keyup", logMessage);
+
+    function logMessage({ type, key, code }) {
+      const markup = `&lt;div class="log-item"&gt;
+     &lt;span class="chip"&gt;${keypressCounter}&lt;/span&gt;
+       &lt;ul&gt;
+           &lt;li&gt;Event: ${type}&lt;/li&gt;
+           &lt;li&gt;Key: ${key}&lt;/li&gt;
+           &lt;li&gt;Code: ${code}&lt;/li&gt;
+       &lt;/ul&gt;
+       &lt;/div&gt;`;
+
+    logList.insertAdjacentHTML("afterbegin", markup);
+    }
+                </pre>
+
+                <h3>Клавіші-модифікатори</h3>
+                <p>
+                    Для обробки комбінації клавіш, наприклад Ctrl + s або будь-якої іншої, 
+                    на об'єкті події є властивості ctrlKey, altKey, shiftkey і metaKey, 
+                    що зберігають булеве значення, яке сигналізує про те, чи була затиснута 
+                    клавіша-модифікатор.
+                </p>
+
+                <pre>
+    document.addEventListener("keydown", event => {
+        event.preventDefault();
+      
+        if ((event.ctrlKey || event.metaKey) && event.code === "KeyS") {
+          console.log("«Ctrl + s» or «Command + s» combo");
+        }
+      });
+                </pre>
+
+                <p>
+                    Деякі комбінації клавіш можуть конфліктувати з поведінкою браузера за замовчуванням. 
+                    Наприклад, Ctrl + d або Command + d робить закладку. Потрібно намагатися проектувати 
+                    систему комбінацій сторінки таким чином, щоб вона не перетиналася із вбудованою у 
+                    браузері. Але, у крайньому разі, поведінку за замовчуванням можна скасувати, 
+                    викликавши метод event.preventDefault().
+                </p>
+                <p>властивість keyCode - застаріла</p>
             </div>
         </section>
 
+
+
         <section class="section-about">
             <div class="container">
-                <h2>JS Tests</h2>
+                <h2 id="form-event">Події елементів форм</h2>
+                <h3>Подія submit​</h3>
+                <p>
+                    Відправлення форми відбувається під час кліку по кнопці з атрибутом type="submit" 
+                    або натискання клавіші Enter, перебуваючи в будь-якому її текстовому полі.
+                </p>
+                <p>
+                    Сабміт форми перезавантажує сторінку, тому не забувайте скасовувати дію за 
+                    замовчуванням методом preventDefault().
+                </p>
+
+                <pre>
+    <a href="https://codepen.io/goit-academy/pen/oNZydVL" target="_blank">code</a>                
+    const registerForm = document.querySelector(".form");
+
+    registerForm.addEventListener("submit", handleSubmit);
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const login = form.elements.login.value;
+      const password = form.elements.password.value;
+    
+      if (login === "" || password === "") {
+        return console.log("Please fill in all the fields!");
+      }
+
+      console.log(`Login: ${login}, Password: ${password}`);
+      form.reset();
+    }
+                </pre>
+                <p>
+                    Властивість elements DOM-елемента форми містить об'єкт з посиланнями на усі її 
+                    елементи, які мають атрибут name. Тому в прикладі ми отримуємо значення полів, 
+                    звертаючись до login.value і password.value.
+                </p>
+
+                <h3>Подія change</h3>
+                <p>
+                    Відбувається після зміни елемента форми. Для текстових полів або textarea подія 
+                    відбудеться не на кожному введенні символу, а після втрати фокусу, що не завжди зручно. 
+                    Наприклад, доки ви набираєте щось у текстовому полі - подія відсутня, але як тільки 
+                    фокус пропав, відбудеться подія change. Для інших елементів, наприклад, select, 
+                    чекбоксів і радіо-кнопок, подія change спрацьовує відразу під час вибору значення.
+                </p>
+     
+                <pre>
+    HTML
+    &lt;p&gt;
+        Selected option text: &lt;span class="text-output"&gt;none&lt;/span&gt;
+    &lt;p&gt;
+    &lt;p&gt;
+        Selected option value: &lt;span class="value-output"&gt;none&lt;/span&gt;
+    &lt;p&gt;
+
+  &lt;select class="pizza-select"&gt;
+    &lt;option value="four_meats"&gt;Four Meats&lt;/option&gt;
+    &lt;option value="royal_cheese"&gt;Royal Cheese&lt;/option&gt;
+    &lt;option value="vegetarian"&gt;Vegetarian&lt;/option&gt;
+    &lt;option value="smoked_salmon"&gt;Smoked Salmon&lt;/option&gt;
+  &lt;/select&gt;
+
+    <a href="https://codepen.io/goit-academy/pen/gOmKKvj" target="_blank">code</a>                 
+    const select = document.querySelector(".pizza-select");
+    const textOutput = document.querySelector(".text-output");
+    const valueOutput = document.querySelector(".value-output");
+
+    select.addEventListener("change", setOutput);
+
+    function setOutput(event) {
+      const selectedOptionValue = event.currentTarget.value;
+      const selectedOptionIndex = event.currentTarget.selectedIndex;
+      const selectedOptionText =
+        event.currentTarget.options[selectedOptionIndex].text;
+
+      textOutput.textContent = selectedOptionText;
+      valueOutput.textContent = selectedOptionValue;
+    }
+                </pre>
+
+                <h3>Подія input​</h3>
+                <p>
+                    Відбувається тільки на текстових полях і textarea, і створюється щоразу при зміні 
+                    значення елемента, не чекаючи втрати фокусу. 
+                    На практиці input - це найголовніша подія для роботи з текстовими полями форми.
+                </p>
+
+                <pre>
+    <a href="https://codepen.io/goit-academy/pen/jOBKpNP" target="_blank">code</a>  
+    HTML
+    &lt;input type="text" class="text-input" /&gt;
+    &lt;p&gt;Text field value: &lt;span class="output"&gt;&lt;/span&gt;&lt;/p&gt;
+
+    JS
+    const textInput = document.querySelector(".text-input");
+    const output = document.querySelector(".output");
+
+    textInput.addEventListener("input", (event) => {
+    output.textContent = event.currentTarget.value;
+    });
+                </pre>
+
+                <h3>Подія focus і blur</h3>
+
+                <p>
+                    Елемент отримує фокус під час кліку миші або переходу клавішею Tab. Момент отримання 
+                    і втрати фокусу - дуже важливий, отримуючи фокус, ми можемо завантажити дані для 
+                    автозаповнення, почати відстежувати зміни тощо. Під час втрати фокусу - перевірити 
+                    введені дані.
+                </p>
+                <p>
+                    Під час фокусування елемента відбувається подія focus, а коли фокус зникає, наприклад, 
+                    користувач клікає в іншому місці екрана, відбувається подія blur.
+                </p>
+                <p>
+                    Активувати або скасувати фокус можна програмно, викликавши в коді для елемента 
+                    однойменні методи focus() і blur().
+                </p>
+
+                <pre>
+    <a href="https://codepen.io/goit-academy/pen/JjWZBdM" target="_blank">code</a>  
+    const textInput = document.querySelector(".text-input");
+    const setFocusBtn = document.querySelector('[data-action="set"]');
+    const removeFocusBtn = document.querySelector('[data-action="remove"]');
+
+    setFocusBtn.addEventListener("click", () => {
+      textInput.focus();
+    });
+
+    removeFocusBtn.addEventListener("click", () => {
+      textInput.blur();
+    });
+
+    textInput.addEventListener("focus", () => {
+      textInput.value = "This input has focus";
+    });
+
+    textInput.addEventListener("blur", () => {
+      textInput.value = "";
+    });
+                </pre>
+
+                <p>
+                    Фокус може бути тільки на одному елементі сторінки за одиницю часу, і поточний елемент, 
+                    на якому знаходиться фокус, доступний як document.activeElement.
+                </p>
+
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>w</h2>
             </div>
         </section>
 
