@@ -33,7 +33,7 @@
     <main>
         <section class="section-title">
             <div class="container">
-                <h1>Graphix</h1>
+                <h1>Graphic</h1>
             </div>
         </section>
 
@@ -41,9 +41,9 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li>Фон елемента background</code></li>
-                    <li>Багатошаровий фон</li>
-                    <li>Властивість background</li>
+                    <li>Фон елемента background</li>
+                    <li>Властивості "IMG"</li>
+                    <li>Псевдоелементи ::before і ::after</li>
                     <li><a href="#gradient">Градієнт</a></li>
                     <li><a href="#shedow">Тінь елемента</a></li>
                     <li><a href="#svg">Векторна графіка</a></li>
@@ -55,119 +55,118 @@
 
         <section  class="section-about">
             <div class="container">
-                <h2>Фон елемента</h2>
-                <ul>
-                    <li>
-                        <h3>background-image, background-color</h3>
-                        <p><code>background-color: колір </code>Задає колір фону елемента</p>
-                        <p><code>background-image: url('адреса');</code> Задає фонове зображення</p>
-                        <div class="graf-bg-img">
-                            <p >background-image</p>
-                            <p >background-color</p>
-                        </div>
-                    </li>
-                    <li>
-                        <h3>Властивість background-repeat</h3>
-                        <p><code>background-repeat: repeat | repeat-x | repeat-y | no-repeat</code></p>
-                    </li>
-                    <li>
-                        <h3>Властивість background-position</h3>
-                        <p>Управляє положенням фонового зображення щодо меж елемента, використовуючи дві координати - x за горизонталлю та y за вертикаллю</p>
-                        <ul>
-                            <li><code>background-position: 50% 50%;</code> по центру</li>
-                            <li><code>background-position: center;</code> по центру</li>
-                            <li><code>background-position: 100px 200px;</code></li>
-                            <li><code>background-position: right bottom;</code></li>
-                            <li><code>backrgound-position: right 30px bottom 20px;</code></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>Властивість background-size</h3>
-                        <p><code>background-size: auto | значення | cover | contain</code></p>
-                        <p>За замовчуванням браузер не змінює розмір фонового зображення. Якщо зображення буде більшим або меншим за розмір елемента, буде порожній простір, не зайнятий фоном або навпаки, фон буде видно тільки частково.</p>
-                        <p>Ця властивість дозволяє підкоригувати розміри зображення, вказавши необхідну ширину і висоту. Якщо не вказати висоту, вона буде вирахувана автоматично, зберігаючи пропорції.</p>
-                        <ul>
-                            <li><code>background-size: auto auto;</code> значення за замовчуванням</li>
-                            <li><code>background-size: 200px;</code> висота буде пропорційна</li>
-                            <li><code>background-size: 200px 300px;</code></li>
-                            <li><code>background-size: cover;</code> Повністю покриває</li>
-                            <li><code>background-size: contain;</code> покриває до однієї вісі</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>Властивість background-attachment</h3>
-                        <p><code>background-attachment: <b>scroll</b> | fixed | inherit</code></p>
-                        <p>За замовчуванням фонове зображення прокручується разом із вмістом елемента. З допомогою властивості background-attachment можна зафіксувати фон на місці і заборонити прокручуватися зі скролом</p>
-                    </li>
-                    <li>
-                        <h3>Багатошаровий фон</h3>
-                        <p>Елементу можна задати кілька фонових зображень одночасно. Достатньо перелічити їх у властивості background-image через кому. Для кожного зображення також можна задати значення інших властивостей фону, 
-                            теж через кому в кожній властивості.
-                        </p>
-                        <ul>
-                            <li><code>background-image: url('зображення-1'), url('зображення-2');</code><code></code></li>
-                            <li><code>background-size: 100px, cover;</code></li>
-                            <li><code>background-position: top right, center;</code></li>
-                            <li><code>background-repeat: repeat-x, no-repeat;</code></li>
-                        </ul>
-                    </li>
+                <h2>Фон елемента background</h2>
 
-                    <li>
-                        <h3>Властивість background</h3>
-                        <p>Збірна властивість для одночасного встановлення значень всіх розглянутих властивостей.</p>
-                        <p><code>background: background-color background-image background-repeat background-position background-attachment</code></p>
-                        <p>Якщо якийсь компонент не вказаний, буде взято його значення за замовчуванням.</p>
-                    </li>
+                <h3>background-image, background-color</h3>
+                    <p><code>background-color: колір </code>Задає колір фону елемента</p>
+                    <p><code>background-image: url('адреса');</code> Задає фонове зображення</p>
+                    <div class="graf-bg-img">
+                        <p >background-image</p>
+                        <p >background-color</p>
+                    </div>
 
-                    <li>
-                        <h3>Властивості object-fit</h3>
-                        <p>Властивість object-fit обрізає, розтягує або масштабує контентне зображення. Це схоже на background-size, але для контентних зображень.</p>
-                        <p><code>object-fit: <b>fill</b> | contain | cover | scale-down | none</code></p>
-                        <ul>
-                            <li>fill - зображення масштабується без збереження пропорцій, щоб повністю заповнити контейнер</li>
-                            <li>contain - зображення масштабується зі збереженням пропорцій, щоб максимально заповнити контейнер.</li>
-                            <li>cover - зображення масштабується зі збереженням пропорцій, щоб повністю заповнити контейнер</li>
-                            <li>scale-down - буде вибрано значення none або contain, щоб зображення було найменшого розміру</li>
-                            <li>none - зберігаються вихідні розміри зображення, задана висота і ширина не мають ефекту.</li>
-                        </ul>
-                        <p>Для того щоб ця техніка працювала, необхідні два обов'язкових кроки.</p>
-                        <ul>
-                            <li>Перший - у контейнера (тумби) повинна бути явно вказана фіксована висота.</li>
-                            <li>Другий - зображення необхідно «вмістити» в контейнер, задавши висоту і ширину 100%.</li>
-                            <li>Після цього до зображення можна застосовувати властивість object-fit</li>
-                            <li><code>img {
-                                display: block;
-                                height: 100%;
-                                width: 100%;
-                                object-fit: cover;
-                              }</code></li>
-                        </ul>
-                    </li>
+                    <h3>Властивість background-repeat</h3>
+                    <p><code>background-repeat: repeat | repeat-x | repeat-y | no-repeat</code></p>
                     
-                    <li>
-                        <h3>Властивості object-position</h3>
-                        <p>Дозволяє задати положення зображення в контейнері по осях X і Y. Це схоже на background-position, але для контентних зображень.</p>
-                        <p><code>object-position: position | initial | inherit</code></p>
-                        <p>Значенням властивості можуть бути зарезервовані слова, абсолютні або відносні одиниці вимірювання. За замовчуванням значення 50% 50%, тобто вертикально і горизонтально по центру.</p>
-                        <ul>
-                            <li><code>object-fit: fill | object-position: 50px 50px</code></li>
-                            <li><code>object-fit: contain |object-position: left bottom</code></li>
-                            <li><code>object-fit: cover | object-position: 20% 30px</code></li>
-                            <li><code>object-fit: scale-down | object-position: right top</code></li>
-                            <li><code></code></li>
-                            <li><code></code></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="thumb">
-                            <img src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240" alt="">
-                        </div>
-                    </li>
-                </ul>
+                    <h3>Властивість background-position</h3>
+                    <p>Управляє положенням фонового зображення щодо меж елемента, використовуючи дві координати - x за горизонталлю та y за вертикаллю</p>
+                    <ul>
+                        <li><code>background-position: 50% 50%;</code> по центру</li>
+                        <li><code>background-position: center;</code> по центру</li>
+                        <li><code>background-position: 100px 200px;</code></li>
+                        <li><code>background-position: right bottom;</code></li>
+                        <li><code>backrgound-position: right 30px bottom 20px;</code></li>
+                    </ul>
+
+                    <h3>Властивість background-size</h3>
+                    <p><code>background-size: auto | значення | cover | contain</code></p>
+                    <p>За замовчуванням браузер не змінює розмір фонового зображення. Якщо зображення буде більшим або меншим за розмір елемента, буде порожній простір, не зайнятий фоном або навпаки, фон буде видно тільки частково.</p>
+                    <p>Ця властивість дозволяє підкоригувати розміри зображення, вказавши необхідну ширину і висоту. Якщо не вказати висоту, вона буде вирахувана автоматично, зберігаючи пропорції.</p>
+                    <ul>
+                        <li><code>background-size: auto auto;</code> значення за замовчуванням</li>
+                        <li><code>background-size: 200px;</code> висота буде пропорційна</li>
+                        <li><code>background-size: 200px 300px;</code></li>
+                        <li><code>background-size: cover;</code> Повністю покриває</li>
+                        <li><code>background-size: contain;</code> покриває до однієї вісі</li>
+                    </ul>
+
+                    <h3>Властивість background-attachment</h3>
+                    <p><code>background-attachment: <b>scroll</b> | fixed | inherit</code></p>
+                    <p>
+                        За замовчуванням фонове зображення прокручується разом із вмістом елемента. 
+                        З допомогою властивості background-attachment можна зафіксувати фон на місці 
+                        і заборонити прокручуватися зі скролом
+                    </p>
+
+                    <h3>Багатошаровий фон</h3>
+                    <p>Елементу можна задати кілька фонових зображень одночасно. Достатньо перелічити їх у властивості background-image через кому. Для кожного зображення також можна задати значення інших властивостей фону, 
+                        теж через кому в кожній властивості.
+                    </p>
+                    <ul>
+                        <li><code>background-image: url('зображення-1'), url('зображення-2');</code><code></code></li>
+                        <li><code>background-size: 100px, cover;</code></li>
+                        <li><code>background-position: top right, center;</code></li>
+                        <li><code>background-repeat: repeat-x, no-repeat;</code></li>
+                    </ul>
+
+                    <h3>Властивість background</h3>
+                    <p>Збірна властивість для одночасного встановлення значень всіх розглянутих властивостей.</p>
+                    <p><code>background: background-color background-image background-repeat background-position background-attachment</code></p>
+                    <p>Якщо якийсь компонент не вказаний, буде взято його значення за замовчуванням.</p>
             </div>
         </section>
 
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Властивості "IMG"</h2>
+
+                <h3>Властивості object-fit</h3>
+                <p>Властивість object-fit обрізає, розтягує або масштабує контентне зображення. Це схоже на background-size, але для контентних зображень.</p>
+                <p><code>object-fit: <b>fill</b> | contain | cover | scale-down | none</code></p>
+                <ul>
+                    <li>fill - зображення масштабується без збереження пропорцій, щоб повністю заповнити контейнер</li>
+                    <li>contain - зображення масштабується зі збереженням пропорцій, щоб максимально заповнити контейнер.</li>
+                    <li>cover - зображення масштабується зі збереженням пропорцій, щоб повністю заповнити контейнер</li>
+                    <li>scale-down - буде вибрано значення none або contain, щоб зображення було найменшого розміру</li>
+                    <li>none - зберігаються вихідні розміри зображення, задана висота і ширина не мають ефекту.</li>
+                </ul>
+
+                <p>Для того щоб ця техніка працювала, необхідні два обов'язкових кроки.</p>
+                <ul>
+                    <li>Перший - у контейнера (тумби) повинна бути явно вказана фіксована висота.</li>
+                    <li>Другий - зображення необхідно «вмістити» в контейнер, задавши висоту і ширину 100%.</li>
+                    <li>Після цього до зображення можна застосовувати властивість object-fit</li>
+                </ul>
+                <pre>
+    <p><a href="https://codepen.io/goit-academy/pen/vYLPrQr" target="_blank">code</a></p>
+    img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+                </pre>
+
+                <h3>Властивості object-position</h3>
+                <p>Дозволяє задати положення зображення в контейнері по осях X і Y. Це схоже на background-position, але для контентних зображень.</p>
+                <p><code>object-position: position | initial | inherit</code></p>
+                <p>Значенням властивості можуть бути зарезервовані слова, абсолютні або відносні одиниці вимірювання. За замовчуванням значення 50% 50%, тобто вертикально і горизонтально по центру.</p>
+                <ul>
+                    <li><code>object-fit: fill | object-position: 50px 50px</code></li>
+                    <li><code>object-fit: contain |object-position: left bottom</code></li>
+                    <li><code>object-fit: cover | object-position: 20% 30px</code></li>
+                    <li><code>object-fit: scale-down | object-position: right top</code></li>
+                </ul>
+
+                <div class="thumb">
+                    <img src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=320&w=240" alt="">
+                </div>
+            </div>
+        </section>
         
+
+
         <section class="section-about">
             <div class="container">
                 <h2>Псевдоелементи ::before і ::after</h2>
@@ -200,66 +199,6 @@
                 </ul>
             </div>
         </section>
-
-
-
-
-
-        <section class="section-about">
-            <div class="container">
-                <h2>Властивості "IMG" </h2>
-                <p>
-                    Бувають ситуації, коли контентне зображення більше або менше за контейнер, 
-                    в який його необхідно помістити, або зображення має інші пропорції. 
-                    Наприклад, часте завдання у картках товару - це «тумба» фіксованої висоти, 
-                    в яку необхідно гарно вмістити фотографію товару довільного розміру, тобто 
-                    підігнати зображення під розмір контейнера.
-                </p>
-
-                <h3>IMG. Властивість object-fit</h3>
-                <p>
-                    Визначає, яким чином вміст img (або video) буде вміщуватися в контейнер, якщо їх 
-                    розміри або пропорції не збігаються. Властивість object-fit обрізає, розтягує 
-                    або масштабує контентне зображення. Це схоже на background-size, але для контентних 
-                    зображень
-                </p>
-                <code>object-fit: fill | contain | cover | scale-down | none</code>
-                <p><a href="https://codepen.io/goit-academy/pen/vYLPrQr" target="_blank">code</a></p>
-                <ul>
-                    <li>
-                        fill - зображення масштабується без збереження пропорцій, щоб повністю заповнити 
-                        контейнер. Значення за замовчуванням.
-                    </li>
-                    <li>contain - зображення масштабується зі збереженням пропорцій, щоб максимально заповнити контейнер.</li>
-                    <li>cover - зображення масштабується зі збереженням пропорцій, щоб повністю заповнити контейнер.</li>
-                    <li>scale-down - буде вибрано значення none або contain, щоб зображення було найменшого розміру.</li>
-                    <li>none - зберігаються вихідні розміри зображення, задана висота і ширина не мають ефекту.</li>
-                </ul>
-                <p>
-                    Для того щоб ця техніка працювала, необхідні два обов'язкових кроки.
-                </p>
-                <ul>
-                    <li>Перший - у контейнера (тумби) повинна бути явно вказана фіксована висота. </li>
-                    <li>Другий - зображення необхідно «вмістити» в контейнер, задавши висоту і ширину 100%.</li>
-                    <li>Після цього до зображення можна застосовувати властивість object-fit.</li>
-                </ul>
-                <pre>
-                    .thumb &gt; img {
-                        display: block;
-                        height: 100%;
-                        width: 100%;
-
-                        object-fit: cover;
-                      }
-                </pre>
-
-
-            </div>
-        </section>
-
-
-
-
 
 
         <section class="section-about">
@@ -320,6 +259,7 @@
             </div>
         </section>
 
+
         <section class="section-about">
             <div class="container">
                 <h2 id="shedow">Тінь елемента</h2>
@@ -334,10 +274,14 @@
             </div>
         </section>
 
+
+
         <section class="section-about">
             <div class="container">
                 <h2 id="svg">Векторна графіка</h2>
                 <h3>Як самостійно створити SVG</h3>
+
+                
                 <ul>
                     <li>
                         <h4>SVG Container</h4>

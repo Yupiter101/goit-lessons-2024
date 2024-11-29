@@ -7,11 +7,15 @@ const btnFirst = document.querySelector('button[data-action="first-child"]');
 const btnLast = document.querySelector('button[data-action="last-child"]');
 
 btnFirst.addEventListener("click", ()=> {
+    myList.firstElementChild.style.fontWeight="700";
+    myList.lastElementChild.style.fontWeight="400";
     result.textContent=`Created by ${myList.firstElementChild.textContent}`;
     result.style.color="blue";
 });
 
 btnLast.addEventListener("click", ()=> {
+    myList.firstElementChild.style.fontWeight="400";
+    myList.lastElementChild.style.fontWeight="700";
     // result.style.fontSize = '24px';
     // result.style.backgroundColor="red";
     result.style.color="green";
