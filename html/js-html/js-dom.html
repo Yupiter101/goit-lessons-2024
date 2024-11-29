@@ -42,22 +42,18 @@
                 <ol>
                     <li>Об'єктна модель документа</li>
                     <li>Навігація по DOM</li>
-                    <li>Пошук елементів</li>
-                    <li>Властивості та атрибути</li>
+                    <li><a href="#dom-find-elem">Пошук елементів</a></li>
+                    <li><a href="#dom-atribute-elem">Властивості та атрибути</a></li>
                     <li>Властивість textContent</li>
                     <li>Властивість classList</li>
                     <li>Властивість style</li>
                     <li>Атрибути</li>
-                    <li>Створення та видалення елементів</li>
+                    <li><a href="#dom-create-elem">Створення та видалення елементів</a></li>
                     <li>Оптимізація роботи з DOM</li>
-                    <li>Властивість innerHTML</li>
+                    <li><a href="#dom-innerHTML">Властивість innerHTML</a></li>
                     <li>Метод insertAdjacentHTML()</li>
-                    <li>Підключення скриптів</li>
-                    <li>Атрибут defer</li>
-                    <li>Атрибут async</li>
-                    <li><a href="#events">Події</a></li>
-                    <li>Метод addEventListener()</li>
-                    <li>Метод removeEventListener()</li>
+                    <li><a href="#dom-script">Підключення скриптів</a> defer async</li>
+                    <li><a href="#events">Події</a> addEventListener() removeEventListener()</li>
                     <li>Ключове слово this</li>
                     <li>Об'єкт події</li>
                     <li>Дії браузера за замовчуванням - preventDefault()</li>
@@ -223,7 +219,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Пошук елементів</h2>
+                <h2 id="dom-find-elem">Пошук елементів</h2>
                 <p>
                     Отже, ми вже знаємо що DOM-елемент - це об'єкт з властивостями і методами. 
                     Саме час навчитися швидко знаходити елемент за довільним CSS-селектором. 
@@ -293,7 +289,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Властивості та атрибути</h2>
+                <h2 id="dom-atribute-elem">Властивості та атрибути</h2>
                 <p>
                     Під час побудови DOM-дерева, деякі стандартні HTML-атрибути стають властивостями 
                     елементів. Подивимося на декілька властивостей, які часто використовуються.
@@ -449,7 +445,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Створення та видалення елементів</h2>
+                <h2 id="dom-create-elem">Створення та видалення елементів</h2>
                 <p>
                     DOM API дозволяє не тільки вибирати або змінювати вже існуючі, але й видаляти, 
                     а також створювати нові елементи, після чого додавати їх в документ.
@@ -551,7 +547,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Властивість innerHTML</h2>
+                <h2 id="dom-innerHTML">Властивість innerHTML</h2>
                 <p>
                     Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з 
                     тегами і дозволити браузеру зробити всю важку роботу. У такого підходу є свої плюси і мінуси.
@@ -642,7 +638,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Підключення скриптів</h2>
+                <h2 id="dom-script">Підключення скриптів</h2>
                 <p>
                     Завантаження і виконання скрипта, зазначеного в тезі /script/ без будь-яких атрибутів, 
                     блокують обробку HTML-документа і побудову DOM. Це проблема.

@@ -1,6 +1,6 @@
 console.log("Hello");
 
-// === Example 1 "TITLE H2" ===
+// === Example 1 "firstElementChild" ===
 const result = document.querySelector(".my-result");
 const myList = document.querySelector(".my-list");
 const btnFirst = document.querySelector('button[data-action="first-child"]');
@@ -78,16 +78,48 @@ const togglingText = () => {
 textBtn.addEventListener("click", togglingText );
 
 
-// === Example 4 "Change img size" ===
+// === Example 4 "Change img size"  Del img ===
 
 let step = 4;
+const btnCreateImg = document.querySelector('button[data-action="make-img"]');
 const btnImgSize = document.querySelector('button[data-action="img"]');
-const myImg = document.querySelector('img[alt="dc-dc"]');
+const btnDelImg = document.querySelector('button[data-action="del-img"]');
 
+const tumbImg = document.querySelector(".tumb-img-dom");
+// const myImg = document.querySelector('img[alt="dc-dc"]');
+
+
+function createImg () {
+    // const newText = document.createElement("p");
+    // newText.textContent = "New";
+    // tumbImg.append(newText);
+    const newImg = document.createElement("img");
+    newImg.classList.add(".dc-img");
+    newImg.alt="dc-dc";
+    newImg.src="../img/dc_dc.jpg";
+    btnCreateImg.disabled=true;
+    btnImgSize.disabled=false;
+    btnDelImg.disabled=false;
+
+    tumbImg.append(newImg);
+
+    
+
+
+    // console.log("Зроблю пізніше");
+}
+
+// const changingSize = function () {
+//     // myImg.width="100"; // Ok
+//     myImg.width=100*step;
+//     step +=1;
+//     if(step > 4) {
+//         step = 1;
+//     }
+// }
 
 const changingSize = function () {
-    
-    // myImg.width="100"; // Ok
+    const myImg = document.querySelector('img[alt="dc-dc"]');
     myImg.width=100*step;
     step +=1;
     if(step > 4) {
@@ -95,9 +127,68 @@ const changingSize = function () {
     }
 }
 
+const removingImg = () => {
+    const myImg = document.querySelector('img[alt="dc-dc"]');
+    myImg.remove();
+    btnImgSize.disabled=true;
+    btnDelImg.disabled=true;
+    btnImgSize.removeEventListener("click", changingSize);
+    console.log("removeEventListener btnImgSize");
+    btnDelImg.removeEventListener("click", removingImg);
+    console.log("removeEventListener btnDelImg");
+    btnCreateImg.removeEventListener("click", createImg);
+    console.log("removeEventListener btnCreateImg");
+
+}
+
+btnCreateImg.addEventListener("click", createImg);
 btnImgSize.addEventListener("click", changingSize);
+btnDelImg.addEventListener("click", removingImg);
 
 
 
 
-// === Example 5 "Render list" ===
+
+// === Example 5 "Render list " ===
+
+const technologies = [
+    "querySelector", 
+    "addEventListener", 
+    "disabled=true", 
+    "renderList.innerHTML", 
+    "insertAdjacentHTML"
+];
+
+const renderList = document.querySelector(".list-dom");
+const btnRender = document.querySelector('button[data-action="render-list"]');
+
+
+
+
+btnRender.addEventListener("click", rendering);
+
+function rendering () {
+    const markup = technologies.map(technologi => `<li>${technologi}</li>`).join("");
+    renderList.innerHTML = markup;
+    btnRender.disabled=true;
+}
+
+
+// === Example 6 "Render list insertAdjacentHTML " ===
+
+const methods = [ 
+    "renderList.innerHTML", 
+    "insertAdjacentHTML"
+];
+
+const renderListAdj = document.querySelector(".list-adj");
+const btnAdj = document.querySelector('button[data-action="render-adj"]');
+
+
+btnAdj.addEventListener("click", renderingAdj);
+
+function renderingAdj () {
+    const markup = methods.map(method => `<li>${method}</li>`).join("");
+    renderListAdj.insertAdjacentHTML("beforeend", markup);
+    // btnAdj.disabled=true;
+}

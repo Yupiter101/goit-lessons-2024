@@ -72,3 +72,12 @@ button:disabled {
 .describ-title {
     text-align: center;
 }
+
+
+/* === Example 5 "Render list" */
+.list-dom {
+    max-width: 300px;
+    margin: 10px auto;
+    height: 124px;
+    /* border: 2px solid green; */
+}
