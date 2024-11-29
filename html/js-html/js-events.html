@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a  class="fixed-back" href="../../index.html">Back to main page</a>
+            <nav>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <div class="container">
+                <h1>Events. Поширення подій та оптимізація</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Поширення подій</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+      
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Поширення подій</h2>
+                <p>
+                    життєвий цикл події, який має три етапи: занурення, таргетинг і спливання.
+                    На практиці найчастіше використовують тільки фазу спливання.
+                </p>
+                <p>
+                    Під час настання події, вона проходить через три обов'язкові фази:
+                </p>
+                <ul>
+                    <li>
+                        Capturing phase (занурення) - подія починається на window і тоне (проходить через 
+                        усі елементи-предки) до найглибшого цільового елемента, на якому відбулася дія, 
+                        наприклад, клік.
+                    </li>
+                    <li>
+                        Target phase (таргетинг) - подія дійшла до цільового елемента. Цей етап містить тільки 
+                        повідомлення елемента про те, що на ньому відбулася дія
+                    </li>
+                    <li>
+                        Bubbling phase (спливання) - кінцева фаза, подія спливає від найглибшого, цільового елемента, 
+                        через усі елементи-предки до window.
+                    </li>
+                </ul>
+
+                <h3>Спливання подій</h3>
+                <p><a href="https://codepen.io/goit-academy/pen/QWpBwaa">Code</a></p>
+                <p>
+                    Спливають майже всі події, наприклад, події focus і blur не спливають, тому існують 
+                    їх спливаючі аналоги - focusin і focusout.
+                </p>
+
+                <h3>Властивість event.target</h3>
+
+                <p>
+                    Незалежно від того, де ми спіймали подію під час її спливання, завжди можна дізнатися, 
+                    де саме вона відбулася. Найглибший елемент, який викликає подію, називається цільовим або 
+                    вихідним, і доступний як event.target.
+                </p>
+                <p>
+                    <b>.event.target</b> - це посилання на вихідний елемент, на якому відбулася подія, в процесі 
+                    спливання вона - незмінна.
+                </p>
+                <p>
+                    <b>.event.currentTarget</b> - це посилання на поточний елемент, до якого дійшло спливання, 
+                    на ньому зараз виконується обробник події.
+                </p>
+                <p>
+                    Якщо слухач події зареєстрований на найвищому елементі, то він «спіймає» усі кліки всередині, 
+                    тому що події будуть спливати до цього елемента. Відкрийте консоль в прикладі і поклікайте, 
+                    event.target - це завжди вихідний (і найглибший) елемент, на якому був клік, 
+                    а event.currentTarget не змінюється.
+                    <a href="https://codepen.io/goit-academy/pen/JjWBoqd" target="_blank">code</a>
+                </p>
+                <pre>
+    const parent = document.querySelector("#parent");
+
+    parent.addEventListener("click", (event) => {
+      console.log("event.target: ", event.target);
+      console.log("event.currentTarget: ", event.currentTarget);
+    });
+                </pre>
+
+                <h3>Припинення спливання <b>stopPropagation()</b></h3>
+                <p>
+                    Зазвичай, подія буде спливати вгору до елемента window, викликаючи усі обробники на 
+                    своєму шляху. Але будь-який проміжний обробник може вирішити, що подія повністю 
+                    оброблена і зупинити спливання, викликавши метод <b>stopPropagation()</b>
+                </p>
+                <a href="https://codepen.io/goit-academy/pen/gOmjpwo" target="_blank">code</a>
+
+                <pre>
+    const parent = document.querySelector("#parent");
+    const child = document.querySelector("#child");
+    const descendant = document.querySelector("#descendant");
+
+    parent.addEventListener("click", () => {
+      alert(
+        "Parent click handler!"
+      );
+    });
+
+    child.addEventListener("click", () => {
+      alert(
+        "Child click handler!"
+      );
+    });
+
+    descendant.addEventListener("click", (event) => {
+      event.stopPropagation();
+      alert("Descendant click handler");
+    });
+                </pre>
+
+                <p>
+                    <b>stopImmediatePropagation()</b>
+                    Якщо елемент має декілька обробників на одну подію, то, навіть у разі припинення спливання, 
+                    усі вони будуть виконані. Тобто метод stopPropagation() тільки перешкоджає просуванню події 
+                    далі. Якщо необхідно повністю зупинити обробку події, використовується метод 
+                    stopImmediatePropagation(). Він не тільки запобігає спливанню, але й зупиняє обробку 
+                    подій на поточному елементі.
+                </p>
+
+
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <h3>footer</h3>
+            <address>
+                <p>address</p>
+            </address>
+        </div>
+    </footer>
+    <!-- <script src="../../js/dom.js"></script> -->
+</body>
+</html>
