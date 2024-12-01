@@ -9,7 +9,7 @@ const btnLast = document.querySelector('button[data-action="last-child"]');
 btnFirst.addEventListener("click", ()=> {
     myList.firstElementChild.style.fontWeight="700";
     myList.lastElementChild.style.fontWeight="400";
-    result.textContent=`Created by ${myList.firstElementChild.textContent}`;
+    result.textContent="firstElementChild";
     result.style.color="blue";
 });
 
@@ -19,7 +19,7 @@ btnLast.addEventListener("click", ()=> {
     // result.style.fontSize = '24px';
     // result.style.backgroundColor="red";
     result.style.color="green";
-    result.textContent=`Made by ${myList.lastElementChild.textContent}`;
+    result.textContent="lastElementChild";
     
 });
 
