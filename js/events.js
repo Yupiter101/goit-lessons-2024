@@ -1,7 +1,7 @@
 
 console.log("colorPalette");
 
-const _ = require('lodash');
+// const _ = require('lodash'); // Це не треба і так працює
 
 // const getRandomHexColor = requier("./admins.js");
 

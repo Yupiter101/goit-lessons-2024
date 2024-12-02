@@ -208,9 +208,43 @@
         const selectedColor = event.target.dataset.color;
     } </pre>
                 
-
             </div>
         </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>CDNjs</h2>
+                <h3>Lodash</h3>
+                <p>Як пыдключити?</p>
+                <ul>
+                    <li>
+                        Заходимо сюди 
+                        <a href="https://cdnjs.com/libraries/lodash.js" 
+                            target="_blank" rel="noopener noreferrer">cdn lodash</a>
+                    </li>
+                    <li>копіюємо тег як на фото та вставляємо перед тегом боді як зроблено тут</li>
+                    <li>У js файлі не імпортуємо а відразу користуємось</li>
+                </ul>
+                <pre>
+    const result = _.add(2, 3);
+    console.log(result); // 5 </pre>
+                
+                <div>
+                    <img src="../../img/lodash.JPG" alt="lodash">
+                </div>
+
+                
+                <p><a href="https://cdnjs.com/" target="_blank" rel="noopener noreferrer">cdn library</a></p>
+                <p>
+                    <a href="https://caniuse.com" target="_blank" rel="noopener noreferrer">
+                        Підтримка браузерів
+                    </a>
+                </p>
+            </div>
+        </section>
+
+
 
 
         <section class="section-about">
@@ -274,15 +308,19 @@
     </footer>
 
     <!-- Lodash library script file -->
-    <script
+    <!-- <script
       async
       src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
       integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    ></script>
+    ></script> -->
 
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" 
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
     <script src="../../js/events.js"></script>
 </body>
 </html>
