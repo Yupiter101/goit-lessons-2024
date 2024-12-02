@@ -56,6 +56,8 @@ function getRandomHexColor() {
 
 // ===== Scroll Throttle і Debounce =====
 
+// ===== Просто Scroll  =====
+
 const outputDisp = document.querySelector(".output");
 let scrollEventCounter = 0;
 
@@ -64,7 +66,35 @@ document.addEventListener("scroll", () => {
   outputDisp.textContent = scrollEventCounter;
 });
 
+// ===== Throttle Scroll  =====
 
-const result = _.add(2, 3);
-console.log(result); // 5
+const outputDisp2 = document.querySelector(".output-throttle");
+let scrollThrottleCounter = 0;
+
+document.addEventListener("scroll",
+  _.throttle(() => {
+    scrollThrottleCounter += 1;
+    outputDisp2.textContent = scrollThrottleCounter;
+  }, 500)
+);
+
+
+// ===== Debounce Scroll  =====
+
+const outputDisp3 = document.querySelector(".output-debounce");
+let scrollDebounceCounter = 0;
+
+document.addEventListener(
+  "scroll",
+  _.debounce(() => {
+    scrollDebounceCounter += 1;
+    outputDisp3.textContent = scrollDebounceCounter;
+  }, 300)
+);
+
+
+
+
+// const result = _.add(2, 3);
+// console.log(result); // 5
 

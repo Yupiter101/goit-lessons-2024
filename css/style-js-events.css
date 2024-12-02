@@ -34,7 +34,7 @@
 /* ===== Scroll Throttle і Debounce ===== */
 
 .cta {
-    text-align: center;
+    /* text-align: center; */
     font-weight: 700;
 }
 .cta::before,
@@ -49,13 +49,23 @@
     position: sticky;
     top: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
   }
+
+.throttle {
+  justify-content: center;
+}
+
+
+.debounce {
+  justify-content: end;
+}
 
 
   .box {
     display: inline-flex;
     flex-direction: column;
+    /* align-items: center; */
     align-items: center;
     padding: 12px;
     border: 1px solid #03a9f4;
