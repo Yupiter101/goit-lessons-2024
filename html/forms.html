@@ -501,46 +501,59 @@
             </div>
         </section>
         
-        <!-- ===== Форми від ментора ===== -->
+        <!-- ===== Форми від ментора required ===== -->
         <section class="section-about">
             <div class="container">
                 <h2 id="mentorsform">Форма від ментора</h2>
 
                 <form class="contact-form">
-                    <label for="name">name</label>
+                    <label for="name">Login</label>
                     <input class="contact-form-input" 
                         id="name"
                         type="text"
-                        name="user-name" 
+                        name="login" 
                         placeholder="Your name*"
-                        required
+                        
                         minlength="3"
                         maxlength="10"
                         pattern="^[a-zA-Z]+$"
                         >
                     </input>
-                    <label for="name">email</label>
+
+                    <label for="email">email</label>
                     <input class="contact-form-input" 
                         id="email"
                         type="email"
-                        name="user-email"
+                        name="email"
                         placeholder="Your email*"
-                       
                         >
                     </input>
-                    <label for="tel">Phone</label>
+
+                    <label for="password">password</label>
                     <input class="contact-form-input" 
-                    id="tel"
+                        id="password"
+                        type="password"
+                        name="password"
+                        placeholder="Your password*"
+                        required
+                        >
+                    </input>
+
+                    <label for="tel">Tel</label>
+                    <input class="contact-form-input" 
+                        id="tel"
                         type="tel"
-                        name="user-phone"
+                        name="phone1"
                         placeholder="2 sign 7-9"
                         pattern="^[7-9]{2}$"
                         >
                     </input>
 
-                    <input class="contact-form-input" 
+                    <label for="tel-2">Tel-2</label>
+                    <input class="contact-form-input"
+                        id="tel-2"
                         type="tel"
-                        name="user-phone"
+                        name="phone2"
                         placeholder="xxx-xxx-xx-xx"
                         pattern="^[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}$"
                         title="xxx-xxx-xx-xx"
@@ -548,9 +561,16 @@
                     </input>
                     
                     <textarea class="contact-form-message" 
-                        name="user-message"
+                        name="message"
                         placeholder="Your message"
                         ></textarea>
+
+                    <select class="pizza-select">
+                        <option value="one">ONE</option>
+                        <option value="two">TWO</option>
+                        <option value="three">THREE</option>
+                        <option value="four">FOUR</option>
+                      </select>
 
                     <div class="contact-form-btn-wrapper">
                         <button type="submit" class="contact-form-btn">submit</button>
@@ -569,6 +589,6 @@
             </address>
         </div>
     </footer>
- 
+    <script src="../js/form.js"></script>
 </body>
 </html>

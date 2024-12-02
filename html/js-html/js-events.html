@@ -18,6 +18,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-events.css">
 </head>
 
 <body>
@@ -42,8 +43,8 @@
                 <ol>
                     <li>Поширення подій</li>
                     <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Делегування подій</li>
+                    <li>Throttle і Debounce (Скрол)</li>
                     <li></li>
       
                 </ol>
@@ -78,7 +79,7 @@
                 </ul>
 
                 <h3>Спливання подій</h3>
-                <p><a href="https://codepen.io/goit-academy/pen/QWpBwaa">Code</a></p>
+                <p><a href="https://codepen.io/goit-academy/pen/QWpBwaa" target="_blank">codepen</a></p>
                 <p>
                     Спливають майже всі події, наприклад, події focus і blur не спливають, тому існують 
                     їх спливаючі аналоги - focusin і focusout.
@@ -104,16 +105,16 @@
                     тому що події будуть спливати до цього елемента. Відкрийте консоль в прикладі і поклікайте, 
                     event.target - це завжди вихідний (і найглибший) елемент, на якому був клік, 
                     а event.currentTarget не змінюється.
-                    <a href="https://codepen.io/goit-academy/pen/JjWBoqd" target="_blank">code</a>
                 </p>
                 <pre>
+    <a href="https://codepen.io/goit-academy/pen/JjWBoqd" target="_blank">codepen</a>
     const parent = document.querySelector("#parent");
 
     parent.addEventListener("click", (event) => {
       console.log("event.target: ", event.target);
       console.log("event.currentTarget: ", event.currentTarget);
-    });
-                </pre>
+    });</pre>
+                
 
                 <h3>Припинення спливання <b>stopPropagation()</b></h3>
                 <p>
@@ -121,9 +122,10 @@
                     своєму шляху. Але будь-який проміжний обробник може вирішити, що подія повністю 
                     оброблена і зупинити спливання, викликавши метод <b>stopPropagation()</b>
                 </p>
-                <a href="https://codepen.io/goit-academy/pen/gOmjpwo" target="_blank">code</a>
+                
 
                 <pre>
+    <a href="https://codepen.io/goit-academy/pen/gOmjpwo" target="_blank">codepen</a>
     const parent = document.querySelector("#parent");
     const child = document.querySelector("#child");
     const descendant = document.querySelector("#descendant");
@@ -143,9 +145,8 @@
     descendant.addEventListener("click", (event) => {
       event.stopPropagation();
       alert("Descendant click handler");
-    });
-                </pre>
-
+    });</pre>
+                
                 <p>
                     <b>stopImmediatePropagation()</b>
                     Якщо елемент має декілька обробників на одну подію, то, навіть у разі припинення спливання, 
@@ -162,14 +163,96 @@
 
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>Делегування подій</h2>
+                <p>
+                    Спливання дозволяє реалізувати один із найкорисніших прийомів - делегування подій 
+                    (event delegation). Він полягає у тому, що, якщо є група елементів, події яких 
+                    потрібно обробляти однаково, то додається один обробник на їх загального предка, 
+                    замість того, щоб додавати обробник до кожного елемента. Використовуючи властивість 
+                    event.target, можна отримати посилання на цільовий елемент, зрозуміти, на якому саме 
+                    дочірньому елементі відбулася подія, і обробити її.
+                </p>
+                <p>
+                    делегування зводиться до трьох простих кроків.
+                </p>
+                <ul>
+                    <li>Визначити спільного предка групи елементів для відстеження подій.</li>
+                    <li>
+                        Зареєструвати на елементі-предку обробник події, яку ми хочемо відловлювати з групи елементів.
+                    </li>
+                    <li>
+                        В обробнику використовувати <b>event.target</b> для вибору цільового елемента.
+                    </li>
+                </ul>
+                <h4>Палітра кольорів</h4>
+                <p>
+                    Будемо створювати палітру кольорів з можливістю вибрати колір по кліку і 
+                    відображенням обраного кольору
+                </p>
+                <pre>
+    <a href="https://codepen.io/goit-academy/pen/GRWBodN" target="_blank">codepen</a>        
+    p class="output"Selected color: /p
+    div class="color-palette"/div
+                </pre>
+                <p>Дивись js код</p>
+
+                <!-- Example -->
+                <p class="output-events">Selected color: -</p>
+                <div class="color-palette"></div>
+                <!-- Example end -->
+                <pre>
+    function selectColor(event) {
+        if (event.target.nodeName !== "BUTTON") {
+          return;
+        }
+        const selectedColor = event.target.dataset.color;
+    } </pre>
+                
+
             </div>
         </section>
 
 
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>Throttle і Debounce</h2>
+                <p>
+                    Наприклад, якщо додати слухача події до скролу, то під час прокручування сторінки 
+                    мишкою можна викликати близько 30 подій на секунду.
+                    Якщо обробник події скролу виконує важкі обчислення та інші DOM-маніпуляції, 
+                    гарантовано виникнуть проблеми з продуктивністю.
+                </p>
+
+                <p class="cta">Scroll me</p>
+                <div class="event-counter">
+                    <div class="box">
+                      <p>Number of scroll events</p>
+                      <span class="output">0</span>
+                    </div>
+                </div>
+
+                <p>
+                    Throttle і Debounce - це два схожих, але різних за поведінкою прийоми, що дозволяють 
+                    контролювати кількість разів, яку ми дозволяємо виконувати функції з часом. 
+                    Використовуємо їх реалізацію з бібліотеки Lodash.
+                </p>
+
+                <h4>Підключення бібліотеки <a href="https://lodash.com/" target="_blank" rel="noopener noreferrer">Lodash</a></h4>
+
+                <p>
+                    Підключимо до проекту бібліотеку Lodash через CDN. Для цього використаємо сервіс cdnjs.com і 
+                    додамо посилання на скрипт бібліотеки в кінці HTML
+                </p>
+                <p>
+                    Тепер ми можемо отримати доступ до бібліотеки у нашому скрипті. При підключенні бібліотек через CDN, 
+                    до об'єкта window додається властивість, в якій зберігається те, що надає бібліотека. Ім'я цієї 
+                    властивості унікальне для бібліотеки та описане в її документації. Для Lodash - це 
+                    символ нижнього підкреслення _. Для перевірки використовуємо метод add, який просто додає два числа.
+                </p>
+
+
+                <h3>Throttle</h3>
+                
             </div>
         </section>
 
@@ -189,6 +272,17 @@
             </address>
         </div>
     </footer>
-    <!-- <script src="../../js/dom.js"></script> -->
+
+    <!-- Lodash library script file -->
+    <script
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+      integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+
+    <script src="../../js/events.js"></script>
 </body>
 </html>

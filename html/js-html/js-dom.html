@@ -184,7 +184,11 @@
                     <li>elem.nextSibling - вибере елемент «праворуч» від elem (його наступного сусіда)</li>
                     <li>elem.nextElementSibling - вибере вузол-елемент «праворуч» від elem (його наступного сусіда).</li>
                 </ul>
-                <h4><a href="https://codepen.io/goit-academy/pen/oNZqxoP" target="_blank">Приклад 1</a> коду js</h4>
+                <p>
+                    Приклад <a href="https://codepen.io/goit-academy/pen/oNZqxoP" target="_blank">codepen.</a>
+                    <a href="../js-page.html#example-1" target="_blank">Example 1</a>
+                </p>
+
                 <pre>
     &lt;ul class="list"&gt;
         &lt;li&gt;First item&lt;/li&gt;
@@ -192,8 +196,8 @@
         &lt;li&gt;Third item&lt;/li&gt;
         &lt;li&gt;Fourth item&lt;/li&gt;
         &lt;li&gt;Fifth item&lt;/li&gt;
-    &lt;/ul&gt;
-                </pre>
+    &lt;/ul&gt;</pre>
+                
 
                 <pre>
     console.log(document);
@@ -211,8 +215,8 @@
     console.log(lastListItem);
 
     const listItems = list.children;
-    console.log(listItems);
-                </pre>
+    console.log(listItems);</pre>
+                
             </div>
         </section>
 
@@ -254,15 +258,15 @@
                     </li>
                 </ul>
 
-                <h4><a href="https://codepen.io/goit-academy/pen/wvJmGbG" target="_blank">Приклад 2</a> коду js</h4>
+                <p>Приклад <a href="https://codepen.io/goit-academy/pen/wvJmGbG" target="_blank">codepen</a></p>
                 <pre>
     &lt;ul id="menu" class="menu"&gt;
         &lt;li class="menu-item"&gt;home&lt;/li&gt;
         &lt;li class="menu-item"&gt;about&lt;/li&gt;
         &lt;li class="menu-item"&gt;gallery&lt;/li&gt;
         &lt;li&gt;blog&lt;/li&gt;
-    &lt;/ul&gt;
-                </pre>
+    &lt;/ul&gt;</pre>
+                
 
                 <pre>
     const listWithId = document.querySelector('#menu');
@@ -281,8 +285,8 @@
 
     const firstMenuItem = document.querySelector(".menu-item");
     firstMenuItem.style.color = 'tomato';
-    console.log(firstMenuItem);
-                </pre>
+    console.log(firstMenuItem);</pre>
+                
             </div>
         </section>
 
@@ -300,13 +304,12 @@
                     <li>name - зберігає значення, вказане в HTML-атрибуті name.</li>
                     <li>src - шлях до зображення тегу img.</li>
                 </ul>
-                <h4>Example</h4>
                 <pre>
     &lt;img class="image" 
         src="https://picsum.photos/id/9/320/240" 
         alt="A laptop" 
-        width="300" /&gt;
-                </pre>
+        width="300" /&gt;</pre>
+                
                 <div>
                     <img class="image" src="https://picsum.photos/id/9/320/240" 
                         alt="A laptop" 
@@ -318,10 +321,12 @@
     console.log(image.alt); // A laptop
 
     image.src = "https://picsum.photos/id/13/640/480";
-    image.alt = "River bank";
-                </pre>
+    image.alt = "River bank";</pre>
+    <p>(item.dataset.color = color)  === (data-color="#7E0D44")</p>
+                
 
                 <h3>Властивість textContent</h3>
+                <p><a href="../js-page.html#example-2" target="_blank">Example-2</a></p>
                 <p>
                     <b>elem.textContent</b> повертає текстовий контент всередині елемента. Доступний для читання
                      і запису. Неважливо, що буде передано в textContent, дані завжди будуть записані 
@@ -329,8 +334,8 @@
                 </p>
                 <pre>
     const titleEl = document.querySelector(".article-title");
-    titleEl.textContent = 'Welcome to Bahamas!';
-                </pre>
+    titleEl.textContent = 'Welcome to Bahamas!';</pre>
+
 
                 <h3>Властивість classList</h3>
                 <p>
@@ -352,7 +357,7 @@
                         oldClass на вказаний newClass.
                     </li>
                 </ul>
-                <h4>Example</h4>
+               
                 <pre>
     HTML
     &lt;a class="link is-active" href=""&gt;A random link&lt;/a&gt;
@@ -374,8 +379,8 @@
     console.log(link.classList);
 
     link.classList.replace("special", "regular");
-    console.log(link.classList);
-                </pre>
+    console.log(link.classList);</pre>
+                
 
                 <h3>Властивість style​</h3>
                 <p>
@@ -389,8 +394,8 @@
 
     button.style.backgroundColor = "teal";
     button.style.fontSize = "24px";
-    button.style.textAlign = "center";
-                </pre>
+    button.style.textAlign = "center";</pre>
+                
                 <p>
                     На практиці стилізація елементів виконується шляхом додавання CSS-класів. 
                     Властивість style використовується для додавання будь-яких динамічних стилів, 
@@ -419,8 +424,8 @@
     console.log(image.hasAttribute("src")); // true
     console.log(image.getAttribute("alt")); // "Rocks and waterfall"
     image.setAttribute("alt", "Amazing nature");
-    console.log(image.getAttribute("alt")); // Amazing
-                </pre>
+    console.log(image.getAttribute("alt")); // Amazing</pre>
+                
 
                 <h3>data-атрибути</h3>
                 <p>
@@ -437,8 +442,8 @@
     &lt;button type="button" data-action="save"&gt;Save&lt;/button&gt;
 
     const saveBtn = document.querySelector('button[data-action="save"]');
-    console.log(saveBtn.dataset.action); // "save"
-                </pre>
+    console.log(saveBtn.dataset.action); // "save"</pre>
+               
             </div>
         </section>
 
@@ -453,8 +458,8 @@
 
                 <h3>Створення</h3>
                 <pre>
-    document.createElement(tagName);
-                </pre>
+    document.createElement(tagName);</pre>
+                
                 <p>Елемент створюється в пам'яті, в DOM його ще немає.</p>
                 <h3>Додавання</h3>
                 <p>
@@ -478,7 +483,7 @@
                         element.before(el1, el2, ...) - додає один або декілька елементів перед елементом element.
                     </li>
                 </ul>
-                <h4>Example</h4>
+               
                 <pre>
     &lt;h1&gt;Usernames&lt;/h1&gt;
     &lt;ul class="usernames"&gt;
@@ -489,8 +494,8 @@
 
     const item = document.createElement("li");
     item.textContent = "Poly";
-    list.append(item);
-                </pre>
+    list.append(item);</pre>
+                
                 <h2>Перевірити!!!!</h2>
                 <p>
                     Якщо елемент для додавання вже знаходиться в DOM, то він видаляється зі свого старого 
@@ -500,8 +505,8 @@
 
                 <h3>Видалення</h3>
                 <pre>
-    elem.remove();
-                </pre>
+    elem.remove();</pre>
+                
                 <p>
                     Для того, щоб видалити елемент, використовується метод remove(). 
                     Він викликається на елементі elem, який необхідно видалити.
@@ -511,8 +516,8 @@
     &lt;p class="text"&gt;Text&lt;/p&gt;
 
     const text = document.querySelector('.text');
-    text.remove();
-                </pre>
+    text.remove();</pre>
+                
 
                 <h3>Оптимізація роботи з DOM</h3>
                 <p>
@@ -559,8 +564,8 @@
                 </p>
                 <pre>
     const article = document.querySelector(".article");
-    console.log(article.innerHTML);
-                </pre>
+    console.log(article.innerHTML);</pre>
+                
 
                 <h3>Зміна</h3>
                 <p>
@@ -570,8 +575,8 @@
                 </p>
                 <pre>
     const title = document.querySelector(".article .title");
-    title.innerHTML = 'New and &lt;span class="accent"&gt;improved&lt;/span&gt; title';
-                </pre>
+    title.innerHTML = 'New and &lt;span class="accent"&gt;improved&lt;/span&gt; title';</pre>
+                
 
                 <p>
                     Якщо у властивість innerHTML записати порожній рядок, то вміст елемента буде очищено. 
@@ -582,6 +587,7 @@
                     цього масиву і складанні одного рядка з HTML-тегами, який потім записуємо в innerHTML 
                     елемента.
                 </p>
+                <p><a href="../js-page.html#example-5" target="_blank">Example-5</a></p>
                 <pre>
     &lt;ul class="list"&gt;&lt;/ul&gt;
 
@@ -592,8 +598,8 @@
     .map((technology) => `&lt;li class="list-item"&gt;${technology}&lt;/li&gt;`)
     .join("");
 
-    list.innerHTML = markup;
-                </pre>
+    list.innerHTML = markup;</pre>
+               
 
                 <h3>Додавання</h3>
                 <p>
@@ -625,13 +631,13 @@
                 <p>
                     "beforebegin" і "afterend" працюють тільки тоді, коли elem вже знаходиться в DOM-дереві.
                 </p>
-
+                <p><a href="../js-page.html#example-6" target="_blank">Example-6</a></p>
                 <pre>
     const list = document.querySelector(".list");
     list.insertAdjacentHTML("beforeend", markup);
     list.insertAdjacentHTML("beforebegin", 
-            "&lt;h2&gt;Popular technologies&lt;/h2&gt;");
-                </pre>
+            "&lt;h2&gt;Popular technologies&lt;/h2&gt;");</pre>
+                
             </div>
         </section>
 
@@ -644,8 +650,8 @@
                     блокують обробку HTML-документа і побудову DOM. Це проблема.
                 </p>
                 <pre>
-    &lt;script src="path-to-script.js"&gt;&lt;/script&gt;
-                </pre>
+    &lt;script src="path-to-script.js"&gt;&lt;/script&gt;</pre>
+                
                 <p>
                     Коли аналізатор зустрічає такий тег, обробка HTML-документа припиняється і починається 
                     завантаження файлу скрипта, зазначеного в атрибуті src. Після завантаження скрипт 
@@ -654,8 +660,8 @@
 
                 <h3>Атрибут defer</h3>
                 <pre>
-    &lt;script defer src="path-to-script.js"&gt;&lt;/script&gt;
-                </pre>
+    &lt;script defer src="path-to-script.js"&gt;&lt;/script&gt;</pre>
+                
                 <p>
                     Атрибут defer вказує браузеру завантажувати файл скрипта у фоновому режимі, паралельно 
                     обробці HTML-документа і побудові DOM. Скрипт буде виконаний тільки після того, як HTML-
@@ -665,8 +671,8 @@
 
                 <h3>Атрибут async</h3>
                 <pre>
-    &lt;script async src="path-to-script.js"&gt;&lt;/script&gt;
-                </pre>
+    &lt;script async src="path-to-script.js"&gt;&lt;/script&gt;</pre>
+                
                 <p>
                     Завантаження скрипта з атрибутом async не блокує побудову DOM, але він виконується відразу 
                     після завантаження. Це означає, що такі скрипти можуть заблокувати побудову DOM, і 
@@ -694,8 +700,8 @@
 
                 <h3>Метод addEventListener()</h3>
                 <pre>
-    element.addEventListener(event, handler, options);
-                </pre>
+    element.addEventListener(event, handler, options);</pre>
+                
                 <ul>
                     <li>event - ім'я події, рядок, наприклад "click".</li>
                     <li>handler - колбек-функція, яка буде викликана під час настання події.</li>
@@ -713,8 +719,8 @@
         console.log("Button was clicked");
       };
       
-      button.addEventListener("click", handleClick);
-                </pre>
+      button.addEventListener("click", handleClick); </pre>
+               
 
                 <p>
                     На одному елементі може бути будь-яка кількість обробників подій, навіть подій одного типу. 
@@ -732,16 +738,17 @@
     };
 
     multiBtn.addEventListener("click", firstCallback);
-    multiBtn.addEventListener("click", secondCallback);
-                </pre>
+    multiBtn.addEventListener("click", secondCallback);</pre>
+                
                 
                 <h3>Метод removeEventListener()</h3>
+
                 <p>
                     Видаляє слухача події з елемента. Аргументи аналогічні методу addEventListener().
                 </p>
                 <pre>
-    element.removeEventListener(event, handler, options);
-                </pre>
+    element.removeEventListener(event, handler, options);</pre>
+                
                 <p>
                     Для видалення потрібно передати посилання саме на ту колбек-функцію, яка була призначена 
                     в addEventListener(). У такому разі, для колбеків використовують окрему функцію і 
@@ -773,8 +780,8 @@
       btn.addEventListener("click", mango.showUsername); // не працює
       
       // ✅ Не забувайте прив'язувати контекст методів об'єкта
-      btn.addEventListener("click", mango.showUsername.bind(mango));
-                </pre>
+      btn.addEventListener("click", mango.showUsername.bind(mango)); </pre>
+               
             </div>
         </section>
 
@@ -798,8 +805,8 @@
         console.log(event);
       };
       
-      button.addEventListener("click", handleClick);
-                </pre>
+      button.addEventListener("click", handleClick);</pre>
+                
 
                 <p>
                     Ми можемо називати його як завгодно, але, як правило, його оголошують як e, evt або event.
@@ -825,17 +832,16 @@
                 </p>
 
                 <pre>
-                    const form = document.querySelector(".register-form");
+    const form = document.querySelector(".register-form");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const {
-    elements: { username, password }
-  } = event.currentTarget;
-  console.log(username.value, password.value);
-});
-                </pre>
-
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const {
+        elements: { username, password }
+      } = event.currentTarget;
+      console.log(username.value, password.value);
+    });</pre>
+                
             </div>
         </section>
 
@@ -858,8 +864,8 @@ form.addEventListener("submit", (event) => {
       
       document.addEventListener("keyup", event => {
         console.log("Keyup: ", event);
-      });
-                </pre>
+      });</pre>
+                
                 <p>
                     Натискаючи клавішу, спочатку відбувається keydown, після чого - keyup
                 </p>
@@ -878,15 +884,13 @@ form.addEventListener("submit", (event) => {
                     Властивість code повертає код фізичної клавіші на клавіатурі і не залежить від мови.
                 </p>
                 <pre>
+    <a href="https://codepen.io/goit-academy/pen/ZEeRxaJ"target="_blank">codepen</a>
     document.addEventListener("keydown", event => {
         console.log("key: ", event.key);
         console.log("code: ", event.code);
-      });
-                </pre>
+      });</pre>
 
-                <pre> 
-    <a href="https://codepen.io/goit-academy/pen/ZEeRxaJ"target="_blank">code</a> 
-
+                <pre>
     document.addEventListener("keydown", logMessage);
     document.addEventListener("keyup", logMessage);
 
@@ -901,8 +905,8 @@ form.addEventListener("submit", (event) => {
        &lt;/div&gt;`;
 
     logList.insertAdjacentHTML("afterbegin", markup);
-    }
-                </pre>
+    }</pre>
+                
 
                 <h3>Клавіші-модифікатори</h3>
                 <p>
@@ -919,8 +923,8 @@ form.addEventListener("submit", (event) => {
         if ((event.ctrlKey || event.metaKey) && event.code === "KeyS") {
           console.log("«Ctrl + s» or «Command + s» combo");
         }
-      });
-                </pre>
+      });</pre>
+                
 
                 <p>
                     Деякі комбінації клавіш можуть конфліктувати з поведінкою браузера за замовчуванням. 
@@ -937,7 +941,7 @@ form.addEventListener("submit", (event) => {
 
         <section class="section-about">
             <div class="container">
-                <h2 id="form-event">Події елементів форм</h2>
+                <h2 id="form-event">Форми. Події елементів форм</h2>
                 <h3>Подія submit​</h3>
                 <p>
                     Відправлення форми відбувається під час кліку по кнопці з атрибутом type="submit" 
@@ -949,7 +953,7 @@ form.addEventListener("submit", (event) => {
                 </p>
 
                 <pre>
-    <a href="https://codepen.io/goit-academy/pen/oNZydVL" target="_blank">code</a>                
+    <a href="https://codepen.io/goit-academy/pen/oNZydVL" target="_blank">codepen</a>                
     const registerForm = document.querySelector(".form");
 
     registerForm.addEventListener("submit", handleSubmit);
@@ -966,8 +970,8 @@ form.addEventListener("submit", (event) => {
 
       console.log(`Login: ${login}, Password: ${password}`);
       form.reset();
-    }
-                </pre>
+    }</pre>
+                
                 <p>
                     Властивість elements DOM-елемента форми містить об'єкт з посиланнями на усі її 
                     елементи, які мають атрибут name. Тому в прикладі ми отримуємо значення полів, 
@@ -984,6 +988,7 @@ form.addEventListener("submit", (event) => {
                 </p>
      
                 <pre>
+    <a href="https://codepen.io/goit-academy/pen/gOmKKvj" target="_blank">codepen</a> 
     HTML
     &lt;p&gt;
         Selected option text: &lt;span class="text-output"&gt;none&lt;/span&gt;
@@ -998,8 +1003,7 @@ form.addEventListener("submit", (event) => {
     &lt;option value="vegetarian"&gt;Vegetarian&lt;/option&gt;
     &lt;option value="smoked_salmon"&gt;Smoked Salmon&lt;/option&gt;
   &lt;/select&gt;
-
-    <a href="https://codepen.io/goit-academy/pen/gOmKKvj" target="_blank">code</a>                 
+                
     const select = document.querySelector(".pizza-select");
     const textOutput = document.querySelector(".text-output");
     const valueOutput = document.querySelector(".value-output");
@@ -1014,8 +1018,8 @@ form.addEventListener("submit", (event) => {
 
       textOutput.textContent = selectedOptionText;
       valueOutput.textContent = selectedOptionValue;
-    }
-                </pre>
+    }</pre>
+                
 
                 <h3>Подія input​</h3>
                 <p>
@@ -1025,7 +1029,7 @@ form.addEventListener("submit", (event) => {
                 </p>
 
                 <pre>
-    <a href="https://codepen.io/goit-academy/pen/jOBKpNP" target="_blank">code</a>  
+    <a href="https://codepen.io/goit-academy/pen/jOBKpNP" target="_blank">codepen</a>  
     HTML
     &lt;input type="text" class="text-input" /&gt;
     &lt;p&gt;Text field value: &lt;span class="output"&gt;&lt;/span&gt;&lt;/p&gt;
@@ -1036,8 +1040,8 @@ form.addEventListener("submit", (event) => {
 
     textInput.addEventListener("input", (event) => {
     output.textContent = event.currentTarget.value;
-    });
-                </pre>
+    });</pre>
+                
 
                 <h3>Подія focus і blur</h3>
 
@@ -1055,9 +1059,9 @@ form.addEventListener("submit", (event) => {
                     Активувати або скасувати фокус можна програмно, викликавши в коді для елемента 
                     однойменні методи focus() і blur().
                 </p>
-
+             
                 <pre>
-    <a href="https://codepen.io/goit-academy/pen/JjWZBdM" target="_blank">code</a>  
+    <a href="https://codepen.io/goit-academy/pen/JjWZBdM" target="_blank">codepen</a>
     const textInput = document.querySelector(".text-input");
     const setFocusBtn = document.querySelector('[data-action="set"]');
     const removeFocusBtn = document.querySelector('[data-action="remove"]');
@@ -1076,8 +1080,8 @@ form.addEventListener("submit", (event) => {
 
     textInput.addEventListener("blur", () => {
       textInput.value = "";
-    });
-                </pre>
+    });</pre>
+                
 
                 <p>
                     Фокус може бути тільки на одному елементі сторінки за одиницю часу, і поточний елемент, 

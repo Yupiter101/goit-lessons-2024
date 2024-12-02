@@ -25,7 +25,7 @@ btnLast.addEventListener("click", ()=> {
 
 
 
-// === Example 2 "TITLE H2" ===
+// === Example 2 "TITLE H2 textContent" ===
 
 const titleText = "Made new title by button. Push dell button";
 const titleDom = document.querySelector(".title-dom");
@@ -49,7 +49,7 @@ function dellTitle () {
     dellTitleBtn.disabled=true;
 }
 
-// === Example 3 "Text P" ===
+// === Example 3 "Text P textContent classList" ===
 
 const textText = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum dolores natus laudantium officiis aliquid tenetur facilis inventore vero reiciendis corporis?"; 
 const textDom = document.querySelector(".text-dom");
@@ -78,9 +78,9 @@ const togglingText = () => {
 textBtn.addEventListener("click", togglingText );
 
 
-// === Example 4 "Change img size"  Del img ===
+// === Example 4 "Change img size"  atribute ===
 
-let step = 4;
+let step = 4; // Size
 const btnCreateImg = document.querySelector('button[data-action="make-img"]');
 const btnImgSize = document.querySelector('button[data-action="img"]');
 const btnDelImg = document.querySelector('button[data-action="del-img"]');
@@ -90,9 +90,6 @@ const tumbImg = document.querySelector(".tumb-img-dom");
 
 
 function createImg () {
-    // const newText = document.createElement("p");
-    // newText.textContent = "New";
-    // tumbImg.append(newText);
     const newImg = document.createElement("img");
     newImg.classList.add(".dc-img");
     newImg.alt="dc-dc";
@@ -102,21 +99,7 @@ function createImg () {
     btnDelImg.disabled=false;
 
     tumbImg.append(newImg);
-
-    
-
-
-    // console.log("Зроблю пізніше");
 }
-
-// const changingSize = function () {
-//     // myImg.width="100"; // Ok
-//     myImg.width=100*step;
-//     step +=1;
-//     if(step > 4) {
-//         step = 1;
-//     }
-// }
 
 const changingSize = function () {
     const myImg = document.querySelector('img[alt="dc-dc"]');
@@ -132,13 +115,13 @@ const removingImg = () => {
     myImg.remove();
     btnImgSize.disabled=true;
     btnDelImg.disabled=true;
+
     btnImgSize.removeEventListener("click", changingSize);
     console.log("removeEventListener btnImgSize");
     btnDelImg.removeEventListener("click", removingImg);
     console.log("removeEventListener btnDelImg");
     btnCreateImg.removeEventListener("click", createImg);
     console.log("removeEventListener btnCreateImg");
-
 }
 
 btnCreateImg.addEventListener("click", createImg);
@@ -149,7 +132,7 @@ btnDelImg.addEventListener("click", removingImg);
 
 
 
-// === Example 5 "Render list " ===
+// === Example 5 "Render list" innerHTML ===
 
 const technologies = [
     "querySelector", 
@@ -161,8 +144,6 @@ const technologies = [
 
 const renderList = document.querySelector(".list-dom");
 const btnRender = document.querySelector('button[data-action="render-list"]');
-
-
 
 
 btnRender.addEventListener("click", rendering);
@@ -192,3 +173,37 @@ function renderingAdj () {
     renderListAdj.insertAdjacentHTML("beforeend", markup);
     // btnAdj.disabled=true;
 }
+
+
+
+// === Example 7 "Події клавіатури" ===
+
+// Ex1
+const printing = e => {
+    // console.log("Keydown: ", e);
+    console.log("code: ", e.code);
+    console.log("key: ", e.key);
+    console.log("type: ", e.type);
+}
+
+document.addEventListener("keydown", printing);
+document.addEventListener("keyup", printing);
+
+// Ex2
+
+// document.addEventListener("keydown", event => {
+//     event.preventDefault();
+//     // if (event.ctrlKey ) {
+//     //   console.log("«Ctrl»");
+//     // }
+//     if (event.ctrlKey && event.code === "KeyA") {
+//         console.log("«Ctrl + a»");
+//       }
+//     // if ((event.ctrlKey || event.metaKey) && event.code === "KeyS") {
+//     //     console.log("«Ctrl + s» or «Command + s» combo");
+//     //   }
+//   });
+
+
+
+// === Example 8 "Події елементів форм" ===

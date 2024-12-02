@@ -179,7 +179,18 @@ code {
     color: rgb(17, 83, 37);
   }
 
+pre {
+  display: inline-block;
+  background-color: #fff;
+  /* margin: 0 auto; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
 
+  /* max-width: 640px; */
+  padding-bottom: 0;
+
+
+}
 
 /* Back to main page */
 
