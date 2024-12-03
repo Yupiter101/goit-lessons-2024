@@ -240,7 +240,7 @@ pre {
 .menu-container {
   display: flex;
   justify-content: space-around;
-  width: 600px;
+  width: 560px;
   /* border: 1px solid black; */
   margin: 50px auto;
   font-size: 20px;

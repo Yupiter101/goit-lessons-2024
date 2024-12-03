@@ -375,6 +375,73 @@
 
 
                 <h3>Бібліотека lazysizes​</h3>
+
+                <p>
+                    Щоб забезпечити кросбраузерність, тобто сумісність зі старішими браузерами, або такими, 
+                    які ще не підтримують це нативно, можна використовувати ряд існуючих JavaScript бібліотек. 
+                    Одні з найпопулярніших - це lazysizes, vanilla-lazyload і lozad.js. Вибір бібліотеки 
+                    зводиться до набору можливостей і особистих вподобань. Ми розберемо бібліотеку 
+                    <b><a href="https://afarkas.github.io/lazysizes/index.html" target="_blank" rel="noopener noreferrer"></a></b>.
+                </p>
+                <p>
+                    Перше, що необхідно зробити - це підключити бібліотеку до проекту, використовуючи 
+                    сервіс cdnjs.com. Тег з посиланням на скрипт додається в кінець body, так само 
+                    як ми це робили для бібліотеки Lodash. index.html
+                </p>
+                <p>
+                    Бібліотека lazysizes самоініціалізується при завантаженні на сторінку. Тобто для базового 
+                    використання в JavaScript нічого робити непотрібно. Повний список її можливостей наведений 
+                    в документації.
+                </p>
+                <p>
+                    Усім зображенням, які необхідно завантажувати відкладено, задаємо клас <code>lazyload</code> і замінюємо 
+                    атрибут <code>src на data-src</code>. Це необхідно бібліотеці lazysizes для правильної роботи.
+                </p>
+                <pre>
+    &lt;img class="lazyload" data-src="path/to/my-image.jpg" 
+        alt="Generic alt" /&gt;</pre>
+                    
+                <p>
+                    Доки зображення завантажується можна показувати заповнювач низької якості. Ця техніка 
+                    називається LQIP (Low Quality Image Placeholder). Існує багато варіантів реалізації LQIP, 
+                    але для початку достатньо буде показувати один стандартний заповнювач, замість усіх зображень. 
+                    Для цього додаємо атрибут src, значенням якого буде посилання на це зображення-заповнювач.
+                    index.html
+                </p>
+                <pre>
+    &lt;img
+      class="lazyload"
+      src="path/to/lqip-placeholder.jpg"
+      data-src="path/to/my-image.jpg"
+      alt="Generic alt"
+    / &gt;</pre>
+                
+                <p>
+                    Коли зображення було завантажене, бібліотека lazysizes додає елементу клас lazyloaded. 
+                    Це можна використовувати для застосування CSS-ефектів в момент завантаження зображення.
+                    styles.css
+                </p>
+                <pre>
+    .blur-up {
+        filter: blur(5px);
+        transition: filter 400ms;
+      }
+      
+      .blur-up.lazyloaded {
+        filter: blur(0);
+      }</pre>
+                
+                <p>
+                    Після оголошення стилів, додаємо клас blur-up тегам img. index.html
+                </p>
+
+                <p>
+                    Застосуємо всі ці кроки на прикладі, додавши кросбраузерну підтримку відкладеного 
+                    завантаження зображень до нашого сайту про котів. 
+                    <a href="https://codepen.io/goit-academy/pen/BaWPbOB" target="_blank" rel="noopener noreferrer">codepen</a>
+                </p>
+                
+                
                 
             </div>
         </section>
@@ -389,7 +456,7 @@
         </div>
     </footer>
 
-    <!-- Lodash library script file -->
+    <!-- Lodash library script file LMS Work-->
     <!-- <script
       
       src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
@@ -398,11 +465,18 @@
       referrerpolicy="no-referrer"
     ></script> -->
 
-    
+    <!-- lazysizes library script file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" 
+        referrerpolicy="no-referrer">
+    </script>
+
+     <!-- Lodash library script file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" 
         integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" 
         crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
+    
+    <!-- my file -->
     <script src="../../js/events.js"></script>
 </body>
 </html>

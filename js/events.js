@@ -1,4 +1,4 @@
-
+"use strict"; // код в суворому режимі
 console.log("colorPalette");
 
 // const _ = require('lodash'); // Це не треба і так працює

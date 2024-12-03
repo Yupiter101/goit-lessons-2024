@@ -1,3 +1,4 @@
+"use strict"; // код в суворому режимі
 // console.log("Hello form");
 
 // ============= Подія submit ==============
