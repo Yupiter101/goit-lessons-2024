@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class</title>
+    <title>filter</title>
     <!-- Goodle font -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,35 +36,116 @@
             </div>
         </section>
 
-    
-
+        <!-- ====== .map render ======= -->
         <section class="section-about">
             <div class="container">
-                <h2>Filter</h2>
-             
-                <button type="button" data-ection="rend">Render list</button>
-
+                <h2>.map render</h2>
+                
                 <!-- render list -->
-                <ul class="render-list"></ul>
+                <button type="button" data-ection="rend">.map</button>
+                <ul class="render-list">
+                    <li>
+                        <pre>
+        function renderingList () {
+            const markup = dataForSearch.map(({ name, descr }) => `
+                &lt;li&gt;${name}descr: ${descr}&lt;/li&gt;
+            `).join("");
+            list.innerHTML = markup;
+        }
+    
+        function renderingList () {
+            const markup = dataForSearch.map(({ name, descr }) => {
+                <b>return</b> `&lt;li&gt;${name}descr: ${descr}&lt;/li&gt;`
+            }).join("");
+            list.innerHTML = markup;;
+        }</pre>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
+        <!-- ====== Filter search ======= -->
+        <section class="section-about">
+            <div class="container">
+                <h2>Filter search</h2>
+
+                <pre>
+    searchInput.addEventListener("input", _.debounce((event) => {
+        const value1 = event.target.value;
+        const filterItems = dataForSearch.filter(item => {
+            const {name} = item;
+            return name.includes(value1);
+        });
+        const markup = filterItems.map(({ name, descr })=> `
+            &lt;li&gt;${name}descr: ${descr}&lt;/li&gt;
+        `).join("");
+        filterList.innerHTML = markup;
+      }, 300) 
+    );</pre>
+                
+                <br>
                 <label>
                     <input id="search-input" type="text" name="descr" placeholder="product">
                 </label>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <br>
-
+                
                 <!-- Filter list -->
                 <h4>Filter result</h4>
                 <ul class="filter-list"></ul>
             </div>
         </section>
+
+
+
+
+        <!-- // ====== .reduce render ======= -->
+        <section class="section-about">
+            <div class="container">
+                <h2>.reduce render</h2>
+                
+                <!-- render list -->
+                <button type="button" data-ection="rend-reduce">.reduce</button>
+                <ul class="reduce-list">
+                    <li>
+                        <pre>
+        btnReduce.addEventListener("click", ()=> {
+            const markup = reduceMarkup ();
+            reduceList.innerHTML = markup;
+            //reduceList.insertAdjacentHTML("beforeend", markup);
+        });
+        
+        function reduceMarkup () {
+            return dataForSearch.reduce((acc, { name, descr }) => {
+                return acc += `
+                &lt;li&gt;${name}descr: ${descr}&lt;/li&gt;
+                `
+            }, "");
+        }</pre>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- // ====== .forEach render ======= -->
+        <section class="section-about">
+            <div class="container">
+                <h2>.forEach render (не працює. Шукати)</h2>
+                
+                <!-- render list -->
+                <button type="button" data-ection="rend-forEach">.forEach</button>
+                <ul class="forEach-list">
+                    <li>
+                        <pre>
+    dataForSearch.forEach(({ name, descr }) => markup.push(`
+        &lt;li&gt;${name}descr: ${descr}&lt;/li&gt;`));</pre>
+              
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    
+
+       
 
 
     </main>

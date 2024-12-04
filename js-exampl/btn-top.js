@@ -7,9 +7,7 @@ console.log("Button to top");
 const refs = {
     btnTop: document.querySelector(".toTop"),
 }
-
 refs.btnTop.addEventListener('click', topFunction);
-
 
 window.onscroll = scrollFunction;
 

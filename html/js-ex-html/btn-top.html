@@ -35,7 +35,7 @@
             <div class="container">
                 <h1>Button to top. Stiki Search</h1>
                 <h2>Search from partial (Щось не працює)</h2>
-                <include src="../../partials/search.html">asd</include>
+                <include src="../../partials/search.html"></include>
             </div>
         </section>
     
@@ -60,7 +60,7 @@
             <div class="container">
                 <h2>Stiki Search</h2>
 
-                <!-- Button to top -->
+                <!-- Stiki Search -->
                 <div class="container-alex">
                     <div class="form-section section">
                         <form class="search-form" id="search-form">
@@ -80,46 +80,69 @@
         <section class="section-about">
             <div class="container">
                 <h2>Button to top</h2>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
-                <p>a</p>
+                <h4>Створюємо кнопку</h4>
+                <pre>
+    &lt;button class="toTop" &gt;
+        &lt;svg class="svgButtonToTop" 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="32" height="32" &gt;
+            &lt;path d="M16 1 1 16h9v16h12V16h9z" / &gt;
+        &lt;/svg &gt;
+    &lt;/button &gt;
+                </pre>
+                <br>
+                <pre>
+    const refs = {
+        btnTop: document.querySelector(".toTop"),
+    }
+    refs.btnTop.addEventListener('click', topFunction);
+    
+    window.onscroll = scrollFunction;
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        refs.btnTop.style.display = "block";
+      } else {
+        refs.btnTop.style.display = "none";
+      }
+    };
+                </pre>
+
+                <p>Або так:</p>
+                <pre>
+    window.onscroll = () => window.scrollY > 700 ? 
+            refs.btnTop.style.display = "block" : 
+            refs.btnTop.style.display = "none";</pre>
+                
+
+                <p>Або так:</p>
+                <pre>
+    window.onscroll = scrollFunction;</pre>
+                
 
 
+                <h4>Робимо повільний скрол</h4>
+               
+                <pre>
+    refs.btnTop.addEventListener('click', topFunction);
+
+    function topFunction() {
+        window.scrollTo({
+          top: 0,
+          behavior:'smooth'
+       })
+     };</pre>
+                
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+                <p>a</p>
+ 
             </div>
         </section>
 
