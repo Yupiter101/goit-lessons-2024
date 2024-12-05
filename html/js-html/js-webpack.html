@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpack</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+</head>
+
+<body>
+    <header>
+        <div><a  class="fixed-back" href="../../index.html">Back to main page</a></div>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <div class="container">
+                <h1>Webpack</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Node.js</li>
+                    <li>Пакетний менеджер <strong>npm</strong></li>
+                    <li>Команди NPM</li>
+                    <li>Import Export. Модульність коду</li>
+                    <li>Webpack</li>
+                    <li>Формат JSON</li>
+                    <li>Веб-сховище <a href="#local-storage">localStorage()</a></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Node.js</h2>
+                <p>
+                    <strong>Node.js</strong> &nbsp; - легке та ефективне середовище виконання JavaScript. Дозволяє писати високопродуктивні 
+                    серверні застосунки та інструменти. Node.js побудована на JavaScript-рушію V8 і написана на C++.
+                </p>
+
+                <p>
+                    Спочатку Node.js створювалася як серверне оточення для застосунків, але розробники почали 
+                    використовувати її для створення інструментів, які допомагають автоматизувати виконання 
+                    локальних завдань. В результаті нова екосистема інструментів, яка виникла навколо Node.js, 
+                    призвела до трансформації процесу фронтенд-розробки.
+                </p>
+                <p>
+                    Щоб встановити останню стабільну версію, перейдіть на <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">офіційну сторінку</a>, 
+                    завантажте LTS-інсталятор і дотримуйтесь вказівок.
+                </p>
+                <p>
+                    Користувачам Windows необхідно вибрати чекбокси для встановлення всіх додаткових інструментів, крім Chocolatey. Це встановить Python і різноманітні 
+                    допоміжні утиліти і компілятори.
+                </p>
+                <pre>
+    node --version</pre>
+                
+                <p>
+                    Node.js дозволяє виконувати JavaScript-код поза браузером. Відкрийте будь-який термінал і виконайте команду node, запуститься REPL (read-eval-print loop) - 
+                    інтерактивне середовище виконання JS-коду. Виведемо щось в консоль.
+                    Для того, щоб вийти з REPL, натисніть комбінацію Ctrl + C на Windows і Control + C на MacOS.
+                </p>
+                <p>
+                    епер створимо папку node-tut, а в ній - файл index.js з кодом, який ми писали в REPL. Для запуску 
+                    потрібно відкрити термінал і перейти в папку node-tut, в якій лежить index.js.
+                </p>
+                <p>
+                    Тепер в консолі запускаємо файл за допомогою команди node index.js і отримуємо такий самий 
+                    результат - виведення рядка безпосередньо в терміналі.
+                </p>
+                <p>
+                    В цьому і полягає суть Node.js - можливість виконувати JavaScript поза браузером. 
+                    Таким чином можна писати цілі застосунки, наприклад, бекенд або утиліти, що не залежать 
+                    від браузера.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Пакетний менеджер <strong>npm</strong></h2>
+                <p>
+                    Щоб використовувати все різноманіття інструментів (або пакетів) Node.js, нам необхідна 
+                    можливість встановлювати і керувати ними. Для цього створений NPM (node package manager) - 
+                    пакетний менеджер Node.js. Він встановлює потрібні пакети і забезпечує зручний інтерфейс 
+                    для роботи з ними.
+                </p>
+                <p>
+                    NPM складається з трьох основних компонентів:
+                </p>
+                <ul>
+                    <li>
+                        Сайт <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npmjs.com
+                        </a> - використовується для пошуку та ознайомлення з документацією пакетів.
+                    </li>
+                    <li>
+                        Інтерфейс командного рядка (CLI) - запускається з терміналу і надає набір команд для роботи з реєстром 
+                        і пакетами. Дозволяє створювати скрипти для запуску в терміналі.
+                    </li>
+                    <li>Реєстр пакетів (registry) - велика загальнодоступна база даних інструментів розробки (пакетів).</li>
+                </ul>
+
+                <p>
+                    Пакет (package) - невелика JavaScript бібліотека, що вирішує специфічне завдання. 
+                    Пакети пишуть самі розробники і діляться зі спільнотою. Такий підхід спрощує життя, 
+                    тому що не потрібно винаходити колесо, всі колеса вже давно лежать на полицях реєстру 
+                    і готові до використання.
+                </p>
+
+                <h3>Команди NPM</h3>
+
+                <ul>
+                    <li>npm init - ініціалізує npm в проекті і створює файл package.json</li>
+                    <li>npm install - встановлює всі залежності, перелічені в package.json</li>
+                    <li>
+                        npm list --depth=0 - виведе в терміналі список локально встановлених 
+                        пакетів з номерами їх версій, без залежностей
+                    </li>
+                    <li>npm install [package-name] - встановить пакет локально у папку node_modules</li>
+                    <li>npm uninstall [package-name] - видалить пакет, встановлений локально і оновить package.json</li>
+                    <li>npm start і npm test - запустить скрипт start або test, розташований в package.json</li>
+                    <li>npm run [custom-script] - запустить кастомний скрипт, розташований в package.json</li>
+                    <li>
+                        npm outdated - використовується для пошуку оновлень, виявить сумісні версії 
+                        програмно і виведе список доступних оновлень
+                    </li>
+                    <li>npm update - оновить всі пакети до максимально дозволеної версії</li>
+                </ul>
+                <p>
+                    <a href="https://docs.npmjs.com/" target="_blank" rel="noopener noreferrer">Документація NPM</a>
+                </p>
+                
+                <p><strong>Ініціалізація проекту</strong></p>
+                <p>
+                    Кожен проект починається зі створення файлу package.json - він відстежує залежності, містить 
+                    службову інформацію, дозволяє писати npm-скрипти і слугує інструкцією під час створення 
+                    нового проекту на основі вже готових налаштувань.
+                </p>
+<pre>npm init -y</pre>
+
+                <p>
+                    Буде створено package.json зі значеннями за замовчуванням. Щоб встановити ці значення, виконайте 
+                    в терміналі послідовно наступні команди, підставивши своє ім'я та пошту.
+                </p>
+                <pre>
+    npm config set init.author.name "YOUR_NAME"
+    npm config set init.author.email "YOUR_EMAIL"</pre>
+                
+
+                <p>
+                    Файл package.json можна редагувати вручну або виконати npm init ще раз. 
+                </p>
+
+                <h3>npm-скрипти</h3>
+<pre>"start": "node index.js"</pre>
+                <p>Тепер ми можемо запустити його в терміналі командою npm start</p>
+                <p>
+                    Якщо створити скрипт з будь-яким іншим ім'ям, крім start або test, 
+                    він буде запускатися як npm run ім'я-скрипта - не забудьте run.
+                </p>
+
+                <h3>Встановлення пакетів</h3>
+                <p>
+                    Одна з можливостей, які надає npm - встановлення пакетів, які витягуються з реєстру і 
+                    розпаковуються в папку node_modules в корені проекту. Після створення файлу package.json, 
+                    можна додати залежності в проект.
+                </p>
+<pre>npm install validator</pre>
+
+                <p>
+                    Не додавайте папку node_modules в систему контролю версій, у всіх розробників вона буде 
+                    своя. Якщо ви використовуєте Git, не забувайте додати папку node_modules у файл .gitignore.
+                </p>
+                <p>
+                    Зверніть увагу на створений файл package-lock.json - це журнал знімків дерева залежностей 
+                    проекту. Він гарантує, що команда розробників використовує однакові версії залежностей. 
+                    NPM автоматично оновлює його під час додавання, видалення та оновлення пакетів.
+                </p>
+                <p>
+                    В package.json з'явилася нова залежність в полі dependencies. Це означає, що validator 
+                    версії 11.1.0 був встановлений як залежність і готовий до роботи. Пакети постійно 
+                    оновлюються, ваша версія може відрізнятися.
+                </p>
+    <pre>const validator = require("validator");
+        const validateEmail = email => {
+            return validator.isEmail(email);
+          };
+        validateEmail("mango@mail.com"); // true
+    </pre>
+                
+                <h3>Видалення пакетів</h3>
+<pre>npm uninstall validator</pre>
+                <h3>Встановлення певної версії пакета</h3>
+<pre>npm install validator@1.0.0</pre>
+
+                <h3>Типи залежностей</h3>
+                <p>-save - dependencies</p>
+                <p>-save-dev - devDependencies</p>
+                <p>-global</p>
+
+                <h3>Управління версіями пакетів</h3>
+                <p>
+                    Пакети мають пов'язаний з ними номер версії. Номери версій відповідають 
+                    стандарту <a href="https://semver.org/" target="_blank" rel="noopener noreferrer">SemVer</a>.
+                </p>
+                <ul>
+                    <li>npm outdated - використовується для пошуку оновлень, виявить сумісні версії програмно.</li>
+                    <li>npm update - оновить всі пакети до максимально дозволеної версії.</li>
+                    <li>npm update [ім'я-пакета] - оновить зазначений пакет.</li>
+                </ul>
+
+                <p>
+                    Якщо ви не довіряєте машинам або вам потрібна певна версія пакету, можна відкрити package.json і 
+                    вручну поміняти версії пакетів, після чого виконати npm install.
+                </p>
+
+                <h3>Управління кешем</h3>
+
+<pre>npm cache clean</pre>
+
+                <p>
+                    Після встановлення пакета npm зберігає його копію в кеші, тому під час наступного встановлення, 
+                    вам не потрібно знову завантажувати його з інтернету. Кеш зберігається в папці .npm вашого 
+                    домашнього каталогу.
+                </p>
+                <p>
+                    Ця папка з часом засмічується старими пакетами і її корисно іноді очищати, не дуже часто (декілька разів на рік). 
+                    Кешування корисне, тому що скорочує час встановлення вже використаних пакетів.
+                </p>
+
+            </div>
+        </section>
+
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Import Export. Модульність коду</h2>
+                <p>
+                    Модульний код допомагає в організації, обслуговуванні, тестуванні і, найголовніше, управлінні 
+                    залежностями. Найважливіші переваги модулів - це підтримка, простір імен і повторне використання.
+                </p>
+                <p>
+                    Підтримка - добре розроблений модуль, покликаний максимально зменшити залежність від інших частин коду. 
+                    Це дозволить розширювати функціонал застосунку, не побоюючись порушити його роботу в цілому. 
+                    Оновлення одного модуля набагато простіше, якщо модуль - самодостатній.
+                </p>
+                <p>
+                    Модулі дозволяють уникнути забруднення простору імен, створюючи окрему область видимості для змінних.
+                </p>
+
+                <h3>Збирання модулів</h3>
+                <p>
+                    Збирання модулів - це процес конкатенації групи модулів і їх залежностей в один або групу файлів.
+                </p>
+                <p>
+                    Наявність окремих тегів script для кожного файлу означає, що браузер буде завантажувати кожен 
+                    файл окремо, що негативно позначається на швидкості завантаження сторінки. Щоб обійти цю 
+                    проблему, файли об'єднуються в один або пару файлів з метою зменшення кількості запитів. 
+                    Але залишається проблема управління залежностями між модулями.
+                </p>
+                <p>
+                    Якщо використовуються системи модулів, такі як CommonJS або ESM, необхідно використовувати 
+                    інструмент для їх перетворення у правильно впорядкований і доступний для браузера код. 
+                    Саме тут починають діяти Webpack та інші бандлери (від англійського bundle).
+                </p>
+
+                <h3>Import Export</h3>
+                <h4>ECMAScript Modules (ESM)</h4>
+
+                <pre>
+    greeter.js
+    const helloMessage = "hello!";
+    const goodbyeMessage = "goodbye!";
+
+    export const hello = () => helloMessage;
+    export const goodbye = () => goodbyeMessage;
+
+    index.js
+    import { hello, goodbye } from "./greeter";
+
+    console.log(hello());// "hello!"
+    console.log(goodbye());// "goodbye!"</pre>
+                
+
+                <p>
+                    Кожен JS-файл зберігає код в унікальному контексті модуля та імпортує необхідні йому 
+                    залежності, і експортує все, що інші модулі повинні імпортувати. Операції експорту/імпорту 
+                    реалізовані конструкціями import і export. Є дві очевидні переваги цього підходу - 
+                    запобігання забрудненню глобального простору імен і явне зазначення залежностей.
+                </p>
+                <p>
+                    Нова система модулів відрізняється від CommonJS та інших, перш за все тим, що це стандарт. 
+                    А значить, з часом, буде повністю підтримуватися браузерами нативно, без додаткових інструментів. 
+                    Однак, зараз браузерна підтримка - неповна, тому ESM використовуються разом з інструментами збірки 
+                    модулів, такими як <a href="https://webpack.js.org/">Webpack</a> , Parcel та іншими.
+                </p>
+
+                <h3>Named export</h3>
+                <p>
+                    Перший спосіб - це використовувати ключове слово export перед усіма сутностями, які необхідно 
+                    експортувати. Вони будуть додані як властивості в експортований об'єкт. Під час імпорту ми 
+                    деструктуризуємо властивості з імпортованого об'єкта.
+                </p>
+    <pre>
+        my-module.js
+        const sqrt = Math.sqrt;
+        export const square = x =&gt; x * x;
+        export const diag = (x, y) =&gt; sqrt(square(x) + square(y));
+    
+        main.js
+        import { square, diag } from "./path/to/my-module";
+
+        console.log(square(11));// 121
+        console.log(diag(4, 3));// 5</pre>
+
+                <p>
+                    Другий спосіб - це явно вказати об'єкт з властивостями для експорту.
+                </p>
+    <pre>
+        my-module.js
+        const sqrt = Math.sqrt;
+        const square = x => x * x;
+        const diag = (x, y) => sqrt(square(x) + square(y));
+
+        export { square, diag };
+    
+        main.js
+        import { square, diag } from "./path/to/myModule";
+
+        console.log(square(11));// 121
+        console.log(diag(4, 3));// 5</pre>
+
+                <p>
+                    Наступний синтаксис імпортує всі експорти модуля як об'єкт із зазначеним ім'ям. 
+                    Це називається namespace import.
+                </p>
+                <pre>
+        main.js
+        import * as myModule from "./path/to/my-module";
+
+        console.log(myModule.square(11));// 121
+        console.log(myModule.diag(4, 3));// 5</pre>
+                
+
+                <h3>Default export</h3>
+                <pre>
+        my-func.js
+        export default function myFunc() {
+            // ...
+        }
+
+        my-class.js
+        export default class MyClass {
+            // ...
+        }
+
+        main.js
+        import myFunc from "./path/to/my-func";
+        import MyClass from "./path/to/my-class";</pre>
+            
+
+                <p>
+                    Використовуйте іменований експорт, якщо необхідно експортувати декілька сутностей, 
+                    а експорт за замовчуванням - для експорту однієї сутності. 
+                </p>
+            </div>
+        </section>
+
+
+        
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Webpack</h2>
+                <p>
+                    Webpack став одним із найважливіших інструментів веб-розробника. В першу чергу - це 
+                    менеджер модульних залежностей застосунку і збирач JS-файлів, але він може трансформувати 
+                    усі ресурси (HTML і CSS, SASS тощо), оптимізувати зображення, компілювати шаблони, 
+                    запускати локальний веб-сервер для розробки і багато іншого.
+                </p>
+                <p>
+                    Webpack перетворює залежності в модулі і зшиє в один або декілька файлів. Кожен модуль буде мати 
+                    закритий простір імен і підключатися у потрібний час і правильному порядку.
+                </p>
+                <p>
+                    Webpack - незамінний, якщо ви використовуєте сучасні бібліотеки і фреймворки для розробки, 
+                    такі як React, Vue, Angular тощо.
+                </p>
+                <p>
+                    За посиланнями нижче ви знайдете вичерпні інструкції з покроковими поясненнями налаштування Webpack.
+                </p>
+                <ul>
+                    <li><a href="https://www.taniarascia.com/how-to-use-webpack/">How to set up webpack 5 from scratch</a></li>
+                    <li><a href="https://webpack.js.org/concepts/">Документація Webpack</a></li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Формат JSON</h2>
+                <h3>Метод JSON.stringify()</h3>
+                <p>
+                    Приймає значення і перетворює його у JSON. Значенням може бути число, буль, null, 
+                    масив або об'єкт. Рядки - це вже валідний JSON, тому в їх перетворенні немає сенсу.
+                </p>
+<pre>
+    const dog = {
+        name: "Mango",
+        age: 3,
+        isHappy: true,
+      };
+    
+    const dogJSON = JSON.stringify(dog);</pre>
+                <p>якщо в об'єкта є методи, то при перетворенні вони будуть проігноровані.</p>
+                <p>Також, при спробі перетворити функцію в JSON, результатом буде undefined.</p>
+
+
+                <h3>Метод JSON.parse()</h3>
+                <p>
+                    Щоб отримати з JSON валідне JavaScript значення, його необхідно розпарсити (parse). 
+                    Це операція зворотна перетворенню в рядок (stringify).
+                </p>
+                <pre>
+    const json = '{"name":"Mango","age":3,"isHappy":true}';
+
+    const dog = JSON.parse(json);
+    console.log(dog);// {name: "Mango", age: 3, isHappy: true}</pre>
+                
+
+                <h3>Обробка помилок</h3>
+
+                <p>
+                    Якщо методам класу JSON передати невалідний JSON, то вони «викинуть» помилку і весь скрипт впаде. 
+                    Для уникнення цього, використовується конструкція try...catch
+                </p>
+                <p>
+                    Змінна error - це об'єкт помилки з інформацією про те, що сталося. У цього об'єкта є кілька корисних властивостей:
+                </p>
+                <ul>
+                    <li>name - тип помилки. Для помилки парса - це SyntaxError</li>
+                    <li>message - повідомлення про деталі помилки.</li>
+                    <li>stack - стек викликів функцій на момент помилки. </li>
+                </ul>
+
+                <p>
+                    рядок з символами - це невалідний JSON, оскільки не може бути перетворений у валідне JavaScript значення.
+                </p>
+
+<pre>const data = JSON.parse("Well, this is awkward");// ❌</pre>
+                <p>
+                    Використовуючи конструкцію try...catch, ми можемо обробити цей виняток таким чином, щоб скрипт продовжив працювати, 
+                    навіть у разі помилки.
+                </p>
+                <pre>
+    try {
+        const data = JSON.parse("Well, this is awkward");
+      } catch (error) {
+        console.log(error.name);// "SyntaxError"
+        console.log(error.message);// Unexpected token W in JSON at position 0 
+      } </pre>
+                
+
+            </div>
+        </section>
+
+
+        
+
+        <section class="section-about">
+            <div class="container">
+                <h2 id="local-storage">Веб-сховище localStorage()</h2>
+
+                <p>
+                    Веб-сховище складається з локального сховища (localStorage) і сховища сеансів (sessionStorage). 
+                    Забезпечує спосіб зберігання даних інтуїтивно зрозумілим чином у вигляді пар ключ:значення.
+                </p>
+                <p>
+                    Технічно у веб-сховище можна записати тільки рядки, але це не проблема, якщо використовувати 
+                    методи класу JSON для перетворення складних типів. У веб-сховище не записують методи об'єктів 
+                    або функції, тільки дані.
+                </p>
+                <ul>
+                    <li>localStorage.setItem("key", "value"); - створює новий, або оновлює вже існуючий запис</li>
+                    <li>localStorage.getItem("key") - повертає зі сховища значення з ключем key</li>
+                    <li>localStorage.removeItem(key) - видаляє зі сховища запис з ключем key</li>
+                    <li>localStorage.clear() - повністю очищає всі записи сховища.</li>
+                    <li>localStorage.length - кількість записів у сховищі.</li>
+                </ul>
+
+                <h3>Збереження</h3>
+                <p>
+                    Якщо необхідно зберегти щось, крім рядка, наприклад, масив або об'єкт, необхідно перетворити 
+                    їх у рядок методом JSON.stringify().
+                </p>
+                <pre>
+    const settings = {
+        theme: "dark",
+        isAuthenticated: true,
+        options: [1, 2, 3],
+      };
+                      
+      localStorage.setItem("settings", JSON.stringify(settings)); </pre>
+                
+             
+                <h3>Читання</h3>
+
+                <p>
+                    Метод getItem(key) дозволяє прочитати зі сховища запис з ключем key. Якщо у сховищі 
+                    відсутній запис з таким ключем, метод повертає null. Якщо значення - це звичайний 
+                    рядок, немає потреби його парсити.
+                </p>
+                <pre>
+    localStorage.setItem("ui-theme", "dark");
+
+    const theme = localStorage.getItem("ui-theme"); 
+    console.log(theme);// "dark"</pre>
+                
+
+                <p>
+                    В іншому випадку, необхідно розпарсити значення методом JSON.parse(), щоб отримати валідні дані.
+                </p>
+                <pre>
+    const settings = {
+        theme: "dark",
+        isAuthenticated: true,
+        options: [1, 2, 3],
+      };
+                      
+      localStorage.setItem("settings", JSON.stringify(settings)); 
+                      
+      const savedSettings = localStorage.getItem("settings");
+      const parsedSettings = JSON.parse(savedSettings);
+      console.log(parsedSettings);// settings object</pre>
+                
+
+                <p>
+                    Не забувайте використовувати конструкцію try...catch з методом JSON.parse(), 
+                    щоб уникнути «падіння» скрипту, якщо раптом прочитали невалідний JSON.
+                </p>
+
+                <h3>Видалення</h3>
+                <pre>
+    localStorage.setItem("ui-theme", "dark"); 
+    localStorage.removeItem("ui-theme");</pre>
+                
+
+                
+                <h3>Очищення сховища</h3>
+
+<pre>localStorage.clear();</pre>
+
+                <p>Приклад для форми</p>
+
+                <pre>
+    const form = document.querySelector(".feedback-form");
+    const localStorageKey = "goit-example-message";
+
+    form.elements.message.value = localStorage.getItem(localStorageKey) ?? "";
+
+    form.addEventListener("input", (evt) => {
+      localStorage.setItem(localStorageKey, evt.target.value);
+    });
+
+    form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      localStorage.removeItem(localStorageKey);
+      form.reset();
+    });</pre>
+
+                <p>
+                    Подивитися вміст веб-сховища можна в інструментах розробника на вкладці Application. 
+                    Там само ви можете вручну видаляти і додавати записи. Н
+                </p>
+
+                <h3>Приклад додатку</h3>
+
+                <p>
+                    Для того, щоб скоротити кількість повторюваного коду при роботі з 
+                    веб-сховищем, можна написати сервіс зі стандартними методами, наприклад, save і load.
+                </p>
+
+                <pre>
+    const save = (key, value) => {
+        try {
+          const serializedState = JSON.stringify(value);
+          localStorage.setItem(key, serializedState);
+        } catch (error) {
+          console.error("Set state error: ", error.message);
+        }
+      };
+                      
+      const load = key => {
+        try {
+          const serializedState = localStorage.getItem(key);
+          return serializedState === null ? undefined : JSON.parse(serializedState);
+        } catch (error) {
+          console.error("Get state error: ", error.message);
+        }
+      };
+                      
+      export default {
+        save,
+        load,
+      };</pre>
+                
+
+                <p></p>
+                
+
+
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+</body>
+</html>

@@ -513,11 +513,13 @@ img
                     водночас надається альтернатива photo.jpg для браузерів, які ще не підтримують webp.
                 </p>
                 <pre>
-    &lt;picture&gt;
-        &lt;source srcset="photo.webp 1x, photo@2x.webp 2x" type="image/webp" /&gt;
-        &lt;source srcset="photo.jpg 1x, photo@2x.jpg 2x" type="image/jpeg" /&gt;
-        &lt;img src="photo.jpg" alt="Кіт" /&gt;
-    &lt;/picture&gt;
+&lt;picture&gt;
+    &lt;source srcset="photo.webp 1x, photo@2x.webp 2x" 
+        type="image/webp" /&gt;
+    &lt;source srcset="photo.jpg 1x, photo@2x.jpg 2x" 
+        type="image/jpeg" /&gt;
+    &lt;img src="photo.jpg" alt="Кіт" /&gt;
+&lt;/picture&gt;
                 </pre>
                 <p>
                     Всі варіанти доступних зображень перелічуються в тегах source, 
