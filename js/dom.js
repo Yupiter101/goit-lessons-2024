@@ -94,7 +94,7 @@ function createImg () {
     const newImg = document.createElement("img");
     newImg.classList.add(".dc-img");
     newImg.alt="dc-dc";
-    newImg.src="../img/dc_dc.jpg";
+    newImg.src="../../img/dc_dc.jpg";
     btnCreateImg.disabled=true;
     btnImgSize.disabled=false;
     btnDelImg.disabled=false;

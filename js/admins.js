@@ -1,9 +1,61 @@
 // Тут я зберігаю різні корисні функції загального призначення
 
 
-
-
 // Навчитися експортувати!!!!!!!!!!!!
+
+// ======= Тут мої тести ========
+
+// =V1=
+// export const my_A = 44;
+
+
+// // =V2=
+// const my_B = 55;
+// export default my_B;
+
+
+
+// // =V3=
+// const my_C = 66;
+// module.exports = my_C;
+
+
+// // V4
+// function mult(a, b) {
+//   return a*b;
+// }
+
+// function div(a, b) {
+//   return a/b;
+// }
+
+// export default {mult, div};
+
+// ==V5==
+function mult(a, b) {
+  return a*b;
+}
+
+// function div(a, b) {
+//   return a/b;
+// }
+
+module.exports = mult;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
