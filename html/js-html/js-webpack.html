@@ -39,10 +39,12 @@
                     <li>Node.js</li>
                     <li>Пакетний менеджер <strong>npm</strong></li>
                     <li>Команди NPM</li>
+                    <li>Команди з файлами та папками</li>
                     <li>Import Export. Модульність коду</li>
                     <li>Webpack</li>
                     <li>Формат JSON</li>
                     <li>Веб-сховище <a href="#local-storage">localStorage()</a></li>
+                    <li>Примітки з відео Рисіча</li>
                 </ol>
             </div>
         </section>
@@ -126,7 +128,6 @@
                 </p>
 
                 <h3>Команди NPM</h3>
-
                 <ul>
                     <li>npm init - ініціалізує npm в проекті і створює файл package.json</li>
                     <li>npm install - встановлює всі залежності, перелічені в package.json</li>
@@ -144,6 +145,16 @@
                     </li>
                     <li>npm update - оновить всі пакети до максимально дозволеної версії</li>
                 </ul>
+
+                <h3>Команди з файлами та папками</h3>
+                <ul>
+                    <li>cd ../  - на рівень вище</li>
+                    <li>cd myfolder</li>
+                   
+                    
+                </ul>
+
+
                 <p>
                     <a href="https://docs.npmjs.com/" target="_blank" rel="noopener noreferrer">Документація NPM</a>
                 </p>
@@ -633,6 +644,80 @@
 
             </div>
         </section>
+
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>Примітки з відео Рисіча - 1/2</h2>
+                <h3>Parcel</h3>
+                <ul>
+                    <li>Ми юзаємо Parcel. Він менший ніж Webpack.</li>
+                    <li>
+                        Починаємо з читати readme файл 
+                        <a href="https://github.com/goitacademy/parcel-project-template" target="_blank" 
+                            rel="noopener noreferrer">parcel-project-template</a> 
+                    </li>
+                    <li>
+                        Не намагайся оновити ноду. Видали її через вінду. Встановити новую Перезавантажити коип
+                    </li>
+                    <li>
+                        Склонувати проект <a href="https://github.com/goitacademy/parcel-project-template" 
+                        target="_blank" rel="noopener noreferrer">parcel-project-template</a>
+                    </li>
+                    <li>Якщо не користуємося GitHub Desctop то встановити GitBash</li>
+                    <li>npm i</li>
+                    <li>npm audit fix  - сам пофіксить варнінги</li>
+                    <li>npm start - збирається проект і дає посилання Server running at http://localhost:1234</li>
+                    <li>Щоб скинути слідкування: Ctrl+C</li>
+                    <li>Налаштувати Git: General/Actions/General: Read and Write permition</li>
+                    <li>
+                        Package.json змінити "homepage": "https://Yupiter101.github.io/Parcel-hw8-2024", 
+                        та "build": "parcel build src/*.html --public-url /Parcel-hw8-2024/"
+                    </li>
+                    <li>src замінити на той що для домашки</li>
+                    <li>git add .   git commit -m "" git push</li>
+                    <li>Ідем на гіт дивимся на зелений кружок або червоний хрестик</li>
+                    <li>Якщо друге то відкриваємо деталі</li>
+                    <li>Error можливо не проставили галочки</li>
+                    <li>На Гіті головна гілка повинна називатися <b>main</b></li>
+                    <li>Для запуску Гіт сторінки: Setting/ Pages / branch: gh-pages. Save</li>
+                </ul>
+
+                <h3>
+                    Як привязати Гіт репозиторій <a href=
+                    "https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url">
+                    Інструкція</a>
+                </h3>
+                <ul>
+                    <li>git remote -v на який репо ми посилаємось зараз</li>
+                    <li>git remote set-url origin https://github.com/OWNER/REPOSITORY.git</li>
+                    <li>Налаштувати деплой: змінити в Package.json "homepage" та "build"</li>
+                    <li>Не використовуємо "Go Live Server"</li>
+                    <li>Користуємося лише at http://localhost:1234</li>
+                    <li>Налаштувати Git: General/Actions/General: Read and Write permition</li>
+                    <li>Робимо push</li>
+                    <li>Але тепер GitHub Desctop не працює</li>
+                    <li>Тому в GitHub Desctop add add existing repositoriy</li>
+                </ul>
+
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Примітки з відео Рисіча - 2/2</h2>
+                <h3>Import Export</h3>
+                <p>Дефолтний імпорт використовують тільки для експорту класів</p>
+                <p>Дефолтний імпорт я затестив</p>
+                <p>Іменований імпорт не працює</p>
+            </div>
+        </section>
+
+
+
 
 
     </main>
