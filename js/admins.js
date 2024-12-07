@@ -5,6 +5,11 @@
 
 // ======= Тут мої тести ========
 
+
+
+
+
+
 // =V1=
 // export const my_A = 44;
 
@@ -41,6 +46,19 @@ function mult(a, b) {
 // }
 
 module.exports = mult;
+
+
+
+// V6
+// const admins = ["Andrey", "Yuri", "Sergey"];
+// const clients = ["Anna", "Alina", "STamara"];
+
+// const users = {
+//     admins,
+//     clients
+// };
+
+// module.exports = users;
 
 
 

@@ -1,4 +1,12 @@
+"use strict"; // код в суворому режимі
+
 console.log("It is import file");
+
+
+
+
+
+
 
 // =V1=
 // console.log("V1");
@@ -28,3 +36,17 @@ console.log("It is import file");
 // =V5=
 // const mult = require("../js/admins");
 // console.log(mult(5,4)); // 20
+
+
+
+// V6
+// const users = require("../js/admins");
+// console.log(users);
+
+
+
+// V7
+// import { bookList_2 } from '../js/shopping_data';
+
+
+import exp from './export.js';
