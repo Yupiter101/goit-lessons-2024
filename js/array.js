@@ -181,10 +181,10 @@ const students5 = [
 ];
 
     // === За зростанням score ===
-// const inAscendingScoreOrder = students5.sort(
-//   (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
-// );
-// console.log(inAscendingScoreOrder);
+const inAscendingScoreOrder = students5.sort(
+  (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
+);
+console.log(inAscendingScoreOrder);
 
     // === За спаданням score ===
 // const inDescendingScoreOrder = students5.sort(
@@ -197,3 +197,49 @@ const students5 = [
 //   firstStudent.name.localeCompare(secondStudent.name)
 // );
 // console.log(inAlphabeticalOrder);
+
+
+// Приклади:
+// .map Нехай ф getModels повертає масив моделей
+
+const cars = [
+  { make: "honda", model: "C-RV", amount: 14, price: 24050, type: "sub" },
+  { make: "mazda", model: "CX-9", amount: 10, price: 20050, type: "sed" },
+  { make: "ford", model: "F-150", amount: 5, price: 14050, type: "sed" },
+  { make: "honda", model: "C-RV", amount: 8, price: 4050, type: "sub" },
+  { make: "mazda", model: "CX-7", amount: 2, price: 34050, type: "sed" },
+]
+
+// V1 .map - масив моделей
+console.log("map - масив моделей");
+const getModels = (arr) => {
+  return arr.map( item => item.model );
+}
+console.log(getModels(cars));
+
+
+// V2 .map - масив обєктів
+console.log("map - масив обєктів discaunt");
+const makeDiscount = (arr, discaunt) => {
+    return arr.map( item => ({
+      ...item,
+      price: item.price * (1-discaunt),
+    }))
+}
+
+console.table(makeDiscount(cars, 0.2));
+
+
+// V3 .filter - масив обєктів
+console.log("filter - масив обєктів");
+const filtPrice = (arr, lim) => {
+    return arr.filter(({price})=> price < lim);
+}
+
+console.table(filtPrice(cars, 20100));
+
+// V4 .filter2 - масив обєктів
+console.log("filter2 - масив обєктів");
+const filtType = (arr, type) => arr.filter(({ type: carType }) => carType === type);
+
+console.table(filtType(cars, "sub"));
