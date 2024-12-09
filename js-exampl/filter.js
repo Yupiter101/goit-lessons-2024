@@ -87,7 +87,8 @@ function renderingList () {
     const markup = dataForSearch.map(({ name, descr }) => {
         return `<li>name: ${name} descr: ${descr}</li>`
     }).join("");
-    list.innerHTML = markup;;
+    // console.log(markup);
+    list.innerHTML = markup;
 }
 
 
@@ -146,13 +147,12 @@ function reduceMarkup () {
 // const btnForEach = document.querySelector('[data-ection="rend-forEach"]');
 // const forEachList = document.querySelector(".forEach-list");
 
-// btnForEach.addEventListener("click", renderForEach);
+btnForEach.addEventListener("click", renderForEach);
 
-// // V1
-// function renderForEach () {
-//     // const markup = dataForSearch.forEach(({ name, descr }) => `<li>name: ${name} descr: ${descr}</li>`).join("");
-//     // const markup =[];
-//     dataForSearch.forEach(({ name, descr }) => markup.push(`<li>name: ${name} descr: ${descr}</li>`));
-//     // forEachList.innerHTML = markup;
-//     console.log(markup);
-// }
+function renderForEach () {
+    const markup = [];
+    dataForSearch.forEach(({ name, descr }) => {
+        return markup.push(`<li>name: ${name} descr: ${descr}</li>`)
+});
+    forEachList.innerHTML = markup.join("");
+}
