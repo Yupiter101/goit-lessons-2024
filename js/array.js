@@ -199,6 +199,168 @@ console.log(inAscendingScoreOrder);
 // console.log(inAlphabeticalOrder);
 
 
+
+
+
+
+
+
+// ====================================================
+
+// Додати іконку: win+:
+
+console.log("index js");
+
+
+// const user100 = {
+//     name100: "Serg",
+//     say1() {
+//         console.log(`Hello ${this.name100}`);
+//     },
+//     say2: ()=>{
+//         console.log(`Hello ${this.name100}`);
+//     }
+// }
+
+// user100.say1();
+// user100.say2();
+
+
+
+// Задача 1
+// Передать обект в фу та колбек. Додати ід та законсолити.
+
+const prod1 = {
+    name: "apple",
+    prise: 5,
+    quantity: 3,
+
+}
+
+function createProd (obj, callback) {
+    const prod = {
+        id: Date.now(),
+        ...obj,
+    }
+    callback(prod);
+}
+
+
+function logProd (pro) {
+    console.log(pro);
+}
+
+function totalProd ({ prise, quantity }) {
+    const tota = prise * quantity;
+    console.log(tota);
+}
+
+createProd(prod1, logProd);
+createProd(prod1, totalProd);
+
+
+// Задача 2 
+/*
+    Додати в оєкт account методи withdrow (amount, onSuccess, onError) 
+    Першй парам це сума друг та трет це колбеки
+
+    Метод withdrow викликає onError якщо amount більше TRANSACTION_LIMIT або this.balance 
+    і onSuccess в іншому випадку
+
+    Метод deposit викликає onError якщо amount більше TRANSACTION_LIMIT або менше дорівнює 0
+    і onSuccess в іншому випадку
+*/
+
+const TRANSACTION_LIMIT = 1000;
+
+
+const account = {
+    ussername: "Jaco",
+    ballance: 1100,
+    withdrow(sum, callback1, callback2) {
+        if(sum > this.ballance || sum > TRANSACTION_LIMIT) {
+            callback2("Not inaf");
+            return;
+        }
+        this.ballance -= sum;
+        callback1("Good 👌");   // Додати іконку: win+:
+    }
+}
+
+
+
+
+function handleSuccess (message) {
+    console.log(`Success ${message}`);
+}
+
+function handleError (message) {
+    console.log(`Error ${message}`);
+}
+
+
+
+// account.withdrow(900, handleSuccess, handleError);
+// account.deposit(1700, handleSuccess, handleError);
+
+
+
+// Задача 3 .map. 
+// Така само довжина!
+//  непарні числа
+
+// const arr = [1,2,3,4,5,6,7];
+// const resmap = arr.map((val)=> val%2);
+// console.log(resmap);
+
+// // V1
+// const arr = [1,2,3,4,5,6,7];
+// const resmap = arr.map((val)=> {
+//     if(!(val%2)) {
+//         return val * 10;
+//     }
+//     return val;
+// });
+// console.log(resmap);
+
+// V2
+const arr = [1,2,3,4,5,6,7];
+const resmap = arr.map((val)=> val%2 ? val * 10 : val );
+console.log(resmap);
+
+
+
+// Задача 4 indexOf()-для простих or .findIndex()-для обєктів
+const arr2 = [1,2,3,4,5,6,7];
+const resInd = arr2.indexOf(5); // 4
+console.log(resInd);
+
+const arr3 = [{
+        name: "Use1",
+        skills: ["css", "html"],
+    },
+    {
+        name: "Use1",
+        skills: ["node", "html"],
+    },
+    {
+        name: "Use2",
+        skills: ["node", "ddd"],
+    }
+]
+const resFaInd = arr3.findIndex(item => item.skills.includes("node"));
+console.log(resFaInd); // index 1 or -1
+
+
+
+// Задача 5 filter()
+const arr4 = [1,2,3,4,5,6,7];
+const resFilt = arr4.filter(item => !(item%2));
+console.log(resFilt);
+
+
+// ===================================================
+
 // Приклади:
 // .map Нехай ф getModels повертає масив моделей
 
