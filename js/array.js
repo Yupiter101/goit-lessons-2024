@@ -1,5 +1,5 @@
 "use strict"; // код в суворому режимі
-
+// js doka - 2:45 Видео Рисіча 4_2
 
 console.log("Hello from array.js");
 console.log("Тема. Перебираючі методи масиву");
@@ -57,7 +57,7 @@ const uniqueCourses = courses.filter(
 console.log(uniqueCourses);
 
 
-// === Фільтрація масиву об'єктів ===
+// === filter Фільтрація масиву об'єктів ===
 console.log(" ");
 console.log("Фільтрація масиву об'єктів");
 
@@ -114,7 +114,7 @@ const total_3 = arr_2.reduce((acum, number) => {
 console.log(total_3);
 
 
-// Необхідно отримати середній бал
+// reduce Необхідно отримати середній бал
 const students_4 = [
     { name: "Манго", score: 83 },
     { name: "Полі", score: 59 },
@@ -130,7 +130,7 @@ const averScore = totalScore / students_4.length;
 console.log(totalScore);
 console.log(averScore);
 
-// необхідно порахувати суму усіх лайків
+// reduce необхідно порахувати суму усіх лайків
 console.log("порахувати суму лайків");
 
 const tweets = [
@@ -143,7 +143,7 @@ const tweets = [
 const allLikes = tweets.reduce((acum, tweet) => acum + tweet.likes, 0);
 console.log(allLikes);
 
-// напишемо функцію
+// reduce напишемо функцію
 const countLikes = tweets => {
     return tweets.reduce((acum, tweet) => acum + tweet.likes, 0);
 };
@@ -158,7 +158,7 @@ const tags = tweets.reduce((allTags, tweet) => {
 
 // console.log(tags);
 
-// === напишемо функцію
+// === reduce напишемо функцію
 const getTags = arrays => {
   return arrays.reduce((allTags, tweet)=> {
           allTags.push(...tweet.tags); 
@@ -169,7 +169,11 @@ const getTags = arrays => {
 
 console.log(getTags(tweets));
 
-// === Сортування об'єктів sort
+
+
+
+// === sort Сортування об'єктів sort
+
 console.log(" ");
 console.log("Метод sort()");
 
@@ -180,19 +184,19 @@ const students5 = [
   { name: "Ківі", score: 94 },
 ];
 
-    // === За зростанням score ===
+    // === sort За зростанням score ===
 const inAscendingScoreOrder = students5.sort(
   (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
 );
 console.log(inAscendingScoreOrder);
 
-    // === За спаданням score ===
+    // === sort За спаданням score ===
 // const inDescendingScoreOrder = students5.sort(
 //   (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
 // );
 // console.log(inDescendingScoreOrder);
 
-  // === За імям ===
+  // === sort За імям ===
 // const inAlphabeticalOrder = students5.sort((firstStudent, secondStudent) =>
 //   firstStudent.name.localeCompare(secondStudent.name)
 // );
@@ -208,10 +212,7 @@ console.log(inAscendingScoreOrder);
 // ====================================================
 
 // Додати іконку: win+:
-
-console.log("index js");
-
-
+console.log("КОлбеки та Методи обєктів");
 // const user100 = {
 //     name100: "Serg",
 //     say1() {
@@ -234,7 +235,6 @@ const prod1 = {
     name: "apple",
     prise: 5,
     quantity: 3,
-
 }
 
 function createProd (obj, callback) {
@@ -258,7 +258,7 @@ function totalProd ({ prise, quantity }) {
 createProd(prod1, logProd);
 createProd(prod1, totalProd);
 
-
+console.log("Задача deposit withdrow");
 // Задача 2 
 /*
     Додати в оєкт account методи withdrow (amount, onSuccess, onError) 
@@ -304,7 +304,7 @@ function handleError (message) {
 // account.deposit(1700, handleSuccess, handleError);
 
 
-
+console.log("Задача3 map");
 // Задача 3 .map. 
 // Така само довжина!
 //  непарні числа
@@ -329,7 +329,7 @@ const resmap = arr.map((val)=> val%2 ? val * 10 : val );
 console.log(resmap);
 
 
-
+console.log("Задача4 indexOf findIndex ");
 // Задача 4 indexOf()-для простих or .findIndex()-для обєктів
 const arr2 = [1,2,3,4,5,6,7];
 const resInd = arr2.indexOf(5); // 4
@@ -352,7 +352,7 @@ const resFaInd = arr3.findIndex(item => item.skills.includes("node"));
 console.log(resFaInd); // index 1 or -1
 
 
-
+console.log("Задача5 filter");
 // Задача 5 filter()
 const arr4 = [1,2,3,4,5,6,7];
 const resFilt = arr4.filter(item => !(item%2));
@@ -405,3 +405,46 @@ console.log("filter2 - масив обєктів");
 const filtType = (arr, type) => arr.filter(({ type: carType }) => carType === type);
 
 console.table(filtType(cars, "sub"));
+
+
+// V5 .sort - масив обєктів
+console.log("Сортування з розпиленням");
+const sortByPriceq = arr => [...arr].sort((a,b) => a.price - b.price);
+console.table(sortByPriceq(cars));
+
+console.table(cars);
+
+
+// // V6 .reduce - масив обєктів
+// const amountCars = arr => arr.reduce((acc, car)=>{
+//   return acc += car.amount;
+// }, 0);
+// console.log(amountCars(cars));
+
+// V6.1 .reduce - масив обєктів same
+const amountCars = arr => arr.reduce((acc, car)=> acc += car.amount, 0);
+console.log(amountCars(cars));
+
+
+
+const strr = "qwewerqweweeer";
+// Task:
+// {
+//   e: 3,
+//   g: 5,
+//   ...
+// }
+console.log(`Start ${strr}`);
+const result = strr.split('').reduce((acc, item)=> {
+  // V1
+  // acc.hasOwnProperty(item) ? acc[item]+=1 : acc[item] = 1;
+  // V2
+  // item in acc ? acc[item]+=1 : acc[item] = 1;
+  // V3
+  const keys = Object.keys(acc);
+  keys.includes(item) ? acc[item]+=1 : acc[item] = 1;
+  return acc;
+}, {});
+console.log("Result"); console.log(result);
+
+
