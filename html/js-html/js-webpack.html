@@ -57,6 +57,17 @@
             <div class="container">
                 <h2>Node.js</h2>
                 <p>
+                    Щоб був термінал <b>Bash</b> треба щоб був встановлений <b>Git</b>
+                </p>
+                <p>
+                    Транспіляція кода з нового в старий 
+                    <a href="https://babeljs.io" target="_blank" rel="noopener noreferrer">babeljs</a>
+                </p>
+                <p>
+                    type="module" - це для браузера. Parcel i webpack - робить це сам
+                </p>
+                
+                <p>
                     <strong>Node.js</strong> &nbsp; - легке та ефективне середовище виконання JavaScript. Дозволяє писати високопродуктивні 
                     серверні застосунки та інструменти. Node.js побудована на JavaScript-рушію V8 і написана на C++.
                 </p>
@@ -133,7 +144,9 @@
 
                 <h3 id="npm-command">Команди NPM</h3>
                 <ul>
-                    <li>npm init - ініціалізує npm в проекті і створює файл package.json</li>
+                    <li>node -v</li>
+                    <li>npm -v</li>
+                    <li>npm init -y - ініціалізує npm в проекті і створює файл package.json</li>
                     <li>npm install - встановлює всі залежності, перелічені в package.json</li>
                     <li>
                         npm list --depth=0 - виведе в терміналі список локально встановлених 
@@ -142,6 +155,8 @@
                     <li>npm install [package-name] - встановить пакет локально у папку node_modules</li>
                     <li>npm uninstall [package-name] - видалить пакет, встановлений локально і оновить package.json</li>
                     <li>npm start і npm test - запустить скрипт start або test, розташований в package.json</li>
+                    <li>npm prestart</li>
+                    <li>npm poststart</li>
                     <li>npm run [custom-script] - запустить кастомний скрипт, розташований в package.json</li>
                     <li>
                         npm outdated - використовується для пошуку оновлень, виявить сумісні версії 
@@ -154,10 +169,14 @@
                 <ul>
                     <li>pwd - шлях</li>
                     <li>ls - список</li>
+                    <li>ls - список</li>
+                    <li>ls -l - list</li>
+                    <li>ls -la - list скриті файли</li>
                     <li>cd ../  - на рівень вище</li>
                     <li>cd ../../ - на 2 рівень вище</li>
                     <li>cd namefolder</li>
                     <li>cd G:</li>
+                    <li>G:</li>
                     <li>touch file.xxx - создать файл</li>
                     <li>mv file.xxx file2.xxx - переменовать файл</li>
                     <li>rm nod3.js - удалить файл</li>
@@ -166,6 +185,7 @@
                     <li>rm -dir folder - удалить пустую папку</li>
                     <li>ctrl + l - очистить терминал</li>
                     <li>clear</li>  
+                    <li>man ls - документація</li>
                 </ul>
 
 
@@ -280,6 +300,9 @@
         <section class="section-about">
             <div class="container">
                 <h2>Import Export. Модульність коду</h2>
+                <p>
+                    <b>"require"</b> - в браузері не працює! Тільки в ноді!!!!!!!!!!!!!
+                </p>
                 <p>
                     Модульний код допомагає в організації, обслуговуванні, тестуванні і, найголовніше, управлінні 
                     залежностями. Найважливіші переваги модулів - це підтримка, простір імен і повторне використання.
