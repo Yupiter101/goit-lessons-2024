@@ -60,11 +60,12 @@
                     Щоб був термінал <b>Bash</b> треба щоб був встановлений <b>Git</b>
                 </p>
                 <p>
-                    Транспіляція кода з нового в старий 
+                    Транспіляція кода з нового в старий. 
                     <a href="https://babeljs.io" target="_blank" rel="noopener noreferrer">babeljs</a>
+                    Parcel робить це сам
                 </p>
                 <p>
-                    type="module" - це для браузера. Parcel i webpack - робить це сам
+                    <b>type="module"</b> - це для браузера. Parcel i webpack - робить це сам
                 </p>
                 
                 <p>
@@ -301,6 +302,10 @@
             <div class="container">
                 <h2>Import Export. Модульність коду</h2>
                 <p>
+                    Короче: усі види імпорту працюють у Parcel (8-й урок). Перевірив
+                    Не забути вказати <b>type="module"</b>
+                </p>
+                <p> 
                     <b>"require"</b> - в браузері не працює! Тільки в ноді!!!!!!!!!!!!!
                 </p>
                 <p>
@@ -336,6 +341,7 @@
                 <h4>ECMAScript Modules (ESM)</h4>
 
                 <pre>
+    Це працює у Parcel!!!
     greeter.js
     const helloMessage = "hello!";
     const goodbyeMessage = "goodbye!";
@@ -370,6 +376,7 @@
                     деструктуризуємо властивості з імпортованого об'єкта.
                 </p>
     <pre>
+        Це працює у Parcel!!!
         my-module.js
         const sqrt = Math.sqrt;
         export const square = x =&gt; x * x;
@@ -385,6 +392,7 @@
                     Другий спосіб - це явно вказати об'єкт з властивостями для експорту.
                 </p>
     <pre>
+        Це працює у Parcel!!!
         my-module.js
         const sqrt = Math.sqrt;
         const square = x => x * x;
@@ -403,6 +411,7 @@
                     Це називається namespace import.
                 </p>
                 <pre>
+        Це працює у Parcel!!!
         main.js
         import * as myModule from "./path/to/my-module";
 

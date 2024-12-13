@@ -37,19 +37,19 @@
 // export default {mult, div};
 
 // ==V5==
-function mult(a, b) {
-  return a*b;
-}
+// function mult(a, b) {
+//   return a*b;
+// }
 
 // function div(a, b) {
 //   return a/b;
 // }
 
-module.exports = mult;
+// module.exports = mult;
 
 
 
-// V6
+// // V6
 // const admins = ["Andrey", "Yuri", "Sergey"];
 // const clients = ["Anna", "Alina", "STamara"];
 
