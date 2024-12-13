@@ -32,7 +32,18 @@
     <main>
         <section class="section-title">
             <div class="container">
-                <h1>Import Export</h1>
+                <h1>Import / Export</h1>
+                <p>Import та Export працюють лише якщо вказати <b>type="module"</b>
+                    при підключенні js.файлу. Та в кінці вказано розширення <b>".js"</b>
+                </p>
+                <pre>import {my_W, my_W1} from '../js/admins.js';</pre>
+                <p>
+                    module.exports require - Не працює
+                </p>
+                <p>У версії з Parcel працює усе, але теж з <b>type="module"</b></p>
+                <pre>
+    &lt;script src="../../js-exampl/import.js" type="module"&gt;&lt;/script&gt;</pre>
+                
                 <p>Відкривай консоль F12</p>
                 <p>Імпорт у файл import.js з файлу export.js</p>
             </div>
@@ -43,21 +54,45 @@
         <section class="section-about">
             <div class="container">
                <h2>Зміст</h2>
-               <ul>
-                <li>V1 - export const | from './' - не працює</li>
-                <li>V2 - export default - не працює</li>
+               <ol>
+                <li>V1 - export const | from './'</li>
+                <li>V2 - export default </li>
                 <li>V3 - module.exports require - не працює</li>
-                <li></li>
-               </ul>
+               </ol>
             </div>
             <h3>Ніхрена не працює</h3>
         </section>
 
 
-        <!-- // ======  ======= -->
+        <!-- // ====== export const  ======= -->
         <section class="section-about">
             <div class="container">
-        
+                <h2>export const</h2>
+                <p>Це працює але не забути поставити <b>type="module"</b></p>
+                <pre>
+    export const my_A = 44;
+    export const my_A1 = 45;
+
+    import {my_A, my_A1} from './export.js'; 
+    console.log(my_A);// Not work
+    console.log(my_A1);// Not work</pre>
+                <p></p>
+            </div>
+        </section>
+
+
+        <!-- // ====== export default  ======= -->
+        <section class="section-about">
+            <div class="container">
+                <h2>export default</h2>
+                <p>Це працює але не забути поставити <b>type="module"</b></p>
+                <pre>
+        const my_B = 55;
+        export default my_B;
+
+        import asd from './export.js';
+        console.log(asd);</pre>
+                <p></p>
             </div>
         </section>
 
@@ -65,18 +100,13 @@
         <!-- // ======  ======= -->
         <section class="section-about">
             <div class="container">
-             
+                <h2>module.exports</h2>
+                <p>Це не працює.  Навіть з <b>type="module"</b></p>
             </div>
         </section>
 
 
 
-        <!-- // ======  ======= -->
-        <section class="section-about">
-            <div class="container">
-              
-            </div>
-        </section>
 
 
 
@@ -88,6 +118,6 @@
 
    
 
-    <script src="../../js-exampl/import.js"></script>
+    <script src="../../js-exampl/import.js" type="module"></script>
 </body>
 </html>
