@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpack</title>
+    <title>Promise</title>
     <!-- Goodle font -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-promise.css">
 </head>
 
 <body>
@@ -38,7 +39,8 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li>Таймери - setTimeout</li>
+                    <li>Таймери</li>
+                    <li>Інтервали</li>
                     <li>Дата і час</li>
                     <li>Проміси</li>
                     <li></li>
@@ -55,17 +57,72 @@
         <section class="section-about">
             <div class="container">
                 <h2>Таймери - setTimeout</h2>
+                <h3>Встановлення таймера setTimeout</h3>
                 <p>
                     Метод setTimeout() дозволяє запланувати запуск функції через певний час.
                 </p>
                 <pre>
     const timerId = setTimeout(callback, delay, arg1, arg2, ...);</pre>
                 
-      
-                <div>
+                <div class="interval-cont">
                     <div class="field" style="height: 100px; border: 2px solid green;"></div>
-                    <button type="button" class="btn-timout">fill color 0.5s</button>
+                    
+                    <button type="button" class="btn-timout">Fill color 0.5s</button>
                 </div>
+                <br>
+
+                <h3>Видалення таймера clearTimeout</h3>
+                <p>
+                    Якщо нам, з будь-якої причини, потрібно скасувати виклик функції всередині тайм-ауту, 
+                    використовується метод clearTimeout(id), який приймає ідентифікатор таймера і 
+                    очищає (видаляє) його.
+                </p>
+                <pre>
+            clearTimeout(timerId);</pre>
+
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Інтервал</h2>
+                <h3>Встановлення інтервалу setInterval()</h3>
+                <p>
+                    Метод setInterval() - це простий спосіб повторення коду знову і знову зі встановленим проміжком часу повторень.
+                </p>
+                <p>
+                    Синтаксис і параметри такі самі як у setTimeout(). На відміну від setTimeout(), 
+                    інтервал запускає виконання функції не один раз, а регулярно повторює її через вказаний проміжок часу.
+                </p>
+    <pre>const timerId = setInterval(callback, delay, arg1, arg2, ...);</pre>
+
+                <h3>Видалення інтервалу clearInterval()</h3>
+                <p>
+                    Зупинити виконання можна викликом методу clearInterval(id).
+                </p>
+                <div class="interval-cont">
+                    <p>Counter: <span class="interval-res">0</span></p>
+                    
+                    <button type="button" class="btn-start">start</button>
+                    <button type="button" class="btn-stop">stop</button>
+                </div>
+
+                <h3>Частота спрацьовування лічильника</h3>
+                <p>
+                    У браузерного таймера є мінімально можлива затримка. У сучасних браузерах вона 
+                    коливається приблизно від 0 до 4 мілісекунд. У старіших браузерах затримка може 
+                    бути більшою і досягати 15 мілісекунд. За стандартом, мінімальна затримка 
+                    становить 4 мілісекунди, тому різниці між setTimeout(callback, 1) і 
+                    setTimeout(callback, 4) немає.
+                </p>
+                <p>
+                    Таймер може спрацьовувати рідше, ніж зазначено в параметрі delay, тому що за 
+                    надто великого завантаження процесора деякі запуски функцій-інтервалів будуть 
+                    пропущені. Браузери продовжують виконувати тайм-аути та інтервали, навіть 
+                    якщо вкладка браузера неактивна
+                </p>
+
             </div>
         </section>
 
@@ -73,6 +130,96 @@
         <section class="section-about">
             <div class="container">
                 <h2>Дата і час</h2>
+                <p>
+                    Клас Date безпосередньо абстрагує більшу частину роботи з датами. Це дозволяє нам 
+                    відображати моменти у часі як об'єкти і маніпулювати ними заздалегідь визначеними 
+                    методами. Використовуючи можливості класу Date, можна створювати годинник, 
+                    лічильники, календарі та інші інтерактивні елементи інтефрейсу.
+                </p>
+
+                <h3>Створення дати</h3>
+                <p>
+                    Створення дати без аргументів повертає об'єкт, що зберігає дату і час на момент його 
+                    ініціалізації, тобто поточні. У рядковому перетворенні об'єкт повертає результат 
+                    виклику методу toString(), тому у першому лозі ми отримаємо рядок, а не об'єкт.
+                </p>
+                <pre>
+    const date = new Date();
+    // "Fri Jun 18 2021 15:01:35 GMT+0300</pre>
+                
+                <p>
+                    Внутрішньо дати відображені в мілісекундах, що минули після опівночі 1 січня 1970 року 
+                    у часовому поясі UTC. Для комп'ютера - це дата початку відліку часу - Unix час. 
+                    Тому під час ініціалізації дати одним числом, воно являє собою кількість мілісекунд, 
+                    що вже минула.
+                </p>
+                <pre>
+                    const date = new Date(0);
+        // "Thu Jan 01 1970 03:00:00 GMT+0300</pre>
+                    
+                <p>
+                    Метод getTime() повертає числове значення цієї дати (timestamp) - кількість мілісекунд, 
+                    що минула з півночі 1 січня 1970 року.
+                </p>
+                <pre>
+        const date = new Date();
+        console.log(date.getTime());</pre>
+
+                p></p>
+
+                <h3>Встановлення дати</h3>
+                <ul>
+                    <li>const teamDate = new Date("March 16, 2030");</li>
+                    <li>const teamDate = new Date("2030-03-16 14:25:00");</li>
+                </ul>
+                <p>
+                    Інший спосіб створення нових об'єктів - це передати сім чисел, які описують рік, місяць 
+                    (починається з 0), день, години, хвилини, секунди і мілісекунди. Обов'язкові тільки перші три.
+                </p>
+                <pre>const date = new Date(2030, 2, 16, 14, 25, 0, 0);</pre>
+
+                <p>
+                    Геттери використовуються для читання усієї дати або окремої складової. Значення, що повертається, 
+                    залежить від поточного часового поясу, встановленого на вашому комп'ютері.
+                </p>
+                <ul>
+                    <li>const date = new Date();</li>
+                    <li>console.log("getDate(): ", date.getDate());</li>
+                    <li>console.log("getUTCDate(): ", date.getUTCDate());</li>
+                    <li>console.log("getDay(): ", date.getDay());</li>
+                    <li>console.log("getUTCDay(): ", date.getUTCDay());</li>
+                    <li>console.log("getMonth(): ", date.getMonth());</li>
+                    <li>console.log("getUTCMonth(): ", date.getUTCMonth());</li>
+                    <li>console.log("getFullYear(): ", date.getFullYear());</li>
+                    <li>console.log("getUTCFullYear(): ", date.getUTCFullYear());</li>
+                    <li>console.log("getHours(): ", date.getHours());</li>
+                    <li>console.log("getUTCHours(): ", date.getUTCHours());</li>
+                    <li>console.log("getMinutes(): ", date.getMinutes());</li>
+                    <li>console.log("getUTCMinutes(): ", date.getUTCMinutes());</li>
+                    <li>console.log("getSeconds(): ", date.getSeconds());</li>
+                    <li>console.log("getUTCSeconds(): ", date.getUTCSeconds());</li>
+                    <li>console.log("getMilliseconds(): ", date.getMilliseconds());</li>
+                </ul>
+                <p>
+                    UTC - не адаптовані до поточного часового поясу користувача.
+                </p>
+                <p>
+                    Все, що можна прочитати - можна записати, методи для запису називаються також геттери, але починаються 
+                    з префіксу set. Також для всіх методів існують їх UTC еквіваленти.
+                </p>
+                <ul>
+                    <li>date.setMinutes(50);</li>
+                    <li>date.setFullYear(2040, 4, 8);</li>
+                </ul>
+                <h3>Форматування дати</h3>
+                <ul>
+                    <li>const date = new Date("March 16, 2030 14:25:00");</li>
+                    <li>date.toString();</li>
+                    <li>date.toTimeString();</li>
+                    <li>date.toLocaleTimeString(); // "2:25:00 PM"</li>
+                    <li>date.toDateString();// "2030-03-16T12:25:00.000Z"</li>
+                    <li>date.getTime(); // 1899894300000</li>
+                </ul>
             </div>
         </section>
 
@@ -80,6 +227,153 @@
         <section class="section-about">
             <div class="container">
                 <h2>Проміси</h2>
+                <p>Проміс може бути у трьох станах:</p>
+                <ul>
+                    <li>Очікування (pending) - початковий стан під час створення промісу.</li>
+                    <li>Виконано (fulfilled) - операція виконана успішно</li>
+                    <li>Відхилено (rejected) - операція відхилена з помилкою.</li>
+                    <li>(settled) - проміс завершений</li>
+                </ul>
+                <p>Колбеки - це функції, обіцянки - це об'єкти.</p>
+
+                <h3>Створення</h3>
+                <pre>const promise = new Promise((resolve, reject) => {
+                    // Asynchronous operation
+                  });</pre>
+                <ul>
+                    <li>resolve(value) - функція для виклику у разі успішної операції.</li>
+                    <li>reject(error) - функція для виклику у разі помилки.</li>
+                </ul>
+                <pre>const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (isSuccess) {
+        resolve("Success! Value passed to resolve function");
+      } else {
+        reject("Error! Error passed to reject function");
+      }
+    }, 2000);
+  });</pre>
+
+                <h3>Метод then() і catch() finally()</h3>
+                <p>
+                    Після створення промісу, його результат обробляється в callback-функції. 
+                    Код пишеться таким чином, ніби ми думаємо про те, що може статися, якщо проміс 
+                    виконається або не виконається, не думаючи про часові рамки.
+                </p>
+                <p>
+                    Метод then() приймає два аргументи - callback-функції, які будуть викликані, коли 
+                    проміс змінить свій стан. Результат промісу, значення або помилку, вони отримають як аргументи.
+                </p>
+                <pre>promise.then(onResolve, onReject)</pre>
+                <ul>
+                    <li>
+                        onResolve(value) - буде викликана у разі успішного виконання промісу 
+                        і отримає його результат як аргумент.
+                    </li>
+                    <li>
+                        onReject(error) - буде викликана у разі виконання промісу з помилкою 
+                        і отримає її як аргумент.
+                    </li>
+                </ul>
+                <p>
+                    На практиці в методі then() обробляють тільки успішне виконання промісу, 
+                    а помилку його виконання у спеціальному методі catch() для «відловлювання» помилок.
+                </p>
+                <p>
+                    Метод finally() - Цей метод може бути корисним, якщо необхідно виконати код після того, як обіцянка 
+                    буде дозволена (fulfilled або rejected), незалежно від результату. 
+                    Дозволяє уникнути дублювання коду в обробниках then() і catch().
+                </p>
+                <pre>const isSuccess = true;
+
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (isSuccess) {
+          resolve("Success! Value passed to resolve function");
+        } else {
+          reject("Error! Error passed to reject function");
+        }
+      }, 2000);
+    });
+                    
+    promise
+      .then(value => console.log(value)) // "Success! Value passed to resolve function"
+      .catch(error => console.log(error)) // "Error! Error passed to reject function"
+      .finally(() => console.log("Promise settled")); // "Promise settled"</pre>
+                <p></p>
+                <h3>Ланцюжки промісів</h3>
+                <pre>promise
+        .then(value => {
+          console.log(value); // 5
+          return value * 2;
+        })
+        .then(value => {
+          console.log(value); // 10
+          return value * 3;
+        })
+        .then(value => {
+          console.log(value); // 30
+        })
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => {
+          console.log("Final task");
+        });</pre>
+                <p></p>
+                <p>Ось два варінти реалізації кода</p>
+                <pre>const fetchUserFromServer = (username, onSuccess, onError) => {
+    console.log(`Fetching data for ${username}`);
+                  
+    setTimeout(() => {
+      // Change value of isSuccess variable to simulate request status
+      const isSuccess = true;
+  
+      if (isSuccess) {
+        onSuccess("success value");
+      } else {
+        onError("error");
+      }
+    }, 2000);
+  };
+                  
+  const onFetchSuccess = user => {
+    console.log(user);
+  };
+                  
+  const onFetchError = error => {
+    console.error(error);
+  };
+                  
+  fetchUserFromServer("Mango", onFetchSuccess, onFetchError);</pre>
+
+                <pre>const fetchUserFromServer = username => {
+    return new Promise((resolve, reject) => {
+        console.log(`Fetching data for ${username}`);
+
+        setTimeout(() => {
+        // Change value of isSuccess variable to simulate request status
+        const isSuccess = true;
+
+        if (isSuccess) {
+            resolve("success value");
+        } else {
+            reject("error");
+        }
+        }, 2000);
+    });
+    };
+
+    fetchUserFromServer("Mango")
+    .then(user => console.log(user))
+    .catch(error => console.error(error));</pre>
+                
+                <p>
+                    Більшість сучасних бібліотек ґрунтуються на промісах. У разі виклику методу для 
+                    асинхронної операції його результат доступний як проміс, якому можна причепити 
+                    обробники в методах then() і catch().
+                </p>
+
             </div>
         </section>
 
