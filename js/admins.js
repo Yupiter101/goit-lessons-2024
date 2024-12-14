@@ -1,5 +1,18 @@
 // Тут я зберігаю різні корисні функції загального призначення
 
+// console.table({});
+// console.time("test async");
+// console.timeEnd("test async"); // test async: 0.44287109375 ms
+
+
+
+// .padStart(2, "0")  padEnd(2, "0") - Привести до рядка
+// const formatTime = `${carrHours} : ${carrMin.toString().padStart(2, "0")} : ${carrSec.toString().padStart(2, "0")}`;
+
+export function xx (num) {
+  return num.toString().padStart(2, "0");
+}
+
 
 // ======= Random (from - to) =======
 

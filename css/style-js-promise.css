@@ -9,3 +9,50 @@
     border: 2px solid black;
 
 }
+
+
+/* ==== Реклама 10 с ==== */
+.advertisen {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    /* width: 400px; */
+    height: 300px;
+    padding: 10px;
+
+    /* font-size: 24px; */
+
+    border: 2px solid black;
+    background-color: #d199d3;
+    background-image: linear-gradient(to top left, rgb(74, 46, 126), rgb(226, 214, 247) );
+    
+    display: none;
+}
+
+
+.advertisen h3 {
+    font-size: 40px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.advertisen p {
+    font-size: 24px;
+    text-align: center;
+}
+
+.js-timer {
+    /* font-size: 32px; */
+    /* color: red; */
+    font-weight: 700;
+}
