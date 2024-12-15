@@ -58,6 +58,7 @@
                     <li>Дата і час | <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" rel="noopener noreferrer">mdn</a></li>
                     <li>Проміси</li>
                     <li>Методи класу Promise</li>
+                    <li>Проміс fetch (відео Рисіч)</li>
                 </ol>
             </div>
         </section>
@@ -313,7 +314,18 @@
       .then(value => console.log(value)) // "Success! Value passed to resolve function"
       .catch(error => console.log(error)) // "Error! Error passed to reject function"
       .finally(() => console.log("Promise settled")); // "Promise settled"</pre>
-                <p></p>
+                <p>
+                    <b>Моя примітка!</b> then має приймати одну колбк фу. Зазвичай роблять два then
+                    один парсить другий обробляє!!!!
+                </p>
+                <p>
+                    У другий then потрапляє результат функції (return) від першого then і це теж проміс
+                </p>
+                <p>
+                    Помилка потрапляє у catch
+                    Та нічого не потрапляє у finally
+                </p>
+
                 <h3>Ланцюжки промісів</h3>
                 <pre>promise
         .then(value => {
@@ -518,6 +530,48 @@
       makeGreeting("Mango")
         .then(greeting => console.log(greeting))
         .catch(error => console.error(error));</pre>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Проміс fetch (відео Рисіч)</h2>
+                <p>
+                    Приклад реального використання промісів 99%
+                </p>
+                <pre>
+    const myPromise = fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+
+    myPromise.then(resp => resp.json()) // Парсимо дані
+        .then(data => console.log(data)) // Обробляємо дані
+        .catch(error => console.log(error))
+        .finally(()=> console.log("finally"));</pre>
+                
+                <p></p>
+
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Game</h2>
+                <p>Що тут корисного:</p>
+                <ul>
+                    <li>Пошук у елемента children</li>
+                    <li>Присвоєння кожному children свое значення</li>
+                    <li>Реалізація промісу</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                
+                <div class="game-container">
+                    <div class="game-item">😜</div>
+                    <div class="game-item">😎</div>
+                    <div class="game-item">👀</div>
+                </div>
+                <button type="button" class="js-start-game">start game</button>
+
             </div>
         </section>
 

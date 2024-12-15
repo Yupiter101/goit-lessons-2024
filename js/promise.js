@@ -80,13 +80,13 @@ console.log(`Date.now(): ${currentDate}`);
 console.log(`Month: ${nameOfMonth[myDate.getMonth()]}`);
 
 
-// ==== Реклама 10 с ====
+// ==== Реклама 5 с ====
 
 const adverTimer = document.querySelector(".js-timer");
 const advertisen = document.querySelector(".advertisen");
 
 
-let advenCounter = 10; //s
+let advenCounter = 5; //s
 let timerId4 = null;
 
 setTimeout(()=>{
@@ -102,4 +102,63 @@ function adverRend () {
     console.log(advenCounter);
     adverTimer.textContent = advenCounter;
     advenCounter -= 1;
+}
+
+
+// ==== Проміс fetch (відео Рисіч) ==== 
+
+const myPromise = fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+
+myPromise.then(resp => resp.json()) // Парсимо дані
+    .then(data => console.log(data)) // Обробляємо дані
+    .catch(error => console.log(error))
+    .finally(()=> console.log("finally"));
+
+
+// ==== Game  ==== 
+
+const gameContainer = document.querySelector(".game-container");
+const startGame = document.querySelector(".js-start-game");
+
+startGame.addEventListener("click", onGame);
+
+function onGame () {
+    // console.dir(gameContainer); // Відкриє обєкт ..children
+    // [...gameContainer.children].forEach(teg => console.log(teg));
+    // [...gameContainer.children].forEach((teg, i) => teg.textContent = "😜");
+    const resGame = [];
+    [...gameContainer.children].forEach(teg => teg.textContent = "");
+    [...gameContainer.children].forEach((teg, i) => {
+        createPromise(i)
+            .then((smile)=> {
+                teg.textContent = smile;
+                resGame.push("1");
+            })
+            .catch(bad => {
+                teg.textContent = bad;
+            })
+            .finally(()=> {
+                if(i>1) {
+                    if(!resGame.length || resGame.length === 3) {
+                        console.log("You win");
+                    }
+                    else {
+                        console.log("Lost");
+                    }
+                }
+            });
+    });
+}
+
+function createPromise (delay) {
+    return new Promise((res, rej) => {
+        setTimeout(()=> {
+            const rand = Math.random();
+            if(rand > 0.5) {
+                res("👌")
+            }else {
+                rej("🤷‍♀️");
+            }
+        }, 500 * delay + 500) 
+    });
 }

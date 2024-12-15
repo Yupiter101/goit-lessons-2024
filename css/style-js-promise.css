@@ -56,3 +56,34 @@
     /* color: red; */
     font-weight: 700;
 }
+
+
+
+/* ===== Game =====  */
+
+.game-container {
+    display: flex;
+    justify-content: space-around;
+    height: 120px;
+    width: 330px;
+    padding: 10px 0;
+    margin: 0 auto;
+    
+    background-color: #fff;
+}
+
+.game-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: calc((100% - 30px) / 3);
+    border: 2px solid black;
+    font-size: 42px;
+    
+}
+
+.js-start-game {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}

@@ -1,5 +1,6 @@
 // Тут я зберігаю різні корисні функції загального призначення
 
+// console.dir(".container"); // Відкриє обєкт
 // console.table({});
 // console.time("test async");
 // console.timeEnd("test async"); // test async: 0.44287109375 ms
