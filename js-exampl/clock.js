@@ -15,7 +15,8 @@ const arrowHour = document.querySelector(".clock-hours-arrow");
 
 const digitalClock = document.querySelector(".digital-clock");
 
-const arrMonth = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопал", "Грудень" ];
+// const arrMonth = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопал", "Грудень" ];
+const arrMonth = ["Січня", "Лютого", "Березня", "Квітня", "Травня", "Червня", "Липня", "Серпня", "Вересня", "Жовтня", "Листопада", "Грудня" ];
 const arrDay = ["нд", "пн", "вт", "ср", "чт", "пт", "сб"];
 
 
@@ -33,7 +34,7 @@ const clockId = setInterval(()=> {
     day.textContent = carrDay;
     date.textContent = carrDate;
     month.textContent = carrMonth;
-    year.textContent = carrYear;
+    year.textContent = `${carrYear} року`;
 
 
     // == TIME ==

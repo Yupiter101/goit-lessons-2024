@@ -80,13 +80,13 @@ console.log(`Date.now(): ${currentDate}`);
 console.log(`Month: ${nameOfMonth[myDate.getMonth()]}`);
 
 
-// ==== Реклама 5 с ====
+// ==== Реклама 10 с ====
 
 const adverTimer = document.querySelector(".js-timer");
 const advertisen = document.querySelector(".advertisen");
 
 
-let advenCounter = 5; //s
+let advenCounter = 10; //s
 let timerId4 = null;
 
 setTimeout(()=>{

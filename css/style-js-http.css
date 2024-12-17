@@ -1,0 +1,19 @@
+
+/* .fetch-btn {
+
+} */
+
+.fetch-list {
+    font-size: 14px;
+    margin: 0;
+    list-style: none;
+    padding: 24px;
+}
+
+.fetch-list li {
+    padding-left: 10px;
+}
+
+.fetch-list li:not(:last-child) {
+    margin-bottom: 16px;
+  }

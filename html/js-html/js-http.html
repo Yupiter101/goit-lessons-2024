@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>http-api</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+    <link rel="stylesheet" href="../../css/style-js-http.css">
+</head>
+
+<body>
+    <header>
+        <div><a  class="fixed-back" href="../../index.html">Back to main page</a></div>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>HTTP. API</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Протокол HTTP HTTPS</li>
+                    <li>REST API</li>
+                    <li>AJAX</li>
+                    <li>Fetch API</li>
+                    <li>Fetch users (Ex)</li>
+                    <li>Параметри рядка запиту</li>
+                    <li>Fetch users sort (Ex)</li>
+                    <li>Клас URLSearchParams</li>
+                    <li>Крос-доменні запити</li>
+                    <li>Пагінація</li>
+                    <li>Fetch posts Пагінація (Ex)</li>
+                </ol>
+            </div>
+        </section>
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>Протокол HTTP</h2>
+                <p>
+                    HTTP ґрунтується на структурі клієнт-сервер і моделі запит-відповідь, в якій клієнтський 
+                    застосунок ініціює з'єднання, формує запит і відправляє його на сервер, після чого 
+                    сервер обробляє цей запит, формує відповідь і передає її назад клієнтові. Зв'язок 
+                    між ними здійснюється за допомогою низки перемежованих HTTP-запитів і HTTP-відповідей.
+                </p>
+                <h3>Протокол HTTPS</h3>
+                <p>
+                    HyperText Transfer Protocol Secure - це налаштування над протоколом HTTP, в якій всі 
+                    повідомлення між клієнтом і сервером шифруються з метою підвищення безпеки
+                </p>
+
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>REST API</h2>
+                <p>
+                    Сервер - це комп'ютер зі спеціальним програмним забезпеченням. Бекенд - це програма, 
+                    розташована на сервері, здатна обробити вхідні HTTP-запити і має набір готових дій на певні запити.
+                </p>
+                <h3>API</h3>
+                <p>
+                    API (інтерфейс прикладного програмування) - набір чітко визначених правил зв'язку між різними 
+                    програмними компонентами. Інтерфейс описує, що можна попросити програму зробити і що буде в результаті.
+                </p>
+                <h3>REST</h3>
+                <p>
+                    REST (representational state transfer) - стиль бекенд-архітектури, ґрунтується на наборі принципів, 
+                    які описують, яким чином визначаються і адресуються мережеві ресурси.
+                </p>
+                <h3>REST API</h3>
+                <p>
+                    REST API - бекенд побудований за принципом REST. Слугує прошарком між веб-застосунком і базою даних. 
+                    Має стандартний інтерфейс для звернення до ресурсів. Працює як веб-сайт, ми посилаємо HTTP-запит з 
+                    клієнта на сервер, а у відповідь, замість HTML-сторінки, отримуємо дані в JSON-форматі.
+                </p>
+
+                <h3>HTTP-методи</h3>
+                <p>
+                    Виділяють кілька основних HTTP-методів для роботи з REST-сервісом.
+                </p>
+                <ul>
+                    <li>GET</li>
+                    <li>POST - create</li>
+                    <li>PUT</li>
+                    <li>PATCH</li>
+                    <li>DELETE</li>
+                </ul>
+                <p>MIME-типи text/html  text/css   application/json</p>
+                <h3>Шляхи</h3>
+                <p>Доступні шляхи (ендпоінти, ресурси) описуються в документації бекенду</p>
+                <pre>GET https://bookstore.com/api/orders
+    Accept: application/json</pre>
+                <p></p>
+
+                <h3>Коди відповідей</h3>
+                <div>
+                    <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/5a135d50-e421-4df1-a1c1-1511dbeed0a9image.png" 
+                        alt="api">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>AJAX</h2>
+                <p>
+                    AJAX (Asynchronous JavaScript and XML) - метод отримання або відправлення даних з подальшим 
+                    оновленням інтерфейсу за цими даними, без потреби перезавантаження сторінки. 
+                </p>
+
+                <ol>
+                    <li>
+                        На веб-сторінці відбувається подія (сторінка завантажується, натискається кнопка «Показати 
+                        більше», відправляється форма тощо).
+                    </li>
+                    <li>
+                        На клієнті, за допомогою JavaScript, реакцією на цю подію буде виконуватися функція для 
+                        роботи з сервером, де створюється і відправляється HTTP-запит.
+                    </li>
+                    <li>
+                        Сервер отримує і обробляє HTTP-запит, відправляючи назад у відповіді дані у форматі JSON.
+                    </li>
+                    <li>
+                        На клієнті, за допомогою JavaScript, відповідь від сервера обробляється, зчитуються дані 
+                        і оновлюється інтерфейс.
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+        
+            </div>
+        </section>
+
+
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>Fetch API</h2>
+                <p>
+                    Інтерфейс, вбудований в браузер, доступний на об'єкті window, який містить набір властивостей і 
+                    методів для відправлення, отримання та обробки ресурсів від сервера. Метод fetch() надає 
+                    сучасний інтерфейс для формування запитів до сервера і побудований на промісах.
+                </p>
+                <pre>fetch(url, options)</pre>
+                <ul>
+                    <li>
+                        url - шлях до даних на бекенді, які необхідно отримати, створити або змінити. Обов'язковий аргумент
+                    </li>
+                    <li>
+                        options - об'єкт налаштувань запиту: метод (за замовчуванням GET), заголовки, тіло тощо. 
+                        Необов'язковий аргумент.
+                    </li>
+                </ul>
+                <p>колекцію несправжніх користувачів в ресурсі /users.</p>
+                <pre>fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Data handling
+      })
+      .catch(error => {
+        // Error handling
+      });</pre>
+                <p>
+                    Це необхідно для того, щоб fetch() правильно зреагував на статус код 404, який, технічно, не є помилкою, 
+                    але для клієнта - це неуспішний результат.
+                </p>
+
+                <p></p>
+
+                <h3>Вкладка Network</h3>
+                <p>
+                    В інструментах розробника на вкладці Network відображаються всі HTTP-запити, що виконуються на сторінці. 
+                    Вибравши фільтр XHR, залишаться тільки запити до бекенду. Після натискання кнопки в прикладі, 
+                    через деякий час запит відобразиться у списку. Вибравши його, можна подивитися службову інформацію 
+                    і тіло відповіді на підвкладках Headers, Preview і Response
+                </p>
+                <br>
+                <div>
+                    <img src="../../img/network09.JPG"  alt="netw">
+                </div>
+                <br>
+
+                <h3>Робота з публічним REST API</h3>
+                <p>Продовжимо працювати з JSONPlaceholder API. - про колекції несправжніх користувачів.</p>
+                <pre>https://jsonplaceholder.typicode.com/users</pre>
+                <p>Цей шлях складається з наступних частин:</p>
+                <ul>
+                    <li>
+                        https://jsonplaceholder.typicode.com - це ендпоінт, базовий URL, точка входу в API.
+                    </li>
+                    <li>
+                        /users - ресурс, до якого ми звертаємося.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Fetch users (Ex)</h2>
+                <!------ Fetch users -------->
+                <p>
+                    По кліку на кнопку «Fetch users» зробимо GET-запит і виведемо список користувачів за отриманими даними.
+                </p>
+                <br>
+                <button type="button" class="fetch-btn">Fetch users</button>
+                <ul class="fetch-list user-fetch-list"></ul>
+        
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Параметри рядка запиту</h2>
+                <p>
+                    Параметри запиту дозволяють вказати бекенду додаткові критерії. Наприклад, скільки елементів колекції 
+                    ми хочемо отримати в запиті, можливо, необхідно додати сортування за якоюсь властивістю об'єкта, обмежити вибірку тощо. 
+                </p>
+                <p>
+                    Список параметрів запиту, їх назви і можливі значення залежать від бекенду і описані в документації.
+                </p>
+                <br>
+                <p>
+                    Символ ? вказує на старт параметрів запиту. Кожен параметр - це пара ім'я=значення. 
+                    Символ & використовується для зазначення смислового «І», розділяючи параметри в рядку запиту.
+                </p>
+                <pre>const url = "https://jsonplaceholder
+    .typicode.com/users?_limit=7&_sort=name";</pre>
+                <p></p>
+
+                <h3>Fetch users sort (Ex)</h3>
+                <!------ Fetch users sort -------->
+                <p>
+                    По кліку на кнопку «Fetch users» зробимо GET-запит і виведемо список користувачів за отриманими даними.
+                </p>
+                <br>
+                <button type="button" class="fetch-btn2">Fetch sort</button>
+                <ul class="fetch-list user-fetch-list2"></ul>
+        
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Клас URLSearchParams</h2>
+                <p>
+                    Параметрів може бути багато, і незручно складати з них один довгий рядок як для читабельності, 
+                    так і для його подальшого редагування. Під час складання рядків параметрів, створюється 
+                    екземпляр класу URLSearchParams та ініціалізується об'єктом. Результатом буде спеціальний 
+                    об'єкт (ітератор) з методами, який у рядковому перетворенні повертає результат виклику 
+                    методу toString() - своє рядкове відображення.
+                </p>
+
+                <pre>const searchParams = new URLSearchParams({
+    _limit: 5,
+    _sort: "name",
+  });
+                  
+  console.log(searchParams.toString()); // "_limit=5&_sort=name"
+                  
+  const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`;
+  console.log(url); // "https://jsonplaceholder.typicode.com/users?_limit=5&_sort=name"</pre>
+                <p></p>
+
+                <h3>HTTP-заголовки</h3>
+                <pre>const headers = new Headers({
+    "Content-Type": "application/json",
+    "X-Custom-Header": "custom value",
+  });
+                  
+  headers.append("Content-Type", "text/bash");
+  headers.append("X-Custom-Header", "custom value");
+  headers.has("Content-Type"); // true
+  headers.get("Content-Type"); // "text/bash"
+  headers.set("Content-Type", "application/json");
+  headers.delete("X-Custom-Header");</pre>
+                <p>Запит з використанням заголовків буде виглядати наступним чином.</p>
+                <pre>fetch("https://jsonplaceholder.typicode.com/users", {
+    headers: {
+      Accept: "application/json",
+    },
+  }).then(response => {
+    // ...
+  });</pre>
+        
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Крос-доменні запити</h2>
+                <p>
+                    Тобто браузер - це певний посередник між JavaScript-кодом і бекендом. Він додає кожному запиту 
+                    заголовок Origin з правильним значенням і перевіряє наявність заголовка 
+                    Access-Control-Allow-Origin у відповіді. Якщо заголовок є і його значення підходить, 
+                    виконається оригінальний запит і JavaScript-код отримає його результат, в іншому випадку 
+                    буде помилка CORS.
+                </p>
+        
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Пагінація</h2>
+                <p>
+                    пагінація - прийом, за яким, на перший і кожен наступний GET-запит повертається не вся колекція, 
+                    а певна її частина. Пагінація реалізується на бекенді і використовується на фронтенді за допомогою спеціальних параметрів запиту.
+                </p>
+                <p>
+                    Перший параметр визначає кількість елементів у відповіді від бекенду. 
+                </p>
+                <p>
+                    У такому GET-запиті бекенд поверне не всю колекцію з дванадцяти елементів, а тільки перші чотири. Якщо передати від'ємне значення 
+                    або значення більше кількості елементів в колекції, то бекенд може відповісти по-різному - проігнорувати їх або повернути 
+                    помилку 400 (BAD REQUEST), залежно від його реалізації.
+                </p>
+                <p>
+                    Публічний JSONPlaceholder API так само підтримує пагінацію - кількість елементів у відповіді контролюється параметром _limit. 
+                    Всього колекція / posts налічує сто елементів.
+                </p>
+
+                
+            </div>
+        </section>
+
+
+        <!-- Fetch posts Пагінація (Ex) -->
+        <section class="section-about">
+            <div class="container">
+                <h2>Fetch posts Пагінація (Ex)</h2>
+        
+                <button type="button" class="btn3" disabled>Fetch posts</button>
+                <ul class="fetch-list user-fetch-list3"></ul>
+                <p>Не працює. Можливо треба бібл axios</p>
+        
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+        
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <script src="../../js/http.js" type="module"></script>
+</body>
+</html>
