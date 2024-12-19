@@ -142,6 +142,32 @@ function renderPosts3(posts) {
 }
 
 
+// ====== Мій проект Weather API ========
+
+console.log("Weather API - my project");
+
+// const urlxx = "http://api.weatherapi.com/v1/forecast.json?key=368bfc610f25464d87c121720241912&q=Paris&days=4";
+
+const BASE_URL = "http://api.weatherapi.com/v1";
+const API_KEY = "368bfc610f25464d87c121720241912";
+
+const QUERY_PARAM = {
+  param: "forecast.json",
+  key: `key=${API_KEY}`,
+  city: "q=Paris",
+  days: "days=4"
+}
+
+const { param, key } = QUERY_PARAM;
+
+
+console.log(URL);
+
+function getWeather (city, days) {
+  const URL = `${BASE_URL}/${param}?${key}&${city}&${days}`;
+  fetch(URL)
+}
+
 
 
 

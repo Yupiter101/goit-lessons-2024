@@ -297,10 +297,14 @@
     _sort: "name",
   });
                   
-  console.log(searchParams.toString()); // "_limit=5&_sort=name"
-                  
-  const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`;
-  console.log(url); // "https://jsonplaceholder.typicode.com/users?_limit=5&_sort=name"</pre>
+  console.log(searchParams.toString()); 
+    // "_limit=5&_sort=name"        
+  const url = `
+  https://jsonplaceholder.typicode.com/users?
+                        ${searchParams}`;
+  console.log(url); 
+  // "https://jsonplaceholder.typicode.com/users?
+                        _limit=5&_sort=name"</pre>
                 <p></p>
 
                 <h3>HTTP-заголовки</h3>
@@ -391,15 +395,15 @@
                         </h4>
                         <p>Заходимо в документацію / people</p>
                         <pre>HTTP/1.0 200 OK
-        Content-Type: application/json
-        {
-            "films": "https://swapi.py4e.com/api/films/",
-            "people": "https://swapi.py4e.com/api/people/",
-            "planets": "https://swapi.py4e.com/api/planets/",
-            "species": "https://swapi.py4e.com/api/species/",
-            "starships": "https://swapi.py4e.com/api/starships/",
-            "vehicles": "https://swapi.py4e.com/api/vehicles/"
-        }</pre>
+Content-Type: application/json
+{
+ "films": "https://swapi.py4e.com/api/films/",
+ "people": "https://swapi.py4e.com/api/people/",
+ "planets": "https://swapi.py4e.com/api/planets/",
+ "species": "https://swapi.py4e.com/api/species/",
+ "starships": "https://swapi.py4e.com/api/starships/",
+ "vehicles": "https://swapi.py4e.com/api/vehicles/"
+     }</pre>
                     </li>
                     <li>
                         <h4><a href="https://www.weatherapi.com/" 
@@ -412,15 +416,17 @@
                             <img src="../../img/wetheApiGet.JPG" alt="wetheApi">
                         </div>
                     </li>
-                    <li></li>
+                    <li>
+                        <h4><a href="https://swapi.py4e.com/" 
+                            target="_blank" rel="noopener noreferrer">SWAPI</a>
+                        </h4>
+                        <p>
+                            Заходимо в документацію / people
+                        </p>
+                    </li>
                     <li></li>
                 </ul>
-                <h4><a href="https://swapi.py4e.com/" 
-                    target="_blank" rel="noopener noreferrer">SWAPI</a>
-                </h4>
-                <p>
-                    Заходимо в документацію / people
-                </p>
+                
                 <h3>1:17:58 Finish</h3>
             </div>
         </section>
@@ -428,7 +434,54 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Практика</h2>
+                <h2>Мій проект <a href="https://www.weatherapi.com/" 
+                    target="_blank" rel="noopener noreferrer">Weather API</a></h2>
+                    <ul>
+                        <li><i>Log: s...8@ukr.net</i></li>
+                        <li><i>Psw: tkxZ.X5Z+3Pk6?T</i></li>
+                        <li><i>https://www.weatherapi.com/confirm.aspx?code=368bfc61-0f25-464d-87c1-98ab1bc3905e</i></li>
+                        <li><i>API Key: 368bfc610f25464d87c121720241912</i></li>
+                    </ul>
+                    <h3>Завдання:</h3>
+                    <ul>
+                        <li>Робимо форму запиту з інпутом, селектором, та кнопкою</li>
+                        <li>При відправці запиту на бекенд рендиремо відповідь</li>
+                    </ul>
+
+                    <h3>Рішення</h3>
+                    <p>Заходимо в документацію. Читаємо</p>
+                    <p>Бачимо там Base URL: http://api.weatherapi.com/v1 - це назва бекенду</p>
+                    <p>Далі ідуть ендпоінти, вони ж API</p>
+                    <br>
+                    <div style="max-width: 800px;">
+                        <img src="../../img/wetherApi_.jpg" 
+                            alt="weatherapi"
+                            style="width: 100%;">
+                    </div>
+                    <h4>Будуємо строку посилання за Request Parameters: (Required)</h4>
+                    <ol>
+                        <li>key = key</li>
+                        <li>q = Required</li>
+                        <li>days</li>
+                    </ol>
+                    
+                    <ul>
+                        <li>Base URL: http://api.weatherapi.com/v1</li>
+                        <li>/forecast.json</li>
+                        <li>?</li>
+                        <li>key=API Key</li>
+                        <li>&</li>
+                        <li>q=Paris</li>
+                        <li>&</li>
+                        <li>days=4</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <p>
+    URL: http://api.weatherapi.com/v1/forecast.json?key=368bfc610f25464d87c121720241912&q=Paris&days=4          
+                    </p>
+                   
             </div>
         </section>
 
