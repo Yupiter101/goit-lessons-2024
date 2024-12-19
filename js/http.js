@@ -146,6 +146,37 @@ function renderPosts3(posts) {
 
 console.log("Weather API - my project");
 
+
+const search = document.querySelector(".js-search");
+const weatherList = document.querySelector(".js-list");
+
+search.addEventListener("submit", onSearch);
+
+function onSearch (event) {
+  event.preventDefault();
+
+  const {query, days} = event.currentTarget.elements;
+  // console.log(query);
+  // console.log(days);
+  // console.log(query.value);
+  // console.log(days.value);
+
+  // getWeather (query.value, days.value)
+  //   .then(data => weatherList.innerHTML = createMarkup(data.forecast.forecastday))
+  //   .catch(error => console.error(error))
+  //   .finally(()=> {});
+
+  getWeather (query.value, days.value)
+    .then(data => {
+      console.log(data.forecast.forecastday);
+      weatherList.innerHTML = createMarkup(data.forecast.forecastday);
+    })
+    .catch(error => console.error(error))
+    .finally(()=> {});
+}
+
+
+
 // const urlxx = "http://api.weatherapi.com/v1/forecast.json?key=368bfc610f25464d87c121720241912&q=Paris&days=4";
 
 const BASE_URL = "http://api.weatherapi.com/v1";
@@ -161,11 +192,35 @@ const QUERY_PARAM = {
 const { param, key } = QUERY_PARAM;
 
 
-console.log(URL);
-
 function getWeather (city, days) {
-  const URL = `${BASE_URL}/${param}?${key}&${city}&${days}`;
-  fetch(URL)
+  const URL = `${BASE_URL}/${param}?${key}&q=${city}&days=${days}&lang=uk`;
+  return fetch(URL)
+    .then(res => {
+      if(!res.ok) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    });
+}
+
+
+// getWeather ("Kyiv", 2)
+//   .then(data => console.log(data))
+//   .catch(error => console.error(error))
+//   .finally(()=> {});
+
+// Render answer
+
+function createMarkup (array) {
+  return array.map(({ date, day: {avgtemp_c, condition: {icon, text}} }) => `
+      <li>
+          <img src="${icon}" alt="${text}">
+          <p>${text}</p>
+          <h2>${date}</h2>
+          <h3>Середня темп ${avgtemp_c} С</h3>
+      </li>
+    ` ).join("");
+    // weatherList.innerHTML = ;
 }
 
 
