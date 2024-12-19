@@ -41,7 +41,7 @@
     position: relative;
   }
 
-  current-page::after {
+  .current-page::after {
     content: "";
     position: absolute;
     /* display: block; */

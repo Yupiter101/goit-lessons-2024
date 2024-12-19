@@ -156,10 +156,7 @@ function onSearch (event) {
   event.preventDefault();
 
   const {query, days} = event.currentTarget.elements;
-  // console.log(query);
-  // console.log(days);
   // console.log(query.value);
-  // console.log(days.value);
 
   // getWeather (query.value, days.value)
   //   .then(data => weatherList.innerHTML = createMarkup(data.forecast.forecastday))
@@ -168,7 +165,8 @@ function onSearch (event) {
 
   getWeather (query.value, days.value)
     .then(data => {
-      console.log(data.forecast.forecastday);
+      // console.log(data.forecast.forecastday);
+      // console.log(data);
       weatherList.innerHTML = createMarkup(data.forecast.forecastday);
     })
     .catch(error => console.error(error))
@@ -204,24 +202,32 @@ function getWeather (city, days) {
 }
 
 
-// getWeather ("Kyiv", 2)
-//   .then(data => console.log(data))
-//   .catch(error => console.error(error))
-//   .finally(()=> {});
 
-// Render answer
-
+// li
 function createMarkup (array) {
   return array.map(({ date, day: {avgtemp_c, condition: {icon, text}} }) => `
-      <li>
+      <li class="weather-item">
           <img src="${icon}" alt="${text}">
-          <p>${text}</p>
-          <h2>${date}</h2>
-          <h3>Середня темп ${avgtemp_c} С</h3>
+          <h4>${text}</h4>
+          <h4>${date}</h4>
+          <h4>Темп ${avgtemp_c} &#8451;</h4>
       </li>
     ` ).join("");
-    // weatherList.innerHTML = ;
 }
+
+// // <table>
+// function createMarkup (array) {
+//   return array.map(({ date, day: {avgtemp_c, condition: {icon, text}} }) => `
+//       <tr>
+//           <td>${icon}</td>
+//           <td>${date}</td>
+//           <td>${avgtemp_c}</td>
+//           <td>${text}</td>
+//       </tr>
+//     ` ).join("");
+// }
+
+
 
 
 

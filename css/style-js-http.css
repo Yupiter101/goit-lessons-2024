@@ -16,4 +16,39 @@
 
 .fetch-list li:not(:last-child) {
     margin-bottom: 16px;
+}
+
+
+
+/* ====Мій проект weatherapi==== */
+
+.js-search {
+    width: 500px;
+    border: 2px solid black;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.weather-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgb(73, 71, 71);
+}
+
+
+/* Ховер і таблиці */
+.schedule-body > tr > td:hover {
+    background-color: tomato;
+    color: white;
+  }
+
+  .schedule {
+    border-collapse: collapse;
+  }
+
+  .schedule th,
+  .schedule td {
+    padding: 8px;
+    border: 1px solid #212121;
   }
