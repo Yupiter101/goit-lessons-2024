@@ -232,10 +232,6 @@ function createMarkup (array) {
 
 
 
-
-
-
-
 // Або те саме:
 
 // fetchUsersBtn.addEventListener("click", () => {
@@ -275,6 +271,13 @@ function createMarkup (array) {
 
 // =========== Пагінація ===================
 
+const move_list = document.querySelector(".move-list");
+const load_more = document.querySelector(".js-load-more");
+let cur_page = 498;
+
+const BASE_URL_MOVE = "https://api.themoviedb.org/3/";
+const ENDPOINT = "trending/";
+
 const options = {
   method: 'GET',
   headers: {
@@ -288,7 +291,60 @@ const options = {
 //   .then(res => console.log(res))
 //   .catch(err => console.error(err));
 
-fetch('https://api.themoviedb.org/3/trending/all/day', options)
-  .then(res => res.json())
-  .then(res => console.log(res))
-  .catch(err => console.error(err));
+// ========= LOAD MORE ===========
+
+load_more.addEventListener("click", ()=> {
+    // cur_page +=1;
+    load_more.hidden = true;
+
+    getTrending(cur_page)
+    .then(data => {
+      console.log(data);
+      move_list.insertAdjacentHTML("beforeend", createMarkupMove(data.results));
+      if(data.page === data.total_pages) {
+        load_more.hidden = false;
+        load_more.disabled = true;
+        console.log("Last pages!!!");
+      }
+      else {
+        load_more.hidden = false;
+      }
+    })
+    .catch(err => console.error(err));
+    cur_page +=1;
+});
+
+
+
+function getTrending (page=1) {
+  return fetch(`${BASE_URL_MOVE}${ENDPOINT}all/week?page=${page}`, options)
+  .then(res => {
+    if(!res.ok) {
+      throw new Error(res.statusText);
+    }
+    return res.json();
+  })
+}
+
+// /2MeQG5Vq8rUnRAa463BZe5GNhVk.jpg
+
+function createMarkupMove (arr) {
+  return arr.map(({ poster_path, title }) => {
+    return `
+      <li>
+          <h3>${title || "Без назви"}</h3>
+          <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}">
+      </li>
+    `
+  }).join("");
+}
+
+// getTrending()
+//   .then(data => {
+//       console.log(data);
+//       move_list.insertAdjacentHTML("beforeend", createMarkupMove(data.results));
+//       if(data.page !== data.total_pages) {
+//         load_more.hidden = false;
+//       }
+//   })
+//   .catch(err => console.error(err));
