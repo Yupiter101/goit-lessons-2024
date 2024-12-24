@@ -8,4 +8,7 @@ const {
 } = data.forecast.forecastday;
 
 
+// Прибирає пробіли спочатку та в кінці
+const word = " serg ";
+let value = word.trim();
 

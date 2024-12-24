@@ -236,12 +236,6 @@ function createMarkup (array) {
 
 
 
-
-
-
-
-
-
 // Або те саме:
 
 // fetchUsersBtn.addEventListener("click", () => {
@@ -275,3 +269,26 @@ function createMarkup (array) {
 //       }).join("");
 //     userList.insertAdjacentHTML("beforeend", markup);
 //   }
+
+
+
+
+// =========== Пагінація ===================
+
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZTIzMTFmNGYwZWMyZTNmYjgxMTliYWUxOTFlZGNkYSIsIm5iZiI6MTY4Nzc3MDcxNi40MzEsInN1YiI6IjY0OTk1NjVjYjM0NDA5MDBmZmVkMmI5OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v5lvfPhGa7H2Bfpk4UReNHyoSEJ4fzlARwz5Rp-lGAM'
+  }
+};
+
+// fetch('https://api.themoviedb.org/3/authentication', options)
+//   .then(res => res.json())
+//   .then(res => console.log(res))
+//   .catch(err => console.error(err));
+
+fetch('https://api.themoviedb.org/3/trending/all/day', options)
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
