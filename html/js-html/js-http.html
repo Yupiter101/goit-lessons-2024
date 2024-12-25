@@ -551,14 +551,13 @@ Content-Type: application/json
                          + код:  lqoMzCcZYEFK729d6qzt349fB4o.jpg</p>
                     <p><a href="https://developer.themoviedb.org/docs/image-basics" 
                         target="_blank" 
-                        rel="noopener noreferrer">Look here docs</a></p>
+                        rel="noopener noreferrer">Look here docs</a>
+                    </p>
+                    
+                    <!-- ======= Пагінація ========== -->
+
                     <h3>START</h3>
-                    <ul class="move-list">
-                        <!-- <li>
-                            <h3></h3>
-                            <img src="" alt="">
-                        </li> -->
-                    </ul>
+                    <ul class="move-list"></ul>
 
                     <!-- LOAD MORE -->
                     <div>
@@ -584,8 +583,60 @@ Content-Type: application/json
                     target="_blank" 
                     rel="noopener noreferrer">
                     Intersection Observer API
-                </a></p>
+                </a>Не потрібна бібліотека!!!</p>
+                <pre>
+const options = {
+  root: document.querySelector("#scrollArea"), // або null
+  rootMargin: "200px", // Хpx від дна
+  threshold: 1.0, // % обэкта
+};
 
+const observer = new IntersectionObserver(callback, options);</pre>
+                
+                <p>
+                    Після нашого списку має бути відомий нам елемент щоб на нього орієнтуватись
+                    це буде <code>div class="js-guard"/div</code>
+                </p>
+
+                <p>
+                    Після підключення observer від буде викликатися відразу і за 200рх до наближення. 
+                    Перший раз від просто повідомив нас що відн підключився"
+                    <code>isIntersecting: false</code>
+                    Другий раз вже він реально побачив наш елемент
+                    <code>isIntersecting: true</code>
+                </p>
+
+                <h3>Опис проекту:</h3>
+                <ol>
+                    <li>Перший раз треба натиснути на кнопку "LOAD MORE_2"</li>
+                    <li>Observer буде шукати елемент js-guard"/div який в самому низу</li>
+                    <li>За 10px до появи цього елемента спрацює подія "onLoad"</li>
+                    <li>Коли сторінки пагінації закінчаться observer треба знімати <code>observer.unobserve(guardTarget);</code></li>
+                    <li>
+                        Коли повільний інтернет картинки можуть не завантажитись а лише заголовки.
+                        Тоді низ буде близько і спрацює observer.
+                        Щоб цього уникнути треба задати висоту лішкам
+                    </li>
+                </ol>
+                
+
+                <h3>START Observer</h3>
+                    <ul class="move-list2"></ul>
+                    <div class="js-guard" style="color: red">За 10px до цього місця</div>
+
+                    <!-- LOAD MORE -->
+                    <div>
+                        <!-- hidden disabled-->
+                        <button 
+                            class="js-load-more2" 
+                            type="button" 
+                            
+                            >LOAD OBSERV
+                        </button>
+                    </div>
+                    <!-- <div class="js-guard"></div> -->
+                    
+                    <h3>FINISH Observer</h3> 
 
                 <p>stop 1:13:00 Vid #2</p>
                 

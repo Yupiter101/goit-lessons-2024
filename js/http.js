@@ -273,7 +273,7 @@ function createMarkup (array) {
 
 const move_list = document.querySelector(".move-list");
 const load_more = document.querySelector(".js-load-more");
-let cur_page = 498;
+let cur_page = 1;
 
 const BASE_URL_MOVE = "https://api.themoviedb.org/3/";
 const ENDPOINT = "trending/";
@@ -291,6 +291,8 @@ const options = {
 //   .then(res => console.log(res))
 //   .catch(err => console.error(err));
 
+
+
 // ========= LOAD MORE ===========
 
 load_more.addEventListener("click", ()=> {
@@ -301,6 +303,9 @@ load_more.addEventListener("click", ()=> {
     .then(data => {
       console.log(data);
       move_list.insertAdjacentHTML("beforeend", createMarkupMove(data.results));
+
+      // observer.observe(guardTarget); // observer
+
       if(data.page === data.total_pages) {
         load_more.hidden = false;
         load_more.disabled = true;
@@ -326,12 +331,11 @@ function getTrending (page=1) {
   })
 }
 
-// /2MeQG5Vq8rUnRAa463BZe5GNhVk.jpg
 
 function createMarkupMove (arr) {
   return arr.map(({ poster_path, title }) => {
     return `
-      <li>
+      <li style="height: 500px">
           <h3>${title || "Без назви"}</h3>
           <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}">
       </li>
@@ -348,3 +352,85 @@ function createMarkupMove (arr) {
 //       }
 //   })
 //   .catch(err => console.error(err));
+
+
+
+
+
+// ========== Observer API ============
+
+const move_list_2 = document.querySelector(".move-list2");
+const load_more_2 = document.querySelector(".js-load-more2");
+let cur_page_2 = 1;
+
+
+const guardTarget = document.querySelector(".js-guard");
+
+
+const options_ = {
+  root: null,
+  rootMargin: "10px",
+  threshold: 1.0,
+};
+
+const observer = new IntersectionObserver(onLoad, options_);
+
+function onLoad (entries, observer) {
+  // console.log(entries);
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      // cur_page_2 +=1;
+      getTrending(cur_page_2)
+        .then(data => {
+          console.log(data);
+          move_list_2.insertAdjacentHTML("beforeend", createMarkupMove(data.results));
+
+          if(data.page === data.total_pages) {
+            load_more_2.hidden = false;
+            load_more_2.disabled = true;
+
+            observer.unobserve(guardTarget); // observer
+
+            console.log("Last pages unobserve!!!");
+          }
+          else {
+            load_more_2.hidden = false;
+          }
+        })
+        .catch(err => console.error(err));
+
+        cur_page_2 +=1;
+    }
+  });
+}
+
+
+
+load_more_2.addEventListener("click", ()=> {
+  // cur_page_2 +=1;
+  load_more_2.hidden = true;
+
+  getTrending(cur_page_2)
+  .then(data => {
+    console.log(data);
+    move_list_2.insertAdjacentHTML("beforeend", createMarkupMove(data.results));
+
+    observer.observe(guardTarget); // observer
+
+    if(data.page === data.total_pages) {
+      load_more_2.hidden = false;
+      load_more_2.disabled = true;
+      console.log("Last pages!!!");
+    }
+    else {
+      load_more_2.hidden = false;
+    }
+  })
+  .catch(err => console.error(err));
+  cur_page_2 +=1;
+});
+
+
+
+
+
