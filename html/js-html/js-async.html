@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+</head>
+
+<body>
+    <header>
+        <div><a  class="fixed-back" href="../../index.html">Back to main page</a></div>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>Async</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>GRUD</li>
+                    <li>Асинхронні функції async/await</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </section>
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>GRUD</h2>
+                <div>
+                    <img src="../../img/crud.JPG" alt="crud">
+                </div>
+                <p>
+                    Для взаємодії з ресурсами бекенду використовується чотири операції: створення (create), 
+                    читання (read), оновлення (update) і видалення (delete). Для кожної з них визначений 
+                    стандартний HTTP-метод.
+                </p>
+
+                <h3>GET</h3>
+                <p>
+                    HTTP-метод GET використовується для отримання існуючих даних. Метод fetch() повинен 
+                    відправити на сервер GET-запит без тіла. Бекенд, після отримання запиту, обробить його 
+                    і у відповіді поверне необхідні ресурси.
+                </p>
+                <pre>fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    .then(response => response.json())
+    .then(post => console.log(post))
+    .catch(error => console.log(error));</pre>
+                <p></p>
+
+                <h3>POST</h3>
+                <p>
+                    Метод POST використовується для додавання нового ресурсу. Метод fetch() повинен відправити 
+                    POST-запит на сервер, в тілі якого буде об'єкт з полями author і body, ідентифікатор буде 
+                    автоматично створений базою даних. Результатом такого запиту буде об'єкт, доданий в базу даних.
+                </p>
+                <pre>const postToAdd = {
+    author: "Mango",
+    body: "CRUD is awesome",
+   };
+                   
+   const options = {
+    method: "POST",
+    body: JSON.stringify(postToAdd),
+    headers: {
+     "Content-Type": "application/json; charset=UTF-8",
+    },
+   };
+                   
+   fetch("https://jsonplaceholder.typicode.com/posts", options)
+    .then(response => response.json())
+    .then(post => console.log(post))
+    .catch(error => console.log(error));</pre>
+                <p></p>
+
+                <h3>PUT і PATCH</h3>
+                <p>
+                    Методи PUT і PATCH використовуються для оновлення існуючих даних. Який метод використовувати, 
+                    буде написано в документації бекенду. Бекенд, після отримання запиту, обробить його і у відповіді 
+                    поверне оновлений ресурс.
+                </p>
+                <pre>const postToUpdate = {
+    id: 1,
+    body: "CRUD is really awesome",
+   };
+                   
+   const options = {
+    method: "PATCH",
+    body: JSON.stringify(postToUpdate),
+    headers: {
+     "Content-Type": "application/json; charset=UTF-8",
+    },
+   };
+                   
+   fetch(`https://jsonplaceholder.typicode.com/posts/${postToUpdate.id}`, options)
+    .then(response => response.json())
+    .then(post => console.log(post))
+    .catch(error => console.log("ERROR" + error));</pre>
+                <p>
+                    Метод PATCH заміняє в існуючому ресурсі значення, передані в тілі запиту властивостей. 
+                    Метод PUT повністю заміняє ресурс.
+                </p>
+
+                <h3>DELETE</h3>
+                <p>
+                    Метод DELETE використовується для видалення існуючих даних. Метод fetch() повинен відправити на сервер DELETE-запит без тіла. 
+                </p>
+                <pre>const postIdToDelete = 1;
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postIdToDelete}`, {
+     method: "DELETE",
+    })
+     .then(() => console.log("Post deleted"))
+     .catch(error => console.log("Error:", error));</pre>
+                
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Асинхронні функції async/await</h2>
+                <p>
+                    Робота з бекендом може бути заплутаною - після однієї асинхронної операції необхідно 
+                    зробити ще один запит на сервер на підставі  отриманих даних, і так кілька разів.
+                </p>
+                <pre>const fetchFriends = () => {
+    return fetch("my-api.com/me")
+     .then(token => {
+      return fetch(`my-api.com/profile?token=${token}`);
+     })
+     .then(user => {
+      return fetch(`my-api.com/users/${user.id}/friends`);
+     });
+   };
+                   
+   fetchFriends()
+    .then(friends => console.log(friends))
+    .catch(error => console.error(error));</pre>
+                <p>
+                    Погодьтесь, не найзручніший для читання код, хоча операції - порівняно прості. 
+                    Оскільки ми передаємо функції-обробники  методу then(), утворюються ялинкоподібні вкладеності.
+                </p>
+                <p>
+                    Асинхронні функції допомагають позбавиться колбеків і вкладених конструкцій. Водночас, вони 
+                    відмінно працюють разом із методами then() і catch(), тому що гарантовано повертають проміс.
+                </p>
+                <pre>const fetchFriends = async () => {
+    const token = await fetch("my-api.com/me");
+    const user = await fetch(`my-api.com/profile?token=${token}`);
+    const friends = await fetch(`my-api.com/users/${user.id}/friends`);
+    return friends;
+   };
+   
+   fetchFriends()
+    .then(friends => console.log(friends))
+    .catch(error => console.error(error));</pre>
+
+                <h3>Синтаксис async/await</h3>
+                <p>
+                    Асинхронні функції (async/await) - зручний спосіб написання асинхронного коду, 
+                    який зовні стає схожим на синхронний. В основі синтаксису async/await лежать 
+                    проміси, тому він не блокує основний потік виконання програми.
+                </p>
+                <pre>const fetchUsers = async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const users = await response.json();
+    return users;
+   };
+                   
+   fetchUsers().then(users => console.log(users));</pre>
+                <p>
+                    Коли інтерпретатор зустрічає await, він призупиняє виконання цієї функції (не тільки скрипта) 
+                    і чекає, доки не виконається проміс праворуч від await. Щойно проміс виконався - виконання 
+                    функції відновлюється і на рядку нижче нам доступний результат асинхронної операції.
+                </p>
+                <ol>
+                    <li>
+                        Оператор await можна використовувати тільки у тілі асинхронної (async) функції.
+                    </li>
+                    <li>
+                        Оператор await призупиняє функцію, доки проміс не виконається (fulfilled або rejected).
+                    </li>
+                    <li>
+                        Якщо проміс виконався успішно (fulfilled), оператор await поверне його значення.
+                    </li>
+                    <li>Якщо проміс був відхилений з помилкою (rejected), оператор await викине помилку.</li>
+                    <li>
+                        Асинхронна функція завжди повертає проміс, тому будь-яке значення, що повертається, 
+                        буде його значенням.
+                    </li>
+                    <li>
+                        Якщо не вказати значення, що повертається, повернеться проміс зі значенням undefined.
+                    </li>
+                </ol>
+                <p>
+                    Будь-яка функція може бути асинхронною, чи то метод об'єкта, класу, колбек, оголошення 
+                    або інлайн функція. Всі вони зможуть використовувати оператор await і обов'язково повернуть 
+                    проміс, тому що будуть асинхронними функціями.
+                </p>
+                <pre>async function foo() {}
+    const foo = async function () {}
+    const foo = async () => {}
+                </pre>
+
+                <h3>Обробка помилок try...catch</h3>
+                <p>
+                    Якщо результат асинхронної функції (проміс) не використовується у зовнішньому коді, 
+                    помилки обробляються в тілі функції конструкцією try...catch. Значення параметра 
+                    error в блоці catch - це помилка, яку згенерує await, якщо проміс буде відхилений.
+                </p>
+                <pre>const fetchUsers = async () => {
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/users");
+      const users = await response.json();
+      console.log(users);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+                  
+  fetchUsers();</pre>
+                <p>
+                    Якщо результат асинхронної функції (проміс) використовується у зовнішньому (глобальному) коді, 
+                    тобто за межами інших асинхронних функцій, помилки обробляються колбеком методом catch(). 
+                    Значення параметра error в методі catch() - це помилка, яку згенерує await, якщо проміс 
+                    буде відхилений.
+                </p>
+                <pre>const fetchUsers = async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const users = await response.json();
+    return users;
+  };
+                  
+  fetchUsers()
+    .then(users => console.log(users))
+    .catch(error => console.log(error));</pre>
+                <p>await можна використовувати тільки в тілі асинхронної функції.</p>
+                <p>
+                    Якщо результат асинхронної функції використовується в іншій асинхронній функції, 
+                    помилки обробляються конструкцією try...catch. Значення параметра error в 
+                    блоці catch - це помилка, яку згенерує await, якщо проміс буде відхилений.
+                </p>
+                <pre>const fetchUsers = async () => {
+       const response = await fetch("https://jsonplaceholder.typicode.com/users");
+       const users = await response.json();
+       return users;
+     };
+                  
+  const doStuff = async () => {
+    try {
+      const users = await fetchUsers();
+      console.log(users);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+                  
+  doStuff();</pre>
+                
+
+                <h3>Паралельні запити</h3>
+                <p>
+                    Якщо одночасно необхідно зробити декілька запитів, використовувати синтаксис async/await 
+                    потрібно дуже обережно. У наступному прикладі будуть виконані три послідовних запити, 
+                    тому що виконання асинхронної функції призупиняється, коли інтерпретатор зустрічає await. 
+                    Крім того, парс результатів запитів також буде послідовний, що забере більше часу.
+                </p>
+                <pre>const fetchUsers = async () => {
+    const baseUrl = "https://jsonplaceholder.typicode.com";
+    const firstResponse = await fetch(`${baseUrl}/users/1`);
+    const secondResponse = await fetch(`${baseUrl}/users/2`);
+    const thirdResponse = await fetch(`${baseUrl}/users/3`);
+                  
+    const firstUser = await firstResponse.json();
+    const secondUser = await secondResponse.json();
+    const thirdUser = await thirdResponse.json();
+                  
+    console.log(firstUser, secondUser, thirdUser);
+  };
+                  
+  fetchUsers();</pre>
+
+                <p>Тобто вони виконуються послідовно</p>
+                <p>
+                    У нашому випадку вони повністю незалежні, тому потрібно запустити їх паралельно. 
+                    Для цього створюється масив промісів, після чого використовується метод Promise.all(), 
+                    для очікування їх виконання. Масив промісів створюється методами map(), filter() тощо, 
+                    залежно від завдання.
+                </p>
+                <pre>const fetchUsers = async () => {
+  const baseUrl = "https://jsonplaceholder.typicode.com";
+  const userIds = [1, 2, 3];
+
+  // 1. Створюємо масив промісів
+  const arrayOfPromises = userIds.map(async userId => {
+    const response = await fetch(`${baseUrl}/users/${userId}`);
+    return response.json();
+  });
+
+  // 2. Запускаємо усі проміси паралельно і чекаємо на їх завершення
+  const users = await Promise.all(arrayOfPromises);
+  console.log(users);
+};
+
+fetchUsers();</pre>
+
+
+                <p>
+                    За такого підходу, запити запускаються паралельно, що економить час очікування їх виконання, 
+                    який дорівнює тривалості «найповільнішого» з них.
+                </p>
+                <p><a href="https://codepen.io/goit-academy/pen/jOBdRjE" 
+                    target="_blank" rel="noopener noreferrer">codepen</a></p>
+            </div>
+        </section>
+
+        
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+</body>
+</html>
