@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Async</title>
+    <title>CRUD</title>
     <!-- Goodle font -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
 
         <section class="section-title">
             <div class="container">
-                <h1>Async</h1>
+                <h1>CRUD</h1>
             </div>
         </section>
 
@@ -44,9 +44,9 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li>GRUD</li>
+                    <li>CRUD</li>
                     <li>Асинхронні функції async/await</li>
-                    <li></li>
+                    <li>Відео Рисіч. Практика json placeholder</li>
                     <li></li>
                     <li></li>
                 </ol>
@@ -56,7 +56,7 @@
         
         <section class="section-about">
             <div class="container">
-                <h2>GRUD</h2>
+                <h2>CRUD</h2>
                 <div>
                     <img src="../../img/crud.JPG" alt="crud">
                 </div>
@@ -344,17 +344,87 @@ fetchUsers();</pre>
             </div>
         </section>
 
-        
+
 
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>Відео Рисіч. Практика json placeholder</h2>
+
+                <h3>ресурс "<a 
+                    href="https://jsonplaceholder.typicode.com/guide/" 
+                    target="_blank" 
+                    rel="noopener noreferrer">json placeholder</a> "
+                </h3>
+                
+                <p>Переходимо в документацію: https://jsonplaceholder.typicode.com/guide/</p>
+
+                
+
             </div>
         </section>
 
+
+
+
+        <!-- Створення постів. Практика -->
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>Створення постів. Практика</h2>
+                <ol>
+                    <li>
+                        При натисканні кнопки Add post малюється форма для вводу та
+                        чіпляється слухоч подій на форму з типом "submit".
+                    </li>
+                    <li>Заповняєм поля форми і відправляєм</li>
+                    <li>Відмальовується list і Зникає форма</li>
+                    <li>Якщо помилка то відмальовується червоним текст помилки</li>
+                    <li>текст помилки зникає через 3 секунди</li>
+                    <li>
+                        Читай ще лібу по роботі з формами 
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">formData</a>
+                        Але бекенд має бути готовим до formData.
+                        Використовується  не часто
+                    </li>
+                </ol>
+                <p>При натисканні кнопки під картинкою рендиряться пости</p>
+                <br>
+
+                <div>
+                    <img src="https://catpeople.ru/images/catification/theory/samyij-drevnij-domashnij-kot/04.jpg" 
+                        width="200"
+                        alt="cat">
+                    <br>
+                    <button class="js-add-post" type="button">Add post</button>
+                    <p class="js-error" style="color: red;"></p>
+                    <h4>Тут будуть пости</h4>
+                    <div class="js-form"></div>
+                    <ol class="post-list">
+                        <!-- <li data-id="">
+                            <h4></h4>
+                            <p></p>
+                        </li> -->
+                    </ol>
+                </div>
+
+                <!-- <form class="js-form-add" action="submit">
+                    <label>Title
+                        <input type="text" name="title">
+                    </label>
+                    <label>Body
+                        <input type="text" name="body">
+                    </label>
+                    <button type="submit">Submit</button>
+                </form> -->
+
+                <h3>Примітки</h3>
+                <p>
+                    Ніколи з функції не віддавайте готовий json!!!
+                </p>
+
+
+
+                <h3 style="color: green">Зупинився на відмітці 1:42:00</h3>
+                
             </div>
         </section>
 
@@ -366,6 +436,6 @@ fetchUsers();</pre>
     </footer>
 
     <script src="../../js-exampl/btn-top.js"></script>
-    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+    <script src="../../js/crud.js" type="module"></script>
 </body>
 </html>
