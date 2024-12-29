@@ -47,7 +47,7 @@
                     <li>CRUD</li>
                     <li>Асинхронні функції async/await</li>
                     <li>Відео Рисіч. Практика json placeholder</li>
-                    <li></li>
+                    <li>Відео Рисіч. Практика async/await</li>
                     <li></li>
                 </ol>
             </div>
@@ -230,6 +230,8 @@
                 <pre>async function foo() {}
     const foo = async function () {}
     const foo = async () => {}
+    {getInf: async function(){}}
+    {getInf: async () => {}}
                 </pre>
 
                 <h3>Обробка помилок try...catch</h3>
@@ -461,10 +463,6 @@ fetchUsers();</pre>
                     <li>Ніколи з функції не віддавайте готовий json!!!</li>
                 </ol>
               
-
-
-
-                <h3 style="color: green">Зупинився на відмітці 1:42:00</h3>
                 
             </div>
         </section>
@@ -484,6 +482,141 @@ fetchUsers();</pre>
                 </ol> 
             </div>
         </section>
+
+
+        <!-- Відео Рисіч. Практика async/await -->
+        <section class="section-about">
+            <div class="container">
+                <h2>Відео Рисіч. Практика async/await</h2>
+                
+                <ul>
+                    <li>try/catch чи then/catch?</li>
+                    <li>
+                        Приклад коду №1 (try/catch)
+                        Якщо ми опрацьовуєм http запит лише в середині функціі, і не потрібно нічого повертати з фу 
+                        то достатньо try/catch. 
+                    </li>
+                    <li>
+                        Приклад коду №2 (then/catch)
+                        Якщо визвати фу ззовні та робити з неї return то буде проміс. Тому потрібна Обробка 
+                        then/catch
+                    </li>
+                    <li>
+                        async function завжди поверне проміс. Тому виклик такої фу тільни через then/catch
+                    </li>
+                </ul>
+                
+                <!-- Приклад коду №1 (без return) -->
+                <h4>Приклад коду №1 (без return)</h4>
+                <pre>async function getCapital() {
+    try {
+        const base_CapitalURL = "https://restcountries.com/v3.1/name/Ukraine";
+        const resp = await fetch(base_CapitalURL);
+        if(!resp.ok) {
+            throw new Error(resp.statusText);
+        }
+        const data = await resp.json();
+        console.log(data);
+        // return data;
+    }
+    catch(err) {
+        console.log(err);
+    }
+    console.log("end");
+}</pre>
+                <p>Дивись консоль</p>
+                <div>
+                    <button type="button" class="js-get-capital">getCapital №1</button>
+                </div>
+                <br>
+
+
+                <!-- Приклад коду №2 (з return) -->
+                <h4>Приклад коду №2 (з return)</h4>
+                <pre>const btnGetCapital2 = document.querySelector(".js-get-capital2");
+
+    btnGetCapital2.addEventListener("click", ()=> getCapital2()
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    );
+                    
+    async function getCapital2() {
+        const base_CapitalURL2 = "https://restcountries.com/v3.1/name/Ukraine";
+        const resp = await fetch(base_CapitalURL2);
+        if(!resp.ok) {
+            throw new Error(resp.statusText);
+        }
+        return resp.json();
+    }</pre>
+
+                <div>
+                    <button type="button" class="js-get-capital2">getCapital №2</button>
+                </div>
+
+                <br>
+                <h4>Приклад коду №3 (паралельні проміси)</h4>
+                
+
+                <pre>const btnGetCapital3 = document.querySelector(".js-get-capital3");
+
+    btnGetCapital3.addEventListener("click", ()=> getCapital3()
+        .then(data => {
+            const res = data.filter(({status})=> status === "fulfilled").map(({value}) => value )
+            console.log(res);
+        })
+        .catch(err => console.log(err))
+        );
+                    
+    async function getCapital3() {
+        const base_CapitalURL3 = "https://restcountries.com/v3.1/name/";
+        const contryArr = ["Ukraine", "France", "Germany"];
+    
+        const responses = contryArr.map( async (contr) => {
+            const resp = await fetch(`${base_CapitalURL3}${contr}`);
+            if(!resp.ok) {
+                throw new Error("Not found");
+                // Promise.reject("Not found"); 
+            }
+            return resp.json();
+        }) 
+        const prom = await Promise.allSettled(responses);
+        // console.log(prom);
+        return prom;
+    }</pre>
+                <div>
+                    <button type="button" class="js-get-capital3">get allSettled №3</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- практичне завдання з розмыткою -->
+        <section class="section-about">
+            <div class="container">
+                <h2>Практичне завдання з розміткою</h2>
+                <ol>
+                    <li>Є три інпута</li>
+                    <li>Напишемо туди три країни і дістанемо три столиці</li>
+                    <li>Відмалювати погоду для кожної з країн</li>
+                    <li>Підпис яка країна яка столиця</li>
+                </ol>
+                
+                <form class="js-search" action="submit">
+                    <button class="js-btn-add" type="button">Add country</button>
+                    <span class="js-input-wrap">
+                        <input type="text" name="country" value="Greece">
+                    </span>
+                    <button type="submit">submit</button>
+                </form>
+
+                <ul class="js-contry-list"></ul>
+
+                <h3 style="color: green">Зупинився на відмітці 2:15:50 VID 2</h3>
+                
+            </div>
+        </section>
+
+
 
 
     </main>
