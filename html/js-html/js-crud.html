@@ -357,6 +357,43 @@ fetchUsers();</pre>
                 </h3>
                 
                 <p>Переходимо в документацію: https://jsonplaceholder.typicode.com/guide/</p>
+                <h3>Resources:</h3>
+                <ol>
+                    <li>/posts	100 posts</li>
+                    <li>/comments	500 comments</li>
+                    <li>/albums	100 albums</li>
+                    <li>/photos	5000 photos</li>
+                    <li>/todos	200 todos</li>
+                    <li>/users	10 users</li>
+                </ol>
+                <h4>Відкрий консоль та натискай кнопки</h4>
+                <div>
+                    <button class="js-btn-getid" type="button">GET posts/1</button>
+                    <p>CODE:</p>
+                    <pre>const btnGetId = document.querySelector(".js-btn-getid");
+        btnGetId.addEventListener("click", handleGetId);
+                        
+        function handleGetId() {
+            return getFetchId()
+                .then(data => console.log(data))
+                .catch(err => console.log(err));
+        }
+                        
+        function getFetchId () {
+            return fetch("https://jsonplaceholder.typicode.com/posts/1")
+                .then(res => {
+                    if(!res.ok) {
+                        throw new Error(res.statusText);
+                    }
+                    return res.json();
+                });
+        }</pre>
+                    <p></p>
+                    <div>
+                        <button class="js-btn-putid" type="button">PUT&PATCH posts/2</button>
+                        <button class="js-btn-del" type="button">DEL posts/2</button>
+                    </div>
+                </div>
 
                 
 
@@ -417,14 +454,34 @@ fetchUsers();</pre>
                 </form> -->
 
                 <h3>Примітки</h3>
-                <p>
-                    Ніколи з функції не віддавайте готовий json!!!
-                </p>
+                <ol>
+                    <li>Ніколи з функції не віддавайте готовий json!!!</li>
+                    <li>Метод PUT оновлює весь елемент (дуже рідко)</li>
+                    <li>Метод PATCH оновлює лише частину</li>
+                    <li>Ніколи з функції не віддавайте готовий json!!!</li>
+                </ol>
+              
 
 
 
                 <h3 style="color: green">Зупинився на відмітці 1:42:00</h3>
                 
+            </div>
+        </section>
+
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Примітки</h2>
+                <ol>
+                    <li>Ніколи з функції не віддавайте готовий json!!!</li>
+                    <li>Метод PUT оновлює весь елемент (дуже рідко)</li>
+                    <li>Метод PATCH оновлює лише частину (90%)</li>
+                    <li><b>axios</b> Самостійно розібрати axios. Часто використовується</li>
+                    
+                </ol> 
             </div>
         </section>
 

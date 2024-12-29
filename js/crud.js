@@ -12,6 +12,104 @@ const id = "/posts/2";
 //     .then(data => console.log(data) )
     // .catch(error => console.log(error));
 
+const btnGetId = document.querySelector(".js-btn-getid");
+btnGetId.addEventListener("click", handleGetId);
+
+function handleGetId() {
+    return getFetchId()
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+}
+
+function getFetchId () {
+    return fetch("https://jsonplaceholder.typicode.com/posts/1")
+        .then(res => {
+            if(!res.ok) {
+                throw new Error(res.statusText);
+            }
+            return res.json();
+        });
+}
+
+
+
+
+// ================ PUT/PATCH===============
+
+const btnPutId = document.querySelector(".js-btn-putid");
+
+const putObj = {
+    id: 2,
+    title: "Yupiter PUT",
+}
+
+const optiionsPut = {
+    method: "PATCH", // "PUT" "PATCH"
+    headers: {
+        "Content-type": "application/json",
+    },
+    body: JSON.stringify(putObj),
+}
+
+
+// fetch(`https://jsonplaceholder.typicode.com/posts/${putObj.id}`, optiionsPut)
+//     .then((res)=> console.log(res))
+
+btnPutId.addEventListener("click", handlePutId);
+
+function handlePutId() {
+    return putFetchId()
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+}
+
+function putFetchId () {
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${putObj.id}`, optiionsPut)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error(res.statusText);
+            }
+            return res.json();
+        });
+}
+
+
+
+
+
+
+// ================ DELETE ===============
+
+const btnDelete = document.querySelector(".js-btn-del");
+
+const optiionsDel = {
+    method: "DELETE", 
+}
+
+
+btnDelete.addEventListener("click", handleDel);
+
+function handleDel() {
+    return delFetchId()
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+}
+
+function delFetchId () {
+    return fetch(`https://jsonplaceholder.typicode.com/posts/3`, optiionsDel)
+        .then(res => {
+            if(!res.ok) {
+                throw new Error(res.statusText);
+            }
+            return res.json();
+        });
+}
+
+
+
+
+
+
 
 
 // ========= POST =============
@@ -141,3 +239,7 @@ function createPostMarkup(data) {
     </li>
     `;
 }
+
+
+
+
