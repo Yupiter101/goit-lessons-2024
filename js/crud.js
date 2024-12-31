@@ -340,7 +340,7 @@ async function getCapital3() {
 
 
 
-// ===== практичне завдання з розмыткою =========
+// ===== практичне завдання з розміткою Столиці Погода =========
 
 const searchForm = document.querySelector(".js-search");
 const addCountry = document.querySelector(".js-btn-add");
@@ -354,16 +354,14 @@ function handlerAddInput() {
     inputWrap.insertAdjacentHTML("beforeend", markupInp);
 }
 
+
 searchForm.addEventListener("submit", handleForm)
-
-
 
 function handleForm(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // захист від пустих і від пробілів по краям
     const arr = data.getAll("country").filter(item => item).map(item => item.trim());
-    // console.log(arr);
 
     getCountries(arr)
         .then(async data => {
@@ -371,11 +369,19 @@ function handleForm(event) {
             const capitals = data.map(({capital}) => capital[0] );
             console.log(capitals);
             const weatherServ = await getWeather(capitals);
+            console.log("getWeather");
             console.log(weatherServ);
+            countryList.innerHTML = createMarkUpCapital(weatherServ);
+            // event.currentTarget.reset(); // не працює тому searchForm.reset();
+            // searchForm.reset();
+            
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
+        .finally(() => {
+            inputWrap.innerHTML = '<input type="text" name="country" value="Greece">';
+            searchForm.reset();
+        });
 }
-
 
 
 async function getCountries(arr) {
@@ -388,6 +394,7 @@ async function getCountries(arr) {
     }) 
     const dataCountry = await Promise.allSettled(responsesC);
     const countryObj = dataCountry.filter(({status})=> status === "fulfilled").map(({value})=> value[0]);
+    console.log("getCountries");
     console.log(countryObj);
     return countryObj;
 }
@@ -420,14 +427,24 @@ async function getWeather (arrr) {
 
     const dataCoun = await Promise.allSettled(resps);
     // console.log(dataCoun);
-    const countryObjs = dataCoun.filter(({status})=> status === "fulfilled").map(({value})=> value.current);
+    const countryObjs = dataCoun.filter(({status})=> status === "fulfilled").map(({value})=> value); // value.current
     // console.log(countryObjs);
     return countryObjs;
 }
 
 // getWeather(["Paris"]).then(data => console.log(data));
 
-
+function createMarkUpCapital(arr) {
+    return arr.map(({ current: {temp_c, condition: { icon, text }}, location: {country, name}}) => `
+        <li style="border: 2px solid black;">
+            <p>${country}</p>
+            <p>${name}</p>
+            <img src="${icon}" alt="${text}">
+            <p>${temp_c} &#8451</p>
+            <p>${text}</p>
+        </li>
+    `).join(""); 
+}
 
 
 
