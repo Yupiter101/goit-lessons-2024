@@ -433,4 +433,17 @@ load_more_2.addEventListener("click", ()=> {
 
 
 
+// ======== Практика Репета. Покемони ==================
+
+fetch("https://pokeapi.co/api/v2/pokemon/2")
+  .then(resp => {
+    if(!resp.ok) {
+      throw new Error("Mistake");
+    }
+    return resp.json();
+  })
+  .then(data => console.log(data))
+  .catch(err => console.log(err))
+
+
 
