@@ -16,6 +16,7 @@
   
   
   .video-block {
+    max-width: 400px;
     /* outline: 1px solid brown; */
     flex-grow: 1;
     /* flex-shrink: 1; */

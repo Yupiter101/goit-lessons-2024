@@ -1,0 +1,12 @@
+
+.canvas-title {
+    text-align: center;
+}
+
+
+#canvas {
+    display: block;
+    background-color: #e6ffc5;
+    border: 2px solid green;
+    margin: 20px auto;
+}
