@@ -36,24 +36,24 @@
             </svg>
         </button>
 
-        <!-- <section class="section-title">
+        <section class="section-title">
             <div class="container">
                 <h1>Canvas</h1>
             </div>
-        </section> -->
+        </section>
 
-        <!-- <section class="section-menu">
+        <section class="section-menu">
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
                     <li>Як вставити відео з Ютуб</li>
                     <li>Відео YouTube</li>
-                    <li>Canvas</li>
+                    <li>Canvas базові фігури</li>
                 </ol>
             </div>
-        </section> -->
+        </section>
 
-        <!-- <section class="section-about">
+        <section class="section-about">
             <div class="container">
                 <h3>Як вставити відео з Ютуб інструкція:</h3>
                 <ol>
@@ -61,7 +61,7 @@
                     <li>Тиснем кнопочку "Встроить"</li>
                 </ol>
             </div>
-        </section> -->
+        </section>
         
         <section class="section-about">
             <div class="container">
@@ -71,14 +71,14 @@
                     <div class="video-block">
                       <h2 class="title-desc">Учим HTML5 Canvas за 30 минут</h2>
 
-                      <!-- <iframe 
+                      <iframe 
                         src="https://www.youtube.com/embed/XYgcNVwHUdg?si=M8H7d-Un89nZj_G-" 
                         class="video-youtube"
                         title="YouTube video player" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen
-                      ></iframe> -->
+                      ></iframe>
                     </div>
             </div>
         </section>
@@ -90,19 +90,66 @@
         <!-- Canvas -->
         <section class="section-about">
             <div class="container">
-                <h2 class="canvas-title">Canvas</h2>
+                <h2 class="canvas-title">Canvas базові фігури</h2>
+
+                <pre>       ==== Setup ======
+    const canv = document.getElementById("canvas");
+    const ctx = canv.getContext("2d");
+    canv.width = window.innerWidth;
+    canv.height = window.innerHeight;
+        або
+    canv.width = 500;
+    canv.height = 260;
+
+        === Малюєм квадрат ===
+    ctx.fillStyle = "magenta";
+    ctx.fillRect(20, 10, 30, 20); // Coord, Lat, Lon
+
+        === transform ===
+    // ctx.scale(1.5, 1.5);
+    // ctx.rotate(10 * Math.PI / 180);
+
+        ===== Малюєм круг =====
+    ctx.beginPath();
+    ctx.arc(100, 100, 30, 0, Math.PI * 2) // 
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    ===== Малюєм трикутник =====
+    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(60, 140);
+    ctx.lineTo(30, 200);
+    ctx.lineTo(90, 200);
+    ctx.closePath();        // same
+    // ctx.lineTo(60, 140); // same
+    ctx.stroke();</pre>
+                <p></p>
+
+                <h3 class="canvas-title">Реальний приклад</h3>
+                <!-- canvas -->
                 <canvas id="canvas">Browser not seport canvas</canvas>
+
             </div>
         </section>
 
 
 
-
-
-
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2 class="canvas-title">Canvas малювання</h2>
+                <p>Як користуватися</p>
+                <ol>
+                    <li>Видалити з localStorage "coords"</li>
+                    <li>Почати малювати мишкою на полі</li>
+                    <li>Насиснути клавішу "S" Save</li>
+                    <li>Насиснути клавішу "С" Очистити</li>
+                    <li>Насиснути клавішу "R" повторити малюнок</li>
+                </ol>
+                <h3 class="canvas-title">Реальний приклад</h3>
+
+                <canvas id="canvas-draw">Browser not seport canvas</canvas>
             </div>
         </section>
 

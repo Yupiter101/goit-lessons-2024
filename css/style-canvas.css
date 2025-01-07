@@ -3,10 +3,11 @@
     text-align: center;
 }
 
-
+#canvas-draw,
 #canvas {
     display: block;
-    background-color: #e6ffc5;
+    /* background-color: #e6ffc5; */
     border: 2px solid green;
     margin: 20px auto;
 }
+
