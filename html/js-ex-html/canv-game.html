@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+    <link rel="stylesheet" href="../../css/style-video.css">
+    <link rel="stylesheet" href="../../css/style-canvas.css">
+    <link rel="stylesheet" href="../../css/style-game.css">
+</head>
+
+<body>
+    <header>
+        <div><a  class="fixed-back" href="../js-practic.html">Back</a></div>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>Game</h1>
+                
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Відео YouTube</li>
+                    <li>Game</li>
+                </ol>
+            </div>
+        </section>
+
+       
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>Відео YouTube</h2>
+                <div class="video-container">
+                    <!-- video Yupiter RC Car-->
+                    <div class="video-block">
+                      <h2 class="title-desc">Пишем игру на JavaScript & Canvas</h2>
+
+                      <!-- <iframe 
+                        src="https://www.youtube.com/embed/525bEdnB7To?si=t29O7uaBUC2F20c9" 
+                        class="video-youtube"
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                      ></iframe> -->
+                    </div>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2 class="canvas-title">Створюємо гру на Canvas</h2>
+                <!-- <h3>Опис</h3> -->
+                <p>
+                    Посилання на проект у <a 
+                    href="https://github.com/Katerina-PROFRONTEND/flappy-bird" target="_blank">Github</a>
+                </p>
+                <p>Як користуватися</p>
+                <ol>
+                    <li>Видалити з localStorage "coords"</li>
+            
+                </ol>         
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2 class="canvas-title">load img</h2>
+                <!-- <div>
+                    <img src="../../img-game/bird.png" alt="img">
+                </div> -->
+                <div class="tumb"></div>
+                       
+            </div>
+        </section>
+
+
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2 class="canvas-title">GAME</h2>
+                <canvas 
+                    id="canvas-game"
+                    class="canvas"
+                    >Browser not seport canvas
+                </canvas>
+             
+            </div>
+        </section>
+
+
+
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <script src="../../js-exampl/game.js" type="module"></script>
+</body>
+</html>
