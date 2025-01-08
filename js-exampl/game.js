@@ -16,24 +16,36 @@ canvas.height = 600;
 
 // Завантаження картинок
 const backgroundImage = new Image();
+// console.log(backgroundImage); // <img src="../../img-game/bird.png">
 const birdImage = new Image();
-// console.log(birdImage);
+// console.log(birdImage); // <img src="../../img-game/bird.png">
 const pipeImage = new Image();
+// console.log(pipeImage);
+
+
+const startBirdData = Object.freeze({
+    x: 100, y: 300, width: 40, height: 30, //
+    grawity: 1000, lift: -300, velocity: 0, //power down, power Up, currSpeed
+});
+
 
 
 // Змінні для гри
-let bird;
-let pipes = [];
+let bird = {};
+let pipes = []; // Все активные трубы на экране
 let score = 0;
 let gameOver = false;
 let gameStarted = false;
+
+
+
 
 // Налаштування труб
 const pipeWidth = 100;
 const pipeGap = 250;
 const pipeDistanceBetween = 300;
-const pipeSpeed = 400;
-const backgroundSpeed = pipeSpeed / 2;
+let pipeSpeed = 400;
+let backgroundSpeed = pipeSpeed / 2;
 
 // Налаштування фона
 let backgroundX1 = 0;
@@ -131,17 +143,43 @@ function drawScore() {
     ctx.font = '20px Arial';
     ctx.textAlign = 'left';
     ctx.fillText(`Score: ${score}`, 20, 30);
+    ctx.fillText(`Speed: ${pipeSpeed}`, 20, 70);
 }
 
 // Добавление начальных труб
 function addPipe() {
+    const minPipeHeight = 50;
+    const topHeight = Math.random() * (canvas.height - pipeGap - minPipeHeight * 2) + minPipeHeight;
 
+    pipes.push({
+        x: canvas.width,
+        top: topHeight,
+        bottom: topHeight + pipeGap,
+    });
 }
 
-// Функция рисования труб
+
+
+// Функция рисования труб верхняя и нижняя
 function drawPipe(pipe) {
 
+    const pipeHeightTop = pipe.top; // Позиция верхней трубы
+    // console.log(`pipeHeightTop ${pipeHeightTop}`);
+    const pipeHeightBottom = canvas.height - pipe.bottom; // Позиция нижней трубы
+    // console.log(`pipeHeightBottom ${pipeHeightBottom}`);
+    // Рисуем верхнюю трубу
+    ctx.save();
+    ctx.translate(pipe.x + pipeWidth / 2, pipeHeightTop);
+    ctx.rotate(Math.PI); // Перевернуть трубу на 180
+
+    drawTopPartOfImageByCenter(pipeImage, -pipeWidth / 2, 0, pipeWidth, pipeHeightTop);
+
+    ctx.restore();
+
+    // Рисуем нижнюю трубу
+    drawTopPartOfImageByCenter(pipeImage, pipe.x, pipe.bottom, pipeWidth, pipeHeightBottom);
 }
+
 
 
 // Старт игры
@@ -149,23 +187,90 @@ function startGame() {
     bird = {
         ...startBirdData
     };
+
     pipes = [];
     score = 0;
     gameOver = false;
     gameStarted = false;
 
+    pipeSpeed = 300;
+    backgroundSpeed = pipeSpeed / 2;
+
     showReadyScreen();
 }
 
-// Функция для обновления игры
-function updateGame(scale) {
 
+
+// Функция для обновления игры
+// Первый полет птицы + гравитация и прижки
+function updateGame(scale) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // clear screen
+    drawBackground(scale);
+
+    // Рисуем птичку и ее скорость
+    bird.velocity += bird.grawity * scale;
+    bird.y += bird.velocity * scale;
+
+    ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
+
+    // Рисуем трубы
+    // Усли вобще нет труб или труба ушла влево на расстояние 
+    if(pipes.length === 0 || pipes[pipes.length -1].x < canvas.width - pipeDistanceBetween){
+        addPipe();
+    }
+
+    for(let i=0; i < pipes.length; i++) {
+        const pipe = pipes[i];
+        pipe.x -= pipeSpeed * scale;
+
+        drawPipe(pipe);
+        // если ударяемся о трубу то проиграш
+        if(bird.x + bird.width >= pipe.x && bird.x <= pipe.x + pipeWidth &&
+            (bird.y <= pipe.top || bird.y + bird.height >= pipe.bottom)) {
+                gameOver = true;
+                break;
+        }
+
+        // если уходим вверх или вниз то проиграш
+        if(bird.y > canvas.height - bird.height || bird.y <= 0) {
+                gameOver = true;
+                break;
+        }
+
+        // Удаляем трубы которые вышли за область канваса
+        if(pipe.x + pipeWidth < 0) {
+            pipes.splice(i, 1);
+            score++;
+            if(score%5 === 0){
+                pipeSpeed += 50;
+                backgroundSpeed = pipeSpeed / 2;
+            }
+            i--;
+        }
+        // console.log(pipes);
+
+    }
+    drawScore();
+
+    // == Make text "Game over" ==
+    if(gameOver) {
+        ctx.fillStyle = "red";
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("Game over. Press Enter", canvas.width / 2, canvas.height / 2);
+    }
 }
 
 
-// Экран готовности
+
+
+// ==== Экран готовности ====
+
 function showReadyScreen() {
+    // == Make background-image ==
     drawBackground(0);
+
+    // == Make text "Ready?" ==
     ctx.fillStyle = "blue";
     ctx.font = "40px Arial";
     ctx.textAlign = "center";
@@ -173,10 +278,13 @@ function showReadyScreen() {
 
     ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
 
+    // == Make text "Press space to start" ==
     ctx.fillStyle = "black";
     ctx.font = "20px Arial";
     ctx.fillText("Press space to start", canvas.width / 2, canvas.height / 2);
 }
+
+
 
 
 function startGameLoop(timestamp) {
@@ -200,28 +308,13 @@ function startGameLoop(timestamp) {
 
 // Загрузка всех изображений и старт игры
 Promise.all([
-    loadImage('.../../img-game/background_image.png', backgroundImage),
-    // loadImage('./images/bird.png', birdImage),
+    loadImage('../../img-game/background_image.png', backgroundImage),
     loadImage('../../img-game/bird.png', birdImage),
     loadImage('../../img-game/pipe.png', pipeImage)
 ]).then(() => {
     startGame(); // Начать игру после загрузки всех изображений
+    console.log('Загрузка img game ОК.');
 }).catch(() =>{
     console.log('Произошла ошибка при загрузке изображений. Игра не может быть запущена.');
 });
 
-
-
-
-
-const startBirsData = Object.freeze({
-    x: 100, y: 300, width: 40, height: 30, //
-    grawity: 1000, lift: -300, velocity: 0, //power down, power Up, currSpeed
-});
-
-
-// const tumb = document.querySelector(".tumb");
-// console.log(tumb);
-// tumb.innerHTML = `
-//     <img src="../../img-game/bird.png" alt="img" width=100>
-//     `;

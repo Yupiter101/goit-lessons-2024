@@ -5,7 +5,23 @@ const BG_COLOR = "#e6ffc5";
 const DRAW_COLOR = "blue";
 
 const canv = document.getElementById("canvas");
-canv.style = `background-color: ${BG_COLOR}`;
+// canv.style = `background-color: ${BG_COLOR}`;
+// canv.style = `background-image: url("../../img-game/background_image.png")`;
+// same
+// canv.style = `background: ${BG_COLOR} url("../../img-game/background_image.png") no-repeat center`;
+// same
+// canv.style.cssText = `
+//     background-color: ${BG_COLOR};
+//     background-image: url("../../img-game/background_image.png");
+//     background-position: center;
+//     background-size: contain;
+// `;
+// same
+canv.style.cssText = `
+    background: ${BG_COLOR} url("../../img-game/background_image.png") no-repeat center;
+    background-size: cover;
+`;
+
 
 const ctx = canv.getContext("2d");
 
@@ -13,7 +29,7 @@ const ctx = canv.getContext("2d");
 // canv.height = window.innerHeight;
 
 canv.width = 500;
-canv.height = 260;
+canv.height = 360;
 
 
 
@@ -153,16 +169,16 @@ canvDrow.addEventListener("mousemove", (e)=> {
 
 
 document.addEventListener("keydown", (e)=> {
-   
-    // S - save
-    if(e.keyCode === 83) {
+    console.log(e.code);
+    // S - save e.keyCode === 83
+    if(e.code === 'KeyS') {
         console.log(coordsArr);
         localStorage.setItem("coords", JSON.stringify(coordsArr));
         console.log("Saved");
 
     }
     // R - replay
-    if(e.keyCode === 82) {
+    if(e.code === 'KeyR') {
         console.log("Replain");
         try{
             coordsArr = JSON.parse(localStorage.getItem("coords"));
@@ -176,7 +192,7 @@ document.addEventListener("keydown", (e)=> {
 
     }
     // C - clear
-    if(e.keyCode === 67) {
+    if(e.code === 'KeyC') {
         clearDraw();
         coordsIndex = 0;
     }
