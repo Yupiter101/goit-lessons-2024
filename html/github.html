@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>github</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a  class="fixed-back" href="../../index.html">Back to main page</a>
+            <nav>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <div class="container">
+                <h1>Робота з GitHub</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>"Відкат" комітів</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>"Відкат" комітів</h2>
+                <h3>Перегляд любого коміту</h3>
+                <p>
+                    Перевіряєм які у нас є коміти. Пишем в терміналі
+                    <br>
+                    <code>git log</code>
+                    <br>
+                    <code>git checkout #####hesh#####</code>
+                    <br>
+                    Повернення назад:
+                    <br>
+                    <code>git checkout main</code>
+                    
+                </p>
+               
+                <h3>
+                    Видалення останнього коміта 
+                    <a href="https://www.youtube.com/watch?v=zDZqGlltqr4&list=WL&index=2&t=315s&ab_channel=ADV-IT" target="_blank"
+                    >YouTube</a>
+                </h3>
+                <p>Важливо! Видаляти треба як з докального місця так і з GitHub.</p>
+                <p>  
+                    Локально. Заходим в термінал і пишемо команду 
+                    <br>
+                    <code>git log</code>
+                    <br>
+                    Перевіряємо скільки комітів потрібно видалити до потрібного коміту. 
+                    Якщо одит то пишемо команду 
+                    <br>
+                    <code>git reset --hard HEAD~</code>
+                    <br>
+                    Якщо два то команду
+                    <br>
+                    <code>git reset --hard HEAD~2</code>
+                </p>
+                <p>
+                    На GitHub. Заходим на GitHub. В розділ "Commits" і превіряємо що там лишне. 
+                    Повертаємось у термінал і пишемо команду:
+                    <br>
+                    <code>git push --force</code>
+                    <br>
+                    Примусово запушаться зміни на GitHub такі як і локально
+                </p>
+     
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h3>About</h3>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h3>Список використаних матеріалів</h3>
+                <ol>
+                    <li><a href="https://www.youtube.com/watch?v=zDZqGlltqr4&list=WL&index=2&t=315s&ab_channel=ADV-IT" target="_blank"
+                        >YouTube</a> відкат комітів</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        
+        </div>
+    </footer>
+</body>
+</html>
