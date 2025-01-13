@@ -16,12 +16,28 @@ canvas.height = 600;
 
 // Завантаження картинок
 const backgroundImage = new Image();
-// console.log(backgroundImage); // <img src="../../img-game/bird.png">
-const birdImage = new Image();
-// console.log(birdImage); // <img src="../../img-game/bird.png">
+const birdImage = new Image(); // <img src="../../img-game/bird.png">
 const pipeImage = new Image();
-// console.log(pipeImage);
 
+
+// Завантаження звуків
+const soundCrash = new Audio();
+soundCrash.src = "../../sounds/crash1.wav";
+
+// const musicGame = new Audio();
+// musicGame.src = "../../sounds/music1.ogg";
+
+
+
+
+// === Змінні для гри
+let score = 0;
+let gameOver = false;
+let gameStarted = false;
+
+
+// Змінні для пташки
+let bird = {};
 
 const startBirdData = Object.freeze({
     x: 100, y: 300, width: 40, height: 30, //
@@ -29,32 +45,39 @@ const startBirdData = Object.freeze({
 });
 
 
-
-// Змінні для гри
-let bird = {};
+// === Змінні для труб
 let pipes = []; // Все активные трубы на экране
-let score = 0;
-let gameOver = false;
-let gameStarted = false;
-
-
-
-
-// Налаштування труб
 const pipeWidth = 100;
 const pipeGap = 250;
 const pipeDistanceBetween = 300;
 let pipeSpeed = 400;
-let backgroundSpeed = pipeSpeed / 2;
 
-// Налаштування фона
+
+// ===Налаштування фона
 let backgroundX1 = 0;
 let backgroundX2 = canvas.width;
-
+let backgroundSpeed = pipeSpeed / 2;
 let lastFrameTime = 0;
 
 
-// Управление птицей
+
+function loadImage(src, img) {
+    return new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = src;
+    });
+}
+
+function loadSound(src, audio) {
+    return new Promise((resolve, reject) => {
+        audio.onload = resolve;
+        audio.onerror = reject;
+        audio.src = src;
+    });
+}
+
+// ==== Управление птицей
 window.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
         if (!gameStarted) {
@@ -66,6 +89,8 @@ window.addEventListener('keydown', (e) => {
         }
     }
     if (e.code === 'Enter' && gameOver) { // Рестарт игры
+        soundCrash.pause();
+        soundCrash.currentTime = 0;
         startGame();
     }
 });
@@ -99,16 +124,7 @@ function drawTopPartOfImageByCenter(img, x, y, width, height) {
 
 
 
-function loadImage(src, img) {
-    return new Promise((resolve, reject) => {
-        img.onload = resolve;
-        img.onerror = reject;
-        img.src = src;
-    });
-}
-
-
-// Функция рисования фона
+// ==== Функция рисования фона
 function drawBackground(scale) {
     backgroundX1 -= backgroundSpeed * scale;
     backgroundX2 -= backgroundSpeed * scale;
@@ -140,11 +156,12 @@ function drawBackground(scale) {
 // Отображение очков
 function drawScore() {
     ctx.fillStyle = 'black';
-    ctx.font = '20px Arial';
+    ctx.font = '24px Arial';
     ctx.textAlign = 'left';
     ctx.fillText(`Score: ${score}`, 20, 30);
     ctx.fillText(`Speed: ${pipeSpeed}`, 20, 70);
 }
+
 
 // Добавление начальных труб
 function addPipe() {
@@ -157,7 +174,6 @@ function addPipe() {
         bottom: topHeight + pipeGap,
     });
 }
-
 
 
 // Функция рисования труб верхняя и нижняя
@@ -188,34 +204,40 @@ function startGame() {
         ...startBirdData
     };
 
-    pipes = [];
     score = 0;
     gameOver = false;
     gameStarted = false;
 
+    pipes = [];
     pipeSpeed = 300;
     backgroundSpeed = pipeSpeed / 2;
 
     showReadyScreen();
+
+    // musicGame.play();
 }
 
 
 
-// Функция для обновления игры
+// ==== Функция для обновления игры
 // Первый полет птицы + гравитация и прижки
-function updateGame(scale) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // clear screen
+function updateGame(scale) { // 0.0166 (1000 / 60 )
+    // ctx.clearRect(0, 0, canvas.width, canvas.height); // clear screen А чи треба?
+    // console.log(scale); // 0.0166 (1000 / 60 )
     drawBackground(scale);
 
-    // Рисуем птичку и ее скорость
-    bird.velocity += bird.grawity * scale;
-    bird.y += bird.velocity * scale;
+    // МАЛЮЄМ ПТАШКУ
+    //     0   =  0 + 1000 * 0.016 = 16
+    bird.velocity += bird.grawity * scale; // 16 32 48 64 128 256 512
+    // console.log(bird.velocity); 
+    bird.y += bird.velocity * scale; 
 
     ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
 
-    // Рисуем трубы
+    // МАЛЮЄМ ТРУБИ
     // Усли вобще нет труб или труба ушла влево на расстояние 
     if(pipes.length === 0 || pipes[pipes.length -1].x < canvas.width - pipeDistanceBetween){
+        // console.log(pipes[pipes.length - 1].x);
         addPipe();
     }
 
@@ -224,10 +246,12 @@ function updateGame(scale) {
         pipe.x -= pipeSpeed * scale;
 
         drawPipe(pipe);
+
         // если ударяемся о трубу то проиграш
-        if(bird.x + bird.width >= pipe.x && bird.x <= pipe.x + pipeWidth &&
-            (bird.y <= pipe.top || bird.y + bird.height >= pipe.bottom)) {
+        if(bird.x + bird.width - 10 >= pipe.x && bird.x <= pipe.x + pipeWidth &&
+            (bird.y + 5 <= pipe.top || bird.y + bird.height >= pipe.bottom + 5)) {
                 gameOver = true;
+                soundCrash.play();
                 break;
         }
 
@@ -247,8 +271,6 @@ function updateGame(scale) {
             }
             i--;
         }
-        // console.log(pipes);
-
     }
     drawScore();
 
@@ -310,7 +332,8 @@ function startGameLoop(timestamp) {
 Promise.all([
     loadImage('../../img-game/background_image.png', backgroundImage),
     loadImage('../../img-game/bird.png', birdImage),
-    loadImage('../../img-game/pipe.png', pipeImage)
+    loadImage('../../img-game/pipe.png', pipeImage),
+    // loadSound("../../sounds/crash1.wav", soundCrash),
 ]).then(() => {
     startGame(); // Начать игру после загрузки всех изображений
     console.log('Загрузка img game ОК.');

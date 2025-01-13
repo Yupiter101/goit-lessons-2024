@@ -233,4 +233,20 @@ function replayDraw() {
     }, 10);
 }
 
+// ===Графік синусоїда =====
+
+let x3 = 0;
+let timerSin = null;
+let y3 = null;
+const picPic = 30;
+const period = 10;
+
+timerSin = setInterval(drowSinus, 100);
+
+function drowSinus() {
+    y3 = Math.sin(x3);
+    period * x3 >= canv.width ? x3 = 0 : x3 += 0.3;
+    ctx.fillRect(period * x3, 280 + picPic * y3, 4, 4);
+}
+
 
