@@ -15,7 +15,10 @@
   <body>
     <header>
         <div>
-          <a  class="fixed-back" href="../index.html">Back to main page</a>
+          <a href="/">Home</a>
+          <a href="../html/js-practic.html">JS-practic</a>
+          <!-- <a href="../index.html">Back to main page</a> -->
+          <!-- <a  class="fixed-back" href="../index.html">Back to main page</a> -->
           <nav></nav>
         </div>
     </header>
@@ -41,6 +44,7 @@
             <li><a href="#work-text">Текстова розмітка</a>(<code>span, pre, sub, sub, symbols</code>) (детально в CSS-base)</li>
             <li>ВІДЕО</li>
             <li>AUDIO</li>
+            <li><a href="#upload">Upload file</a></li>
           </ol>
         </div>
       </section>
@@ -254,25 +258,41 @@
               <source src="song.mp3" type="audio/mpeg" />
               <source src="song.ogg" type="audio/ogg" />
           </audio>
-
-          
-
         </div>
       </section>
         
+
       <section class="section-hero">
         <div class="container">
-          <h2 id="about">About Якір</h2>
-          <p>Lorem ipsum dolor sitbero atistinctio corporis.</p>
-        </div>
-      </section>
+          <h2 id="upload">Upload file</h2>
+          <p>Нижче форма де є інпут для завантаження файлу</p>
+          <p><a href="https://www.youtube.com/watch?v=5O7O5XQng74&ab_channel=%D0%A4%D1%80%D0%B8%D0%BB%D0%B0%D0%BD%D1%81%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%87%D0%BA%D0%B0">посилання на ютуб</a></p>
+          <br>
           
+          <form style="border: 2px solid black;">
+            <label>Обери файл
+              <!-- onChange=; -->
+              <input 
+                type="file" 
+                name="myFile"
+                accept="image/*,.png,.ipg,.gif,.web"
+                >
+                
+            </label>
+
+          </form>
+        </div> 
+      </section>
+
+
+
       <section class="section-hero">
         <div class="container">
-          <h2 id="features">Features Якір</h2>
+          <h2 id="features">Features</h2>
           <p>Lorem ipsumod. Nulla ea nerspicor ducimus sit distinctio corporis.</p>
         </div> 
       </section>
+
     </main>
 
     <footer class="page-footer">
