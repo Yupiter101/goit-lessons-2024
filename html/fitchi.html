@@ -2,75 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitchi</title>
+    <title>Sample</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
 </head>
+
 <body>
     <header>
-        <a  class="fixed-back" href="../index.html">Back to main page</a>
-        <h1>Плюшки HTML</h1>
+        <div><a  class="fixed-back" href="../../index.html">Back to main page</a></div>
     </header>
+
     <main>
-        <ul>
-            <li>
-                <p>Alt + multicursor = Заниснуть кільце мишки і протягнути курсор вниз multicursor</p>
-            </li>
-            <li><p>p.test = p class="test"</p></li>
-            <li><p>Teg "li"  li*5</p></li>
-            <li>Web developer - додаток на хром. Можна відмикати scc, js</li>
-            <li><a href="https://validator.w3.org/nu/">Validator HTML</a></li>
-            <li>Tools: F12, Right click посмотреть код, Ctrl+Shift+I ./ Elements Styles</li>
-            <li><a href="https://imagecolorpicker.online/ru/" target="_blank">Піпетка</a></li>
-            <li>&lt;кавички в html&gt; (& lt;) = &lt; (& gt;) = &gt; тільки пишемо разом</li>
-            <li>Пробіл &nbsp; (& nbsp;) тільки пишемо разом</li>
-            <li><a href="https://symbl.cc/en/unicode-table/#latin-extended-b" target="_blank">unicode-table</li>
-            <li>Кілька класів запис без пробілів: <code>.div-grad.lin-gradient</code></li>
-            <li><code>min-height: 100vh;</code>Висота вьюпорта (екрану)</li>
-            
-            <li>
-                <h3>height, width</h3>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>Різні плюшки HTML CSS</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Розширення для VS Code</li>
+                    <li>Різне</li>
+                    <li>Використання класів в CSS</li>
+                    
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Розширення для VS Code</h2>
+                <ol>
+                    <li><b>ESLint</b> - валідатор для js коду</li>
+                    <li><b>Emet</b> - Для автомотичного заповнення. Ex: svg&gt;use</li>
+                    <li><b>Tabnine</b> - розширення що дописує код</li>
+                    <li></li>
+                </ol>
+            </div>
+        </section>
+        
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Різне</h2>
+                <ol>
+                    <li>Alt + multicursor = Заниснуть кільце мишки і протягнути курсор вниз multicursor</li>
+                    <li>p.test = p class="test"</li>
+                    <li>Як записати 5 штук тега "li":  li*5</li>
+                    <li>Web developer - додаток на хром. Можна відмикати scc, js</li>
+                    <li><a href="https://validator.w3.org/nu/">Validator HTML</a></li>
+                    <li>Tools: F12, Right click посмотреть код, Ctrl+Shift+I ./ Elements Styles</li>
+                    <li><a href="https://imagecolorpicker.online/ru/" target="_blank">Піпетка</a></li>
+                    <li>&lt;кавички в html&gt; (& lt;) = &lt; (& gt;) = &gt; тільки пишемо разом</li>
+                    <li>Пробіл &nbsp; (& nbsp;) тільки пишемо разом</li>
+                    <li><a href="https://symbl.cc/en/unicode-table/#latin-extended-b" target="_blank">unicode-table</a></li>
+                    <li>Додати іконку: <b>win + :</b> ❌, ✅, ☑, ☐</li>
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Використання класів в CSS</h2>
+                <ol>
+                    <li>Класи без пробілів: <code>.div-grad.lin-gradient</code> Значить обидва класи "&"</li>
+                    <li>Класи з пробілом: "or" <code>.scene .box</code> - це не точно</li>
+                    <li>Задати стиль другому сусіду: <code>.scene + .scene { margin-left: 50px; }</code></li>
+                    <li><code>.card2-grow > .content2-grow</code></li>
+                </ol>
+            </div>
+        </section>
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>height, width</h2>
                 <ul>
-                    <li><code>min-height: 100vh;</code></li>
-                    <li></li>
-                    <li></li>
+                    <li><code>min-height: 100vh;</code> Висота вьюпорта (екрану)</li>
                     <li></li>
                     <li></li>
                 </ul>
-            </li>
-            <li><code>.scene + .scene { margin-left: 50px; }</code> - задається другому сусіду scene</li>
-            <li><code>.modal-form-input:focus + .modal-form-icon</code>При ховері першого сусіда змінюється знач другого сусіда</li>
-            <li><code>.scene .box</code> Коли є клас або і .scene або і .box - це не точно</li>
-            <li><code>.scene.box</code> Коли є клас і .scene і .box</li>
-            <li><code>.card2-grow > .content2-grow</code></li>
-            <li>Look! ❌ ✅</li>
-            <li>Додати іконку: <b>win + :</b></li>
-             
-        </ul>
-        <pre>
-            button  type="button"  <b>hidden disabled</b>  button
-            .js
-            hidden true | false
-            disabled true | false
-        </pre>
+            </div>
+        </section>
 
-        <h2>Розширення для VS Code</h2>
-        <ul>
-            <li>ESLint валідатор для js коду</li>
-            <li>Emet. svg&gt;use - Для автомотичного заповнення</li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+       
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Плюшки button</h2>
+                <ul>
+                    <li>type="button"</li>
+                    <li>hidden true | false</li>
+                    <li>disabled true | false</li>
+                    <li></li>
+                </ul>
+            </div>
+        </section>
+
+
     </main>
-    <footer>
-           
+    <footer class="page-footer">
+        <div class="container">
+        </div>
     </footer>
-    
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/xxx.js" type="module"></script> -->
 </body>
 </html>
-
-        

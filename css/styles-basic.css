@@ -241,24 +241,37 @@ pre {
 .menu-container {
   display: flex;
   justify-content: space-around;
-  width: 560px;
+  width: 660px;
   /* border: 1px solid black; */
   margin: 50px auto;
-  font-size: 20px;
+  font-size: 18px;
   /* font-weight: bold; */
 }
 
 
 .menu-sub-container {
-  flex-basis: calc((100% - 20px) / 2);
+  flex-basis: calc((100% - 15px) / 3);
   /* border: 1px solid red; */
 }
 
 .menu-sub-container > h2 {
   /* text-align: center; */
+  font-size: 24px;
   margin-left: 30px;
   color: red;
 }
+
+.menu-space-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 420px;
+  /* height: calc(100% - 80px); */
+
+}
+
+
+
 
 .menu-link {
   text-decoration: none;
@@ -282,7 +295,7 @@ pre {
 } */
 
 .list-other > li > a {
-  color: #aaa;
+  color: #777;
 }
 
 

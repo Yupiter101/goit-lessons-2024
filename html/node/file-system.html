@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fs</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+</head>
+
+<body>
+    <header>
+        <div><a  class="fixed-back" href="/">Home</a></div>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>Node.js. Файлова система <a href="https://nodejs.org/docs/latest/api/fs.html" target="_blank">node.js</a></h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Термінал GitBash</li>
+                    <li>Найбільш використовувані функції</li>
+                    <li>Варіант 1. Через колбеки</li>
+                    <li>Варіант 2. Через проміси</li>
+                    <li>Варіант 3. Через проміси async/await</li>
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- GitBash -->
+        <section class="section-about">
+            <div class="container">
+                <h2>Термінал GitBash</h2>
+                <ul>
+                    <li>Встановити node.js</li>
+                    <li>Можливо встановити <a href="https://git-scm.com/downloads">Git</a></li>
+                    <li>Відкрити термінал <b>git bash</b></li>
+                    <li>Перевірка встановленої версії: node -v  // v18.13.0</li>
+                    <li>Перевірка встановленої npm: npm -v  // 8.19.3</li>
+                    <li><a href="https://www.npmjs.com/">repo npm</a></li>
+                    <li>Нода також може бути встановлена через <a href="https://github.com/nvm-sh/nvm">nvm:</a></li>
+                    <li>nvm install 12</li>
+                    <li>nvm use 12</li>
+                    <li>nvm list // сисок встановлених нод</li>
+                    <li>Щоб зайти в repl пишем в консолі node ( repl - оболочка консоли)</li>
+                </ul>
+
+                <h3>Основні команди в терміналі:</h3>
+                <ol>
+                    <li>cd: Change the directory to a different location.</li>
+                    <li>ls: List the contents of the current directory</li>
+                    <li>mkdir: Create a new directory</li>
+                    <li>touch: Create a new file</li>
+                    <li>rm: Remove a file or directory</li>
+                    <li>cp: Copy a file or directory</li>
+                    <li>mv: Move or rename a file or directory</li>
+                    <li>echo: Print text to the terminal</li>
+                    <li>cat: Concatenate and print the contents of a file</li>
+                    <li>grep: Search for a pattern in a file</li>
+                    <li>chmod: Change the permissions of a file or directory</li>
+                    <li>sudo: Run a command with administrative privileges</li>
+                    <li>df: Display the amount of disk space available</li>
+                    <li>history: Show a list of previously executed commands.</li>
+                    <li>ps: Display information about running processes</li>
+                </ol>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Найбільш використовувані функції:</h2>
+                <ol>
+                    <li>Читання файлу - <code>fs.readFile(filename, [options])</code></li>
+                    <li>Запис файлу - <code>fs.writeFile(filename, data, [options])</code></li>
+                    <li>Додавання у файл - <code>fs.appendFile(filename, data, [options])</code></li>
+                    <li>Перейменування файлу - <code>fs.rename(oldPath, newPath)</code></li>
+                    <li>Видалення файлу - <code>fs.unlink(path, callback)</code></li>
+                </ol>
+                <ul>
+                    <li><code>const path = require("path");</code> – статичний шлях</li>
+                    <li><code>path.join(__dirname, "files/file.txt");</code></li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>Варіант 1. Через колбеки</h2>
+                <pre>
+    const fs = require("fs"); або
+    const fs = require("node:fs");</pre>
+                
+                
+                <h3>readFile(). bufer</h3>
+                <pre>
+    fs.readFile("./files/file.txt", (err, res) => {
+        if(err) throw err;
+        const bufer = res;
+        console.log(bufer);
+        const textFile = bufer.toString();
+        console.log(textFile);
+    });</pre>
+                
+
+                <h3>readFile(). "utf-8"</h3>
+                <pre>
+    fs.readFile("./files/file.txt", {encoding: "utf-8"}, (err, res) => {
+        if(err) throw err;
+        const data = res;
+        console.log(data);
+    });</pre>
+                
+
+                <h3>writeFile()</h3>
+                <pre>
+    const myText = "\nYupiter: 0123456789";
+    fs.writeFile("./files/file2.txt", myText, {encoding: "utf-8"}, (err, res) => {
+        if(err) throw err;
+        console.log("file writen!");
+    });</pre>
+                
+            </div>
+        </section>
+
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Варіант 2. Через проміси</h2>
+        
+                <pre>
+    const fs = require("node:fs/promises"); або
+    const fs = require("node:fs").promises;</pre>
+                
+
+                <h3>readFile(). "utf-8"</h3>
+                <pre>
+    const fs = require("node:fs");
+
+    fs.promises.readFile("./files/file.txt", "utf-8")
+        .then(data => console.log(data))
+        .catch(err => console.log(err));</pre>
+                
+
+                <p>або</p>
+
+                <pre>
+    const fs = require("node:fs/promises"); або
+    const fs = require("node:fs").promises;
+                
+    fs.readFile("./files/file.txt", "utf-8")
+        .then(data => console.log(data))
+        .catch(err => console.log(err)); </pre>
+               
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Варіант 3. Через проміси async/await</h2>
+                <h3>readFile()</h3>
+                <pre>
+    const fs = require("node:fs/promises"); або
+                                
+    async function readMyFile() {
+        const data = await fs.readFile("./files/file.txt", "utf-8");
+        return data;
+    }
+    readMyFile()
+        .then(data => console.log(data))
+        .catch(err => console.log(err));</pre>
+            
+
+
+            <h3>writeFile()</h3>
+                <pre>                         
+    const myText = "\nYupiter: 0123456789";
+
+    fs.writeFile("./files/file2.txt", myText, {encoding: "utf-8"})
+        .then(() => console.log("file writen!"))
+        .catch(err => console.log(err));</pre>
+           
+
+
+            <h3>ApendFile()</h3>
+                <pre>
+    const myText = "\nYupiter: 0123456789";
+                                
+    fs.appendFile("./files/file2.txt", myText, {encoding: "utf-8"})
+        .then(() => console.log("file writen!"))
+        .catch(err => console.log(err));</pre>
+            
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+</body>
+</html>

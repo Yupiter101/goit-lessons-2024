@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node start</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+</head>
+
+<body>
+    <header>
+        <div><a  class="fixed-back" href="/">Home</a></div>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>GitBash-terminal <a href="https://nodejs.org/docs/latest/api/fs.html" target="_blank">Node.js</a></h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Термінал GitBash</li>
+                    <li>Основні команди</li>
+                    <li>Створення першого проекту <b>node.js</b></li>
+                    <li>nodemon - автооновлення змін</li>
+                    <li>Підключення в node.js <b>E6 module</b></li>
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- GitBash -->
+        <section class="section-about">
+            <div class="container">
+                <h2>Термінал GitBash</h2>
+                <ul>
+                    <li>Встановити node.js</li>
+                    <li>Можливо встановити <a href="https://git-scm.com/downloads">Git</a></li>
+                    <li>Відкрити термінал <b>git bash</b></li>
+                    <li>Перевірка встановленої версії: <code>node -v  // v18.13.0</code>/li>
+                    <li>Перевірка встановленої <code>npm: npm -v  // 8.19.3</code></li>
+                    <li>Репозиторій <a href="https://www.npmjs.com/">npm</a></li>
+                    <li>Нода також може бути встановлена через <a href="https://github.com/nvm-sh/nvm">nvm:</a></li>
+                    <li>nvm install 12</li>
+                    <li>nvm use 12</li>
+                    <li>nvm list // сисок встановлених нод</li>
+                    <li>Щоб зайти в repl пишем в терміналі <code>node</code> ( repl - оболочка консоли)</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Основні команди:</h2>
+                <ol>
+                    <li>cd: Change the directory to a different location.</li>
+                    <li>ls: List the contents of the current directory</li>
+                    <li>mkdir: Create a new directory</li>
+                    <li>touch: Create a new file</li>
+                    <li>rm: Remove a file or directory</li>
+                    <li>cp: Copy a file or directory</li>
+                    <li>mv: Move or rename a file or directory</li>
+                    <li>echo: Print text to the terminal</li>
+                    <li>cat: Concatenate and print the contents of a file</li>
+                    <li>grep: Search for a pattern in a file</li>
+                    <li>chmod: Change the permissions of a file or directory</li>
+                    <li>sudo: Run a command with administrative privileges</li>
+                    <li>df: Display the amount of disk space available</li>
+                    <li>history: Show a list of previously executed commands.</li>
+                    <li>ps: Display information about running processes</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Створення першого проекту <b>node.js</b></h2>
+                <ol>
+                    <li><h4>Створити папку проекта</h4></li>
+                    <li>
+                        <h4>Створити файл package.json</h4>
+                        <p>
+                            Відкриваєм там Bash і пишемо “npm init -y” або “yarn” (створиться package.json).
+                            Якщо ми слонували чийсь репо то усі залежності є в package.json. 
+                            Щоб їх усі встановити пишем команду “npm install”
+                        </p>
+                    </li>
+                    <li>
+                        <h4>Встановлюєм необхідні пакети</h4>
+                        <p>
+                            Пишем команду “npm install”. Якщо ми слонували чийсь репо то усі залежності є в package.json.
+                            Створиться папка <b>node_modules.</b>
+                            Папку node_modules не можна пушити на Git
+                        </p>
+                        <p>
+                            Для того щоб робочі залежності не завантажувались в деплой треба їх встановлювати так: 
+                            <b>npm install name --save-dev</b> тоді воно потрапить в “devDependensis”: 
+                            або скорочено: <b>npm i name -D</b>
+                        </p>
+                        <p>
+                            Також можна користуватися пакетним менеджером yarn: npm i -g yarn
+                            <ul>
+                                <li><code>yarn = “npm init -y”</code></li>
+                                <li><code>yarn add namepacket</code></li>
+                                <li><code>yarn remove namepacket</code></li>
+                            </ul>
+                        </p>
+                    </li>
+                    <li><h4>Створити ".gitignore"</h4></li>
+                    <li>
+                        <h4>Прописуєм скрипти <b>start, dev</b></h4>
+                        <pre>
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js",
+        "start:dev": "nodemon index.js"
+      },</pre>
+                        <ul>
+                            <li>Запускаємо в терміналі через <b>npm start</b></li>
+                            <li>Запускаємо в терміналі через <b>npm run</b> otherName</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p style="color: red">Стрілочка вверх в терміналі відтворить останню команду</p>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>nodemon</h2>
+                <p>
+                    проблема в тому що треба постійно писати npm start щоб перезапускати проект. 
+                    Це не зручно. Тому можна зробити щоб він сам перезапускався при змінах. 
+                    Для цього встановити <b>npm i nodemon -D</b>
+                </p>
+                <p>і прописати скрипт: <b>"start:dev": "nodemon index.js".</b> 
+                    В терміналі запустити <b>npm run start:dev</b> Тепер в терміналі воно слідкуватиме з змінами
+                </p>
+
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Підключення в node.js E6 module</h2>
+                <h3>Варіант 1 .mjs</h3>
+                <ul>
+                    <li>Перебудова Common.js в E6 module. Перейменовуєм <b>users.js to users.mjs</b> </li>
+                    <li>Перейменовуєм index.js to index.mjs</li>
+                    <li>import users from “./users.mjs”;</li>
+                    <li>import {getCurMonth} from “./date/index.mjs”</li>
+                </ul>
+
+                <h3>Варіант 2</h3>
+                <p>В package.json додати модуль</p>
+                <pre>"type": "module"</pre>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+</body>
+</html>
