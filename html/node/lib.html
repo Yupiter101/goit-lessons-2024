@@ -46,6 +46,8 @@
                 <ol>
                     <li>nodemon - перезапуск при змінах</li>
                     <li>nanoid - генерація ID</li>
+                    <li>commander - консольний додаток</li>
+                    <li>yargs - консольний додаток</li>
                 </ol>
             </div>
         </section>
@@ -73,8 +75,42 @@
                             <li>Use <code>id: nanoid();</code></li>
                         </ul>
                     </li>
-                    <li></li>
-                    <li></li>
+
+                    <li>
+                        <h4>commander - консольний додаток</h4>
+                        <p>Готове рішення замість <code>process.argv</code></p>
+                        <ul>
+                            <li>Встановити <code>npm i commander</code></li>
+                            <li>Імпорт у коді: <code>const { program } = require('commander');</code></li>
+                            <li>Use</li>
+                        </ul>
+                        <pre>
+    program
+    .option("-a, --action &lt;action&gt;", "Action to invoke")
+    .option("-i, --id &lt;id&gt;", "Bols id")
+    .option("-t, --title &lt;title&gt;", "Bol title")
+    .option("-au, --author &lt;author&gt;", "Bol author")
+
+    program.parse(process.args);
+
+    const options = program.opts();
+    // console.log(options);
+
+    invoActions(options).catch(err => console.error(err));
+                        </pre>
+                    </li>
+
+
+                    <li>
+                        <h4>yargs - консольний додаток</h4>
+                        <p>Те саме що і commander</p>
+                        <ul>
+                            <li>Встановити <code>npm i commander</code></li>
+                            <li>Імпорт у коді: <code></code></li>
+                            <li>Use <code></code></li>
+                        </ul>
+                    </li>
+                    
                     <li></li>
                 </ol>
             </div>

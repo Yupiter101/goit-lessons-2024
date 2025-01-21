@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>commander</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+</head>
+
+<body>
+    <header>
+        <div><a  class="fixed-back" href="../../index.html">Back to main page</a></div>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>Створення консольних додатків</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Функція invokeAction()</li>
+                    <li>process.args</li>
+                    <li>Commander / yargs</li>
+                    <li>Консольна гра</li>
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Функція invokeAction()</h2>
+                <pre>
+    const bols = require("./bols");
+    async function invoActions({action, id, title, author}) {
+        switch(action) {
+            case "getAll":
+                const allBols = await bols.readAll();
+                console.log(allBols);
+                return;
+    
+            case "getById":
+                const bol = await bols.getById(id);
+                console.log(bol);
+                return;
+    
+            case "create":
+                const newBol = await bols.writeNewBol({title, author});
+                console.log(newBol);
+                return;
+    
+            case "update":
+                const updateBol = await bols.updateById(id, {title, author});
+                console.log(updateBol);
+                return;
+    
+            case "remove":
+                const removeBol = await bols.deleteById(id);
+                console.log(removeBol);
+                return;
+    
+            default:
+                return;
+        }
+    }</pre>
+                
+                <p></p>
+            </div>
+        </section>
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2>process.args</h2>
+                <p>
+                    Вище ми зазначали, що передані параметри під час запуску скрипта доступні в масиві 
+                    process.args: ["node", "/…/youscript.js", "param 1", "param 2", …]. І щоб одержати 
+                    ці параметри, потрібно виконати process.argv.slice(2), який поверне всі розділені 
+                    пробілами параметри: ["param 1", "param 2", …]
+                </p>
+                <p>Приклад введення команди в консоль</p>
+                <pre>
+    node app.js --action update --id 132 --title "Title" --author "Author"</pre>
+                    
+                <p>Приклад частини коду. Перевірив</p>
+                <pre>
+    const actiionIndex = process.argv.indexOf("--action");
+    if(actiionIndex != -1) {
+        const action = process.argv[actiionIndex + 1];
+        const id = process.argv[actiionIndex + 3];
+        const title = process.argv[actiionIndex + 5];
+        const author = process.argv[actiionIndex + 7];
+        // console.log({action, id, title, author});
+        invoActions({action, id, title, author})
+            .catch(err => console.error(err));
+    }</pre>
+                
+                <p>
+                    Але обробляти всілякі комбінації параметрів та їх формати вкрай незручно, для цього 
+                    зазвичай використовують сторонні npm-модулі. Один з найпопулярніших, який ми будемо 
+                    використовувати – це модуль commander
+                </p>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Commander</h2>
+                <p><a href="https://www.npmjs.com/package/commander" target="_blank">npm install commander</a></p>
+                <pre>
+        on top:
+    const { program } = require('commander'); 
+
+    program
+    .option("-a, --action &lt;action&gt;", "Action to invoke")
+    .option("-i, --id &lt;id&gt;", "Bols id")
+    .option("-t, --title &lt;title&gt;", "Bol title")
+    .option("-au, --author &lt;author&gt;", "Bol author")
+
+    program.parse(process.args);
+    const options = program.opts();
+
+    invoActions(options).catch(err => console.error(err));
+                </pre>
+                <p></p>
+
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>yargs</h2>
+                <p>Те саме робить що і Commander</p>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Консольна гра</h2>
+                <p>
+                    Напишемо застосунок – «Вгадай число», де необхідно вгадати задумане програмою 
+                    число від 1 до 10 та програма в кінці виведе, за скільки спроб нам це вдалося.
+                </p>
+                <p>
+                    Нам знадобляться стандартні модулі fs, readline і нестандартні, а отже, 
+                    їх потрібно встановити за допомогою npm, модуль commander та colors. 
+                </p>
+                
+                <pre>
+    const readline = require('readline');
+    const fs = require('fs').promises;
+    const { program } = require('commander');
+    require('colors');
+    program.option(
+     '-f, --file [type]',
+     'file for saving game results',
+     'results.txt',
+    );
+    program.parse(process.argv);
+
+    const rl = readline.createInterface({
+     input: process.stdin,
+     output: process.stdout,
+    });
+
+    let count = 0;
+    const logFile = program.opts().file;
+    const mind = Math.floor(Math.random() * 10) + 1;
+
+    const isValid = value =&gt; {
+     if (isNaN(value)) {
+       console.log('Введіть число!'.red);
+       return false;
+     }
+     if (value &lt; 1 || value &gt; 10) {
+       console.log('Число повинно бути в діапазоні від 1 до 10'.red);
+       return false;
+     }
+     return true;
+    };
+
+    const log = async data => {
+     try {
+       await fs.appendFile(logFile, `${data}\n`);
+       console.log(`Вдалося зберегти результат у файл ${logFile}`.green);
+     } catch (err) {
+       console.log(`Не вдалося зберегти файл ${logFile}`.red);
+     }
+    };
+
+    const game = () => {
+     rl.question(
+       'Введіть число від 1 до 10, щоб вгадати задумане: '.yellow,
+       value => {
+         let a = +value;
+         if (!isValid(a)) {
+           game();
+           return;
+         }
+         count += 1;
+         if (a === mind) {
+           console.log('Вітаю, Ви вгадали число за %d крок(ів)'.green, count);
+           log(
+             `${new Date().toLocaleDateString()}: Вітаю, Ви вгадали число за ${count} крок(ів)`,
+           ).finally(() => rl.close());
+           return;
+         }
+         console.log('Ви не вгадали, ще спроба'.red);
+         game();
+       },
+     );
+    };
+
+    game();</pre>
+
+                <p>
+                    Щоб використовувати інтерактивне введення в консолі на кшталт питання-відповідь, 
+                    ми будемо використовувати стандартний модуль Node.js readline. 
+                </p>
+                <pre>
+    const readline = require('readline');
+    const rl = readline.createInterface({
+    input: process.stdin, // введення зі стандартного потоку
+    output: process.stdout, // виведення у стандартний потік
+    });</pre>
+                
+
+                <p>
+                    Ми підключаємо модуль та створюємо екземпляр rl, де в опціях передаємо потоки введення 
+                    та виведення, консоль, файл тощо. У нашому випадку ми беремо стандартні потоки та 
+                    будемо працювати в консолі, де запускаємо скрипт. Обробка кожного введеного рядка 
+                    відбувається через подію line:
+                </p>
+                <pre>
+    rl.on('line', cmd => {
+         console.log(`You just typed: ${cmd}`);
+        });</pre>
+                        
+                <p>
+                    Але нас більше цікавить можливість поставити користувачеві питання та отримати на нього відповідь, 
+                    аналогічно функції prompt із браузеру:
+                </p>
+                <pre>
+    rl.question('Як вас звати?', answer => {
+         console.log(`Приємно познайомитися ${answer}`);
+        });</pre>
+                
+                <p>
+                    Також за якоїсь тривалої операції ми можемо поставити розмову 
+                    на паузу або іншими словами заблокувати введення:
+                </p>
+                <pre>rl.pause();</pre>
+                <p>
+                    Щоб закрити інтерфейсом readline, необхідно виконати функцію:
+                </p>
+                <pre>rl.close();</pre>
+
+                <p>
+                    Вся програма складається із трьох функцій. Основна функція – це функція гри game(), 
+                    яка викликає себе рекурсивно до тих пір, поки ми не вгадаємо задумане число. 
+                    Спочатку ми підключаємо модуль colors, який дозволяє нам розфарбовувати текст 
+                    у консолі у різноманітні кольори, далі підключаємо модуль commander – це повноцінне 
+                    рішення для створення інтерфейсів командного рядка:
+                </p>
+                <pre>
+    const { program } = require('commander');
+    program.option(
+     '-f, --file [type]',
+     'file for saving game results',
+     'results.txt',
+    );
+    program.parse(process.argv);</pre>
+
+                
+                <p>
+                    Ми вказуємо, що опціонально чекаємо на введення параметра -f або довший запис --file. 
+                    Іншими словами ми визначаємо запуск програми у наступному вигляді
+                </p>
+                <pre>
+    node game.js -f my_log.txt
+                </pre>
+
+                <p>
+                    Ми вказуємо, що необхідно, в program.file покласти значення my_log.txt, але водночас ми вказуємо третім параметром program.option, що якщо параметр -f не буде переданий у запуску, то за замовчуванням program.file буде дорівнювати results.txt
+                </p>
+                <p>
+                    Далі ми виконуємо ініціалізацію модуля readline. Вводимо три змінні, які ми будемо надалі використовувати: count – це підрахунок кількості спроб, які знадобилися, щоб вгадати число, logFile – ім'я файлу, куди будуть збережені результати гри, mind – це випадкове число від 1 до 10, яке необхідно відгадати. 
+                </p>
+                <p>
+                    Функція isValid відповідає за валідацію введених значень у консолі, вона перевіряє, щоб значення було саме числом і лежало в діапазоні від 1 до 10. Якщо дані валідні, то функція повертає істину, якщо ні – брехню.
+                </p>
+                <p>
+                    Функція log відповідає за збереження результатів гри. Вона використовує функцію appendFile модуля fs для запису даних. Якщо файл існує, то результати будуть дописані в існуючий файл, якщо немає файлу – він буде створений. Зверніть увагу, що функція асинхронна і ми очікуємо виконання операції збереження результатів.
+                </p>
+                <p>
+                    І нарешті ми підійшли до основної функції game. Всередині відбувається виклик методу
+                </p>
+                <pre>
+    rl.question(
+           'Введіть число від 1 до 10, щоб вгадати задумане: '.yellow,
+           (value) => {...});</pre>
+        
+                
+                <p>
+                    який прослуховує консоль і при введенні значення викликає callback функцію, яка обробляє введене значення.
+                    Якщо ми не проходимо валідацію, то запускаємо функцію гри знову:
+                </p>
+                <pre>
+    let a = +value;
+    if (!isValid(a)) {
+         game();
+         return;
+    }</pre>
+       
+                <p>
+                    Якщо валідацію пройдено, то ми збільшуємо лічильник спроб на 1. Далі ми порівнюємо введене значення із «задуманим». Якщо число вгадане, ми виводимо вітання та кількість спроб, витрачену на гру, потім за допомогою функції log зберігаємо результат у файлі, і, оскільки функція повертає проміс, ми в методі finally закриваємо інтерфейс введення rl.close(), якщо ж результат не співпав, виконуємо рекурсію до тих пір, доки число не буде відгадане.
+                </p>
+                <br>
+                <div>
+                    <img src="../../img/node-game.JPG" alt="node-game">
+                </div>
+
+
+
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+</body>
+</html>
