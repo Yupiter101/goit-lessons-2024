@@ -48,43 +48,47 @@
                     <li>nanoid - генерація ID</li>
                     <li>commander - консольний додаток</li>
                     <li>yargs - консольний додаток</li>
+                    <li>chalk</li>
+                    <li>joi <a href="https://joi.dev/api/?v=17.13.3" target="_blank">Documentation and API</a></li>
                 </ol>
             </div>
         </section>
 
-        
+
         <section class="section-about">
             <div class="container">
-                <h2>Detalis</h2>
-                <ol>
-                    <li>
-                        <h4>nodemon</h4>
-                        <p>Автоматичне оновлення терміналу при змінах</p>
-                        <ul>
-                            <li>Встановити <code>npm i nodemon -D</code></li>
-                            <li>Прописати скрипт: <code>"start:dev": "nodemon index.js"</code></li>
-                        </ul>
-                    </li>
+                <h2>nodemon - перезапуск при змінах</h2>
+                <p>Автоматичне оновлення терміналу при змінах</p>
+                <ul>
+                    <li>Встановити <code>npm i nodemon -D</code></li>
+                    <li>Прописати скрипт: <code>"start:dev": "nodemon index.js"</code></li>
+                </ul>
+            </div>
+        </section>
 
-                    <li>
-                        <h4>nanoid</h4>
-                        <p>Автоматична генерація ID</p>
-                        <ul>
-                            <li>Встановити <code>npm i nanoid</code></li>
-                            <li>Імпорт у коді: <code>const {nanoid} = require("nanoid");</code></li>
-                            <li>Use <code>id: nanoid();</code></li>
-                        </ul>
-                    </li>
+        <section class="section-about">
+            <div class="container">
+                <h2>nanoid - генерація ID</h2>
+                <p>Автоматична генерація ID</p>
+                <ul>
+                    <li>Встановити <code>npm i nanoid</code></li>
+                    <li>Імпорт у коді: <code>const {nanoid} = require("nanoid");</code></li>
+                    <li>Use <code>id: nanoid();</code></li>
+                </ul>
+            </div>
+        </section>
 
-                    <li>
-                        <h4>commander - консольний додаток</h4>
-                        <p>Готове рішення замість <code>process.argv</code></p>
-                        <ul>
-                            <li>Встановити <code>npm i commander</code></li>
-                            <li>Імпорт у коді: <code>const { program } = require('commander');</code></li>
-                            <li>Use</li>
-                        </ul>
-                        <pre>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>commander - консольний додаток</h2>
+                <p>Готове рішення замість <code>process.argv</code></p>
+                <ul>
+                    <li>Встановити <code>npm i commander</code></li>
+                    <li>Імпорт у коді: <code>const { program } = require('commander');</code></li>
+                    <li>Use</li>
+                </ul>
+                <pre>
     program
     .option("-a, --action &lt;action&gt;", "Action to invoke")
     .option("-i, --id &lt;id&gt;", "Bols id")
@@ -98,27 +102,62 @@
 
     invoActions(options).catch(err => console.error(err));
                         </pre>
-                    </li>
-
-
-                    <li>
-                        <h4>yargs - консольний додаток</h4>
-                        <p>Те саме що і commander</p>
-                        <ul>
-                            <li>Встановити <code>npm i commander</code></li>
-                            <li>Імпорт у коді: <code></code></li>
-                            <li>Use <code></code></li>
-                        </ul>
-                    </li>
-                    
-                    <li></li>
-                </ol>
             </div>
         </section>
 
+
+
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>yargs - консольний додаток</h2>
+                <h2>use:</h2>
+                <ol>
+                    <li><code>npm i yargs</code></li>
+                    <li>import: <code>const argv = require("yargs").argv;</code></li>
+                    <li>
+                        <p>Вводимо в термінал: 
+                            <code>
+                                node src/index.js --action create --f myfile.txt --contene asdasd
+                            </code>
+                        </p>
+                        <p>Відповідь:</p>
+                        <pre>
+        console.log("argv:", argv);
+        /*
+        argv: {
+            _: [],
+            action: 'create',
+            f: 'myfile.txt',
+            contene: 'asdasd',
+            '$0': 'src\\index.js'
+          }
+        */</pre>
+                        
+                    </li>
+                </ol>
+            
+            </div>
+        </section>
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2><a href="https://www.npmjs.com/package/chalk" target="_blank">chalk</a></h2>
+                <pre>npm i chalk@4.1.2</pre>
+                <p>Кольоровий термінал</p>
+                <p>Приклади:</p>
+                <pre>
+    import chalk from 'chalk';
+    console.log(chalk.blue('Hello world!'));
+    const log = console.log;
+    log(chalk.blue('Hello') + ' World' + chalk.red('!'));
+
+    log(chalk.green(
+        'I am a green line ' +
+        chalk.blue.underline.bold('with a blue substring') +
+        ' that becomes green again!'
+    ));
+                </pre>
             </div>
         </section>
 

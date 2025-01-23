@@ -221,26 +221,26 @@
                     Наприклад, є масив кольорів, з якого потрібно отримати значення кожної складової кольору в окремих змінних
                 </p>
                 <pre>
-                    const rgb = [200, 255, 100];
-                    const [red, green, blue] = rgb;
-                    console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:100"
-                    const [red, green, blue, alfa = 0.3] = rgb;
+    const rgb = [200, 255, 100];
+    const [red, green, blue] = rgb;
+    console.log(`R:${red},G:${green},B:${blue}`); // "R:200,G:255,B:100"
+    const [red, green, blue, alfa = 0.3] = rgb;
                 </pre>
                 <p>
                     Іноді з масиву необхідно деструктуризувати тільки перші N елементів, а інші зберегти в одну змінну у вигляді масиву. 
                     Деструктуруючи масив, можна розпакувати і присвоїти іншу частину елементів масиву змінної, використовуючи операцію ... (rest).
                 </p>
                 <pre>
-                    const rgb = [200, 255, 100];
-                    const [red, ...colors] = rgb;
+    const rgb = [200, 255, 100];
+    const [red, ...colors] = rgb;
                 </pre>
                 <p>
                     Елементи можна пропускати. Припустимо, з масиву rgb необхідно взяти тільки останнє значення. На практиці ця можливість рідко використовується.
                 </p>
                 <pre>
-                    const rgb = [200, 100, 255];
-                    const [, , blue] = rgb;
-                    console.log(`Blue: ${blue}`); // "Blue: 255"
+    const rgb = [200, 100, 255];
+    const [, , blue] = rgb;
+    console.log(`Blue: ${blue}`); // "Blue: 255"
                 </pre>
             </div>
         </section>
@@ -255,19 +255,19 @@
                     роботі з колекцією даних.
                 </p>
                 <pre>
-                    const numbers = [5, 10, 15, 20, 25];
+    const numbers = [5, 10, 15, 20, 25];
 
-                    // Класичний for
-                    for (let i = 0; i / numbers.length; i += 1) {
-                        console.log(`Індекс ${i}, значення ${numbers[i]}`);
-                    }
+    // Класичний for
+    for (let i = 0; i / numbers.length; i += 1) {
+        console.log(`Індекс ${i}, значення ${numbers[i]}`);
+    }
 
-                    // Метод перебирання forEach
-                    numbers.forEach(function (number, index) {
-                        console.log(`Індекс ${index}, значення ${number}`);
-                        arr[index] = number * 2;
-                    });
-                </pre>
+    // Метод перебирання forEach
+    numbers.forEach(function (number, index) {
+        console.log(`Індекс ${index}, значення ${number}`);
+        arr[index] = number * 2;
+    });</pre>
+                
                 <ul>
                     <li>Поелементно перебирає масив.</li>
                     <li>Викликає колбек-функцію для кожного елемента масиву.</li>
@@ -283,10 +283,10 @@
                     В JavaScript є методи масивів, що прийшли з функціональних мов. Більшість з них - це чисті функції. 
                 </p>
                 <pre>
-                    array.method((item, idx, arr) =&gt; {
-                        // логіка, яка буде застосовуватися на кожній ітерації
-                      });
-                </pre>
+    array.method((item, idx, arr) =&gt; {
+        // логіка, яка буде застосовуватися на кожній ітерації
+    });</pre>
+                
                 <p>
                     Всі параметри, крім значення елемента item, - необов'язкові. Назви параметрів можуть бути будь-які, 
                     але є неофіційні домовленості
@@ -294,34 +294,34 @@
 
                 <h3>Метод arr.map(callback)</h3>
                 <pre>
-                    массив.map((element, index, array) =&gt; {
-                        // Тіло колбек-функції
-                      });
-                </pre>
+    массив.map((element, index, array) =&gt; {
+        // Тіло колбек-функції
+    });</pre>
+                
                 <p>
                     Метод map(callback) використовується для трансформації масиву. Він викликає колбек-функцію для 
                     кожного елемента вихідного масиву, а результат її роботи записує у новий масив, який і буде 
                     результатом виконання методу.
                 </p>
                 <pre>
-                const students = [
-                    { name: "Манго", score: 83 },
-                    { name: "Полі", score: 59 },
-                    { name: "Аякс", score: 37 },
-                    { name: "Ківі", score: 94 },
-                    { name: "Х'юстон", score: 64 },
-                ];
+    const students = [
+        { name: "Манго", score: 83 },
+        { name: "Полі", score: 59 },
+        { name: "Аякс", score: 37 },
+        { name: "Ківі", score: 94 },
+        { name: "Х'юстон", score: 64 },
+    ];
 
-                const names = students.map(student =&gt; student.name);
-                console.log(names); // ['Манго', 'Полі', 'Аякс', 'Ківі', 'Х'юстон']
-                </pre>
+    const names = students.map(student =&gt; student.name);
+    console.log(names); // ['Манго', 'Полі', 'Аякс', 'Ківі', 'Х'юстон']</pre>
+                
 
                 <h3>Метод arr.flatMap(callback)</h3>
                 <pre>
-                    массив.flatMap((element, index, array) =&gt; {
-                        // Тіло колбек-функції
-                      });
-                </pre>
+    массив.flatMap((element, index, array) =&gt; {
+        // Тіло колбек-функції
+    });</pre>
+                
                 <p>
                     аналогічний методу map(), але застосовується у випадках, коли результат - 
                     це багатовимірний масив, який необхідно «розгладити».
@@ -333,24 +333,24 @@
                     навіть повторюваних.
                 </p>
                 <pre>
-                    const students = [
-                        { name: "Ivan", courses: ["математика", "фізика"] },
-                        { name: "Kolya", courses: ["інформатика", "математика"] },
-                        { name: "Katya", courses: ["фізика", "біологія"] },
-                    ];
-                    students.map(student =&gt; student.courses);
-                    // [['математика', 'фізика'], ['інформатика', 'математика'], ['фізика', 'біологія']]
+    const students = [
+        { name: "Ivan", courses: ["математика", "фізика"] },
+        { name: "Kolya", courses: ["інформатика", "математика"] },
+        { name: "Katya", courses: ["фізика", "біологія"] },
+    ];
+    students.map(student =&gt; student.courses);
+    // [['математика', 'фізика'], ['інформатика', 'математика'], ['фізика', 'біологія']]
 
-                    students.flatMap(student =&gt; student.courses);
-                    // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
-                </pre>
+    students.flatMap(student =&gt; student.courses);
+    // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];</pre>
+                
 
                 <h3>Метод arr.filter(callback)</h3>
                 <pre>
-                    масив.filter((element, index, array) => {
-                        // Тіло колбек-функції
-                      });
-                </pre>
+    масив.filter((element, index, array) => {
+        // Тіло колбек-функції
+    });</pre>
+                
                 <p>
                     Метод filter використовується для - фільтрації масиву, тобто, коли необхідно вибрати 
                     більше одного елемента з колекції за певним критерієм.
@@ -362,23 +362,21 @@
                     <li>Якщо жоден елемент не задовольнив умову, повертає порожній масив.</li>
                 </ul>
                 <pre>
-                    const values = [51, -3, 27, 21, -68, 42, -37];
-
-                    const positiveValues = values.filter(value => value >= 0);
-                    console.log(positiveValues); // [51, 27, 21, 42]
-                </pre>
+    const values = [51, -3, 27, 21, -68, 42, -37];
+    const positiveValues = values.filter(value => value >= 0);
+    console.log(positiveValues); // [51, 27, 21, 42] </pre>
+               
 
                 <h4>Фільтрація унікальних елементів</h4>
                 <p>
                     Цей прийом працює тільки з масивом примітивних значень - не об'єктів.
                 </p>
                 <pre>
-                    const courses = ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
-
-                    const uniqueCourses = allCourses.filter(
-                        (course, index, array) =&gt; array.indexOf(course) === index
-                    );
-                </pre>
+    const courses = ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
+    const uniqueCourses = allCourses.filter(
+        (course, index, array) =&gt; array.indexOf(course) === index
+    );</pre>
+                
 
                 <h4>Фільтрація масиву об'єктів</h4>
                 <p>
@@ -386,26 +384,26 @@
                     У підсумку, утворюється новий масив відфільтрованих об'єктів.
                 </p>
                 <pre>
-                const LOW_SCORE = 50;
-                const HIGH_SCORE = 80;
-                const students = [
-                    { name: "Манго", score: 83 },
-                    { name: "Полі", score: 59 },
-                    { name: "Аякс", score: 37 },
-                    { name: "Ківі", score: 94 },
-                    { name: "Х'юстон", score: 64 },
-                ];
+    const LOW_SCORE = 50;
+    const HIGH_SCORE = 80;
+    const students = [
+        { name: "Манго", score: 83 },
+        { name: "Полі", score: 59 },
+        { name: "Аякс", score: 37 },
+        { name: "Ківі", score: 94 },
+        { name: "Х'юстон", score: 64 },
+    ];
 
-                const best = students.filter(student =&gt; student.score &gt;= HIGH_SCORE);
-                console.log(best); // Масив об'єктів з іменами Манго і Ківі
-                </pre>
+    const best = students.filter(student =&gt; student.score &gt;= HIGH_SCORE);
+    console.log(best); // Масив об'єктів з іменами Манго і Ківі</pre>
+    
 
                 <h3>Метод arr.find(callback)</h3>
                 <pre>
-                    масив.find((element, index, array) =&gt; {
-                        // Тіло колбек-функції
-                      });
-                </pre>
+    масив.find((element, index, array) =&gt; {
+        // Тіло колбек-функції
+    });</pre>
+                
                 <p>
                     Метод find(callback) дозволяє знайти і повернути перший відповідний елемент, 
                     після чого перебирання масиву припиняється. Не змінює оригінальний масив.
@@ -413,21 +411,21 @@
                 </p>
                
                 <pre>
-                    const colorPickerOptions = [
-                        { label: "red", color: "#F44336" },
-                        { label: "green", color: "#4CAF50" },
-                        { label: "blue", color: "#2196F3" },
-                    ];
-
-                    colorPickerOptions.find(option =&gt; option.label === "blue"); // { label: 'blue', color: '#2196F3' }
-                </pre>
+    const colorPickerOptions = [
+        { label: "red", color: "#F44336" },
+        { label: "green", color: "#4CAF50" },
+        { label: "blue", color: "#2196F3" },
+    ];
+    colorPickerOptions.find(option =&gt; option.label === "blue"); 
+            // { label: 'blue', color: '#2196F3' }</pre>
+                
 
                 <h3>Метод arr.findIndex(callback)</h3>
                 <pre>
-                    масив.findIndex((element, index, array) =&gt; {
-                        // Тіло колбек-функції
-                      });
-                </pre>
+    масив.findIndex((element, index, array) =&gt; {
+        // Тіло колбек-функції
+    });</pre>
+                
                 <p>
                     Метод findIndex(callback) - це сучасна заміна методу indexOf(). Дозволяє виконувати пошук за складнішими умовами, 
                     ніж просто рівність. Використовується як для пошуку у масиві примітивів, так і в масиві об'єктів.
@@ -444,10 +442,10 @@
                     Повертає true або false
                 </p>
                 <pre>
-                    масив.every((element, index, array) =&gt; {
-                        // Тіло колбек-функції
-                      });
-                </pre>
+    масив.every((element, index, array) =&gt; {
+        // Тіло колбек-функції
+    });</pre>
+                
                 <ul>
                     <li>Не змінює оригінальний масив.</li>
                     <li>Повертає true, якщо всі елементи масиву задовольняють умову</li>
@@ -455,9 +453,9 @@
                     <li>Перебирання масиву припиняється, якщо колбек повертає false</li>
                 </ul>
                 <pre>
-                    [1, 2, 3, 4, 5].every(value =&gt; value &gt;= 0); // true
-                    [1, 2, 3, -10, 4, 5].every(value =&gt; value &gt;= 0); // false
-                </pre>
+    [1, 2, 3, 4, 5].every(value =&gt; value &gt;= 0); // true
+    [1, 2, 3, -10, 4, 5].every(value =&gt; value &gt;= 0); // false</pre>
+                
 
                 <h3>Метод arr.some(callback)</h3>
                 <p>
@@ -465,10 +463,10 @@
                     Повертає true або false
                 </p>
                 <pre>
-                    масив.some((element, index, array) =&gt; {
-                        // Тіло колбек-функції
-                      });
-                </pre>
+    масив.some((element, index, array) =&gt; {
+        // Тіло колбек-функції
+    });</pre>
+                
                 <ul>
                     <li>Не змінює оригінальний масив.</li>
                     <li>Повертає true, якщо хоча б один елемент масиву задовольняє умову.</li>
@@ -476,25 +474,25 @@
                     <li>Перебирання масиву припиняється, якщо колбек повертає true</li>
                 </ul>
                 <pre>
-                    [1, 2, 3, 4, 5].some(value =&gt; value &gt;= 0); // true
-                    [1, 2, 3, 4, 5].some(value =&gt; value &lt; 0); // false
+    [1, 2, 3, 4, 5].some(value =&gt; value &gt;= 0); // true
+    [1, 2, 3, 4, 5].some(value =&gt; value &lt; 0); // false
 
-                    const fruits = [
-                        { name: "apples", amount: 100 },
-                        { name: "bananas", amount: 0 },
-                        { name: "grapes", amount: 50 },
-                    ];
+    const fruits = [
+        { name: "apples", amount: 100 },
+        { name: "bananas", amount: 0 },
+        { name: "grapes", amount: 50 },
+    ];
 
-                    const allAvailable = fruits.every(fruit =&gt; fruit.amount &gt; 0); // false
-                    const anyAvailable = fruits.some(fruits =&gt; fruits.amount &gt; 0); // true
+    const allAvailable = fruits.every(fruit =&gt; fruit.amount &gt; 0); // false
+    const anyAvailable = fruits.some(fruits =&gt; fruits.amount &gt; 0); // true
                 </pre>
 
                 <h3>Метод arr.reduce(callback)</h3>
                 <pre>
-                    масив.reduce((previousValue, element, index, array) =&gt; {
-                        // Тіло колбек-функції
-                      }, initialValue);
-                </pre>
+    масив.reduce((previousValue, element, index, array) =&gt; {
+        // Тіло колбек-функції
+    }, initialValue);</pre>
+                
                 <p>
                     Метод reduce(callback, initialValue) використовується для послідовної обробки кожного 
                     елемента масиву із збереженням проміжного результату, як акумулятор.
@@ -506,12 +504,11 @@
                 </ul>
                 <h4>прикладі підрахунку суми елементів масиву</h4>
                 <pre>
-                    const total = [2, 7, 3, 14, 6].reduce((previousValue, number) =&gt; {
-                        return previousValue + number;
-                      }, 0);
-                      
-                      console.log(total); // 32
-                </pre>
+    const total = [2, 7, 3, 14, 6].reduce((previousValue, number) =&gt; {
+        return previousValue + number;
+    }, 0);   
+    console.log(total); // 32</pre>
+                
                 <p>
                     Другим аргументом для reduce() можна передати необов'язкове початкове значення акумулятора - 
                     параметр initialValue.
@@ -519,93 +516,92 @@
 
                 <h4>Задача 1. Необхідно отримати середній бал</h4>
                 <pre>
-                    const students_4 = [
-                        { name: "Манго", score: 83 },
-                        { name: "Полі", score: 59 },
-                        { name: "Аякс", score: 60 },
-                    ];
+    const students_4 = [
+        { name: "Манго", score: 83 },
+        { name: "Полі", score: 59 },
+        { name: "Аякс", score: 60 },
+    ];
 
-                    const totalScore = students_4.reduce((acum, student)=&gt; {
-                        return acum + student.score;
-                    }, 0);
+    const totalScore = students_4.reduce((acum, student)=&gt; {
+        return acum + student.score;
+    }, 0);
 
-                    const averScore = totalScore / students_4.length;
-                </pre>
+    const averScore = totalScore / students_4.length;</pre>
+                
 
                 <h4>Задача 2.</h4>
                 <p>
                     з масиву постів твіттера окремого користувача необхідно порахувати суму усіх лайків
                 </p>
                 <pre>
-                const tweets = [
-                    { id: "000", likes: 5, tags: ["js", "nodejs"] },
-                    { id: "001", likes: 2, tags: ["html", "css"] },
-                    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
-                    { id: "003", likes: 8, tags: ["css", "react"] },
-                    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
-                ];
-                const likes = tweets.reduce((totalLikes, tweet) =&gt; totalLikes + tweet.likes, 0);
-                //напишемо функцію
-                const countLikes = tweets => {
-                    return tweets.reduce((totalLikes, tweet) =&gt; totalLikes + tweet.likes, 0);
-                };
-                console.log(countLikes(tweets)); // 32
-                </pre>
+    const tweets = [
+        { id: "000", likes: 5, tags: ["js", "nodejs"] },
+        { id: "001", likes: 2, tags: ["html", "css"] },
+        { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+        { id: "003", likes: 8, tags: ["css", "react"] },
+        { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+    ];
+    const likes = tweets.reduce((totalLikes, tweet) =&gt; totalLikes + tweet.likes, 0);
+    //напишемо функцію
+    const countLikes = tweets => {
+        return tweets.reduce((totalLikes, tweet) =&gt; totalLikes + tweet.likes, 0);
+    };
+    console.log(countLikes(tweets)); // 32</pre>
+                
 
                 <h4>Задача 3.</h4>
                 <p>зберемо в масив усі теги, які зустрічаються в постах.</p>
                 <pre>
-                    const tags = tweets.reduce((allTags, tweet) =&gt; {
-                        allTags.push(...tweet.tags); 
+    const tags = tweets.reduce((allTags, tweet) =&gt; {
+        allTags.push(...tweet.tags); 
                           
-                        return allTags;
-                      }, []);
+        return allTags;
+      }, []);
                       
-                      console.log(tags);
+      console.log(tags);
 
-                    // напишемо функцію
-                    const getTags = tweets =>
-                      tweets.reduce((allTags, tweet) =&gt; {
-                        allTags.push(...tweet.tags);
+    // напишемо функцію
+    const getTags = tweets =>
+      tweets.reduce((allTags, tweet) =&gt; {
+        allTags.push(...tweet.tags);
 
-                        return allTags;
-                      }, []);
+        return allTags;
+      }, []);
                     
-                    console.log(getTags(tweets));
-                </pre>
+    console.log(getTags(tweets));</pre>
+                
                 <h4>порахувати кількість унікальних тегів в масиві.</h4>
                 <pre>
-                    const getTags = tweets =&gt;
-                    tweets.reduce((allTags, tweet) =&gt; {
-                        allTags.push(...tweet.tags);
+    const getTags = tweets =&gt;
+    tweets.reduce((allTags, tweet) =&gt; {
+        allTags.push(...tweet.tags);
 
-                        return allTags;
-                    }, []);
+        return allTags;
+    }, []);
 
-                    const tags = getTags(tweets);
+    const tags = getTags(tweets);
 
-                    // Винесемо callback-функцію окремо, а в reducе передамо посилання на неї.
-                    // Це стандартна практика, якщо callback-функція досить велика.
+    // Винесемо callback-функцію окремо, а в reducе передамо посилання на неї.
+    // Це стандартна практика, якщо callback-функція досить велика.
 
-                    // Якщо в об'єкті-акумуляторі acc відсутня своя властивість з ключем tag,
-                    // то створюємо її і записуємо їй значення 0.
-                    // В іншому випадку збільшуємо значення на 1.
-                    const getTagStats = (acc, tag) =&gt; {
-                        if (!acc.hasOwnProperty(tag)) {
-                            acc[tag] = 0;
-                        }
+    // Якщо в об'єкті-акумуляторі acc відсутня своя властивість з ключем tag,
+    // то створюємо її і записуємо їй значення 0.
+    // В іншому випадку збільшуємо значення на 1.
+    const getTagStats = (acc, tag) =&gt; {
+        if (!acc.hasOwnProperty(tag)) {
+            acc[tag] = 0;
+        }
+        acc[tag] += 1;
 
-                        acc[tag] += 1;
+        return acc;
+    };
 
-                        return acc;
-                    };
+    // Початкове значення акумулятора - це порожній об'єкт {}
+    const countTags = tags =&gt; tags.reduce(getTagStats, {});
 
-                    // Початкове значення акумулятора - це порожній об'єкт {}
-                    const countTags = tags =&gt; tags.reduce(getTagStats, {});
-
-                    const tagCount = countTags(tags);
-                    console.log(tagCount);
-                </pre>
+    const tagCount = countTags(tags);
+    console.log(tagCount);</pre>
+                
 
                 <h3>Метод arr.sort(callback)</h3>
                 <ul>
@@ -616,24 +612,24 @@
                     <li>стандартне сортування чисел працює незвично</li>
                 </ul>
                 <pre>
-                    const scores = [27, 2, 41, 4, 7, 3, 75];
-                    scores.sort();
-                    console.log(scores); // [2, 27, 3, 4, 41, 7, 75]
-                </pre>
+    const scores = [27, 2, 41, 4, 7, 3, 75];
+    scores.sort();
+    console.log(scores); // [2, 27, 3, 4, 41, 7, 75]</pre>
+                
                 <p>
                     Масив рядків сортується за алфавітом.
                 </p>
                 <pre>
-            const students = ["Віка", "Андрій", "Олег", "Юля", "Борис", "Катя"];
-            students.sort();
-            console.log(students); // [ 'Андрій', 'Борис', 'Віка', 'Катя', 'Олег', 'Юля' ]
+const students = ["Віка", "Андрій", "Олег", "Юля", "Борис", "Катя"];
+students.sort();
+console.log(students); // [ 'Андрій', 'Борис', 'Віка', 'Катя', 'Олег', 'Юля' ]
                 </pre>
                 <p>Водночас порядковий номер великих літер менший, ніж у малих.</p>
                 <pre>
-                const letters = ["b", "B", "a", "A", "c", "C"];
-                letters.sort();
-                console.log(letters); // ['A', 'B', 'C', 'a', 'b', 'c']
-                </pre>
+const letters = ["b", "B", "a", "A", "c", "C"];
+letters.sort();
+console.log(letters); // ['A', 'B', 'C', 'a', 'b', 'c']</pre>
+                
 
                 <p>
                     Через те, що сортується вихідний масив, порушується принцип чистоти функцій і не можна 
@@ -642,66 +638,64 @@
                     роблять повну копію вихідного масиву і сортують вже її.
                 </p>
                 <pre>
-                const scores = [61, 19, 74, 35, 92, 56];
-                const ascendingScores = [...scores].sort();
-
-                console.log(scores); // [61, 19, 74, 35, 92, 56]
-                console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
-                </pre>
+const scores = [61, 19, 74, 35, 92, 56];
+const ascendingScores = [...scores].sort();
+console.log(scores); // [61, 19, 74, 35, 92, 56]
+console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]</pre>
+                
 
                 <h4>Свій порядок сортування чисел</h4>
                 <pre>
-                    массив.sort((a, b) =&gt; {
-                        // Тіло колбек-функції
-                      });
-                      a - перший елемент для порівняння.
-                      b - другий елемент для порівняння.
-                </pre>
+    массив.sort((a, b) =&gt; {
+        // Тіло колбек-функції
+      });
+      a - перший елемент для порівняння.
+      b - другий елемент для порівняння.</pre>
+                
                 <p>
                     Якщо виклик compareFunction(a, b) повертає будь-яке від'ємне значення, тобто a менше b, сортування поставить a перед b. 
                     Це сортування за зростанням.
                 </p>
 
                 <pre>
-                    const scores = [61, 19, 74, 35, 92, 56];
-                    const ascendingScores = [...scores].sort((a, b) => a - b);
-                    console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
-                </pre>
+    const scores = [61, 19, 74, 35, 92, 56];
+    const ascendingScores = [...scores].sort((a, b) => a - b);
+    console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]</pre>
+                
 
                 <p>
                     Якщо виклик compareFunction(a, b) повертає будь-яке додатне значення більше нуля, тобто b більше a, сортування поставить b перед a. 
                     Це сортування за спаданням.
                 </p>
                 <pre>
-                    const scores = [61, 19, 74, 35, 92, 56];
-                    const descendingScores = [...scores].sort((a, b) => b - a);
-                    console.log(descendingScores); // [92, 74, 61, 56, 35, 19]
-                </pre>
+    const scores = [61, 19, 74, 35, 92, 56];
+    const descendingScores = [...scores].sort((a, b) => b - a);
+    console.log(descendingScores); // [92, 74, 61, 56, 35, 19]</pre>
+                
 
                 <h4>Свій порядок сортування рядків</h4>
                 <p>
                     Для сортування рядків в алфавітному порядку, за зростанням або спаданням, використовується метод рядків localeCompare().
                 </p>
                 <pre>
-                    firstString.localeCompare(secondString)
-                </pre>
+    firstString.localeCompare(secondString)</pre>
+                
                 <p>
                     Він викликається на рядку, який потрібно порівняти (firstString) з тим, що був переданий йому як аргумент (secondString).
                 </p>
                 <pre>
-                    "a".localeCompare("b"); // -1
-                    "b".localeCompare("a"); // 1
-                    "a".localeCompare("a"); // 0
-                    "b".localeCompare("b"); // 0
-                </pre>
+    "a".localeCompare("b"); // -1
+    "b".localeCompare("a"); // 1
+    "a".localeCompare("a"); // 0
+    "b".localeCompare("b"); // 0</pre>
+                
+                <br>
                 <pre>
-            const students = ["Віка", "Андрій", "Олег", "Юля", "Борис", "Катя"];
-
-            const inAlphabetOrder = [...students].sort((a, b) => a.localeCompare(b));
-            console.log(inAlphabetOrder); // ['Андрій', 'Борис', 'Віка', 'Катя', 'Олег', 'Юля']
-
-            const inReversedOrder = [...students].sort((a, b) => b.localeCompare(a));
-            console.log(inReversedOrder); // ['Юля', 'Олег', 'Катя', 'Віка', 'Борис', 'Андрій']
+const students = ["Віка", "Андрій", "Олег", "Юля", "Борис", "Катя"];
+const inAlphabetOrder = [...students].sort((a, b) => a.localeCompare(b));
+console.log(inAlphabetOrder); // ['Андрій', 'Борис', 'Віка', 'Катя', 'Олег', 'Юля']
+const inReversedOrder = [...students].sort((a, b) => b.localeCompare(a));
+console.log(inReversedOrder); // ['Юля', 'Олег', 'Катя', 'Віка', 'Борис', 'Андрій']
                 </pre>
 
                 <h4>Сортування об'єктів</h4>
@@ -712,34 +706,34 @@
                     спаданням кількості балів, і за ім'ям студента.
                 </p>
                 <pre>
-            const students = [
-                { name: "Манго", score: 83 },
-                { name: "Полі", score: 59 },
-                { name: "Аякс", score: 37 },
-                { name: "Ківі", score: 94 },
-            ];
+const students = [
+    { name: "Манго", score: 83 },
+    { name: "Полі", score: 59 },
+    { name: "Аякс", score: 37 },
+    { name: "Ківі", score: 94 },
+];
 
-            const inAscendingScoreOrder = students.sort(
-                (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
-            );
+const inAscendingScoreOrder = students.sort(
+    (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
+);
 
-            const inDescendingScoreOrder = students.sort(
-                (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
-            );
+const inDescendingScoreOrder = students.sort(
+    (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
+);
 
-            const inAlphabeticalOrder = students.sort((firstStudent, secondStudent) =>
-                firstStudent.name.localeCompare(secondStudent.name)
-            );
-                </pre>
+const inAlphabeticalOrder = students.sort((firstStudent, secondStudent) =>
+    firstStudent.name.localeCompare(secondStudent.name)
+);</pre>
+                
 
                 <h3>Ланцюжки методів</h3>
                 <pre>
-                const names = [...students]
-                .sort((a, b) => a.score - b.score)
-                .map(student => student.name);
+const names = [...students]
+    .sort((a, b) => a.score - b.score)
+    .map(student => student.name);
 
-                console.log(names); // ['Аякс', 'Полі', 'Манго', 'Ківі']
-                </pre>
+console.log(names); // ['Аякс', 'Полі', 'Манго', 'Ківі']</pre>
+                
             </div>
         </section>
 

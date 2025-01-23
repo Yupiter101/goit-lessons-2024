@@ -129,6 +129,9 @@
             </div>
         </section>
 
+
+
+
         <section class="section-about">
             <div class="container">
                 <h2>Commander</h2>
@@ -149,20 +152,31 @@
     invoActions(options).catch(err => console.error(err));
                 </pre>
                 <p></p>
-
             </div>
         </section>
+
+
+
 
         <section class="section-about">
             <div class="container">
                 <h2>yargs</h2>
+                <pre>npm i yargs</pre>
                 <p>Те саме робить що і Commander</p>
+                
             </div>
         </section>
+
+
+
+
+
+
 
         <section class="section-about">
             <div class="container">
                 <h2>Консольна гра</h2>
+                
                 <p>
                     Напишемо застосунок – «Вгадай число», де необхідно вгадати задумане програмою 
                     число від 1 до 10 та програма в кінці виведе, за скільки спроб нам це вдалося.
@@ -178,15 +192,15 @@
     const { program } = require('commander');
     require('colors');
     program.option(
-     '-f, --file [type]',
-     'file for saving game results',
-     'results.txt',
+         '-f, --file [type]',
+         'file for saving game results',
+         'results.txt',
     );
     program.parse(process.argv);
 
     const rl = readline.createInterface({
-     input: process.stdin,
-     output: process.stdout,
+         input: process.stdin,
+         output: process.stdout,
     });
 
     let count = 0;
@@ -246,8 +260,8 @@
                 <pre>
     const readline = require('readline');
     const rl = readline.createInterface({
-    input: process.stdin, // введення зі стандартного потоку
-    output: process.stdout, // виведення у стандартний потік
+        input: process.stdin, // введення зі стандартного потоку
+        output: process.stdout, // виведення у стандартний потік
     });</pre>
                 
 
@@ -259,8 +273,8 @@
                 </p>
                 <pre>
     rl.on('line', cmd => {
-         console.log(`You just typed: ${cmd}`);
-        });</pre>
+        console.log(`You just typed: ${cmd}`);
+    });</pre>
                         
                 <p>
                     Але нас більше цікавить можливість поставити користувачеві питання та отримати на нього відповідь, 
@@ -268,8 +282,8 @@
                 </p>
                 <pre>
     rl.question('Як вас звати?', answer => {
-         console.log(`Приємно познайомитися ${answer}`);
-        });</pre>
+        console.log(`Приємно познайомитися ${answer}`);
+    });</pre>
                 
                 <p>
                     Також за якоїсь тривалої операції ми можемо поставити розмову 
@@ -291,9 +305,9 @@
                 <pre>
     const { program } = require('commander');
     program.option(
-     '-f, --file [type]',
-     'file for saving game results',
-     'results.txt',
+        '-f, --file [type]',
+        'file for saving game results',
+        'results.txt',
     );
     program.parse(process.argv);</pre>
 
