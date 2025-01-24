@@ -49,11 +49,14 @@
                     <li>Варіант 1. Через колбеки</li>
                     <li>Варіант 2. Через проміси</li>
                     <li>Варіант 3. Через проміси async/await</li>
-                    <li>Видалення файлу</li>
+                    <li>Перейменування файлу</li>
+                    <li><a href="#fs-del-f">Видалення файлу</a></li>
                     <li>Створення папки</li>
                     <li>Видалення папки</li>
-                    <li>scaning folder</li>
-                    <li>Функція що створює 10 файлів <b>gpt chat</b></li>
+                    <li><a href="#fs-scan">scaning folder</a></li>
+                    <li><a href="#gbt-create">Функція що створює 10 файлів</a> <b>gpt chat</b></li>
+                    <li>ISON - примітки</li>
+                    <li><a href="#fs-csv">Робота з CSV файлами</a></li>
                 </ol>
             </div>
         </section>
@@ -71,12 +74,12 @@
                     <li>Масив файлів у папці - <code>fs.readdir(path.join(__dirname, "/files"))</code></li>
                     
                 </ol>
-                <ul>
+                <ol>
                     <li><code>const path = require("path");</code> – статичний шлях</li>
                     <li><code>path.join(__dirname, "files/file.txt");</code></li>
                     <li><a href="https://nodejs.org/api/path.html#pathextnamepath" target="_blank">path.extname(path)</a> розширення файлу</li>
                     <li><a href="https://nodejs.org/api/path.html#pathbasenamepath-suffix" target="_blank">path.basename(path[, suffix])</a></li>
-                </ul>
+                </ol>
             </div>
         </section>
 
@@ -213,10 +216,37 @@
         </section>
 
 
+          <!-- Перейменування файлу -->
+          <section class="section-about">
+            <div class="container">
+                <h2>Перейменування файлу</h2>
+                <pre>
+    async function renameFile() {
+        try{
+            await fs.rename("./files/file6.txt", "./files/file7.txt");
+            console.log("Rename cuccesful!");
+        }
+        catch {
+            throw err;
+        }
+    }
+    renameFile();</pre>
+                <p>or</p>
+                <pre>
+    async function renameFile() {
+        await fs.rename("./files/file6.txt", "./files/file7.txt");
+        console.log("Rename cuccesful!");
+    }
+    renameFile();</pre>
+                
+            </div>
+        </section>
+
+
         <!-- Видалення файлу -->
         <section class="section-about">
             <div class="container">
-                <h2>Видалення файлу</h2>
+                <h2 id="fs-del-f">Видалення файлу</h2>
                 <h4>V1</h4>
                 <pre>
     fs.unlink("./files/file5.txt")
@@ -249,33 +279,6 @@
             </div>
         </section>
 
-
-
-        <!-- Перейменування файлу -->
-        <section class="section-about">
-            <div class="container">
-                <h2>Перейменування файлу</h2>
-                <pre>
-    async function renameFile() {
-        try{
-            await fs.rename("./files/file6.txt", "./files/file7.txt");
-            console.log("Rename cuccesful!");
-        }
-        catch {
-            throw err;
-        }
-    }
-    renameFile();</pre>
-                <p>or</p>
-                <pre>
-    async function renameFile() {
-        await fs.rename("./files/file6.txt", "./files/file7.txt");
-        console.log("Rename cuccesful!");
-    }
-    renameFile();</pre>
-                
-            </div>
-        </section>
 
 
 
@@ -313,7 +316,7 @@
         <!-- scaning folder -->
         <section class="section-about">
             <div class="container">
-                <h2>scaning folder</h2>
+                <h2 id="fs-scan">scaning folder</h2>
 
                 <p>Нижче функця робить масив файлів у папці</p>
                 <pre>
@@ -355,7 +358,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Функція що створює 10 файлів <b>gpt chat</b></h2> 
+                <h2 id="gbt-create">Функція що створює 10 файлів <b>gpt chat</b></h2> 
                 <pre>
     const fs = require('fs');
     const path = require('path');
@@ -376,6 +379,93 @@
     }
 createFiles(); </pre>
                 
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>ISON - примітки</h2>
+                <p>Перевіряємо JSON дані на <a href="https://jsonformatter.curiousconcept.com/" target="_blank">валідаторі</a></p>
+                
+                <h4>Один з варіантів запису JSON файлу:</h4>
+                <pre>
+    fs.writeFile("file.json", JSON.stringify(data), (err)=> {
+        if(err) console.log(err);
+    });
+                </pre>
+                <h4>Читаємо JSON файл. Варіант 1</h4>
+                <pre>fs.readFile("path", "utf-8", callback);</pre>
+
+                <h4>Читаємо JSON файл. Варіант 2</h4>
+                <pre>const jsonData = require("./path/file.json")</pre>
+                <p>Якщо в шляху не вказати "./" то воно буде шукати в папці "node_modules"</p>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2 id="fs-csv">Робота з CSV файлами</h2>
+                <p>В такому файлі дані зберігаються структуровано та розділяються якимось символом</p>
+                <h3>Зчитаємо csv файл</h3>
+                <ol>
+                    <li><a href="https://www.npmjs.com/package/csv-parser" target="_blank">npm install csv-parser</a></li>
+                    <li>or: yarn add csv-parser</li>
+                    <li>example:</li>
+                    <li>
+                        <pre>
+    const csv = require('csv-parser');
+    const fs = require('fs');
+    const results = [];
+    
+    const path = require("path");
+    const pathFileCsv = path.join(__dirname, "fileFolder", "made.csv");
+    
+    // === Прочитать csv файл ====
+    fs.createReadStream(pathFileCsv)
+        .pipe(csv()) // Параметри розделителя. (запятая)
+        .on('data', (data) => results.push(data))
+        .on('end', () => {
+            console.log(results);
+    });
+                        </pre>
+                    </li>
+                </ol>
+
+                <h3>Записати csv файл</h3>
+                <ol>
+                    <li><a href="https://www.npmjs.com/package/csv-writer" target="_blank">npm i csv-writer</a></li>
+                    <li>example:</li>
+                    <li>
+                        <pre>
+    const students = [
+        {user: "Petr", age: "34", range: 10},
+        {user: "Pit", age: "14", range: 3},
+        {user: "Bred", age: "44", range: 20},
+        {user: "Serg", age: "46", range: 55},
+    ];
+
+    const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+
+    const csvWriter = createCsvWriter({
+        path: './src/fileFolder/file.csv',
+        header: [
+            {id: 'user', title: 'User'},
+            {id: 'age', title: 'Age'},
+            {id: 'range', title: 'Range'}
+        ]
+    });
+
+    csvWriter.writeRecords(students)       // returns a promise
+        .then(() => {
+            console.log('...Done');
+        });</pre>
+
+                        
+                    </li>
+                </ol>
+
             </div>
         </section>
 
