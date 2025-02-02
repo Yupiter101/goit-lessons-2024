@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+    <link rel="stylesheet" href="../../css/style-video.css">
+</head>
+
+<body>
+    <header>
+        <div><a class="fixed-back" href="../js-practic.html">Back to JS</a>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>Audio</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Аудио. Заметки</li>
+                    <li>Джерела</li>
+                    <li>Аудио Player</li>
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Аудио. Заметки</h2>
+                  <ol>
+                    <li>HTML</li>
+                    <li><code>&lt;audio class="my-audio" src="./sounds/music1.ogg" controls&gt;&lt;/audio&gt;</code></li>
+                    <li>JS</li>
+                    <li><code>const playBtn = document.querySelector("#play");</code></li>
+                    <li>Play: <code>myPlayer.play();</code></li>
+                    <li>Pause: <code>myPlayer.pause();</code></li>
+                    <li>Stop: <code>myPlayer.pause(); myPlayer.currentTime = 0;</code></li>
+                    <li>Duration: <code>myPlayer.duration</code> seconds</li>
+                    <li>Volume: <code>myPlayer.volume</code> 0.0 - 1.0</li>
+                    <li><code>soundCrash.addEventListener("playing", ()=> console.log("Audio started"));</code></li>
+                    <li><code>soundCrash.addEventListener("ended", ()=> console.log("Audio stoped"));</code></li>
+                    <li>
+                      <a href="https://www.youtube.com/watch?v=D4xqV7VrXNI&ab_channel=%D0%9C%D0%B0%D0%BD%D1%96%D0%B2%D1%86%D0%B5%D0%BC">
+                      Посилання на ресурс
+                      </a>
+                    </li>
+                  </ol>
+                  <pre>
+    myPlayer.addEventListener("timeupdate", onUpdateTime);
+    function onUpdateTime(event) {//
+      const { duration, currentTime } = event.srcElement;
+      console.log(duration, currentTime );}</pre>
+
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Джерела</h2>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=VXWvfrmpapI&list=PLYElE_rzEw_sHeIIv7BMliQF5zB7BliJE&ab_channel=Frankslaboratory" 
+                      target="_blank">www.youtube.com</a></li>
+                    <li><a href="https://opengameart.org/" target="_blank">https://opengameart</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Аудио Player</h2>
+
+                <div id="player-container">
+                    <audio class="my-audio" controls>
+                      <source src="../../sounds/music1.ogg" type="audio/ogg">
+                      <source src="../../sounds/music1.wav" type="audio/wav">
+                    </audio>
+                </div>
+    
+                <button type="button" id="play">Play</button>
+                <button type="button" id="pause">Pause</button>
+                <button type="button" id="stop">Stop</button>
+                <br>
+                <pre>
+    <b>Атрибути:</b>
+    controls 
+    autoplay 
+    loop</pre>
+                
+                
+                <h4>Шмат коду для керування:</h4>
+                <pre>
+    const playBtn = document.querySelector("#play");
+
+    playBtn.addEventListener("click", onPlay);
+        f onPlay:
+    myPlayer.play();
+    console.log(myPlayer.duration);
+    console.log(myPlayer.volume);
+    myPlayer.pause();
+    myPlayer.currentTime = 0;
+
+    const myPlayer = document.querySelector(".my-audio"); // Player
+    
+    myPlayer.addEventListener("timeupdate", onUpdateTime);
+    function onUpdateTime(event) {
+        const { duration, currentTime } = event.srcElement;
+        console.log(duration, currentTime );
+
+    }
+
+    addEventListener("playing", ()=> console.log("Audio started"));
+    addEventListener("ended", ()=> console.log("Audio stoped"));</pre>
+    
+                <p></p>
+              </div>
+            </div>
+        </section>
+        
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+</body>
+</html>

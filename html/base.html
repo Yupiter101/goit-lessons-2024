@@ -15,7 +15,7 @@
   <body>
     <header>
         <div>
-          <a href="/">Home</a>
+          <a href="../index.html">Home</a>
           <a href="../html/js-practic.html">JS-practic</a>
           <!-- <a href="../index.html">Back to main page</a> -->
           <!-- <a  class="fixed-back" href="../index.html">Back to main page</a> -->
@@ -35,12 +35,12 @@
         <div class="container">
           <h2>Зміст</h2>
           <ol>
-            <li>Teg <b>"a"</b> - Посилання</li>
-            <li>Teg <b>"a"</b> - Download</li>
-            <li>Teg <b>"img"</b> - Картинка</li>
+            <li>Teg <b>"a"</b> - Посилання/Download</li>
+            <li>Teg <b>"img"</b> - Картинка/ Картинка-Посилання</li>
             <li>Якір</li>
             <li>Button</li>
-            <li>Таблиці</li>
+            <li><a href="#tablet">Таблиці</a></li>
+            <li>Таблиця 4. Скачена з інету</li>
             <li><a href="#work-text">Текстова розмітка</a>(<code>span, pre, sub, sub, symbols</code>) (детально в CSS-base)</li>
             <li>ВІДЕО</li>
             <li>AUDIO</li>
@@ -48,9 +48,11 @@
           </ol>
         </div>
       </section>
-        
-      <section class="section-hero">
+
+
+      <section class="section-about">
         <div class="container">
+          <h2>Teg <b>"a"</b> - Посилання/Download</h2>
           <ul>
             <li>
               <h3>Teg <b>"a"</b> - Посилання</h3>
@@ -68,7 +70,15 @@
               <br>
               <a href="../img/dc_dc.jpg" download="my-Dc">Download new name my-Dc</a> 
             </li>
+          </ul>
+        </div>
+      </section>
 
+
+      <section class="section-about">
+        <div class="container">
+          <h2>Teg <b>"img"</b> - Картинка/ Картинка-Посилання</h2>
+          <ul>
             <li>
               <h3>Teg <b>"img"</b> - Картинка</h3>
               <p><code>img src="https://imgd.a..." alt="car" height = "" width = ""</code></p>
@@ -92,165 +102,228 @@
                 <figcaption>Підпис dc-dc step down</figcaption>
               </figure>
             </li>
-
-            <li>
-              <h3>Якір</h3>
-              <ul>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#features">Features</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <h3>Button</h3>
-              <button type="button">Відкрити модальне вікно</button>
-            </li>
-
-            <li>
-              <h3>Таблиці</h3>
-              <p>table - визначає всю таблицю. tr - рядок. td - клітинка.</p>
-              <h4>Tаблиця Screen</h4>
-              <img src="../img/Tabl.jpg" alt="jpg" height="120"/>
-              <h4>Моя створена таблиця 1</h4>
-              <table>
-                <tr>
-                  <td>433</td>
-                  <td>Київ - Ковель</td>
-                  <td>5 годин</td>
-                </tr>
-                <tr>
-                  <td>701</td>
-                  <td>Харків - Дніпро</td>
-                  <td>7 годин</td>
-                </tr>
-                <tr>
-                  <td>258</td>
-                  <td>Львів - Одеса</td>
-                  <td>4 години</td>
-                </tr>
-              </table>
-              <h4>Моя створена таблиця 2</h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Номер</th>
-                    <th>Маршрут</th>
-                    <th>Час у дорозі</th>
-                  </tr>
-                </thead>
-                    
-                <tbody>
-                  <tr>
-                    <td>433</td>
-                    <td>Київ - Ковель</td>
-                    <td>5 годин</td>
-                  </tr>
-                  <tr>
-                    <td>701</td>
-                    <td>Харків - Дніпро</td>
-                    <td>7 годин</td>
-                  </tr>
-                  <tr>
-                    <td>258</td>
-                    <td>Львів - Одеса</td>
-                    <td>4 годин</td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <h4>Моя створена таблиця 3</h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th rowspan="2">Cloud service</th>
-                    <th colspan="3">Statistics</th>
-                  </tr>
-                  <tr>
-                    <th>Users</th>
-                    <th>Visits</th>
-                    <th>Volume</th>
-                  </tr>
-                </thead>
-                      
-                <tbody>
-                  <tr>
-                    <td>Google</td>
-                    <td>12000</td>
-                    <td>307000</td>
-                    <td>1000 Tb</td>
-                  </tr>
-                  <tr>
-                    <td>Amazon</td>
-                    <td>9000</td>
-                    <td>200500</td>
-                    <td>800 Tb</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p>Увага! Відображення рамки робиться у css!</p>
-            </li>
           </ul>
-
-          <ul>
-            <li>
-              <h3 id="work-text">Текстова розмітка (детально в CSS-base)</h3>
-              <ul>
-                <li>span</li>
-                <li>pre - перенос вірші</li>
-                <li>sub H<sub>2</sub>O</li>
-                <li>sup 150м<sup>2</sup></li>
-                <li><a href="https://www.toptal.com/designers/htmlarrows/symbols/degree-celsius" 
-                    target="_blank" rel="noopener noreferrer">Symbol html</a> (&#8451;)</li>
-                <li>
-                  <b>time</b>  datetime="2019-12-14T11:30" time Новини на <time datetime="2019-12-14T11:30">11:30 14 грудня 2019 року</time></li>
-                <li>adress
-                    <address>
-                        <a href="mailto:mango@mail.pig">mango@mail.pig</a>
-                        <a href="tel:+1112223344">(111) 222-33-44</a>
-                    </address>
-                </li>
-                <li>Символьні підстановки &copy; &#169; &#xa9; &lt;strong&gt; &#64; &#8451; </li>
-                <li><a href="https://www.toptal.com/designers/htmlarrows/symbols/" target="_blank">SIMBOLS</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <h3>ВІДЕО</h3>
-              <video
-                  poster="https://images.pexels.com/photos/595804/pexels-photo-595804.jpeg?w=240"
-                  width="240"
-                  controls
-                  >
-                  <source
-                      src="http://techslides.com/demos/sample-videos/small.webm"
-                      type="video/webm"
-                  />
-                  <source
-                      src="http://techslides.com/demos/sample-videos/small.mp4"
-                      type="video/mp4"
-                  />
-                  <source
-                      src="http://techslides.com/demos/sample-videos/small.ogg"
-                      type="video/ogg"
-                  />
-              </video>
-            </li>
-          </ul>
-          <h4>Підтримка браузерів</h4>
-          <img src="../img/ScreenVid.jpg" alt="screen code" width="480">
         </div>
       </section>
 
+
+      <section class="section-about">
+        <div class="container">
+          <h2>Якір</h2>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+        </ul>
+        </div>
+      </section>
+
+
+      <section class="section-about">
+        <div class="container">
+          <h2>Button</h2>
+          <ul>
+            <button type="button">Відкрити модальне вікно</button>
+          </ul>
+        </div>
+      </section>
+
+
+
+
+        
+      <section class="section-about">
+        <div class="container">
+          <h2 id="tablet">Таблиці</h2>
+
+          <p>table - визначає всю таблицю. tr - рядок. td - клітинка.</p>
+
+          <h3>Tаблиця Screen</h3>
+          <img src="../img/Tabl.jpg" alt="jpg" height="120"/>
+
+          <h4>Таблиця 1</h4>
+          <table>
+            <tr>
+              <td>433</td>
+              <td>Київ - Ковель</td>
+              <td>5 годин</td>
+            </tr>
+            <tr>
+              <td>701</td>
+              <td>Харків - Дніпро</td>
+              <td>7 годин</td>
+            </tr>
+            <tr>
+              <td>258</td>
+              <td>Львів - Одеса</td>
+              <td>4 години</td>
+            </tr>
+          </table>
+
+          <h3>Таблиця 2</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Номер</th>
+                <th>Маршрут</th>
+                <th>Час у дорозі</th>
+              </tr>
+            </thead> 
+            <tbody>
+              <tr>
+                <td>433</td>
+                <td>Київ - Ковель</td>
+                <td>5 годин</td>
+              </tr>
+              <tr>
+                <td>701</td>
+                <td>Харків - Дніпро</td>
+                <td>7 годин</td>
+              </tr>
+              <tr>
+                <td>258</td>
+                <td>Львів - Одеса</td>
+                <td>4 годин</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Таблиця 3</h3>
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2">Cloud service</th>
+                <th colspan="3">Statistics</th>
+              </tr>
+              <tr>
+                <th>Users</th>
+                <th>Visits</th>
+                <th>Volume</th>
+              </tr>
+            </thead>          
+            <tbody>
+              <tr>
+                <td>Google</td>
+                <td>12000</td>
+                <td>307000</td>
+                <td>1000 Tb</td>
+              </tr>
+              <tr>
+                <td>Amazon</td>
+                <td>9000</td>
+                <td>200500</td>
+                <td>800 Tb</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Увага! Відображення рамки робиться у css!</p> 
+        </div>
+      </section>
+
+      <section class="section-about">
+        <div class="container">
+          <h2>Таблиця 4. Скачена з інету</h2>
+
+          <table border="5" bordercolor="red" align="center">
+            <tr>
+                <th colspan="3">ABCD</th> 
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Photo</th>
+            </tr>
+            <tr>
+                <td>Bugatti Veyron Super Sport</td>
+                <td>Molsheim, Alsace, France</td>
+                <td><img src="../img/dc_dc.jpg" alt="dfg" border=3 height=40 width=60></img></td>
+            </tr>
+            <tr>
+                <td>SSC Ultimate Aero TT  TopSpeed</td>
+                <td>United States</td>
+                <td border=3 height=40 width=100>Photo1</td>
+            </tr>
+            <tr>
+                <td>Koenigsegg CCX</td>
+                <td>Ängelholm, Sweden</td>
+                <td border=4 height=40 width=300>Photo1</td>
+            </tr>
+            <tr>
+                <td> Pagani Zonda F Clubsport</td>
+                <td>Modena, Italy</td>
+                <td height=40 width=100>Photo1</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+
+      <section class="section-about">
+        <div class="container">
+          <h2 id="work-text">Текстова розмітка (детально в CSS-base)</h2>
+          <ul>
+            <li>span</li>
+            <li>pre - перенос вірші</li>
+            <li>sub H<sub>2</sub>O</li>
+            <li>sup 150м<sup>2</sup></li>
+            <li><a href="https://www.toptal.com/designers/htmlarrows/symbols/degree-celsius" 
+                target="_blank" rel="noopener noreferrer">Symbol html</a> (&#8451;)</li>
+            <li>
+              <b>time</b>  datetime="2019-12-14T11:30" time Новини на <time datetime="2019-12-14T11:30">11:30 14 грудня 2019 року</time></li>
+            <li>adress
+                <address>
+                    <a href="mailto:mango@mail.pig">mango@mail.pig</a>
+                    <a href="tel:+1112223344">(111) 222-33-44</a>
+                </address>
+            </li>
+            <li>Символьні підстановки &copy; &#169; &#xa9; &lt;strong&gt; &#64; &#8451; </li>
+            <li><a href="https://www.toptal.com/designers/htmlarrows/symbols/" target="_blank">SIMBOLS</a></li>
+          </ul>
+          
+        </div>
+      </section>
+
+      
+      <section class="section-about">
+        <div class="container">
+          <h2></h2>
+          <h3>ВІДЕО</h3>
+            <video
+                poster="https://images.pexels.com/photos/595804/pexels-photo-595804.jpeg?w=240"
+                width="240"
+                controls
+                >
+                <source
+                    src="http://techslides.com/demos/sample-videos/small.webm"
+                    type="video/webm"
+                />
+                <source
+                    src="http://techslides.com/demos/sample-videos/small.mp4"
+                    type="video/mp4"
+                />
+                <source
+                    src="http://techslides.com/demos/sample-videos/small.ogg"
+                    type="video/ogg"
+                />
+            </video>
+            <h4>Підтримка браузерів</h4>
+            <img src="../img/ScreenVid.jpg" alt="screen code" width="600">
+        </div>
+      </section>
 
 
       <section class="section-about">
         <div class="container">
           <h2>AUDIO</h2>
 
-          <audio src="../sounds/crash1.wav" controls autoplay preload="auto"></audio>
+          <audio src="../sounds/crash1.wav" controls preload="auto"></audio>
 
           <pre>
-&lt;audio src="../sounds/crash1.wav" controls autoplay loop preload="auto"&gt;&lt;/audio&gt;
+  &lt;audio src="../sounds/crash1.wav" 
+      controls 
+      autoplay 
+      loop 
+      preload="auto"&gt;&lt;/audio&gt;
           </pre>
           <br>
 
@@ -258,11 +331,21 @@
               <source src="song.mp3" type="audio/mpeg" />
               <source src="song.ogg" type="audio/ogg" />
           </audio>
+
+          <h3>Примітка</h3>
+          <p>
+            Якщо створювати audio через JS то воно працює тільки локаотно. А через Гит не працює.
+            Але якщо завантажити audio через html, то їм можна курувати з JS і усе працює
+          </p>
+          <p>
+            Що до інфи про керування audio через JS дивись у розділі JS audio.
+          </p>
+          
         </div>
       </section>
-        
 
-      <section class="section-hero">
+
+      <section class="section-about">
         <div class="container">
           <h2 id="upload">Upload file</h2>
           <p>Нижче форма де є інпут для завантаження файлу</p>
@@ -286,12 +369,20 @@
 
 
 
-      <section class="section-hero">
+      <section class="section-about">
         <div class="container">
           <h2 id="features">Features</h2>
           <p>Lorem ipsumod. Nulla ea nerspicor ducimus sit distinctio corporis.</p>
         </div> 
       </section>
+
+
+      <section class="section-about">
+        <div class="container">
+          <h2></h2>
+        </div>
+      </section>
+
 
     </main>
 
