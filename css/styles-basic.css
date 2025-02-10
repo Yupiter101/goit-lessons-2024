@@ -175,8 +175,10 @@ ul {
 
 
 code {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
+    /* letter-spacing: normal; */
+    letter-spacing: -1px;
     color: rgb(17, 83, 37);
   }
 
@@ -223,7 +225,7 @@ pre {
 }
 
 
-/* === menu index.html */
+/* ===  INDEX.HTML ============ */
 
 .menu-title {
   /* font-family: sans-serif; */
@@ -243,7 +245,7 @@ pre {
   justify-content: space-around;
   width: 660px;
   /* border: 1px solid black; */
-  margin: 50px auto;
+  margin: 20px auto;
   font-size: 18px;
   /* font-weight: bold; */
 }
@@ -254,22 +256,12 @@ pre {
   /* border: 1px solid red; */
 }
 
-.menu-sub-container > h2 {
+.menu-sub-container > h3 {
   /* text-align: center; */
-  font-size: 24px;
+  font-size: 20px;
   margin-left: 30px;
-  color: red;
+  color: rgb(180, 16, 16);
 }
-
-.menu-space-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 420px;
-  /* height: calc(100% - 80px); */
-
-}
-
 
 
 
@@ -294,8 +286,8 @@ pre {
   color: #999;
 } */
 
-.list-other > li > a {
+/* .list-other > li > a {
   color: #777;
-}
+} */
 
 

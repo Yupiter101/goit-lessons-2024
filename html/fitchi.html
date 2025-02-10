@@ -97,7 +97,7 @@
                     <li>Класи без пробілів: <code>.div-grad.lin-gradient</code> Значить обидва класи "&"</li>
                     <li>Класи з пробілом: "or" <code>.scene .box</code> - це не точно</li>
                     <li>Задати стиль другому сусіду: <code>.scene + .scene { margin-left: 50px; }</code></li>
-                    <li><code>.card2-grow > .content2-grow</code></li>
+                    <li><code>.card2-grow > .content2-grow</code> = &&</li>
                 </ol>
             </div>
         </section>
@@ -107,9 +107,17 @@
             <div class="container">
                 <h2>height, width</h2>
                 <ul>
-                    <li><code>min-height: 100vh;</code> Висота вьюпорта (екрану)</li>
-                    <li></li>
-                    <li></li>
+                    <li><code>min-height: 100vh; </code> 
+                        Висота вьюпорта (екрану)
+                    </li>
+                    <li>
+                        <code>height: 100dvh;</code> = 100% видимої динамічної висоти браузера.
+                        Екран підлаштується навіть якщо там зявиться строка пошуку.
+                    </li>
+                    <li>
+                        <code>width: min(100dvw, 60dvh); </code>
+                        = Вибрати мінімальне значення, або 100% ширини браузера, або 60% висоти
+                    </li>
                 </ul>
             </div>
         </section>

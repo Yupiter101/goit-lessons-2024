@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sample</title>
+    <title>Download</title>
     <!-- Goodle font -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
 
         <section class="section-title">
             <div class="container">
-                <h1>sample</h1>
+                <h1>Download file.txt</h1>
             </div>
         </section>
 
@@ -47,7 +47,7 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li></li>
+                    <li>Download file.txt</li>
                     
                 </ol>
             </div>
@@ -56,7 +56,42 @@
 
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>Download file.txt</h2>
+                <p>
+                    Як зробити так щоб при натисканні на кнопку <b>button</b> користувачу завантажився file.txt 
+                    з текстом "Serhii"?
+                </p>
+                <br>
+                <div style="text-align: center;">
+                    <button type="button" data-action="download">Download file.txt</button>
+                </div>
+                <br>
+                <pre>
+    const downloadButton = document.querySelector('button[data-action="download"]');
+
+    downloadButton.addEventListener('click', () => {
+        // Створюємо Blob з текстом
+        const blob = new Blob([USER_NAME], { type: 'text/plain' });
+        // Генеруємо URL для Blob
+        const url = URL.createObjectURL(blob);
+        
+        // Створюємо приховане посилання
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'file.txt'; // ім'я файлу для завантаження
+
+        // Додаємо посилання в DOM і симулюємо клік
+        document.body.appendChild(a);
+        a.click();
+
+        // Прибираємо посилання з DOM та звільняємо URL
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });</pre>
+                
+                <p></p>
+
+                
             </div>
         </section>
 
@@ -80,6 +115,6 @@
     </footer>
 
     <script src="../../js-exampl/btn-top.js"></script>
-    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+    <script src="../../js-exampl/download.js" type="module"></script>
 </body>
 </html>

@@ -19,7 +19,7 @@
     <!-- css -->
     <link rel="stylesheet" href="../../css/styles-basic.css">
     <link rel="stylesheet" href="../../css/style-js-btn-top.css">
-    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+    <!-- <link rel="stylesheet" href="../../css/style-js-dom.css"> -->
 </head>
 
 <body>
@@ -1028,7 +1028,60 @@
       textOutput.textContent = selectedOptionText;
       valueOutput.textContent = selectedOptionValue;
     }</pre>
-                
+                <h3>Select Плюшки</h3>
+                <pre>
+    &lt;select id="select-name" name="select" required&gt;
+        &lt;option value="" disabled selected&gt;Оберіть значення&lt;/option&gt;
+        &lt;option value="value1"&gt;Значение 1&lt;/option&gt;
+        &lt;option value="value2"&gt;Значение 2&lt;/option&gt;
+        &lt;option value="value3"&gt;Значение 3&lt;/option&gt;
+    &lt;/select&gt;
+                </pre>
+                <ul>
+                    <li><code>disabled</code> – забороняє вибір цього пункту.</li>
+                    <li><code>selected</code> – робить його початковим.</li>
+                    <li><code>required</code> – робить його обов’язкове у формі.
+                        Тепер форма не відправиться, поки користувач не вибере значення.
+                    </li>
+                </ul>
+                <h4>Якщо ви хочете отримати значення value="value3", ви можете зробити це кількома способами:</h4>
+                <pre>const mySelect = document.querySelector("#select-name");</pre>
+                <ol>
+                    <li>Отримати вибране значення (.value):
+                        <pre>
+    const selectedValue = mySelect.value;
+    console.log(selectedValue);
+                        </pre>
+                        Якщо користувач вибрав "Значение 3", то selectedValue буде "value3".
+                    </li>
+                    <li>
+                        Отримати конкретний <option> за значенням:
+                            <pre>
+    const option = mySelect.querySelector('option[value="value3"]');
+    console.log(option); // option value="value3" Значение 3 /option
+    console.log(option.textContent); // Значение 3
+                            </pre>
+                    </li>
+                    <li>
+                        Встановити вибране значення:
+                        <pre>
+    mySelect.value = "value3";
+    console.log(mySelect.value); // value3
+                        </pre>
+                    </li>
+                    <li>
+                        Отримати всі варіанти (.options):
+                        <pre>
+    console.log(mySelect.options.length); // 3
+    for (let option of mySelect.options) {
+        if (option.value === "value3") {
+          console.log(option.text); // Значение 3
+        }
+      }
+                        </pre>
+                    </li>
+                </ol>
+
 
                 <h3>Подія input​</h3>
                 <p>
@@ -1113,6 +1166,6 @@
     </footer>
 
     <script src="../../js-exampl/btn-top.js"></script>
-    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/dom.js"></script> -->
 </body>
 </html>
