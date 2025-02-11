@@ -47,8 +47,9 @@
                 <h2>Зміст</h2>
                 <ol>
                     <li>Функція invokeAction()</li>
-                    <li>process.args</li>
-                    <li>Commander / yargs</li>
+                    <li>process.args  - вбудований</li>
+                    <li>Commander</li>
+                    <li>yargs</li>
                     <li>Консольна гра</li>
                 </ol>
             </div>
@@ -163,8 +164,19 @@
         <section class="section-about">
             <div class="container">
                 <h2>yargs</h2>
-                <pre>npm i yargs</pre>
-                <p>Те саме робить що і Commander</p>
+                <p>
+                    <code><pre>npm i yargs</pre></code>
+                </p>
+                <p>
+                    Те саме робить що і Commander - призначений для консольного додатку.
+                    Витягує у обєкт ключ значення з рядка консольного додатку
+                </p>
+                <pre>
+    const argv = require("yargs").argv;
+    Вводимо в термінал: 
+    node index.js --action create --fileName file_1.txt --content "New text"
+    console.log("argv); // 
+                </pre>
                 
             </div>
         </section>

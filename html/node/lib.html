@@ -46,15 +46,19 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li>nodemon - перезапуск при змінах</li>
-                    <li>nanoid - генерація ID</li>
-                    <li>commander - консольний додаток</li>
-                    <li>yargs - консольний додаток</li>
-                    <li>chalk</li>
-                    <li>joi <a href="https://joi.dev/api/?v=17.13.3" target="_blank">Documentation and API</a></li>
+                    <li><code>nodemon</code> - перезапуск при змінах</li>
+                    <li><code>nanoid</code>  - генерація ID</li>
+                    <li><code>commander</code> - консольний додаток</li>
+                    <li><code>yargs</code> - консольний додаток</li>
+                    <li><code>chalk</code> - Кольоровий термінал</li>
+                    <li><code>color</code> - Кольоровий термінал</li>
+                    <li><code>joi</code> - дата валідатор</li>
+                    
                 </ol>
             </div>
         </section>
+
+
 
 
         <section class="section-about">
@@ -68,29 +72,40 @@
             </div>
         </section>
 
+
+
+
         <section class="section-about">
             <div class="container">
                 <h2>nanoid - генерація ID</h2>
-                <p>Автоматична генерація ID</p>
-                <ul>
-                    <li>Встановити <code>npm i nanoid</code></li>
-                    <li>Імпорт у коді: <code>const {nanoid} = require("nanoid");</code></li>
-                    <li>Use <code>id: nanoid();</code></li>
-                </ul>
+                <p>
+                    <code>npm i nanoid</code>
+                </p>
+                <pre>
+    const {nanoid} = require("nanoid");
+    const obj = {
+        id: nanoid();
+    }
+    </pre>
+                
+               
             </div>
         </section>
+
+
 
 
         <section class="section-about">
             <div class="container">
                 <h2>commander - консольний додаток</h2>
+                <p>
+                    <code>npm i commander</code>
+                </p>
                 <p>Готове рішення замість <code>process.argv</code></p>
-                <ul>
-                    <li>Встановити <code>npm i commander</code></li>
-                    <li>Імпорт у коді: <code>const { program } = require('commander');</code></li>
-                    <li>Use</li>
-                </ul>
+            
                 <pre>
+    const { program } = require('commander');
+
     program
     .option("-a, --action &lt;action&gt;", "Action to invoke")
     .option("-i, --id &lt;id&gt;", "Bols id")
@@ -102,19 +117,21 @@
     const options = program.opts();
     // console.log(options);
 
-    invoActions(options).catch(err => console.error(err));
-                        </pre>
+    invoActions(options).catch(err => console.error(err));</pre>
+                        
             </div>
         </section>
 
 
-
+        <!-- yargs -->
         <section class="section-about">
             <div class="container">
                 <h2>yargs - консольний додаток</h2>
-                <h2>use:</h2>
+                <p>
+                    <code>npm i yargs</code>
+                </p>
+                <p>Прописуємо правила для ввода "--ключа" "значення" у консольний рядок</p>
                 <ol>
-                    <li><code>npm i yargs</code></li>
                     <li>import: <code>const argv = require("yargs").argv;</code></li>
                     <li>
                         <p>Вводимо в термінал: 
@@ -141,13 +158,16 @@
             </div>
         </section>
 
-        
+
+        <!-- chalk -->
         <section class="section-about">
             <div class="container">
-                <h2><a href="https://www.npmjs.com/package/chalk" target="_blank">chalk</a></h2>
-                <pre>npm i chalk@4.1.2</pre>
-                <p>Кольоровий термінал</p>
-                <p>Приклади:</p>
+                <h2>chalk - Кольоровий термінал</h2>
+                <p>
+                    <code>npm i chalk@4.1.2</code>
+                    <a href="https://www.npmjs.com/package/chalk" target="_blank">Посилання</a>
+                </p>
+                
                 <pre>
     import chalk from 'chalk';
     console.log(chalk.blue('Hello world!'));
@@ -158,8 +178,67 @@
         'I am a green line ' +
         chalk.blue.underline.bold('with a blue substring') +
         ' that becomes green again!'
-    ));
-                </pre>
+    ));</pre>
+                
+            </div>
+        </section>
+
+
+
+        <!-- colors -->
+        <section class="section-about">
+            <div class="container">
+                <h2>colors - Кольоровий термінал</h2>
+                
+                <p>
+                    <code>npm i colors</code>
+                    <a href="https://www.npmjs.com/package/colors" target="_blank">Посилання</a>
+                </p>
+                <pre>
+    const colors = require('colors');
+    console.log('hello'.green); // outputs green text
+    console.log('i like cake and pies'.underline.red) // outputs red underlined
+    console.log('inverse the color'.inverse); // inverses the color
+    console.log('OMG Rainbows!'.rainbow); // rainbow
+    console.log('Run the trap'.trap); // Drops the bass</pre>
+                
+                <p></p>
+
+            </div>
+        </section>
+
+
+        <!-- joi  -->
+        <section class="section-about">
+            <div class="container">
+                <h2>joi - дата валідатор</h2>
+                <p>
+                    <code>npm i joi</code>
+                    <a href="https://joi.dev/api/?v=17.13.3" target="_blank">Дивись приклад</a>
+                </p>
+                <pre>
+    const Joi = require('joi');
+
+    const datavalidator = (data) => {
+        const joiSchema = Joi.object({
+            fileName: Joi.string().min(4).max(20).required(),
+            content: Joi.string().max(100),
+            password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+        }).with('fileName', 'content');
+    
+        return joiSchema.validate(data);
+    } </pre>
+                
+            </div>
+        </section>
+
+
+
+        
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
             </div>
         </section>
 
