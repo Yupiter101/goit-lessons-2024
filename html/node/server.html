@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+    <link rel="stylesheet" href="../../css/style-video.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a class="fixed-back" href="../../index.html">Home</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>Server</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>http - з коробки</li>
+                    <li>express - конспект</li>
+                    <li>express - лекція. Закінчив на 0:35:00</li>
+                    <li>middleware - Проміжне ПЗ</li>
+                    <li>Способи передачі даних на сервер</li>
+                    <li>Роутінг у додатку. Методи</li>
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>http - з коробки. Практика</h2>
+                <p>Матеріал взято з 
+                    <a href="https://www.youtube.com/watch?v=26SZU_Q2gs0&t=1523s&ab_channel=GoIT">
+                        відео уроку
+                    </a> Less-3/1
+                </p>
+                <p><b>Хост</b> - <code>http://localhost:8080</code>, де localhost - hostname  8080 - port</p>
+                <p>Port бажано починати більше ніж 1500</p>
+                <p>Приклад перевіреного коду:</p>
+                <pre>
+    console.log("Сервер з коробки http-serv.js");
+    const http = require("node:http");
+
+    const server = http.createServer((request, response) => {
+        const {url, method} = request;
+
+        if(method === "GET" && url === "/") {
+            return response.end("Hello http!");
+        }
+
+        if(method === "GET" && url === "/movies") {
+            return response.end("Hello movies!");
+        }
+        response.statusCode = 404;
+        response.end("Not found");
+    });
+
+
+    // http://localhost:8080
+    server.listen(8080, ()=> {
+        console.log("Server runing 8080 port");
+    });
+                    </pre>
+                
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>express</h2>
+                <p>
+                    Express – це мінімалістичний та гнучкий вебфреймворк для застосунків Node.js
+                    Давайте відразу приступимо до практики
+                </p>
+                <ol>
+                    <li>Create project: <code>$ mkdir myapp; $ cd myapp</code> </li>
+                    <li><code>$ npm init -y</code></li>
+                    <li><code>$ touch .gitignore</code></li>
+                    <li><code>$ npm install express</code></li>
+                    <li>створіть файл з ім'ям app.js та додайте наступний код:</li>
+                </ol>
+                <pre>
+    const express = require('express');
+    const app = express();
+                    
+    app.get('/', (req, res) => {
+     res.send('Hello World!');
+    });
+                    
+    app.listen(3000, () => {
+     console.log('Example app listening on port 3000!');
+    });
+                </pre>
+                <p><code>$ node app.js</code></p>
+
+                <p>
+                    Заходимо у браузер, вводимо адрему <code>http://localhost:3000</code>
+                    Застосунок видає відповідь “Hello World!” у браузері на запити, адресовані кореневому URL (/) або маршруту. 
+                    Для всіх інших шляхів відповіддю буде статус 404 - Not Found.
+                </p>
+                <p>
+                    Маршрутизація визначає, як ваш застосунок відповідає на клієнтський запит до конкретної 
+                    адреси – URL. Кожен маршрут може мати одну або більше функцій обробки, що виконуються 
+                    при зіставленні маршруту. Визначення маршруту, відповідно до документації, має наступну 
+                    структуру:
+                </p>
+                <pre>app.METHOD(PATH, HANDLER)</pre>
+                <ul>
+                    <li>app — це екземпляр express застосунку</li>
+                    <li><b>METHOD</b> — метод запиту HTTP (GET, POST, PUT, PATCH, DELETE).</li>
+                    <li><b>PATH</b> — шлях на сервері, у нашому випадку – це корінь сайту '/'.</li>
+                    <li><b>HANDLER</b> — функція, що виконується при зіставленні маршруту.</li>
+                    <li><b>req</b> - об'єкт запиту</li>
+                    <li><b>res</b> - об'єкт відповіді</li>
+                </ul>
+                <p>Додамо обробник маршруту contact</p>
+                <pre>
+    app.get('/contact', (req, res) => {
+        res.send('Contact page');
+    });
+                </pre>
+                <p>
+                    І тепер за шляхом http://localhost:3000/contact сервер нам буде повертати сторінку із заголовком Contact page.
+                </p>
+                <p>
+                    Але визначення маршрутів, крім простих рядків, можуть також містити регулярні вирази або спеціальні 
+                    символи підстановок. Зокрема, ми можемо використовувати такі символи, як ?, +, * и ().
+                </p>
+                <ul>
+                    <li>
+                        <b>'/con?tact'</b> - Символ ? у маршруті вказує, що попередній символ може зустрічатися 1 раз 
+                        або бути відсутнім
+                    </li>
+                    <li>
+                        Символ + вказує, що попередній символ може зустрічатися 1 і більше разів. Цей шлях маршруту 
+                        зіставляє contact, conntact, connntact тощо.
+                    </li>
+                    <li>
+                        Символ зірочка * вказує, що на місці цього символу може бути будь-яка кількість символів. 
+                        Цей шлях маршруту зіставляє contact, conxtact, con123tact тощо.
+                    </li>
+                    <li></li>
+                </ul>
+                
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>express. Практика</h2>
+                <p>Матеріал взято з 
+                    <a href="https://www.youtube.com/watch?v=26SZU_Q2gs0&t=1523s&ab_channel=GoIT">
+                        відео уроку
+                    </a> Less-3/1
+                </p>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>middleware - Проміжне ПЗ</h2>
+                <p>
+                    проміжне ПЗ – просто функція, що приймає три аргументи: об'єкт запиту (req), об'єкт відповіді (res) і функцію next.
+                    Вбудуємо власне проміжне ПЗ у наш файл app.js
+                </p>
+                <pre>
+   app.use((req, res, next) => {
+       console.log('Наше проміжне ПЗ');
+       next();
+   });
+                </pre>
+                <p>
+                    Ця функція нічого не виконує, просто пропускає потік через себе, але в консоль завжди буде 
+                    вискакувати наше повідомлення.
+                </p>
+                <p>
+                    Функції проміжної обробки (middleware) – це функції, що мають доступ до об'єкту запиту (req), 
+                    об'єкту відповіді (res) і до наступної функції проміжної обробки в циклі "запит-відповідь" 
+                    застосунку. Наступна функція проміжної обробки, як правило, позначається змінною next.
+                    Функції проміжної обробки виконують наступні завдання:
+                </p>
+                <ul>
+                    <li>виконують певний код.</li>
+                    <li>вносять зміни до об'єктів запитів та відповідей.</li>
+                    <li>можуть завершити цикл "запит-відповідь" та перервати обробку запиту.</li>
+                    <li>викликають наступну функцію проміжної обробки зі стеку, виконанням функції next().</li>
+                </ul>
+
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Передача даних на сервер</h2>
+                <h3>Передача параметра в URL</h3>
+                <p>
+                    Маршрути можуть містити параметри — іменовані сегменти URL- адреси. 
+                    Назва параметра повинна містити символи з діапазону [A-Za-z0-9_]. 
+                    У визначенні маршруту перед параметром ставиться знак двокрапки.
+                </p>
+                <pre>
+    app.get('/contact/:id', (req, res) => {
+        const id = req.params.id;
+        res.send(`&lt;h1&gt;Contact&lt;/h1&gt; Параметр: ${req.params.id}`);
+    });
+                </pre>
+                <p>
+                    Якщо ми тепер звернемося за маршрутом /contact/123, то req.params.id міститиме значення 123.
+                </p>
+                <h3>Використання параметрів GET запиту</h3>
+                <p>
+                    Другий спосіб – це розбір рядка GET запиту. Після URL-адреси, за якою відбувається звернення на сервер, 
+                    ставиться знак питання ?, за яким слідує список аргументів, розділених символами &. Щось на кшталт
+                </p>
+                <pre>http://localhost:3000/contacts?skip=0&limit=10</pre>
+                <p>
+                    Без цього способу не обходиться жодна реалізація пагінації на сторінці. Результат такого запиту 
+                    знаходиться в об'єкті req.query.
+                </p>
+                <pre>
+    {
+        skip: 0,
+        limit: 10
+    }
+                </pre>
+                <p>
+                    Яущо у GET запиті HTTP параметри рядка запиту не задані, наприклад /search, а знака питання і після нього 
+                    нічого немає, то req.query за замовчуванням містить порожній об'єкт: {}
+                </p>
+                <p>
+                    Фреймворк Express, містить вбудований засіб розбору рядків запитів, тому що це завдання дуже 
+                    часто зустрічається у веб-розробці.
+                </p>
+
+                <h3>Надсилання за допомогою форм</h3>
+                <p>
+                    Під час надсилання якихось даних на сервер зазвичай використовуються HTTP методи POST, PUT та PATCH. 
+                    Це стандартний спосіб під час надсилання форми. Розглянемо, як отримувати такі дані в Express.
+                </p>
+                <p>
+                    Формат HTTP повідомлення складається зі списку заголовків та тіла повідомлення. 
+                    Запит POST від форми стандартно має заголовок Content-Type: application/x-www-form-urlencoded. 
+                    Насамперед для отримання відправлених даних необхідно підключити парсер через проміжне ПЗ і 
+                    він уже міститься у фреймворку. Для створення парсера даних від форм застосовується функція urlencoded().:
+                </p>
+                <pre>app.use(express.urlencoded({ extended: false }));</pre>
+                <p>
+                    В цю функцію передається об'єкт, який визначає параметри парсингу. Значення extended: 
+                    false вказує, що результат парсингу буде представляти набір пар ключ-значення, а кожне 
+                    значення може бути представлене у вигляді рядка або масиву. Коли цей параметр дорівнює 
+                    true, парсер використовує іншу бібліотеку для розбору формату рядка.
+                </p>
+                <p>
+                    В цю функцію передається об'єкт, який визначає параметри парсингу. Значення extended: false вказує, 
+                    що результат парсингу буде представляти набір пар ключ-значення, а кожне значення може бути 
+                    представлене у вигляді рядка або масиву. Коли цей параметр дорівнює true, парсер використовує 
+                    іншу бібліотеку для розбору формату рядка.
+                </p>
+                <pre>
+    &ltform action="/login" method="POST"&gt;
+        &lt;label for="email"&gt;Email&lt;/label&gt;
+        &lt;input type="text" name="email" id="email" /&gt;
+        &lt;label for="password"&gt;Пароль&lt;/label&gt;
+        &lt;input type="password" name="password" id="password" /&gt;
+        &lt;button type="submit"&gt;Увійти&lt;/button&gt;
+    &lt;/form&gt;
+                </pre>
+                <p>
+                    Браузер відправить на URL <урл нашого застосунку>/login дані форми. Це будуть 
+                    дві змінні: email та password. За це відповідають атрибути name у відповідних 
+                    тегів input. 
+                </p>
+                <p>
+                    Ці дані ми повинні прийняти на стороні сервера наступним обробником
+                </p>
+                <pre>
+    app.post('/login', (req, res, next) => {
+        const { email, password } = req.body;
+        // Виконуємо необхідні операції
+    });
+                </pre>
+                <p>
+                    В результаті сервер повинен отримати дані в об'єкті req.body наступного виду:
+                </p>
+                <pre>
+    {
+        email: 'Значення, що було введено в поле input',
+        password: 'Значення, що було введено в поле input'
+    }
+                </pre>
+
+                <h3>Передача JSON</h3>
+                <p>
+                    При створенні вебзастосунків на Node.js часто доводиться працювати з даними в JSON форматі. 
+                    Це основна форма передачі даних для Web-API, ще є формат XML, але він все більше застаріває 
+                    через свою багатослівність при формуванні даних і виходить із обігу.
+                </p>
+                <p>
+                    Парсер JSON у застосунку підключається наступним чином.
+                </p>
+                <pre>app.use(express.json());</pre>
+                <p>
+                    Передати дані у вигляді JSON можна клієнтським JavaScript за допомогою спеціальної утиліти типу Postman
+                </p>
+                <pre>
+    app.post('/login', (req, res, next) => {
+        const { email, password } = req.body;
+        // Виконуємо необхідні операції
+    });
+                </pre>
+                <p>
+                    Цей приклад припускає, що надіслано об'єкт JSON з властивостями email та password. 
+                    І головне у запиту заголовок Content-Type повинен зберігати application/json, 
+                    а ви повинні надіслати дійсну розмітку JSON.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Роутінг у додатку</h2>
+                <h3>Методи Route</h3>
+                <p>
+                    За допомогою класу express.Router можна створювати модульні, монтовані обробники маршрутів. 
+                    <code>Екземпляр Router</code> є комплексною системою проміжних обробників та маршрутизації; 
+                    тому його часто називають «мінізастосунком»
+                </p>
+
+                <pre>
+    const express = require('express');
+    const router = express.Router();
+    // визначимо домашній роутер
+    router.get('/', (req, res) =&gt; {
+    res.send('Це головний роутер');
+    });
+    // визначимо роутер about
+    router.get('/about', (req, res) =&gt; {
+    res.send('About');
+    });
+    module.exports = router;
+                </pre>
+                <p>Потім підключимо модуль my-router.js маршрутизації у застосунок:</p>
+                <pre>
+    const myRouter= require('./my-router');
+        ...
+    app.use('/my-router', myRouter);
+                </pre>
+                <p>
+                    Цей застосунок тепер зможе обробляти запити, адресовані ресурсам /my-router та /my-router/about.
+                </p>
+                <p>
+                    Існує також особливий метод маршрутизації, app.all(), що не є похідним від будь-якого методу HTTP. 
+                    Цей метод використовується для завантаження функцій проміжної обробки на шляху для всіх методів запитів. 
+                    Він буває корисний, коли нам потрібно реагувати на будь-яке звернення до сервера.
+                </p>
+                <pre>
+    app.all('/anything', (req, res, next) => {
+        console.log('Anything method.');
+        next(); // передаємо управління далі
+    });
+                </pre>
+                <p>
+                    У наведеному нижче прикладі обробник буде запущений для запитів, адресованих /anything, незалежно 
+                    від того, чи використовується GET, POST, PUT, DELETE або будь-який інший метод запиту HTTP, 
+                    що підтримується в модулі http.
+                </p>
+
+                <h3>Методи відповіді</h3>
+                <p>
+                    Методи в об'єкті відповіді (res), перелічені в таблиці нижче, можуть передавати відповідь клієнту 
+                    та завершувати цикл “запит-відповідь”. Якщо жоден із цих методів не буде викликано з обробника 
+                    маршруту, клієнтський запит зависне.
+                </p>
+                <div>
+                    <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/a782c93c-df9a-417a-97c0-d5ccfafa81b8image.png" alt="qew">
+                </div>
+
+                <h3>Ланцюжки методів</h3>
+                <p>
+                    Метод <code>app.route()</code> дозволяє створювати обробники маршрутів, що утворюють ланцюжки для конкретного шляху 
+                    маршруту. Оскільки шлях один і той самий для різних методів HTTP, зручно створювати модульні маршрути, 
+                    щоб мінімізувати надмірність та кількість друкарських помилок. Нижче наведено приклад об'єднаних у 
+                    ланцюжок обробників маршрутів, визначених за допомогою функції <code>app.route()</code>.
+                </p>
+                <pre>
+    app
+    .route('/blog')
+    .get((req, res) => {
+    res.send('Get a list of blog');
+    })
+    .post((req, res) => {
+    res.send('Add a record to blog');
+    })
+    .put((req, res) => {
+    res.send('Update blog');
+    });
+                </pre>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+</body>
+</html>
