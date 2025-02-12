@@ -67,12 +67,25 @@
                 <p>Автоматичне оновлення терміналу при змінах</p>
                 <ul>
                     <li>Встановити <code>npm i nodemon -D</code></li>
-                    <li>Прописати скрипт: <code>"start:dev": "nodemon index.js"</code></li>
+                    <li>Прописати скрипт: <code>"dev": "nodemon index.js"</code></li>
+                    <li><code>npm run dev</code></li>
                 </ul>
             </div>
         </section>
 
+        <section class="section-about">
+            <div class="container">
+                <h2>--watch - перезапуск при змінах</h2>
+                <p>Автоматичне оновлення терміналу з коробки при змінах з 18v</p>
+                <ul>
+                    <li>Те саме що і nodemon</li>
+                    <li>Пишем скрипт <code>"start:dev": "node --watch express-serv.js"</code></li>
+                    <li>Пишем <code>npm run start:dev</code></li>
+                </ul>
+            </div>
+        </section>
 
+        "start:dev": "node --watch express-serv.js"
 
 
         <section class="section-about">
