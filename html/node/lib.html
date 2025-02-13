@@ -56,6 +56,7 @@
                     <li><code>color</code> - Кольоровий термінал</li>
                     <li><code>joi</code> - дата валідатор</li>
                     <li><code>morgan</code> - для node.js логування</li>
+                    <li><code>dotenv</code> змінні середовища</li>
 
                     
                 </ol>
@@ -302,10 +303,21 @@
 
 
         
-
+        <!-- dotenv -->
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>dotenv - змінні оточення</h2>
+                <p>
+                    <code>npm install dotenv</code>
+                    <a href="https://www.npmjs.com/package/dotenv" target="_blank">Дивись приклад</a>
+                </p>
+                <ol>
+                    <li><code>npm install dotenv</code></li>
+                    <li><code>require('dotenv').config();</code> додамо у файл</li>
+                    <li>Потім створюємо  файл <code>.env</code> у кореневому каталозі нашого застосункута додаємо в нього змінні.</li>
+                    <li><code>SECRET_KEY=123456</code></li>
+                    <li><code>NODE_ENV=development</code></li>
+                </ol>
             </div>
         </section>
 
