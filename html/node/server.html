@@ -204,6 +204,29 @@
         console.log(`Example app listening on port ${port}`)
     })
                 </pre>
+                <p>Опис цікавого:</p>
+                <ul>
+                    <li>http://localhost:3000/?api-key=123  -  так можна задавати квері парамнтри</li>
+                    <li>const apiKey = req.query["apikey"];</li>
+                    <li>const apiKey = req.query.apikey;</li>
+                    <li>Нормально працює тільки через постман</li>
+                    <li>Middlevare app.use((req, res, next)=> {}) - міделвара для усіх запитів</li>
+                    <li>Middlevare app.use("/books", (req, res, next)=> {}) - міделвара для "/books"</li>
+                 
+                </ul>
+
+                <h2>CORS</h2>
+
+                <p>
+                    прибирає конфлікт між різними серверами і браузером
+                </p>
+                <ul>
+                    <li>npm i cors</li>
+                    <li>const cors = require("cors");</li>
+                    <li>app.use(cors());</li>
+                    <li></li>
+                </ul>
+
             </div>
         </section>
 

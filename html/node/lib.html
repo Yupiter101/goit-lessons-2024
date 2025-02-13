@@ -46,6 +46,8 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
+                    <li><code>express</code> - фреймворк для ноди</li>
+                    <li><code>CORS</code> - прибирає конфлікт між різними серверами і браузером</li>
                     <li><code>nodemon</code> - перезапуск при змінах</li>
                     <li><code>nanoid</code>  - генерація ID</li>
                     <li><code>commander</code> - консольний додаток</li>
@@ -53,6 +55,8 @@
                     <li><code>chalk</code> - Кольоровий термінал</li>
                     <li><code>color</code> - Кольоровий термінал</li>
                     <li><code>joi</code> - дата валідатор</li>
+                    <li><code>morgan</code> - для node.js логування</li>
+
                     
                 </ol>
             </div>
@@ -60,7 +64,41 @@
 
 
 
+        <!-- express -->
+        <section class="section-about">
+            <div class="container">
+                <h2>express -  фреймворк для ноди</h2>
+                <ul>
+                    <li> <code>npm i express</code></li>
+                    <li> <code>const express = require("express");</code></li>
+                    <li> <code>const app = express();</code></li>
+                    <li> <code>app.use("/cont", check); // Міделвара для "/cont"</code></li>
+                    <li> <code>app.get("/cont", async (req, res) => {})</code></li>
+                    <li><code>app.put</code></li>
+                    <li><code>app.post</code></li>
+                    <li><code>app.delete</code></li>
+                    <li><code>app.listen(3000, ()=>{})</code></li>
+                </ul>
+            </div>
+        </section>
 
+
+
+        <!-- CORS -->
+        <section class="section-about">
+            <div class="container">
+                <h2>CORS</h2>
+                <ul>
+                    <li> <code>npm i cors</code> прибирає конфлікт між різними серверами і браузером</li>
+                    
+                </ul>
+            </div>
+        </section>
+
+
+
+
+        <!-- nodemon -->
         <section class="section-about">
             <div class="container">
                 <h2>nodemon - перезапуск при змінах</h2>
@@ -73,6 +111,8 @@
             </div>
         </section>
 
+
+        <!-- watch -->
         <section class="section-about">
             <div class="container">
                 <h2>--watch - перезапуск при змінах</h2>
@@ -245,6 +285,20 @@
             </div>
         </section>
 
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>morgan - логування</h2>
+                <p>
+                    <code>npm i morgan</code>
+                    <a href="https://www.npmjs.com/package/morgan" target="_blank">Дивись приклад</a>
+                </p>
+                <p>
+                    ip::1 - - [12/Feb/2025:20:12:10 +0000] "GET /cont?apikey=1234 HTTP/1.1" 200 1129 "-" "PostmanRuntime/7.43.0"
+                </p>
+            </div>
+        </section>
 
 
         
