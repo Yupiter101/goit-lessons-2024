@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB</title>
+    <!-- Goodle font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet"> -->
+    
+    <!-- modern-normalize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/styles-basic.css">
+    <link rel="stylesheet" href="../../css/style-js-btn-top.css">
+    <link rel="stylesheet" href="../../css/style-video.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a class="fixed-back" href="../../index.html">Home</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Button to top -->
+        <button class="toTop">
+            <svg class="svgButtonToTop" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M16 1 1 16h9v16h12V16h9z" />
+            </svg>
+        </button>
+
+        <section class="section-title">
+            <div class="container">
+                <h1>MongoDB</h1>
+            </div>
+        </section>
+
+        <section class="section-menu">
+            <div class="container">
+                <h2>Зміст</h2>
+                <ol>
+                    <li>Основи MongoDB</li>
+                    <li>MongoDB Atlas</li>
+                    <li>MongoDB Compass</li>
+                    <li>Основні команди MongoDB</li>
+                    <li>Mongoose</li>
+                    <li>Основні операції з даними в Mongoose</li>
+                    <li>Підключення Mongoose</li>
+                    
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Основи MongoDB</h2>
+                <p>
+                    MongoDB є нереляційною базою даних типу NoSQL. База заснована на моделі 
+                    документів – об'єкти даних зберігаються у вигляді окремих документів у колекції
+                </p>
+                <h3>Колекція та документ</h3>
+                <p>
+                    Дані у MongoDB групуються в колекції. Колекція – це збірка документів, які мають 
+                    однакове призначення. Колекція подібна до таблиці в SQL базі даних, але відрізняється 
+                    тим, що для колекції немає суворої схеми та документи колекції можуть мати різну 
+                    структуру.
+                </p>
+                <p>Максимальний розмір документа обмежений 16 Мб.</p>
+                <p>
+                    У MongoDB у якості мови запитів використовується JavaScript та JSON-структури. 
+                    Вибір мови запиту пояснюється тим, що MongoDB використовує JSON-формат для 
+                    представлення документів та виведення результатів. Фізично JSON-структури 
+                    зберігаються у бінарному BSON-форматі.
+                </p>
+                <p>
+                    Документи (тобто об'єкти) відповідають власним типам даних у багатьох мовах 
+                    програмування. Вбудовані документи та масиви скорочують потребу в дорогих об'єднаннях.
+                </p>
+                <p>У MongoDB первинний ключ автоматично встановлюється у полі _id</p>
+                <p>Фактично змінна _id – це об'єкт типу ObjectId</p>
+                <pre>_id: ObjectId('5f15996fbbde793a107af359');</pre>
+                <p>Він містить 12 байт, кожен з яких формується певним чином.</p>
+                <ul>
+                    <li>4 - байтове значення (5f15996f), що позначає секунди, починаючи з останнього запису</li>
+                    <li>3 - байтове значення (bbde79), що позначає ідентифікатор машини</li>
+                    <li>2 - байтове значення (3a10), що позначає ідентифікатор процесу</li>
+                    <li>3 - байтовий лічильник (7af359), починаючи з випадкового значення</li>
+                </ul>
+
+                <h3>MongoDB Atlas</h3>
+                <p>
+                    Замість встановлення бази даних локально, ми використовуватимемо хмарне сховище 
+                    <a href="https://www.mongodb.com/products/platform/atlas-database" target="_blank">MongoDB Atlas</a> .
+                </p>
+                <p>
+                    Пройдіть реєстрацію, найкраще прив'язавши до хмари свій обліковий запис Google. 
+                    Створіть свій перший кластер. Вибирайте регіон із безкоштовним кластером M0 Sandbox, 
+                    розміром 512 Мб. Якщо все пройшло успішно, у вас повинен бути доступ до dashboard
+                </p>
+                <br>
+                <div>
+                    <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/dc632a1b-bb2b-48a8-85f9-ef88d4c0e79fimage.png" alt="atlas">
+                </div>
+                <br>
+                <p>
+                    Спершу перейдіть в лівому меню на вкладку Network Access і додайте IP адреси, у яких буде доступ до хмарної бази даних.
+                </p>
+                <br>
+                <div>
+                    <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/faa4897c-0c68-46a7-bd8a-6d13a68ce55dimage.png" alt="qwe">
+                </div>
+                <br>
+                <p>
+                    Як варіант можна дозволити доступ із будь-якої IP адреси 0.0.0.0/0. Але можете вказати лише необхідні вам адреси.
+                </p>
+                <p>
+                    Другим кроком необхідно створити користувача для нашої бази даних. Цей обліковий запис 
+                    ми будемо використовувати для доступу до бази даних з нашого застосунку та графічного 
+                    інтерфейсу. Переходимо у вкладку Database Access і вибираємо Add New Database User. 
+                    Вибираємо метод аутентифікації за допомогою пароля. Придумайте ім'я та пароль 
+                    користувачеві і запам'ятайте, ми помістимо їх надалі в змінні оточення. 
+                    Також виставте привілеї доступу як читання та запис до бази даних.
+                </p>
+                <p>
+                    Попереднє налаштування завершено і тепер можна повернутися на вкладку Cluster. Тут вибираємо Connect. 
+                    У вспливаючому вікні вибираємо Connect your application
+                </p>
+                <br>
+                <div>
+                    <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/15707108-f320-4747-a5bf-ba2bb6600f49image.png" alt="qwe">
+                </div>
+                <br>
+                <p>
+                    Потрібно вибрати драйвер для Node.js. Нам нададуть рядок для доступу до бази даних
+                </p>
+                <p><code>mongodb+srv://;username;:;password;@krabaton.5mlpr.gcp.mongodb.net/;dbname;?retryWrites=true&w=majority</code></p>
+                <p>За допомогою цього рядка ми з'єднуватимемося з нашою хмарною базою даних</p>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>MongoDB GUI</h2>
+                <h3><a href="https://www.mongodb.com/products/tools/compass">MongoDB Compass</a></h3>
+                <p>Підключення до бази даних здійснюється за допомогою рядка SRV</p>
+                <br>
+                <div>
+                    <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/e5892b62-80d8-42fb-be70-33531c811037image.png" alt="wer">
+                </div>
+                <br>
+                <p>
+                    Необхідно вставити рядок із вже підставленими плейсхолдерами у блок підключення 
+                    Compass та натиснути кнопку connect
+                </p>
+                <br>
+                <div>
+                    <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/b225e92e-68a7-411b-8135-922566468164image.png" alt="wer">
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Основні команди MongoDB</h2>
+                <p>Це для Robo 3T</p>
+                <br>
+                <div>
+                    <img src="https://s3.eu-north-1.amazonaws.com/lms.goit.files/71b1406a-783b-4d54-b72a-7eae7bf56c8fimage.png" alt="wer">
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Mongoose</h2>
+                <p>
+                    Mongoose представляє спеціальну ODM-бібліотеку (Object Data Modelling) для роботи з 
+                    MongoDB. Найчастіше бібліотека Mongoose слугує зручним засобом для застосування 
+                    структурованої схеми до колекції MongoDB. Модуль слугує зручним засобом застосування 
+                    структурних схем до документів. Також дає можливість достовірної перевірки типів 
+                    даних та можливостей валідації. 
+                </p>
+                <p>
+                    Офіційну документацію можна подивитися <a href="https://mongoosejs.com/docs/guide.html">тут</a>
+                </p>
+               
+                <ol>
+                    <li><code>mongoose.Promise = global.Promise;</code></li>
+                    <li><code>const mongoose = require('mongoose');</code></li>
+                </ol>
+                <p>
+                    Підключення до бази виконується методом mongoose.connect(), в який першим параметром передається адреса на 
+                    підключення до бази даних, а другим – об'єкт налаштувань:
+                </p>
+                <pre>
+    mongoose.connect(process.env.DB_HOST, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+    });
+                </pre>
+                <p>
+                    За допомогою методу mongoose.disconnect() можна відключитися від бази даних.
+                </p>
+
+                <h3>Схема документа</h3>
+                <p>
+                    Однією з переваг ODM Mongoose є те, що дані можна описати певною схемою. 
+                    Експортуємо клас Schema
+                </p>
+                <p><code>const Schema = mongoose.Schema;</code></p>
+                <p>Встановлюємо схему</p>
+                <pre>
+    const cats = new Schema({
+        nickname: String,
+        age: Number,
+    });
+                </pre>
+                <p>
+                    Для типів даних можна вказувати одне з наступних значень:
+                </p>
+                <ul>
+                    <li>String</li>
+                    <li>Number</li>
+                    <li>Date</li>
+                    <li>Buffer</li>
+                    <li>Boolean</li>
+                    <li>Mixed</li>
+                    <li>Objectid</li>
+                    <li>Array</li>
+                </ul>
+                <p>
+                    Для складних властивостей як об'єкт, замість типу вказується 
+                    визначення цього об'єкта: Приклад:
+                </p>
+                <pre>
+    const cats = new Schema({
+        nickname: String,
+        age: Number,
+        owner: {
+            name: String,
+            address: [String], // тип - масив рядків
+            birthday: Date,
+        },
+    });
+                </pre>
+                <p>
+                    При визначенні схеми Mongoose має вбудовані правила валідації, які можна вказати у схемі:
+                </p>
+                <ol>
+                    <li>required: вимагає обов'язкової наявності значення для властивості</li>
+                    <li>min та max: задають мінімальне та максимальне значення для числових даних</li>
+                    <li>minlength та maxlength: задають мінімальну та максимальну довжину для рядків</li>
+                    <li>enum: рядок повинен представляти одне зі значень у зазначеному масиві рядків</li>
+                    <li>match: рядок повинен відповідати регулярному виразу</li>
+                </ol>
+                <pre>
+    const cats = new Schema({
+        nickname: {
+            type: String,
+            minlength: 2,
+            maxlength: 7,
+            required: [true, 'Nickname is required'],
+        },
+        age: {
+            type: Number,
+            min: 1,
+            max: 50,
+        },
+        owner: {
+            name: String,
+            address: [String], // тип - масив рядків
+            birthday: Date,
+        },
+    });
+                </pre>
+                <p>
+                    Якщо ми спробуємо додати некоректні дані в БД, то запит на додавання поверне помилку.
+                </p>
+                <p>
+                    Після цього необхідно створити модель, використовуючи схему:
+                </p>
+                <p><code>const Cat = mongoose.model('cat', cats);</code></p>
+                <p>
+                    Перший параметр у методі mongoose.model вказує на назву моделі, а другий параметр – власне схема.
+                </p>
+                <pre>
+    const cat = new Cat({
+        nickname: 'Barsik',
+        age: 1,
+    });
+                </pre>
+                <p>
+                    Для збереження об'єкта в базі викликається метод save. Він визначений для всіх 
+                    створюваних моделей та зберігає поточний об'єкт у базу даних. Метод повертає 
+                    результат – о 'єкт типу Document, який представляє конкретний документ, що 
+                    зберігається в колекції.
+                </p>
+                <pre>
+    const result = cat.save();
+    console.log('Кіт збережений у базу! ', result);
+                </pre>
+
+                <h4>Індекси</h4>
+                <p>
+                    Якщо поле часто використовується при пошуку документів йому можна призначити індекс. 
+                    Індексування полів дозволяє швидше шукати за цими полями. Індекс до поля можна 
+                    додати двома способами.
+                </p>
+                <p>Перший – визначити у самій схемі</p>
+                <pre>
+    const cats = new Schema({
+        nickname: { type: String, index: 1 },
+        age: Number,
+    });
+                </pre>
+                <p>Або викликавши метод index у самій схемі</p>
+                <pre>
+    const cats = new Schema({
+        nickname: String,
+        age: Number,
+        });
+    cats.index({ nickname: 1 });
+                </pre>
+
+                <h4>Унікальні поля</h4>
+                <p>
+                    Значення поля можна зробити унікальним. Це означає, що в інших документах колекції не 
+                    може бути такого поля з таким самим значенням. Наприклад, логічно зробити поле email, 
+                    для схеми, яка описує користувача, унікальним. Для цього потрібно у схемі, при 
+                    визначенні поля, додати властивість unique
+                </p>
+                <pre>
+    const user = new Schema({
+        username: String,
+        email: { type: String, unique: true },
+    });
+                </pre>
+
+                <h4>Обов'язкові поля </h4>
+                <pre>
+    const user = new Schema({
+        username: { type: String, required: true },
+        email: { type: String, unique: true, required: true },
+    });
+                </pre>
+
+                <h4>Методи в об'єкта схеми</h4>
+                <pre>
+                    const user = new Schema({
+                            firstName: String,
+                            lastName: String,
+                        });
+                        user.methods.fullName = function () {
+                        return ${this.firstName} ${this.lastName};
+                    };
+                </pre>
+                <p>
+                    Отримавши потім екземпляр документа з бази, ми можемо викликати в нього функцію fullName(), 
+                    яка повертає повне ім'я та прізвище користувача
+                </p>
+
+
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Основні операції з даними в Mongoose</h2>
+                <h3>Створення документів</h3>
+                <p>
+                    Крім розглянутого методу save(), також можна використати метод від моделі об'єкта Cat.create(). 
+                    Першим параметром методу передається об'єкт для збереження.
+                </p>
+                <pre>
+    Cat.create({
+        nickname: 'Barsik',
+        age: 1,
+    });
+                </pre>
+
+                <h3>Отримання даних</h3>
+                <p>
+                    Для отримання даних можна використати методи
+                </p>
+                <ul>
+                    <li>
+                        <code>find([query], [options]);</code>
+                        Встановлює операцію пошуку, яка повертає масив об'єктів типу Document, які збігаються із запитом
+                    </li>
+                    <li>
+                        <code>findOne([query], [options]);</code>
+                        Встановлює операцію пошуку одного документа, що повертає перший об'єкт Document, який збігається із запитом
+                    </li>
+                   
+                </ul>
+
+                <h3>Видалення даних</h3>
+                <p>Для видалення застосовуються наступні методи</p>
+                <ul>
+                    <li>
+                        <code>remove([query], [options]);</code>
+                        Встановлює операцію видалення, під час якої з колекції видаляються всі об'єкти, що збігаються із запитом
+                    </li>
+                    <li>
+                        <code>findOneAndRemove([query], [options]);</code>
+                        Встановлює операцію пошуку та видалення, під час якої з колекції видаляється перший же документ, що збігається із запитом
+                    </li>
+                </ul>
+
+                <h3>Зміна даних</h3>
+                <ul>
+                    <li>
+                        <code>update([query], [update], [options]);</code>
+                        Встановлює операцію оновлення, в ході якої в колекції оновлюються всі документи, що збігаються із запитом
+                    </li>
+                    <li>
+                        <code>findOneAndUpdate([query], [update], [options]);</code>
+                        Встановлює операцію пошуку та оновлення, під час якої в колекції оновлюється перший же документ, що збігається із запитом.
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+        
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Підключення Mongoose</h2>
+                <p>
+                    Давайте тепер розберемо REST API застосунок та підключення до нього Mongoose. 
+                    Структура нашого застосунку буде наступною
+                </p>
+                <pre>
+        ├── server.js
+        ├── .env
+        ├── controller
+        │ └── index.js
+        ├── package.json
+        ├── service
+        │ ├── schemas
+        │ | └── task.js
+        │ └── index.js
+        └── api
+        └── index.js
+                </pre>
+                <p>
+                    З самим застосунком ви можете ознайомитись:
+                    <a href="https://glitch.com/~nodebook-api-mongoose">glitch.com</a>
+                </p>
+                <p>
+                    API доступно за цим URL:
+                    <a href="https://nodebook-api-mongoose.glitch.me/api/tasks"
+                        target="_blank">https://nodebook-api-mongoose.glitch.me/api/tasks
+                    </a>
+                </p>
+                <ul>
+                    <li>Роботу з базою даних ми виділяємо в окремий сервіс та поміщаємо його папку service, файл index.js.</li>
+                    <li>Визначаємо схеми для документів у папці schemas.</li>
+                    <li>Роути у нас залишаться як і раніше у папці api</li>
+                    <li>логіку роботи застосунку ми перенесемо у папку controller</li>
+                </ul>
+                <p>
+                    Давайте тепер поговоримо детальніше про кожний модуль застосунку
+                </p>
+
+                <h3>Головний файл та підключення до БД</h3>
+                <p>
+                    Файл сервера server.js. Підключаємо необхідні модулі та створюємо екземпляр застосунку.
+                </p>
+                <pre>
+    const express = require('express');
+    const cors = require('cors');
+    const mongoose = require('mongoose');
+    require('dotenv').config();
+    const app = express();
+                </pre>
+                <p>
+                    Підключаємо парсер JSON і дозволяємо кросдоменні запити до нашого застосунку 
+                    через проміжне ПЗ cors
+                </p>
+                <pre>
+    // parse application/json
+    app.use(express.json());
+    // cors
+    app.use(cors());
+                </pre>
+                <p>
+                    Підключаємо роути для нашого API, а також обробку помилки 404 та помилок сервера 500
+                </p>
+                <pre>
+    const routerApi = require('./api');
+    app.use('/api', routerApi);
+    app.use((_, res, __) => {
+        res.status(404).json({
+            status: 'error',
+            code: 404,
+            message: 'Use api on routes: /api/tasks',
+            data: 'Not found',
+        });
+    });
+    app.use((err, _, res, __) => {
+        console.log(err.stack);
+        res.status(500).json({
+            status: 'fail',
+            code: 500,
+            message: err.message,
+            data: 'Internal Server Error',
+        });
+    });
+                </pre>
+                <p>
+                    Підключаємось до сервера MongoDB за допомогою mongoose.connect. Цей метод повертає проміс, 
+                    і коли він вирішиться, ми стартуємо наш сервер app.listen. Якщо ж під час підключення до 
+                    бази даних сталася помилка, то стартувати сервер немає жодної причини і ми виводимо в 
+                    консоль просто повідомлення про помилку.
+                </p>
+                <pre>
+    const PORT = process.env.PORT || 3000;
+    const uriDb = process.env.DB_HOST;
+    const connection = mongoose.connect(uriDb, {
+        promiseLibrary: global.Promise,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+    });
+    connection
+    .then(() => {
+        app.listen(PORT, function () {
+            console.log(Server running. Use our API on port: ${PORT});
+        });
+    })
+    .catch(err =>
+        console.log(Server not running. Error message: ${err.message}),
+    );
+                </pre>
+
+                <h3>Роуты</h3>
+                <p>Файл роутингу api/index.js у нас став лаконічним та чистим</p>
+                <pre>
+    const express = require('express');
+    const router = express.Router();
+    const ctrlTask = require('../controller');
+
+    router.get('/tasks', ctrlTask.get);
+    router.get('/tasks/:id', ctrlTask.getById);
+    router.post('/tasks', ctrlTask.create);
+    router.put('/tasks/:id', ctrlTask.update);
+    router.patch('/tasks/:id/status', ctrlTask.updateStatus);
+    router.delete('/tasks/:id', ctrlTask.remove);
+    module.exports = router;
+                </pre>
+                <p>
+                    Ми імпортуємо контролер і для кожного маршруту та необхідного методу HTTP викликаємо 
+                    відповідний метод контролера ctrlTask. При подальшій роботі над застосунком тут можуть 
+                    з'явитися проміжні ПЗ для авторизації необхідних маршрутів, для валідації даних, 
+                    що передаються, та інші допоміжні функції.
+                </p>
+
+                <h3>Контролери</h3>
+                <p>
+                    Тут ми помістимо основну логіку роботи нашого застосунку. Фактично контролер 
+                    у нашому випадку – якийсь диспетчер, який приймає запит на обробку маршруту 
+                    від роуту, звертається до бази даних через сервіс та з отриманим результатом 
+                    формує відповідь застосунку.
+                </p>
+                <p>Щоб отримати список усіх завдань достатній простий обробник</p>
+                <pre>
+    const get = async (req, res, next) => {
+    try {
+        const results = await service.getAlltasks();
+        res.json({
+            status: 'success',
+            code: 200,
+            data: {
+            tasks: results,
+        },
+    });
+    } catch (e) {
+        console.error(e);
+            next(e);
+        }
+    };
+                </pre>
+
+                <p>Ми звертаємось до сервісу та запитуємо у бази всі поточні завдання нашого TODO списку</p>
+                <p><code>const results = await service.getAlltasks();</code></p>
+                <p>Потім відправляємо отриманий результат клієнту</p>
+                <pre>
+    res.json({
+        status: 'success',
+        code: 200,
+        data: {
+            tasks: results,
+        },
+    });
+                </pre>
+                <p>
+                    У разі помилки виконання ми надсилаємо її далі next(err), для обробника помилок у файлі server.js
+                </p>
+                <p>
+                    Контролер для обробки запиту завдання за id схожий на попередній, але має важливу відмінність. 
+                    У випадку, якщо сервіс нам нічого не повернув з бази даних, ми повертаємо відповідь 404 – нічого не знайдено
+                </p>
+                <pre>
+    const getById = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const result = await service.getTaskById(id);
+        if (result) {
+            res.json({
+                status: 'success',
+                code: 200,
+                data: { task: result },
+            });
+        } else {
+            res.status(404).json({
+                status: 'error',
+                code: 404,
+                message: Not found task id: ${id},
+                data: 'Not Found',
+            });
+        }
+    } catch (e) {
+        console.error(e);
+            next(e);
+        }
+    };
+                </pre>
+                <p>
+                    Так само ми робимо для контролерів оновлення завдання та видалення – якщо нічого не 
+                    знайдено повертаємо помилку 404
+                </p>
+
+                <h3>Сервіс роботи з БД</h3>
+                <p>
+                    Сервіс для виконання операцій над базою даних теж досить лаконічний
+                </p>
+                <pre>
+    const Task = require('./schemas/task');
+    const getAlltasks = async () => {
+        return Task.find();
+    };
+    const getTaskById = id => {
+        return Task.findOne({ _id: id });
+    };
+    const createTask = ({ title, text }) => {
+        return Task.create({ title, text });
+    };
+    const updateTask = (id, fields) => {
+        return Task.findByIdAndUpdate({ _id: id }, fields, { new: true });
+    };
+    const removeTask = id => {
+        return Task.findByIdAndRemove({ _id: id });
+    };
+
+    module.exports = {
+        getAlltasks,
+        getTaskById,
+        createTask,
+        updateTask,
+        removeTask,
+    };
+                </pre>
+
+                <p>
+                    У нас є п'ять функцій, які виконують всі основні операції для нашого простого API
+                </p>
+                <p>
+                    Щоб отримати всі завдання, ми використовуємо метод find, який викликаємо у моделі 
+                    та повертаємо результат у контролер
+                </p>
+                <pre>
+    const getAlltasks = async () => {
+        return Task.find();
+    };
+                </pre>
+
+                <p>
+                    Отримати конкретне завдання за id. Ми викликаємо метод findOne, який знаходить 
+                    нам єдиний результат за умовою { _id: id }. Якщо метод нічого не знайде, то 
+                    буде повернено значення null
+                </p>
+                <pre>
+    const getTaskById = id => {
+        return Task.findOne({ _id: id });
+    };
+                </pre>
+                <p>
+                    Створення нового завдання. Викликаємо у моделі метод create 
+                </p>
+                <pre>
+const createTask = ({ title, text }) => {
+    return Task.create({ title, text });
+};
+                </pre>
+                <p>
+                    Оновлюємо завдання методом findByIdAndUpdate, першим параметром передаємо умову 
+                    пошуку – збіг за id, а другим – об'єкт з полями, які необхідно оновити. 
+                    Третій параметр вказує, що метод повинен повернути вже оновлений документ
+                </p>
+                <pre>
+const updateTask = (id, fields) => {
+    return Task.findByIdAndUpdate({ _id: id }, fields, { new: true });
+};
+                </pre>
+                <p>
+                    І остання операція видаляє завдання з бази даних. Використовуємо метод Mongoose 
+                    findByIdAndRemove, якому передаємо id завдання, а метод знаходить та видаляє його 
+                    з бази даних.
+                </p>
+                <pre>
+    const removeTask = id => {
+        return Task.findByIdAndRemove({ _id: id });
+    };
+                </pre>
+
+                <h3>Схема</h3>
+
+                <p>
+                    Останнім, що залишилося нам розглянути, – це файл створення схеми для нашої колекції завдань.
+                </p>
+                <pre>
+    const {Schema, model} = require('mongoose');
+    const task = new Schema(
+        {
+            title: {
+            type: String,
+            minlength: 2,
+            maxlength: 70,
+        },
+            text: {
+            type: String,
+            minlength: 3,
+            maxlength: 170,
+        },
+            isDone: {
+            type: Boolean,
+            default: false,
+            },
+        },
+        { versionKey: false, timestamps: true },
+    );
+    const Task = model('task', task);
+    
+    module.exports = Task;
+                </pre>
+
+                <p>
+                    В принципі, тут нам уже все зрозуміло, ми створюємо схему з трьома 
+                    полями title, text, isDone. Визначаємо тип значень, що зберігаються, 
+                    і накладаємо обмеження. З нового тут з'явився параметр із опціями при створенні схеми.
+                    <code>{ versionKey: false, timestamps: true }</code>
+                </p>
+
+                <p>
+                    Ці опції відключають версіонування документів встановленням значення якості 
+                    versionKey у false. Mongoose за замовчуванням додає версіонування – параметр __v, 
+                    який вказує на версію зміненого документа. Здебільшого це потрібно для документів 
+                    зі складною структурою, а, оскільки структура нашої схеми плоска, версіонування ми 
+                    відключаємо. Друга опція включає в нашу схему дві додаткові властивості: час 
+                    створення документа createdAt та час оновлення updatedAt. Причому Mongoose 
+                    автоматично буде встановлювати ці поля при створенні та змінювати поле updatedAt 
+                    при кожному оновленні документа, що, погодьтеся, дуже зручно.
+                </p>
+                <p>
+                    У результаті типовий документ у нашій колекції tasks повинен виглядати так:
+                </p>
+
+                <pre>
+    {
+        "isDone": false,
+        "_id": "5f8e3067975b9d23a0dbd270",
+        "title": "My work",
+        "text": "Pain and pain!",
+        "createdAt": "2020-10-20T00:33:43.492Z",
+        "updatedAt": "2020-10-20T00:43:16.961Z"
+    }
+                </pre>
+
+                <p>
+                    Ми розібрали простий застосунок REST API та підключення бібліотеки Mongoose у нашому проекті
+                </p>
+
+            </div>
+        </section>
+
+
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="../../js-exampl/btn-top.js"></script>
+    <!-- <script src="../../js/xxx.js" type="module"></script> -->
+</body>
+</html>

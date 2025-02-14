@@ -57,6 +57,7 @@
                     <li><code>joi</code> - дата валідатор</li>
                     <li><code>morgan</code> - для node.js логування</li>
                     <li><code>dotenv</code> змінні середовища</li>
+                    <li><code>Mongoose</code> робота з базою данич MongoDB</li>
 
                     
                 </ol>
@@ -335,11 +336,42 @@ app.listen(3000, function () {
             </div>
         </section>
 
+
+        <!-- mongoose -->
         <section class="section-about">
             <div class="container">
-                <h2></h2>
+                <h2>mongoose</h2>
+                <p>
+                    Mongoose представляє спеціальну ODM-бібліотеку (Object Data Modelling) для роботи з MongoDB
+                </p>
+                <p>
+                    <code>npm install mongoose -S</code> <a href="https://mongoosejs.com/docs/guide.html">mongoose</a>
+                </p>
+                <ol>
+                    <li><code>mongoose.Promise = global.Promise;</code></li>
+                    <li><code>const mongoose = require('mongoose');</code></li>
+                    <li></li>
+                </ol>
+                <p>
+                    Підключення до бази виконується методом mongoose.connect(), в який першим параметром передається адреса на 
+                    підключення до бази даних, а другим – об'єкт налаштувань:
+                </p>
+                <pre>
+    mongoose.connect(process.env.DB_HOST, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+    });
+                </pre>
+                <p>
+                    За допомогою методу mongoose.disconnect() можна відключитися від бази даних.
+                </p>
+
             </div>
         </section>
+
+
+
 
         <section class="section-about">
             <div class="container">
