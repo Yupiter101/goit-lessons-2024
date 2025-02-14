@@ -89,10 +89,24 @@
         <section class="section-about">
             <div class="container">
                 <h2>CORS</h2>
-                <ul>
-                    <li> <code>npm i cors</code> прибирає конфлікт між різними серверами і браузером</li>
-                    
-                </ul>
+                <p><code>npm i cors</code> прибирає конфлікт між різними серверами і браузером</p>
+                <p>Приклад:</p>
+                <pre>
+npm install cors
+
+const express = require('express');
+const cors = require('cors');
+const app = express();
+app.use(cors());
+
+app.get('/', (req, res, next) => {
+    res.json({ message: 'CORS is activated' });
+});
+app.listen(3000, function () {
+    console.log('CORS-enabled web server listening on port 3000');
+});
+
+                </pre>
             </div>
         </section>
 

@@ -58,7 +58,9 @@
                     <li>Логування</li>
                     <li>Що таке REST</li>
                     <li>Основні методи HTTP</li>
-                    <li></li>
+                    <li>CORS</li>
+                    <li>Формування URL для REST API</li>
+                    <li>Приклад REST API програми</li>
                 </ol>
             </div>
         </section>
@@ -705,8 +707,420 @@ http://user:password@host.com:80/resourse/path/?query=name&ttt=123#hash
         <section class="section-about">
             <div class="container">
                 <h2>Основні методи HTTP</h2>
+                <p>Основні HTTP-методи GET/POST/PUT/DELETE</p>
+                <ul>
+                    
+                    <li>Інформаційні 100 - 199</li>
+                    <li>Успішні 200 - 299</li>
+                    <li>200 (OK) - вірний запит</li>
+                    <li>201 Create - створено успішно</li>
+                    <li>204 - No Content усе вірно але нема чого передати</li>
+                    <li>Перенаправлення 300 - 399</li>
+                    <li>301: Moved Permanently</li>
+                    <li>307: Temporary Redirect</li>
+                    <li>Клієнтські помилки 400 - 499</li>
+                    <li>400: Bad Request</li>
+                    <li>401: Unauthorized</li>
+                    <li>403: Forbidden - нема прав доступу</li>
+                    <li>404: Not Found</li>
+                    <li>Серверні помилки 500 - 599</li>
+                    <li>500: Internal Server Error</li>
+                    <li>501: Not Implemented</li>
+                    <li>502: Bad Gateway</li>
+                    <li>503: Service Unavailable</li>
+                    <li>504: Gateway Timeout</li>
+                </ul>
+                <p>
+                    Детальніше почитайте у стандарті RFC 2616 або простіше 
+                    <a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Status" target="_blank">MDN</a> 
+                </p>
             </div>
         </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>CORS</h2>
+                <p>
+                    Cross-Origin Resource Sharing (CORS, перехресний обмін ресурсами) – це механізм, який за 
+                    допомогою HTTP-заголовків дає браузеру дозвіл завантажувати ресурси з певного джерела 
+                    на запит вебзастосунку, отриманого з іншого джерела.
+                </p>
+                <p>
+                    З метою безпеки всі браузери припиняють усі перехресні HTTP-запити, які здійснюються клієнтським 
+                    JavaScript. Це називається дотримання правила одного джерела і виходить, що вебзастосунок, 
+                    отриманий з певного домену (Github pages), не може виконувати запити до HTTP-ресурсів з 
+                    домену (Heroku), що відрізняється. Щоб отримати відповідь, що надходить з API, веб-сервер 
+                    на якому реалізовано API, повинен містити відповідні CORS-заголовки.
+                </p>
+                <p>
+                    Механізм CORS робить безпечні перехресні запити та передачі даних між web-браузерами та web-серверами.
+                </p>
+                <p>Приклад:</p>
+                <pre>
+npm install cors
+
+const express = require('express');
+const cors = require('cors');
+const app = express();
+app.use(cors());
+
+app.get('/', (req, res, next) => {
+    res.json({ message: 'CORS is activated' });
+});
+app.listen(3000, function () {
+    console.log('CORS-enabled web server listening on port 3000');
+});
+
+                </pre>
+                <p>
+                    У функцію проміжного ПЗ cors, ми можемо передати аргумент – конфігураційний об'єкт з наступними властивостями
+                </p>
+                <ol>
+                    <li>
+                        <code>origin:</code> Налаштовує заголовок CORS Access-Control-Allow-Origin. 
+                        Найчастіше це рядок "*", який дозволяє запит від будь-якого домену. Можливо конкретне значення 
+                        на кшталт "http://example.com" і будуть дозволені тільки запити з "http://example.com". 
+                        Можна використовувати регулярний вираз або масив рядків, або регулярних виразів, якщо 
+                        доступ до API можливий з різних доменів
+                    </li>
+                    <li>
+                        <code>methods:</code>
+                         Налаштовує заголовок CORS Access-Control-Allow-Methods. Очікує рядок з HTTP методами, 
+                         наприклад, "GET, PUT, POST", можна масив ['GET', 'PUT', 'POST'], яким дозволені 
+                         міждоменні запити.
+                    </li>
+                    <li>
+                        <code>allowedHeaders:</code> Налаштовує заголовок CORS Access-Control-Allow-Headers. 
+                        Чекає рядок з роздільниками-комами, наприклад, "Content-Type, Authorization" або 
+                        масив ['Content-Type', 'Authorization'] – які заголовки дозволені при запиті.
+                    </li>
+                    <li>
+                        <code>exposedHeaders:</code> Налаштовує заголовок CORS Access-Control-Expose-Headers. Управляє заголовками користувача.
+                    </li>
+                    <li>
+                        <code>credentials:</code> Налаштовує заголовок CORS Access-Control-Allow-Credentials. 
+                        Встановіть true для передачі заголовка, інакше він не вказується.
+                    </li>
+                    <li>
+                        <code>maxAge:</code>  Налаштовує заголовок CORS Access-Control-Max-Age. 
+                        Встановіть ціле число для передачі заголовка, інакше він не вказується.
+                    </li>
+                    <li>
+                        <code>preflightContinue:</code> Надіслати відповідь попередньої перевірки CORS наступному обробнику.
+                    </li>
+                    <li>
+                        <code>optionsSuccessStatus:</code> Надає код стану для використання у разі 
+                        успішних OPTIONS запитів, оскільки деякі застарілі браузери (IE11, різні SmartTV) 
+                        не працюють зі статусом 204.
+                    </li>
+                    <li>
+                        Конфігурація за замовчуванням еквівалентна:
+                        <pre>
+    {
+        origin: '*',
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+        preflightContinue: false,
+        optionsSuccessStatus: 204
+    }
+                        </pre>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Формування URL для REST API</h2>
+                <p>
+                    У цьому розділі ми поговоримо про правильне іменування ресурсів для API. 
+                    Коли ресурси названі правильно, API інтуїтивно зрозумілий та простий у використанні. 
+                    Часто кінцеві URL за запитом ресурсу називають endpoints API
+                </p>
+                <p>Що є хорошою практикою для правильного іменування?</p>
+                <ul>
+                    <li>Ну, по-перше, необхідно використовувати для опису базових URL іменники у множині – users, contacts.</li>
+                    <li>Також потрібно використовувати конкретніші та чіткіші імена news, videos, а не абстрактні items або elements</li>
+                    <li>Складну логіку для URL необхідно описувати за рахунок додаткових властивостей, тобто ховати за знаком ?</li>
+                    <li>Приклад використання пагінації /users?limit=25&offset=50, фільтрація відповіді /friends?fields=id,name,picture
+                    </li>
+                </ul>
+                <p>Pозглянемо хороші практики іменування URL для різноманітних ситуацій</p>
+                <ul>
+                    <li>
+                        Додавання нового клієнта до системи:
+                        <pre>
+    HTTP метод: POST
+    URL: http://www.example.com/customers
+                        </pre>
+                    </li>
+                    <li>
+                        Отримати дані клієнта з ідентифікатором клієнта ID 112233:
+                        <pre>
+    HTTP метод: GET
+    URL: http://www.example.com/customers/112233
+                        </pre>
+                    </li>
+                    <li>
+                        Створення нового продукту:
+                        <pre>
+    HTTP метод: POST
+    URL: http://www.example.com/products
+                        </pre>
+                    </li>
+                    <li>
+                        Для читання, оновлення, видалення продукту з ID 432111, відповідно:
+                        <pre>
+    HTTP метод: GET, PUT, DELETE
+    URL: http://www.example.com/products/432111
+                        </pre>
+                    </li>
+                    <li>
+                        Створення нового замовлення для клієнта поза контекстом клієнта
+                        <pre>
+    HTTP метод: POST
+    URL: http://www.example.com/orders
+                        </pre>
+                    </li>
+                    <li>
+                        Створення того самого замовлення, але в контексті конкретного клієнта з ID 332244
+                        <pre>
+    HTTP метод: POST
+    URL: http://www.example.com/customers/332244/orders
+                        </pre>
+                    </li>
+                    <li>
+                        Список замовлень, що належать клієнту ID 332244:
+                        <pre>
+    HTTP метод: GET
+    URL: http://www.example.com/customers/332244/orders
+                        </pre>
+                    </li>
+                    <li>
+                        Нехай необхідний URL для додавання нової позиції на замовлення з ID 1234, для клієнта з ID 332244:
+                        <pre>
+    HTTP метод: POST
+    URL: http://www.example.com/customers/332244/orders/1234/lineorders
+                        </pre>
+                    </li>
+                    <li>
+                        Отримання списку замовлення за ID замовлення без знання ID конкретного клиента
+                        <pre>
+    HTTP метод: GET
+    URL: http://www.example.com/orders/8769
+                        </pre>
+                    </li>
+                    <li>
+                        Пагінація здійснюється через query рядок за допомогою параметра offset – це початковий номер позиції, 
+                        та параметра limit – максимальна кількість елементів, що повертаються. Вони можуть називатися й 
+                        інакше, наприклад skip, limit
+                        <pre>
+    HTTP метод: GET
+    URL: http://api.example.com/resources?offset=0&limit=25
+                        </pre>
+                    </li>
+                    <li>
+                        Складна фільтрація за значеннями. Можна використовувати роздільник подвійна двокрапка <code>::</code>, 
+                        що відокремлює ім'я властивості від значення порівняння
+                        <pre>
+    HTTP метод: GET
+    URL: http://www.example.com/users?filter="name::sam|city::denver"
+                        </pre>
+                    </li>
+                    <li>
+                        Сортування. Один із способів, коли для кожної переданої властивості здійснюється сортування в порядку 
+                        зростання, а для кожної властивості, з префіксним тире ("-") сортування здійснюється у порядку зменшення. 
+                        Сепаратор для кожного імені властивості вертикальна смуга ("|")
+                        <pre>
+    HTTP метод: GET
+    URL: http://www.example.com/users?sort=lastName|firstName|-birthdate
+                        </pre>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Приклад REST API програми</h2>
+                <p>
+                    Розглянемо найпростіше Web-API. Реалізуємо стандартний todo-list, який буде нам повертати 
+                    список поточних завдань. Наш API міститиме повний набір CRUD (Create, Read, Update, Delete) 
+                    операцій для наших завдань.
+                </p>
+                <p>Ми будемо працювати з двома URL</p>
+                <ul>
+                    <li><code>/api/tasks/</code>  - повний CRUD</li>
+                    <li><code>/api/tasks/:id/status</code> - для зміни статусу завдання, виконано воно чи ні</li>
+                    <li>Повний код застосунку: 
+                        <a href="https://glitch.com/~nodebook-api" target="_blank">glitch.com/~nodebook-api</a>
+                    </li>
+                    <li>Всі запити до нашого API ми будемо виконувати за допомогою утиліти</li>
+                </ul>
+                <h4>Основний файл застосунку</h4>
+                <pre>
+    const express = require('express');
+    const cors = require('cors');
+    const routerApi = require('./api');
+    const app = express();
+    app.use(express.json()); // parse application/json
+    app.use(cors()); // cors
+    app.use('/api', routerApi);
+
+    app.use((_, res, __) => {
+        res.status(404).json({
+            status: 'error',
+            code: 404,
+            message: 'Use api on routes: /api/tasks',
+            data: 'Not found',
+        });
+    });
+    app.use((err, _, res, __) => {
+        console.log(err.stack);
+        res.status(500).json({
+            status: 'fail',
+            code: 500,
+            message: err.message,
+            data: 'Internal Server Error',
+        });
+    });
+    const PORT = process.env.PORT || 3000;
+
+    app.listen(PORT, function () {
+        console.log(Server running. Use our API on port: ${PORT});
+    });
+                </pre>
+                <p>
+                    Ми тут підключаємо обробку даних у форматі JSON, включаємо cors і додаємо обробники помилок
+                </p>
+                <h3>Реалізація API</h3>
+                <p>У файлі роутингу ми описуємо всю логіку поведінки нашого API.</p>
+                <p>
+                    Усі дані про завдання ми зберігаємо у масиві tasks, де жорстко прописуємо одне завдання.
+                </p>
+                <pre>
+    let tasks = [
+        {
+            id: nanoid(),
+            title: 'Work',
+            text: 'Do it!',
+            done: false,
+        },
+    ];
+                </pre>
+                <p>Надалі в цей масив ми будемо додавати нові завдання, видаляти та оновлювати їх</p>
+
+                <h4>Читання</h4>
+                <p>отримання списку всіх завдань</p>
+                <pre>
+    router.get('/tasks', (req, res, next) => {
+        res.json({
+            status: 'success',
+            code: 200,
+            data: {
+            tasks,
+            },
+        });
+    });
+                </pre>
+                <p>
+                    Тут все досить просто ми віддаємо об'єкт зі статусом 'success', кодом 200 та властивістю data, 
+                    це наше корисне навантаження, куди ми покладемо масив наших завдань.
+                </p>
+
+                <p>Обробник для отримання завдання за ID</p>
+                <pre>
+    router.get('/tasks/:id', (req, res, next) => {
+        const { id } = req.params;
+        const [task] = tasks.filter(el => el.id === id);
+        res.json({
+            status: 'success',
+            code: 200,
+            data: { task },
+        });
+    });
+                </pre>
+
+                <h4>Створення нового завдання</h4>
+                <pre>
+router.post('/tasks', (req, res, next) => {
+    const { title, text } = req.body;
+    const task = {
+        id: nanoid(),
+        title,
+        text,
+        done: false,
+    };
+    tasks.push(task);
+    res.status(201).json({
+        status: 'success',
+        code: 201,
+        data: { task },
+    });
+});
+
+//body:
+{
+    "title": "Vacation",
+    "text": "Enjoy"
+}
+                </pre>
+
+                <h4>Оновлення завдання</h4>
+                <pre>
+    router.put('/tasks/:id', (req, res, next) => {
+        const { id } = req.params;
+        const { title, text } = req.body;
+        const [task] = tasks.filter(el => el.id === id);
+        task.title = title;
+        task.text = text;
+        res.json({
+            status: 'success',
+            code: 200,
+            data: { task },
+        });
+    });
+                </pre>
+
+                <h4>Часткове оновлення</h4>
+                <p>Для статусу ми використовуємо окремий URL та HTTP метод PATCH</p>
+                <pre>
+    router.patch('/tasks/:id/status', (req, res, next) => {
+        const { id } = req.params;
+        const { done } = req.body;
+        const [task] = tasks.filter(el => el.id === id);
+        task.done = done;
+        res.json({
+            status: 'success',
+            code: 200,
+            data: { task },
+        });
+    });
+                </pre>
+                <p>Тут для завдання ми змінюємо значення лише його властивості done</p>
+                <pre>
+    {
+        "done": true
+    }
+                </pre>
+
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2></h2>   
+            </div>
+        </section>
+
 
 
     </main>
