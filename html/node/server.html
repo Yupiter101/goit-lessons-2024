@@ -49,7 +49,6 @@
                 <ol>
                     <li>http - з коробки</li>
                     <li>express - конспект</li>
-                    <li>express - лекція. Закінчив на 0:35:00</li>
                     <li>middleware - Проміжне ПЗ</li>
                     <li>Способи передачі даних на сервер</li>
                     <li>Роутінг у додатку. Методи</li>
@@ -61,6 +60,7 @@
                     <li>CORS</li>
                     <li>Формування URL для REST API</li>
                     <li>Приклад REST API програми</li>
+                    <li><a href="#express-pract">express - практика</a></li>
                 </ol>
             </div>
         </section>
@@ -109,7 +109,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>express</h2>
+                <h2>express - конспект</h2>
                 <p>
                     Express – це мінімалістичний та гнучкий вебфреймворк для застосунків Node.js
                     Давайте відразу приступимо до практики
@@ -188,55 +188,6 @@
         </section>
 
 
-        <section class="section-about">
-            <div class="container">
-                <h2>express. Практика</h2>
-                <p>Матеріал взято з 
-                    <a href="https://www.youtube.com/watch?v=26SZU_Q2gs0&t=1523s&ab_channel=GoIT">
-                        відео уроку
-                    </a> Less-3/1
-                </p>
-                <p><a href="https://expressjs.com/" target="_blank">expressjs.com</a></p>
-                <p><code>$ npm install express --save</code></p>
-                
-                <pre>
-    const express = require('express')
-    const app = express()
-    const port = 3000
-
-    app.get('/', (req, res) => {
-        res.send('Hello World!')
-    })
-
-    app.listen(port, () => {
-        console.log(`Example app listening on port ${port}`)
-    })
-                </pre>
-                <p>Опис цікавого:</p>
-                <ul>
-                    <li>http://localhost:3000/?api-key=123  -  так можна задавати квері парамнтри</li>
-                    <li>const apiKey = req.query["apikey"];</li>
-                    <li>const apiKey = req.query.apikey;</li>
-                    <li>Нормально працює тільки через постман</li>
-                    <li>Middlevare app.use((req, res, next)=> {}) - міделвара для усіх запитів</li>
-                    <li>Middlevare app.use("/books", (req, res, next)=> {}) - міделвара для "/books"</li>
-                 
-                </ul>
-
-                <h2>CORS</h2>
-
-                <p>
-                    прибирає конфлікт між різними серверами і браузером
-                </p>
-                <ul>
-                    <li>npm i cors</li>
-                    <li>const cors = require("cors");</li>
-                    <li>app.use(cors());</li>
-                    <li></li>
-                </ul>
-
-            </div>
-        </section>
 
 
 
@@ -1109,6 +1060,208 @@ router.post('/tasks', (req, res, next) => {
         "done": true
     }
                 </pre>
+
+            </div>
+        </section>
+
+
+        
+        <section class="section-about">
+            <div class="container">
+                <h2 id="express-pract">express. Практика</h2>
+                <p>Матеріал взято з 
+                    <a href="https://www.youtube.com/watch?v=26SZU_Q2gs0&t=1523s&ab_channel=GoIT">
+                        відео уроку
+                    </a> Less-3/1
+                </p>
+                <p>Документація: <a href="https://expressjs.com/" target="_blank">expressjs.com</a></p>
+                <p><code>$ npm install express --save</code></p>
+                
+                <h3>Приклад</h3>
+                <pre>
+    const express = require('express')
+    const app = express()
+    const port = 3000
+
+    app.get('/', (req, res) => {
+        res.send('Hello World!')
+    })
+
+    app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+    })
+                </pre>
+
+                <br><br>
+                <h3>Методи request:</h3>
+                <h4>query параметри:</h4>
+                <ul>
+                    <li><code>http://localhost:3000/?apikey=123</code> - задавати квері парамнтри</li>
+                    <li><code>const apiKey = req.query["apikey"];</code> - отримати квері парамнтри</li>
+                    <li><code>const apiKey = req.query.apikey;</code> - отримати квері парамнтри</li>
+                </ul>
+
+                <h4>Отримати динамічне значення:</h4>
+                <ul>
+                    <li><code>http://localhost:3000/contacts/id789</code> - задавати динамічне значення</li>
+                    <li><code>const { id } = req.params;</code> - зчитати динамічне значення</li>
+                    
+                </ul>
+
+                <h4>Отримати body:</h4>
+                <ul>
+                    <li>Задається методом <code>POST</code>  тіло ключ-значення</li>
+                    <li>метод <code>req.body</code> але треба його розпарсити</li>
+                    <li>
+                        <pre>
+    const jsonParser = express.json(); // на початку. Тоді
+
+    app.post("/bols", <code>jsonParser</code>, (req, res, next)=> {
+        const bol = req.body;
+        console.log(bol); // Треба розпарсити
+        res.send("Це post /bols");
+    });
+                        </pre>
+                    </li>
+                    
+                </ul>
+
+                <br>
+                <h3>методи response (res):</h3>
+                <ul>
+                    <li><code>res.end();</code> // Завершує запит</li>
+                    <li><code>res.send("Це post /bols");</code> // Відправка на фронтенд
+                        Тут можна відправити розмітку html
+                    </li>
+                    <li><code>res.status(401).send("No autoriza");</code>// Відправка помилки</li>
+                    <li><code>res.status(404).sendFile(filePath);</code>// Відправка HTML файлу</li>
+                    <li><code>res.status(404).send({message: `Route ${req.url} not found!`})</code> відправляє JSON</li>
+                    <li><code>res.send(books);</code> books = json. ok</li>
+                    <li><code>res.json(books);</code> books = json  ok</li>
+                </ul>
+
+
+
+                <br>
+                <h3>Міделвари</h3>
+                <ul>
+                    <li>
+                        <p>корінь сайту: http://localhost:8080</p>
+                        <pre>
+    app.get("/", (req, res) => {
+        res.send("Це корінь сайту");
+    });</pre> 
+                    </li>
+                    <li>
+                        <pre>
+    app.get("/books", (req, res)=> {
+        res.json(books);
+    })
+                        </pre>
+                    </li>
+                    <li>
+                        <p>
+                            Додавання обробки помилки якщо не співпав жоден роут. 
+                            За змовчува-м express шле базову HTML з помилкою.
+                            Спрацьовує на http://localhost:8080/yupi
+                        </p>
+                        <pre>
+    app.use("/yupi", (req, res, next)=> {
+        res.status(404).send({message: `Route yupi ${req.url} not found!`});
+    });</pre>
+                    </li>
+                    <li>
+                        <p>Спрацьовує на усе інше (помилка) та відправляє JSON</p>
+                        <pre>
+    app.use((req, res, next)=> {
+        res.status(404).send({message: `Route ${req.url} not found!`})
+    });</pre>
+                    </li>
+                    <li>
+                        <p>Спрацьовує та відправляє файл HTML</p>
+                        <pre>
+    app.use((req, res, next)=> {
+        const filePath = path.join(__dirname, "pages", "page-404.html");
+        res.status(404).sendFile(filePath);
+    });</pre>
+                    </li>
+                    <li>
+                        <p>Обробка неочікуваної помилки</p>
+                        <pre>
+    app.use((error, __, res, next)=> {
+        console.error(error);
+        res.status(500).send({ message: "Some Trouble" });
+    });
+                        </pre>
+                    </li>
+                    <li>
+                        <p>middleware для запису логів</p>
+                        <pre>
+    const moment = require("moment");
+
+    app.use(async(req, res, next) => {
+        const {method, url} = req;
+        const date = moment().format("DD-MM-YYYY_hh:mm:ss");
+        await fs.appendFile("./public/server.log", `\n${method} ${url} ${date}`);
+        next();
+    })</pre>
+                    </li>
+                </ul>
+
+
+                <br>
+                <h2>Логування</h2>
+                <h3>morgan</h3>
+                <p>nom i morgan</p>
+                <p>дивись документацію щоб записувати у файл</p>
+                <pre>
+    const morgan = require("morgan"); // Логування nodejs
+    app.use(morgan('combined')); // Логування
+                </pre>
+
+
+                <br>
+                <h3>moment</h3>
+                <p>nom i moment</p>
+                <pre>const moment = require("moment");
+    // === middleware для запису логів===
+    app.use(async(req, res, next) => {
+        const {method, url} = req;
+        const date = moment().format("DD-MM-YYYY_hh:mm:ss");
+        await fs.appendFile("./public/server.log", `\n${method} ${url} ${date}`);
+        next();
+    }) </pre>
+               
+
+                <br><br>
+                <h2>CORS</h2>
+
+                <p>
+                    прибирає конфлікт між різними серверами і браузером
+                </p>
+                <ul>
+                    <li>npm i cors</li>
+                    <li><code>const cors = require("cors");</code></li>
+                    <li><code>app.use(cors());</code> - для усіх адресів</li>
+                    <li>або для конкретних адресів</li>
+                    <li>
+                        <pre>
+    app.use(cors({
+        origin: "http://127.0.0.1:5500",
+        optionsSuccessStatus: 200,
+    })); 
+                        </pre>
+                    </li>
+
+                </ul>
+
+                
+                <h3>Опис цікавого:</h3>
+                <ul>
+                    <li>Нормально працює тільки через постман</li>
+                    <li><code>app.use((req, res, next)=> {})</code> - міделвара для усіх запитів</li>
+                    <li><code>app.use("/books", (req, res, next)=> {})</code> - міделвара для "/books"</li>
+                </ul>
 
             </div>
         </section>

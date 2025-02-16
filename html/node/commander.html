@@ -140,21 +140,22 @@
                 <h2>Commander</h2>
                 <p><a href="https://www.npmjs.com/package/commander" target="_blank">npm install commander</a></p>
                 <pre>
-        on top:
     const { program } = require('commander'); 
 
     program
     .option("-a, --action &lt;action&gt;", "Action to invoke")
     .option("-i, --id &lt;id&gt;", "Bols id")
     .option("-t, --title &lt;title&gt;", "Bol title")
-    .option("-au, --author &lt;author&gt;", "Bol author")
+    .option("-u, --author &lt;author&gt;", "Bol author")
 
     program.parse(process.args);
     const options = program.opts();
 
-    invoActions(options).catch(err => console.error(err));
-                </pre>
-                <p></p>
+    invoActions(options).catch(err => console.error(err));</pre>
+                
+                <h4>Написати команду в консоль</h4>
+                <p>node comander.js --action update --id "wen" --title "Title" --author "Author"</p>
+                <p>node comander.js -a update -i "wen" -t "Title" -u "Author"</p>
             </div>
         </section>
 
