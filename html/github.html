@@ -49,9 +49,40 @@
                 <ol>
                     <li>Основні команди GitHub</li>
                     <li>"Відкат" комітів</li>
+                    <li>Конспект GitHub з YouTube (з зошита)</li>
                     <li></li>
                     <li></li>
-                    <li></li>
+                </ol>
+            </div>
+        </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Основні команди терміналу GitBash</h2>
+                <ol>
+                    <li>Перевірив:</li>
+                    <li><code>pwd</code> current directory</li>
+                    <li><code>ls</code> List the contents of the current directory</li>
+                    <li><code>ls -la</code> Скриті файли</li>
+                    <li><code>cd ..</code> UP folder.</li>
+                    <li><code>cd folder1/folder2</code> Change the directory to a different location.</li>
+                    <li><code>mkdir my-folder1</code> Create a new directory</li>
+                    <li><code>touch file1.txt</code> Create a new file</li>
+                    <li><code>echo "my text" > file3.txt</code> Write text and Create file</li>
+                    <li><code>rm file1.txt</code> Remove a file</li>
+                    <li><code>rm -rf my-folder1</code> Remove directory</li>
+                    <li><code>cp file.txt copy-file.txt</code> Copy a file or directory</li>
+                    <li><code>mv copy-file.txt file4.txt</code> Move or rename a file or directory</li>
+                    <li><code>cat file4.txt</code> Read a file to the terminal</li>
+                    <li>Не Перевірив:</li>
+                    <li><code>echo:</code> Print text to the terminal</li> 
+                    <li><code>grep:</code> Search for a pattern in a file</li>
+                    <li><code>chmod:</code> Change the permissions of a file or directory</li>
+                    <li><code>sudo:</code> Run a command with administrative privileges</li>
+                    <li><code>df:</code> Display the amount of disk space available</li>
+                    <li><code>history:</code> Show a list of previously executed commands.</li>
+                    <li><code>ps:</code>ps: Display information about running processes</li>
                 </ol>
             </div>
         </section>
@@ -60,10 +91,16 @@
             <div class="container">
                 <h2>Основні команди GitHub</h2>
                 <ol>
+                    <li><code>git init</code> - Ініціалізація проекту</li>
+                    <li><code>git status</code> - Підготовлені файли для коміта</li>
                     <li><code>git clone URL</code> - Клонування репо з GitHub</li>
-                    <li><code>git branch newBranch</code> - Копіювати гілку</li>
+                    <li><code>git branch newBranch</code> - Створити гілку</li>
                     <li><code>git checkout назваГілки</code> - Перехід в гілку</li>
-                    <li><code>git add . та git commit -m “мій коміт”</code> - Зробити коміт</li>
+                    <li><code>git branch</code> - Виводить список усіх гілок</li>
+                    <li><code>git branch -m newNameBranch</code> - Перейменувати гілку</li>
+                    <li><code>git add .</code> - Підготовка до коміту</li>
+                    <li><code>git commit -m “мій коміт”</code> - Зробити коміт</li>
+                    <li><code>git log</code> - Історія комітів</li>
                     <li><code>git push</code> - Запушити коміт</li>
                     <li><code>git push --set-upstream origin qweqwe</code> - Перший пуш гілки</li>
                     <li><code>git pull</code> - Стягує зміни з репозиторію</li>
@@ -130,6 +167,87 @@
      
             </div>
         </section>
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Конспект GitHub з YouTube (з зошита)</h2>
+                <h3>Початок роботи</h3>
+                <ul>
+                    <li>Встановити на комп <a href="https://git-scm.com/" target="_blank">Git</a></li>
+                    <li>Відкрити термінал GitBash or Power Shell</li>
+                    <li>Перевірити версію. Команда git --version</li>
+                    <li>
+                        Налаштування імені автора: 
+                        <code>git config --global user.name "Serhii Saniuk"</code>
+                        Це ім"я буде для усіх репозиторіїв
+                    </li>
+                    <li>
+                        Налаштування E-mail автора: 
+                        <code>git config --global user.email "shv08@ukr.net"</code>
+                    </li>
+                    <li>Вихід: <code>Q</code></li>
+                </ul>
+                <h3>Створення новогоо ЛОКАЛЬНОГО репозиторію</h3>
+                <ol>
+                    <li>Створити папку з назвою проекта</li>
+                    <li>Зайти туди і відкрити там термінал Git Bash</li>
+                    <li>Ініціалізація проекту <code>git init</code></li>
+                    <li><code>echo "my text" > file3.txt</code> Write text and Create file</li>
+                    <li><code>git add .</code> - Підготовка до коміту</li>
+                    <li><code>git commit -m “мій коміт”</code> - Зробити коміт</li>
+                    <li><code>git log</code> - Історія комітів</li>
+                    <li><code>git checkout dff6d5f</code> - hesh переміщення по комітам</li>
+                    <li><code>git checkout main</code> - переміщення в main</li>
+                    <li>Створюємо нову гілку <code>git branch newBranch</code></li>
+                    <li><code>git checkout назваГілки</code> - Перехід в гілку</li>
+                    <li><code>git branch</code> - Виводить список усіх гілок</li>
+                    <li><code>git branch -m newNameBranch</code> - Перейменувати гілку</li>
+                    <li><code>git branch -d branchname</code> - Видалити гілку локально</li>
+                    <li>Поточну гілку видалити не можна</li>
+                    <li><code>git push -d remote_name branchname</code> - Видалити гілку</li>
+                    <li><code>git merge branchname</code> - злиття гілки. Після злиття треба видалити</li>
+                </ol>
+                <h3>Практика в VS Code</h3>
+                <ul>
+                    <li>Git Bash - <code>code .</code></li>
+                    <li>Можна робити коміти з VS Code (Підсвічує "М")</li>
+                    <li>Натискаємо на значек типу як usb</li>
+                    <li>Натискаємо "+" біля файлу (типу як git add .)</li>
+                    <li>В поле message пишемо повідомлення</li>
+                    <li>Натискаємо commit</li>
+                    <li>Короче, в VS Code я зробив дві гілки і буду робить злиття</li>
+                    <li><code>git merge -m "merge into main" new-fature</code></li>
+                    <li></li>
+                </ul>
+
+                <h3>Сервіси хостінгa GitHub</h3>
+                <ul>
+                    <li><code>git clone URL</code> - Клонування репо з GitHub</li>
+                    <li><code>git push</code> Додати зміни в репо</li>
+                    <li><code>git pull</code> Стягнути зміни</li>
+                </ul>
+                <p>
+                    В репо багато гілок але після клонування ми їх не побачимо. Щоб їх побачити треба
+                    ввести команду <code>git branch -a</code>
+                    Після цього через <code>git checkout</code> можна перейти в любу гілку
+                </p>
+                <h3>Як завантажити локальний репо GitHub якщо там його ще нема.</h3>
+                <ul>
+                    <li>Створити на GitHub новий репо.</li>
+                    <li>Ввести команду <code>git remote add origin "url"</code> Що означає підключення віддаленого репо.</li>
+                    <li>Але звязок усе ще не встановлено</li>
+                    <li>Для звязку вводимо команду <code>git push -u origin "branch"</code> -u - 1; origin - 2; "branch" - 3</li>
+                    <li>1 - Це тільки при першому завантаженні гілки main</li>
+                    <li>2 - Назва віддаленого сервера. може це тепер main</li>
+                    <li>3 - Назва віддаленої гілки</li>
+                    <li>Далі просто <code>git push</code> без "-u"</li>
+                </ul>
+                <p>
+                </p>
+            </div>
+        </section>
+
 
 
         <section class="section-about">
