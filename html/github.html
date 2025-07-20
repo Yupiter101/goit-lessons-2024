@@ -48,7 +48,8 @@
                 <h2>Зміст</h2>
                 <ol>
                     <li>Основні команди GitHub</li>
-                    <li>"Відкат" комітів</li>
+                    <li>Налаштування name та email користувача</li>
+                    <li>Відкат комітів</li>
                     <li>Конспект GitHub з YouTube (з зошита)</li>
                     <li></li>
                     <li></li>
@@ -121,7 +122,28 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>"Відкат" комітів</h2>
+                <h2>Налаштування name та email користувача</h2>
+
+                <p>
+                    Якщо ви ще не налаштовували Git на новій ОС, вам потрібно встановити ваше ім'я користувача та електронну пошту. Це
+                    важливо для коректної фіксації змін.
+                </p>
+
+                <h3>Перевірити name та email</h3>
+                <pre>
+        git config --global user.name 
+        git config --global user.email</pre>
+
+                <h3>Встановити name та email</h3>
+                <pre>
+        git config --global user.name "Serhii Saniuk"
+        git config --global user.email "yupit..@gmail.com"</pre>
+            </div>
+        </section>
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Відкат комітів</h2>
                 <h3>Перегляд любого коміту</h3>
                 <p>
                     Перевіряєм які у нас є коміти. Пишем в терміналі
