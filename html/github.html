@@ -47,11 +47,14 @@
             <div class="container">
                 <h2>Зміст</h2>
                 <ol>
-                    <li>Основні команди GitHub</li>
-                    <li>Налаштування name та email користувача</li>
+                    <li>Команди терміналу GitBash</li>
+                    <li>Команди Git</li>
+                    <li>Налаштування name та email</li>
                     <li>Відкат комітів</li>
+                    <li>Перегляд любого коміту</li>
+                    <li>Видалення останнього коміту</li>
+                    <li>Перезапис гілки з іншої гілки</li>
                     <li>Конспект GitHub з YouTube (з зошита)</li>
-                    <li></li>
                     <li></li>
                 </ol>
             </div>
@@ -60,7 +63,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Основні команди терміналу GitBash</h2>
+                <h2>Команди терміналу GitBash</h2>
                 <ol>
                     <li>Перевірив:</li>
                     <li><code>pwd</code> current directory</li>
@@ -90,7 +93,7 @@
 
         <section class="section-about">
             <div class="container">
-                <h2>Основні команди GitHub</h2>
+                <h2>Команди Git</h2>
                 <ol>
                     <li><code>git init</code> - Ініціалізація проекту</li>
                     <li><code>git status</code> - Підготовлені файли для коміта</li>
@@ -120,9 +123,10 @@
             </div>
         </section>
 
+
         <section class="section-about">
             <div class="container">
-                <h2>Налаштування name та email користувача</h2>
+                <h2>Налаштування name та email</h2>
 
                 <p>
                     Якщо ви ще не налаштовували Git на новій ОС, вам потрібно встановити ваше ім'я користувача та електронну пошту. Це
@@ -241,6 +245,26 @@
                     Примусово запушаться зміни на GitHub такі як і локально
                 </p>
      
+            </div>
+        </section>
+
+
+
+        <section class="section-about">
+            <div class="container">
+                <h2>Перезапис гілки з іншої гілки</h2>
+                <p>
+                    Для вашого випадку, коли main має "непотрібний" код, найпростішим рішенням є 
+                    просто перезаписати гілку main вмістом гілки branch1. Це можна зробити за 
+                    допомогою "примусового" пушу (force push), але це слід використовувати з 
+                    обережністю, оскільки це перезаписує віддалену історію.
+                    <a href="https://gemini.google.com/app/609dab21aebd884a?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=EMEA_Cascade_2C_Generic&utm_source=hpp&utm_medium=ownedEMEA_Cascade_2C_Generic&pt=9008&mt=8&ct=gemini_cascade_desktop&hl=uk">gemini</a> 
+                </p>
+                <ul>
+                    <li><code>git checkout main</code></li>
+                    <li><code>git reset --hard branch1</code></li>
+                    <li><code>git push --force origin main</code></li>
+                </ul>
             </div>
         </section>
 
